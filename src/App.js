@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import Landing from "./components/pages/Landing";
+import HowTo from "./components/pages/Landing";
+import MimoForm from "./components/pages/MimoForm";
 import './css/App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [page, setPage] = useState("landing");
+
+  switch(page) {
+    case "landing":
+      return <Landing />
+    
+    case "howTo":
+      return <HowTo />
+
+    case "form":
+      return <MimoForm /> 
+
+    default:    
+      return <h1>No such page found</h1>;
+  }
 }
 
 export default App;
