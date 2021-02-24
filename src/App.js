@@ -2,7 +2,7 @@ import Landing from "./components/pages/Landing";
 import HowTo from "./components/pages/HowTo";
 import MimoForm from "./components/pages/MimoForm";
 import './css/App.css';
-import { useState } from "react";
+// import { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,15 +13,19 @@ function App() {
   return (
     <Router>
       <Switch>
+        
         <Route path="/how-to">
           <HowTo />
         </Route>
+
         <Route path="/mimo-form">
           <MimoForm />
         </Route>      
+        
         <Route path="/">
           <Landing />
         </Route>
+
       </Switch>
     </Router>
   );

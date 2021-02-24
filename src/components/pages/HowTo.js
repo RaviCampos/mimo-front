@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-function HowTo(props) {
+
+function HowTo() {
     return (
         <div>
             <h1>Mas como funciona o mimolino??</h1>

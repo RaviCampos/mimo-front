@@ -1,19 +1,37 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
-function MimoForm(props) {
-    return (
-        <div>
-            <h1>Mimo questions</h1>
-            <h2>Responda as próximas perguntas para que a gente possa construir o seu presente ideal</h2>
-            <p>nós nos vamos te mandar dentro de 24h três opções toltalmente customizadas para você poder escolher!</p>
-            <p>no final das perguntas você vai poder optar por falar com a gente por email ou whatsapp daqui para a frente</p>
-            <Link to="/"><button>Voltar para a página inicial</button></Link>
-            <Link to="/how-to"><button>Como funciona o mimolino</button></Link>
-            
-            {/* <button onClick={() => props.setPage("landing")}>Voltar para página inical</button>
-            <button onClick={() => props.setPage("howTo")}>Como funciona o mimolino?</button> */}
-        </div>
-    )
+// import Questions
+import Hello from "../questions/Hello";
+import GifterNameQ from "../questions/GifterNameQ";
+// import GiftedNameQ from "..questions/GiftedNameQ";
+
+function MimoForm() {
+
+    const [ page, setPage ] = useState(0);
+
+    const [ gifterName, setGifterName ] = useState("");
+    
+    switch(page) {
+        case 0:
+            return (
+                <Hello setPage={setPage}/>
+            );
+
+        case 1:
+            return (
+                <GifterNameQ setGifterName={setGifterName}/>
+            );
+
+        // case 2:
+        //     return (
+        //         <GiftedNameQ />
+        //     );
+
+        default:
+            return (
+                <h1>Sorry, could not find your page</h1>
+            )
+    }
 }
 
 export default MimoForm;

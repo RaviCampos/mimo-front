@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Landing(props) {
+function Landing() {
     return (
         <div>
             <h1>Mimolino</h1>
