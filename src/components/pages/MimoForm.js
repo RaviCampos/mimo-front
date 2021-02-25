@@ -3,14 +3,14 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // import Questions
 import Hello from "../questions/Hello";
-import GifterNameQ from "../questions/GifterNameQ";
+import NameQ from "../questions/NameQ";
 import NotFoundQ from "../questions/NotFoundQ";
 
 function MimoForm() {
 
     const [ page, setPage ] = useState(0);
 
-    const [ names, setNames ] = useState({gifter: "Laras", gifted: "Laras"});
+    const [ names, setNames ] = useState({gifter: "", gifted: ""});
 
     let Question;
     let setters;
@@ -43,7 +43,7 @@ function MimoForm() {
             setters = { setPage };
             break
         case 1:
-            Question = GifterNameQ;
+            Question = NameQ;
             setters = { setPage, setNames, names};
             break
         default:

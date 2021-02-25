@@ -13,8 +13,14 @@ function GifterNameQ({ setters: {setPage, setNames, names}}) {
             <h2>E o nome da pessoa sortuda para quem você quer dar um presente?</h2>
             <input type="text" value={gifted} onChange={e => setGifted(e.target.value)}/>
 
-            <button onClick={() => setNames({gifter, gifted})}>Próxima</button>
-            <button onClick={() => setPage(0)}>Anterior</button>
+            <button onClick={() => {
+                setNames({gifter, gifted})
+                setPage(2)
+            }}>Próxima</button>
+            <button onClick={() => {
+                setNames({gifter, gifted})
+                setPage(0)
+            }}>Anterior</button>
         </div>
     )
 }
