@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function GifterNameQ({ setters: {setPage, setNames, names}}) {
+function GifterNameQ({ tools: {setPage, setNames, names}}) {
     const [ gifter, setGifter ] = useState(names.gifter);
     const [ gifted, setGifted ] = useState(names.gifted)
     return (
@@ -15,12 +15,12 @@ function GifterNameQ({ setters: {setPage, setNames, names}}) {
 
             <button onClick={() => {
                 setNames({gifter, gifted})
-                setPage(2)
-            }}>Próxima</button>
-            <button onClick={() => {
-                setNames({gifter, gifted})
                 setPage(0)
             }}>Anterior</button>
+            <button onClick={() => {
+                setNames({gifter, gifted})
+                setPage(2)
+            }}>Próxima</button>
         </div>
     )
 }

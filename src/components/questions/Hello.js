@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Hello({ setters: { setPage }}) {
+function Hello({ tools: { setPage }}) {
     return (
         <div>
             <h1>Mimo questions</h1>

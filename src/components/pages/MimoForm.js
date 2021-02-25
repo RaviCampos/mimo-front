@@ -2,9 +2,10 @@ import { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // import Questions
+import NotFoundQ from "../questions/NotFoundQ";
 import Hello from "../questions/Hello";
 import NameQ from "../questions/NameQ";
-import NotFoundQ from "../questions/NotFoundQ";
+import OcassionQ from "../questions/OccasionQ";
 
 function MimoForm() {
 
@@ -13,7 +14,7 @@ function MimoForm() {
     const [ names, setNames ] = useState({gifter: "", gifted: ""});
 
     let Question;
-    let setters;
+    let tools;
     // helper, input: object {stateName: what to become}
     // const obj = {
     //     names: {gifter: "Maria", gifted: "Ana"},
@@ -40,14 +41,19 @@ function MimoForm() {
     switch(page) {
         case 0:
             Question = Hello;
-            setters = { setPage };
+            tools = { setPage };
             break
         case 1:
             Question = NameQ;
-            setters = { setPage, setNames, names};
+            tools = { setPage, setNames, names};
+            break
+        case 2:
+            Question = OcassionQ;
+            
             break
         default:
             Question = NotFoundQ;
+            tools = { setPage }
     }
 
     return (
@@ -58,7 +64,7 @@ function MimoForm() {
                 classNames="hello"
                 unmountOnExit
             >
-                {<Question setters={setters}/>}
+                {<Question tools={tools}/>}
             </CSSTransition>
         </TransitionGroup>
     );
