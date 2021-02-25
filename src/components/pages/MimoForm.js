@@ -5,13 +5,15 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../questions/NotFoundQ";
 import Hello from "../questions/Hello";
 import NameQ from "../questions/NameQ";
-import OcassionQ from "../questions/OccasionQ";
+import OccasionQ from "../questions/OccasionQ";
+import YearsQ from "../questions/YearsQ";
 
 function MimoForm() {
 
     const [ page, setPage ] = useState(0);
 
     const [ names, setNames ] = useState({gifter: "", gifted: ""});
+    const [ occasion, setOccasion ] = useState("não preciso de ocasiões")
 
     let Question;
     let tools;
@@ -48,8 +50,12 @@ function MimoForm() {
             tools = { setPage, setNames, names};
             break
         case 2:
-            Question = OcassionQ;
-            
+            Question = OccasionQ;
+            tools = { setPage, setOccasion, occasion }
+            break
+        case 3:
+            Question = YearsQ;
+            tools = { setPage }
             break
         default:
             Question = NotFoundQ;
