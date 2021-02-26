@@ -4,10 +4,10 @@ function YearsQ({tools: {setPage}}) {
         <div>
             <h2>Quantos anos?</h2>
             <button onClick={() => {
-                setPage(2)
+                setPage({section: "inicio", index: 2})
             }}>Anterior</button>
             <button onClick={() => {
-                setPage(4)
+                setPage({section: "bday", index: 1})
             }}>Próxima</button>
         </div>
     )

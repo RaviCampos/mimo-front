@@ -54,8 +54,12 @@ function MimoForm() {
                 case 2:
                     Question = OccasionQ;
                     tools = { setPage, setOccasion, occasion, section: page.section }
-                    break
-                case 3:
+                    break                    
+            }
+        break
+        case "bday":
+            switch(page.index) {
+                case 0:
                     Question = YearsQ;
                     tools = { setPage }
                     break
