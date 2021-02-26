@@ -11,7 +11,7 @@ function Hello({ tools: { setPage }}) {
             <Link to="/"><button>Voltar para a página inicial</button></Link>
             <Link to="/how-to"><button>Como funciona o mimolino?</button></Link>
             
-            <button onClick={() => setPage(1)}>Começar a responder!</button>
+            <button onClick={() => setPage({section: "inicio", index: 1})}>Começar a responder!</button>
             
             {/* <button onClick={() => props.setPage("landing")}>Voltar para página inical</button>
             <button onClick={() => props.setPage("howTo")}>Como funciona o mimolino?</button> */}

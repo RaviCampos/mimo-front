@@ -15,11 +15,11 @@ function GifterNameQ({ tools: {setPage, setNames, names}}) {
 
             <button onClick={() => {
                 setNames({gifter, gifted})
-                setPage(0)
+                setPage({section: "inicio", index: 0})
             }}>Anterior</button>
             <button onClick={() => {
                 setNames({gifter, gifted})
-                setPage(2)
+                setPage({section: "inicio", index: 2})
             }}>Próxima</button>
         </div>
     )
