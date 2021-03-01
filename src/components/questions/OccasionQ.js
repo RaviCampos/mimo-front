@@ -50,7 +50,7 @@ function OccasionQ({ tools: { setPage, setOccasion, occasion, section }}) {
             <button onClick={() => {
                 const radioSelected = getSelectedRadio();
                 setOccasion(radioSelected.occasion);
-                setPage({section: "inicio", index: 1})
+                setPage({section: "inici0", index: 1})
             }}>Anterior</button>
             <button onClick={() => {
                 const radioSelected = getSelectedRadio();

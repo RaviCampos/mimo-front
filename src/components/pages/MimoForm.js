@@ -6,14 +6,17 @@ import NotFoundQ from "../questions/NotFoundQ";
 import Hello from "../questions/Hello";
 import NameQ from "../questions/NameQ";
 import OccasionQ from "../questions/OccasionQ";
-import YearsQ from "../questions/sections/occasions/YearsQ";
+import YearsQ from "../questions/occasions/YearsQ";
+import RelationQ from "../questions/occasions/RelationQ";
 
 function MimoForm() {
 
     const [ page, setPage ] = useState({section: "inicio", index: 0}); 
 
     const [ names, setNames ] = useState({gifter: "", gifted: ""});
-    const [ occasion, setOccasion ] = useState("não preciso de ocasiões")
+    const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
+
+    const [ giftedAge, setGiftedAge ] = useState("");
 
     let Question;
     let tools;
@@ -61,13 +64,21 @@ function MimoForm() {
             switch(page.index) {
                 case 0:
                     Question = YearsQ;
+                    tools = { setPage, setGiftedAge, giftedAge }
+                    break
+                case 1:
+                    Question = RelationQ;
                     tools = { setPage }
                     break
+                default:
+                    Question = NotFoundQ;
+                    tools = { setPage }
             }
         break
         default:
             Question = NotFoundQ;
             tools = { setPage }
+            break
     }
 
     return (
