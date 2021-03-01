@@ -16,7 +16,8 @@ function MimoForm() {
     const [ names, setNames ] = useState({gifter: "", gifted: ""});
     const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
 
-    const [ giftedAge, setGiftedAge ] = useState("");
+    const [ age, setAge ] = useState("");
+    const [ relation, setRelation ] = useState("");
 
     let Question;
     let tools;
@@ -64,7 +65,7 @@ function MimoForm() {
             switch(page.index) {
                 case 0:
                     Question = YearsQ;
-                    tools = { setPage, setGiftedAge, giftedAge }
+                    tools = { setPage, setAge, age }
                     break
                 case 1:
                     Question = RelationQ;
