@@ -12,7 +12,7 @@ function OccasionQ({ tools: { setPage, setOccasion, occasion, section }}) {
     const [ radioValue, setRadioValue ] = useState({occasion, section});
 
     useEffect(() => {
-        console.log(radioValue);
+        console.log(radioValue.occasion, radioValue.section);
     });
 
     return (

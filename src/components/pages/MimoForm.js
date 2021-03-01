@@ -6,7 +6,7 @@ import NotFoundQ from "../questions/NotFoundQ";
 import Hello from "../questions/Hello";
 import NameQ from "../questions/NameQ";
 import OccasionQ from "../questions/OccasionQ";
-import YearsQ from "../questions/YearsQ";
+import YearsQ from "../questions/sections/occasions/YearsQ";
 
 function MimoForm() {
 
