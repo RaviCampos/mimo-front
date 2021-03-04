@@ -2,16 +2,17 @@ import { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // import Questions
-import NotFoundQ from "../questions/NotFoundQ";
-import Hello from "../questions/Hello";
-import NameQ from "../questions/NameQ";
-import OccasionQ from "../questions/OccasionQ";
-import YearsQ from "../questions/occasions/YearsQ";
-import RelationQ from "../questions/occasions/RelationQ";
+import NotFoundQ from "./questions/NotFoundQ";
+import Hello from "./questions/Hello";
+import NameQ from "./questions/NameQ";
+import OccasionQ from "./questions/bday/individual-questions/OccasionQ";
+import YearsQ from "./questions/bday/individual-questions/YearsQ";
+import RelationQ from "./questions/bday/individual-questions/RelationQ";
+import Bday from "./questions/bday/Bday"
 
 function MimoForm() {
 
-    const [ page, setPage ] = useState({section: "inicio", index: 0}); 
+    const [ page, setPage ] = useState({section: "bday", index: 0}); 
 
     const [ names, setNames ] = useState({gifter: "", gifted: ""});
     const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
@@ -62,19 +63,23 @@ function MimoForm() {
             }
         break
         case "bday":
-            switch(page.index) {
-                case 0:
-                    Question = YearsQ;
-                    tools = { setPage, setAge, age }
-                    break
-                case 1:
-                    Question = RelationQ;
-                    tools = { setPage }
-                    break
-                default:
-                    Question = NotFoundQ;
-                    tools = { setPage }
-            }
+            Question = Bday;
+            tools = {}
+            console.log("LUL")
+            break
+            // switch(page.index) {
+            //     case 0:
+            //         Question = YearsQ;
+            //         tools = { setPage, setAge, age }
+            //         break
+            //     case 1:
+            //         Question = RelationQ;
+            //         tools = { setPage }
+            //         break
+            //     default:
+            //         Question = NotFoundQ;
+            //         tools = { setPage }
+            // }
         break
         default:
             Question = NotFoundQ;
