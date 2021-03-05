@@ -21,9 +21,6 @@ function Bday() {
     }
  
     return (
-        <div>
-            <h1>Bday</h1>
-            {/* <Question tools={tools}/> */}
             <TransitionGroup>
                 <CSSTransition
                     key={page}
@@ -34,7 +31,7 @@ function Bday() {
                     {<Question tools={tools}/>}
                 </CSSTransition>
             </TransitionGroup>
-        </div>
+
     )
 }
 

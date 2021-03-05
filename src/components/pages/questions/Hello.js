@@ -9,7 +9,6 @@ function Hello({ tools: { setPage }}) {
             <p>É só responder a este formulário com sinceridade. A partir das suas respostas vamos te enviar 3 opções incríveis de presentes. Aí só você escolher entre elas e aproveitar a sensação que só um bom presente pode provocar.</p>
             <p>no final das perguntas você vai poder optar por falar com a gente por email ou whatsapp daqui para a frente</p>
             <Link to="/"><button>Voltar para a página inicial</button></Link>
-            <Link to="/how-to"><button>Como funciona o mimolino?</button></Link>
             
             <button onClick={() => setPage({section: "inicio", index: 1})}>Começar a responder!</button>
             

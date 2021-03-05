@@ -61,19 +61,23 @@ button:active {
 
 
 .name-enter {
+  padding: 0;
   position: absolute;
   opacity: 0;
 }
 .name-enter-active {
+  padding: 0;
   position: absolute;
   opacity: 1;
   transition: opacity 400ms linear;
 }
 .name-exit {
+  padding: 0;
   position: absolute;
   opacity: 1;
 }
 .name-exit-active {
+  padding: 0;
   position: absolute;
   opacity: 0;
   transition: opacity 400ms;

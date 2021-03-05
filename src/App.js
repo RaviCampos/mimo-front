@@ -1,5 +1,7 @@
 import Landing from "./components/pages/Landing";
-import HowTo from "./components/pages/HowTo";
+import GroupGift from "./components/pages/GroupGift";
+import SeasonGift from "./components/pages/SeasonGift";
+import SelfGift from "./components/pages/SelfGift";
 import MimoForm from "./components/pages/MimoForm";
 import './css/App.css';
 // import { useState } from "react";
@@ -14,14 +16,22 @@ function App() {
     <Router>
       <Switch>
         
-        <Route path="/how-to">
-          <HowTo />
-        </Route>
-
         <Route path="/mimo-form">
           <MimoForm />
         </Route>      
         
+        <Route path="/group-gift">
+          <GroupGift />
+        </Route>
+        
+        <Route path="/season-gift">
+          <SeasonGift />
+        </Route>
+        
+        <Route path="/self-gift">
+          <SelfGift />
+        </Route>
+
         <Route path="/">
           <Landing />
         </Route>
