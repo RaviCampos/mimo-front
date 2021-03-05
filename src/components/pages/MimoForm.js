@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "./questions/NotFoundQ";
 import Hello from "./questions/Hello";
 import NameQ from "./questions/NameQ";
-import OccasionQ from "./questions/bday/individual-questions/OccasionQ";
+import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
 
 function MimoForm() {
@@ -15,9 +15,10 @@ function MimoForm() {
     // const [ names, setNames ] = useState({gifter: "", gifted: ""});
     // const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
 
-    const [ occasion, setOccasion ] = useState(null);
     const [ page, setPage ] = useState(0);
+    const [ section, setSection ] = useState("start");
 
+    const [ occasion, setOccasion ] = useState(null);
     const [ gifterName, setGifterName ] = useState("")
     
     const [ bDay, setBDay] = useState(null)
@@ -25,8 +26,8 @@ function MimoForm() {
     let Question;
     let tools;
 
-    switch(occasion) {
-        case null:
+    switch(section) {
+        case "start":
             switch(page) {
                 case 0:
                     Question = Hello;
@@ -38,15 +39,18 @@ function MimoForm() {
                     break
                 case 2:
                     Question = OccasionQ;
-                    tools = { setPage, setOccasion, occasion }
+                    tools = { setPage, setSection, setOccasion, occasion }
                     break                    
             }
         break
-        case "bday":
-            Question = Bday;
-            tools = {}
-            console.log("LUL")
-            break
+        case "occasion":
+            switch(occasion) {
+                case "aniversario":
+                    Question = Bday;
+                    tools = {}
+                    console.log("LUL")
+                    break
+            }
             // switch(page.index) {
             //     case 0:
             //         Question = YearsQ;
@@ -61,6 +65,7 @@ function MimoForm() {
             //         tools = { setPage }
             // }
             // break
+        break
         default:
             Question = NotFoundQ;
             tools = { setPage }
