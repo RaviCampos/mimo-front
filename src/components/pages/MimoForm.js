@@ -47,7 +47,11 @@ function MimoForm() {
             switch(occasion) {
                 case "aniversario":
                     Question = Bday;
-                    tools = {}
+                    tools = { occasion, gifterName, setPage, setSection }
+                    break
+                default:
+                    Question = NotFoundQ;
+                    tools = { setPage, setSection }
                     break
             }
             // switch(page.index) {

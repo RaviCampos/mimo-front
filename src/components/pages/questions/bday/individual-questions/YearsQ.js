@@ -25,13 +25,13 @@ function YearsQ({tools: {setPage, setAge, age}}) {
             <button onClick={() => {
                 if(verifyAge()) {
                     setAge(inAge);
-                    setPage({section: "inicio", index: 2})
+                    setPage(0)
                 }
             }}>Anterior</button>
             <button onClick={() => {
                 if(verifyAge()) {
                     setAge(inAge);
-                    setPage({section: "bday", index: 1})
+                    setPage(2)
                 }
             }}>Próxima</button>
         </div>

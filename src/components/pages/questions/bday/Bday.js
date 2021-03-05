@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import Test1 from "./individual-questions/Test1"
-import Test2 from "./individual-questions/Test2"
+import GiftedNameQ from "./individual-questions/GiftedNameQ"
+import YearsQ from "./individual-questions/YearsQ"
 
-function Bday() {
+function Bday({tools: { occasion, gifterName}}) {
 
     const [ page, setPage ] = useState(0);
+    const [ giftedName, setGiftedName ] = useState("");
+    const [ age, setAge ] = useState("")
     
     let Question, tools
 
     switch(page) {
         case 0:
-            Question = Test1;
-            tools = {setPage};
+            Question = GiftedNameQ;
+            tools = {setPage, setGiftedName, giftedName };
             break;
         case 1:
-            Question = Test2;
-            tools = {setPage};
+            Question = YearsQ;
+            tools = {setPage, setAge, age};
             break;
     }
  
