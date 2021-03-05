@@ -6,55 +6,35 @@ import NotFoundQ from "./questions/NotFoundQ";
 import Hello from "./questions/Hello";
 import NameQ from "./questions/NameQ";
 import OccasionQ from "./questions/bday/individual-questions/OccasionQ";
-import YearsQ from "./questions/bday/individual-questions/YearsQ";
-import RelationQ from "./questions/bday/individual-questions/RelationQ";
 import Bday from "./questions/bday/Bday"
 
 function MimoForm() {
 
-    const [ page, setPage ] = useState({section: "bday", index: 0}); 
+    // const [ page, setPage ] = useState({section: "bday", index: 0}); 
 
-    const [ names, setNames ] = useState({gifter: "", gifted: ""});
-    const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
+    // const [ names, setNames ] = useState({gifter: "", gifted: ""});
+    // const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
 
-    const [ age, setAge ] = useState("");
-    const [ relation, setRelation ] = useState("");
+    const [ occasion, setOccasion ] = useState(null);
+    const [ page, setPage ] = useState(0);
+
+    const [ gifterName, setGifterName ] = useState("")
+    
+    const [ bDay, setBDay] = useState(null)
 
     let Question;
     let tools;
-    // helper, input: object {stateName: what to become}
-    // const obj = {
-    //     names: {gifter: "Maria", gifted: "Ana"},
-    //     page: 3
-    // }
-    // const stateSetter = (changes) => {
-    //     const cheatSheet = {
-    //         page: (pageNumber) => {
-    //             setPage(pageNumber)
-    //         },
-    //         names: ({gifter, gifted}) => {
-    //             setNames({gifter, gifted})
-    //         }
-    //     }
-    //     const keys = Object.keys(changes);
-    //     for (const key of keys) {
-    //         cheatSheet[key](changes[key]);
-    //     }
 
-    // };
-    // stateSetter(obj);
-    // console.log(page, names);
-
-    switch(page.section) {
-        case "inicio":
-            switch(page.index) {
+    switch(occasion) {
+        case null:
+            switch(page) {
                 case 0:
                     Question = Hello;
                     tools = { setPage };
                     break
                 case 1:
                     Question = NameQ;
-                    tools = { setPage, setNames, names};
+                    tools = { setPage, setGifterName, gifterName};
                     break
                 case 2:
                     Question = OccasionQ;

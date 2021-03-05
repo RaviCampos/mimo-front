@@ -25,11 +25,15 @@ button:focus {
 }
 
 button:focus {
-  outline: none;
+  outline: #1c8da1 auto 2px;
 }
 
 button:active {
   transform: scale(0.99);
+}
+
+a {
+  outline: none;
 }
 
 .remove {
