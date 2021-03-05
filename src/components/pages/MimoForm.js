@@ -48,7 +48,6 @@ function MimoForm() {
                 case "aniversario":
                     Question = Bday;
                     tools = {}
-                    console.log("LUL")
                     break
             }
             // switch(page.index) {
@@ -68,7 +67,7 @@ function MimoForm() {
         break
         default:
             Question = NotFoundQ;
-            tools = { setPage }
+            tools = { setPage, setSection }
             break
     }
 

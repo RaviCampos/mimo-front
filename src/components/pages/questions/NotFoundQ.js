@@ -1,8 +1,11 @@
-function NotFoundQ({ tools: { setPage }}) {
+function NotFoundQ({ tools: { setPage, setSection }}) {
     return (
         <div>
             <h1>Sorry, question not found</h1>
-            <button onClick={() => setPage({section: "inicio", index: 0})}>Começar perguntas</button>
+            <button onClick={() => {
+                setSection("start")
+                setPage(0)
+            }}>Começar perguntas</button>
         </div>
     )
 }
