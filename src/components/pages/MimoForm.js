@@ -38,7 +38,7 @@ function MimoForm() {
                     break
                 case 2:
                     Question = OccasionQ;
-                    tools = { setPage, setOccasion, occasion, section: page.section }
+                    tools = { setPage, setOccasion, occasion }
                     break                    
             }
         break

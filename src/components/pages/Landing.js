@@ -15,13 +15,13 @@ function Landing() {
             <div>
                 <label htmlFor="group-gift">O seu presente são vários presentes para os membros de um grupo de trabalho, turma da escola/faculdade, grupo de amigos</label>
                 <br/>
-                <Link to="/group-gift"><button  id="group-gift">Presemtes para um grupo</button></Link>
+                <Link to="/group-gift"><button  id="group-gift">Presentes para um grupo</button></Link>
             </div>
 
             <div>
                 <label htmlFor="season-gift">O seu presente é para uma data do ano como Dia das Mães, Dia dos Pais, Natal, Páscoa, Dia dos Namorados</label>
                 <br/>
-                <Link to="/season-gift"><button id="season-gift">Presemte para uma data comemorativa</button></Link>
+                <Link to="/season-gift"><button id="season-gift">Presente para uma data comemorativa</button></Link>
             </div>
             
             <div>

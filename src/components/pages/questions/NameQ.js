@@ -1,25 +1,31 @@
 import { useState } from "react";
 
-function GifterNameQ({ tools: {setPage, setNames, names}}) {
-    const [ gifter, setGifter ] = useState(names.gifter);
-    const [ gifted, setGifted ] = useState(names.gifted)
+function GifterNameQ(
+    { 
+        tools: {
+            setPage, 
+            setGifterName,
+            gifterName
+        }
+    }
+) {
+    
+    const [ inGifter, setInGifter ] = useState(gifterName)
+
     return (
         <div>
-            <h1>{gifter}</h1>
-            <h1>{gifted}</h1>
-            <h2>Qual é o seu nome?</h2>
-            <input type="text" value={gifter} onChange={e => setGifter(e.target.value)}/>
+            <h1>{inGifter}</h1>
             
-            <h2>E o nome da pessoa sortuda para quem você quer dar um presente?</h2>
-            <input type="text" value={gifted} onChange={e => setGifted(e.target.value)}/>
-
+            <h2>Qual é o seu nome?</h2>
+            <input type="text" value={inGifter} onChange={e => setInGifter(e.target.value)}/>
+            <br/>
             <button onClick={() => {
-                setNames({gifter, gifted})
-                setPage({section: "inicio", index: 0})
+                setGifterName(inGifter)
+                setPage(0)
             }}>Anterior</button>
             <button onClick={() => {
-                setNames({gifter, gifted})
-                setPage({section: "inicio", index: 2})
+                setGifterName(inGifter)
+                setPage(2)
             }}>Próxima</button>
         </div>
     )
