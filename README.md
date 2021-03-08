@@ -6,4 +6,4 @@ Um projeto para o front-end do mimolino
 
 React para ser dinâmico e responsivo
 
-Último commit antes de mudanças radicais
+Mudanças radicais já foram feitas
