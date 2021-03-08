@@ -7,3 +7,4 @@ Um projeto para o front-end do mimolino
 React para ser dinâmico e responsivo
 
 Mudanças radicais já foram feitas
+E agora estou espandindo sobre a estrutura final das perguntas
