@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function GiftedNameQ({tools: { setPage, setGiftedName, giftedName }}) {
+function GiftedNameQ({tools: { setPage, setGiftedName, giftedName, setSection }}) {
 
     const [ inGifted, setInGifted ] = useState(giftedName);    
     
@@ -12,8 +12,9 @@ function GiftedNameQ({tools: { setPage, setGiftedName, giftedName }}) {
             <input type="text" value={inGifted} onChange={e => setInGifted(e.target.value)}/>
             <br/>
             <button onClick={() => {
+                setSection("start")
                 setGiftedName(inGifted)
-                setPage(0)
+                // setPage(0)
             }}>Anterior</button>
             <button onClick={() => {
                 setGiftedName(inGifted)

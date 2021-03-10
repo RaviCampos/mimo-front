@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion, }}) {
+function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
 
     // const getSelectedRadio = () => {
     //     let radios = document.querySelectorAll("input[name='occasion']");
@@ -60,7 +60,7 @@ function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion, }}) {
                 // const radioSelected = getSelectedRadio();
                 setSection("occasion")
                 setOccasion(radioValue);
-                setPage(0)
+                // setPage(0)
             }}>Próxima</button>
         </div>
     )

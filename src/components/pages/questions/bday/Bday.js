@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import YearsQ from "./individual-questions/YearsQ"
 
-function Bday({tools: { occasion, gifterName}}) {
+function Bday({tools: { occasion, gifterName, setSection}}) {
 
     const [ page, setPage ] = useState(0);
     const [ giftedName, setGiftedName ] = useState("");
@@ -14,7 +14,7 @@ function Bday({tools: { occasion, gifterName}}) {
     switch(page) {
         case 0:
             Question = GiftedNameQ;
-            tools = {setPage, setGiftedName, giftedName };
+            tools = { setPage, setGiftedName, giftedName, setSection };
             break;
         case 1:
             Question = YearsQ;
