@@ -60,7 +60,7 @@ function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
                 // const radioSelected = getSelectedRadio();
                 setSection("occasion")
                 setOccasion(radioValue);
-                // setPage(0)
+                setPage(3)
             }}>Próxima</button>
         </div>
     )

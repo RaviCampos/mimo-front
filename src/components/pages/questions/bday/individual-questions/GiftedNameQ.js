@@ -1,9 +1,9 @@
 import { useState } from "react"
 
-function GiftedNameQ({tools: { setPage, setGiftedName, giftedName, setSection }}) {
+function GiftedNameQ({tools: {setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay}}) {
 
-    const [ inGifted, setInGifted ] = useState(giftedName);    
-    
+    const [ inGifted, setInGifted ] = useState(giftedName ? giftedName : "");    
+
     return (
         <div>
             <h1>{inGifted}</h1>
@@ -12,13 +12,17 @@ function GiftedNameQ({tools: { setPage, setGiftedName, giftedName, setSection }}
             <input type="text" value={inGifted} onChange={e => setInGifted(e.target.value)}/>
             <br/>
             <button onClick={() => {
-                setGiftedName(inGifted)
-                // setSection("start")
-                // setPage(0)
+                const bday = {
+                    ...futureBDay,
+                    giftedName: inGifted
+                }
+                setBDay(bday)
+                setSection("start")
+                setPage(2);
             }}>Anterior</button>
             <button onClick={() => {
                 setGiftedName(inGifted)
-                setPage(1)
+                setBDayPage(1)
             }}>Próxima</button>
         </div>
     )

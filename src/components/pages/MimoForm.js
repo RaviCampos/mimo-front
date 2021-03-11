@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // import Questions
@@ -23,7 +23,8 @@ function MimoForm() {
     const [ occasion, setOccasion ] = useState("nenhuma");
     const [ gifterName, setGifterName ] = useState("")
     
-    const [ bDay, setBDay] = useState({cont: 1})
+    const [ bDay, setBDay] = useState({})
+    useEffect(() => console.log(bDay), [bDay])
 
     let Question;
     let tools;
@@ -49,7 +50,7 @@ function MimoForm() {
             switch(occasion) {
                 case "aniversario":
                     Question = Bday;
-                    tools = { occasion, gifterName, setSection, bDay, setBDay }
+                    tools = { occasion, gifterName, setSection, bDay, setBDay, setPage }
                     break
                 default:
                     Question = NotFoundQ;
