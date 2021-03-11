@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function YearsQ({tools: {setPage, setAge, age}}) {
+function YearsQ({tools: {setBDayPage, setAge, age}}) {
 
-    const [ inAge, setInAge ] = useState(age);
+    const [ inAge, setInAge ] = useState(age ? age : 1);
 
     const verifyAge = () => {
         const ageNum = parseInt(inAge);
@@ -18,20 +18,20 @@ function YearsQ({tools: {setPage, setAge, age}}) {
             <h1>Aniversário!</h1>
             <h2>Então já sabemos que está na hora dessa pessoa sortuda apagar algumas velinhas, mas de quantas velas exatamente estamos falando?</h2>
             <p>Quantos anos a pessoa a ser presenteada está fazendo?</p>
-            <input type="number" name="age" id="yearsq_age" min="0" max="100" value={inAge} placeholder="anos" onChange={e => setInAge(e.target.value)}/>
+            <input type="number" name="age" id="yearsq_age" min="1" max="100" value={inAge} placeholder="anos" onChange={e => setInAge(e.target.value)}/>
             <p className="remove">adicionar popup indicando que o número deve ser preenchido e não pode ser superior a 100 ou menor que 1</p>
             <br/>
 
             <button onClick={() => {
                 if(verifyAge()) {
                     setAge(inAge);
-                    setPage(0)
+                    setBDayPage(0)
                 }
             }}>Anterior</button>
             <button onClick={() => {
                 if(verifyAge()) {
                     setAge(inAge);
-                    setPage(2)
+                    setBDayPage(2)
                 }
             }}>Próxima</button>
         </div>

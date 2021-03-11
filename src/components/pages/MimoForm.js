@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // import Questions
@@ -24,7 +24,6 @@ function MimoForm() {
     const [ gifterName, setGifterName ] = useState("")
     
     const [ bDay, setBDay] = useState({})
-    useEffect(() => console.log(bDay), [bDay])
 
     let Question;
     let tools;

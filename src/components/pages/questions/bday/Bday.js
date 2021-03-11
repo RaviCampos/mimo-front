@@ -7,7 +7,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
 
     const [ bDayPage, setBDayPage ] = useState(0); /* integer */
     const [ giftedName, setGiftedName ] = useState(bDay.giftedName); /* string */
-    const [ age, setAge ] = useState(undefined)  /* string */
+    const [ age, setAge ] = useState(bDay.age)  /* string */
 
     const futureBDay = {
         gifterName,
