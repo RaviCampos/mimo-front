@@ -23,7 +23,7 @@ function MimoForm() {
     const [ occasion, setOccasion ] = useState("nenhuma");
     const [ gifterName, setGifterName ] = useState("")
     
-    const [ bDay, setBDay] = useState(null)
+    const [ bDay, setBDay] = useState({cont: 1})
 
     let Question;
     let tools;
@@ -49,7 +49,7 @@ function MimoForm() {
             switch(occasion) {
                 case "aniversario":
                     Question = Bday;
-                    tools = { occasion, gifterName, setFormPage: setPage, setSection }
+                    tools = { occasion, gifterName, setSection, bDay, setBDay }
                     break
                 default:
                     Question = NotFoundQ;

@@ -12,8 +12,8 @@ function GiftedNameQ({tools: { setPage, setGiftedName, giftedName, setSection }}
             <input type="text" value={inGifted} onChange={e => setInGifted(e.target.value)}/>
             <br/>
             <button onClick={() => {
-                setSection("start")
                 setGiftedName(inGifted)
+                // setSection("start")
                 // setPage(0)
             }}>Anterior</button>
             <button onClick={() => {
