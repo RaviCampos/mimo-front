@@ -2,18 +2,24 @@ import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import YearsQ from "./individual-questions/YearsQ"
+import RelationQ from "./individual-questions/RelationQ"
+import IntimacyQ from "./individual-questions/IntimacyQ"
 
 function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage }}) {
 
     const [ bDayPage, setBDayPage ] = useState(0); /* integer */
     const [ giftedName, setGiftedName ] = useState(bDay.giftedName); /* string */
     const [ age, setAge ] = useState(bDay.age)  /* string */
+    const [ relation, setRelation ] = useState(bDay.relation)
+    const [ intimacy, setIntimacy ] = useState(bDay.intimacy)
 
     const futureBDay = {
         gifterName,
         occasion,
         giftedName,
-        age
+        age,
+        relation,
+        intimacy
     }
 
     let Question, tools
@@ -26,6 +32,14 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
         case 1:
             Question = YearsQ;
             tools = { setBDayPage, setAge, age};
+            break;
+        case 2:
+            Question = RelationQ;
+            tools = { setBDayPage, setRelation, relation }
+            break;
+        case 3:
+            Question = IntimacyQ;
+            tools = { setBDayPage, setIntimacy, intimacy }
             break;
     }
  
