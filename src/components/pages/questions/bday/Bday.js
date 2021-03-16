@@ -18,8 +18,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
         occasion,
         giftedName,
         age,
-        relation,
-        intimacy
+        relation
     }
 
     let Question, tools
