@@ -98,3 +98,55 @@ a {
 .validation-warning {
   color: rgb(221, 70, 70);
 }
+
+
+
+
+
+
+
+.second-house {
+  display: flex;
+  align-items: center;
+  margin: 0 0 .65rem 0;
+  height: 1rem;
+  width: 100%;
+  position: relative;
+}
+
+.shade {
+  height: .3rem;
+  width: 100%;
+  background-color: #12121d;
+  border-radius: .5rem;
+  position: absolute;
+  z-index: 1;
+}
+
+#slider-break {
+  height: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#slider-break-bar {
+  width: 8%;
+  background-color: rgb(68, 118, 211);
+  box-shadow: 0 0 3px 0 rgb(64, 179, 255);
+  height: .3rem;
+  border-radius: .5rem 0 0 .5rem;
+}
+
+#slider-break-ball {
+  width: 6px;
+  height: 1rem;
+  border-radius: 30%;
+  background-color: rgb(68, 118, 211);
+  box-shadow: 0 0 3px 0 rgb(64, 179, 255);    
+}
