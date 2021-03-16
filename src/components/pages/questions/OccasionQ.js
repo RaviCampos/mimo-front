@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
 

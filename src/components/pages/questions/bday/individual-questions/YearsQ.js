@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback} from "react";
 
 function YearsQ({tools: {setBDayPage, setAge, age}}) {
 
     const [ inAge, setInAge ] = useState(age ? age : 1);
     const [ showWarning, setShowWarning ] = useState(false);
 
-    const verifyAge = () => {
+    const verifyAge = useCallback(() => {
         const ageNum = parseInt(inAge);
         if(ageNum && ageNum >= 1 && ageNum <= 100) {
             return true;
         } else {
             return false;
         }
-    }
+    }, [inAge]);
 
     useEffect(() => {
         if(verifyAge()) {
@@ -20,7 +20,7 @@ function YearsQ({tools: {setBDayPage, setAge, age}}) {
         } else {
             setShowWarning(true);
         }
-    })
+    }, [inAge, verifyAge])
 
     return (
         <div>

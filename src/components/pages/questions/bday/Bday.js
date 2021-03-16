@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import YearsQ from "./individual-questions/YearsQ"
 import RelationQ from "./individual-questions/RelationQ"
@@ -40,6 +41,10 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
             Question = IntimacyQ;
             tools = { setBDayPage, setIntimacy, intimacy }
             break;
+        default:
+            Question = NotFoundQ;
+            tools = { setPage, setSection }
+            break
     }
  
     return (

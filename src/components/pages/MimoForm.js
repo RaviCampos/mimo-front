@@ -42,7 +42,11 @@ function MimoForm() {
                 case 2:
                     Question = OccasionQ;
                     tools = { setPage, setSection, setOccasion, occasion }
-                    break                    
+                    break    
+                default:
+                    Question = NotFoundQ;
+                    tools = { setPage, setSection }
+                    break                
             }
         break
         case "occasion":

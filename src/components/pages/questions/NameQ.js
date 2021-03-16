@@ -10,7 +10,7 @@ function GifterNameQ({ tools: { setPage, setGifterName, gifterName }}) {
         if(inGifter) {
             setShowWarning(false);
         }
-    })
+    }, [inGifter])
 
     return (
         <div>

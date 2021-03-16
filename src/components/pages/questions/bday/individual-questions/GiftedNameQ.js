@@ -9,7 +9,7 @@ function GiftedNameQ({tools: {setPage, setBDayPage, setGiftedName, giftedName, s
         if(inGifted) {
             setShowWarning(false);
         }
-    })
+    }, [inGifted])
 
     return (
         <div>
