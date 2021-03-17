@@ -34,15 +34,16 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
 
                         domBar.style.width = breakBWidth + "px";
                         
-                        const rating = Math.round( breakBWidth * 10 / breakWidthMinus3)
-                        // console.log(rating ? rating : 1)
-                        console.log("lub")
+                        let rating = (breakBWidth * 8 / breakWidthMinus3) + 1
+                        if(rating === 9) rating++;
+                        rating = Math.ceil(rating);
+                        setInIntimacy(rating);
                     }
                 }
-                
-                const rating = Math.round( breakBarWidth * 10 / breakWidthMinus3)
-                // console.clear()
-                console.log(rating !== 0 ? rating : 1)
+                let rating = (breakBarWidth * 8 / breakWidthMinus3) + 1
+                if(rating === 9) rating++;
+                rating = Math.ceil(rating);
+                setInIntimacy(rating)
 
                 window.addEventListener("mousemove", move)
             }
@@ -65,6 +66,8 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                 </div>
             </div>
             <span>10</span>
+            <br/>
+            <span>{inIntimacy}</span>
             
             <br/>
 
