@@ -11,7 +11,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     const [ bDayPage, setBDayPage ] = useState(0); /* integer */
     const [ giftedName, setGiftedName ] = useState(bDay.giftedName); /* string */
     const [ age, setAge ] = useState(bDay.age)  /* string */
-    const [ relation, setRelation ] = useState(bDay.relation)
+    const [ relation, setRelation ] = useState(bDay.relation ? bDay.relation : "amigos")
     const [ intimacy, setIntimacy ] = useState(bDay.intimacy)
 
     const futureBDay = {
@@ -39,7 +39,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
             break;
         case 3:
             Question = IntimacyQ;
-            tools = { setBDayPage, setIntimacy, intimacy }
+            tools = { setBDayPage, setIntimacy, giftedName, intimacy }
             break;
         default:
             Question = NotFoundQ;
@@ -48,16 +48,18 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     }
  
     return (
-            <TransitionGroup>
-                <CSSTransition
-                    key={bDayPage}
-                    timeout={200}
-                    classNames="name"
-                    unmountOnExit
-                >
-                    {<Question tools={tools}/>}
-                </CSSTransition>
-            </TransitionGroup>
+            // <TransitionGroup>
+            //     <CSSTransition
+            //         key={bDayPage}
+            //         timeout={200}
+            //         classNames="name"
+            //         unmountOnExit
+            //     >
+            <div>
+                {<Question tools={tools}/>}
+            </div>
+            //     </CSSTransition>
+            // </TransitionGroup>
 
     )
 }
