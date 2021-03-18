@@ -8,6 +8,7 @@ import IntimacyQ from "./individual-questions/IntimacyQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import HobbieQ from "./individual-questions/HobbieQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
+import AdditionsQ from "./individual-questions/AdditionsQ"
 
 function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage }}) {
 
@@ -19,6 +20,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     const [ introExtra, setIntroExtra ] = useState(bDay.intraExtra);
     const [ hobbie, setHobbie ] = useState(bDay.hobbie);
     const [ coolness, setCoolness ] = useState(bDay.intimacy);
+    const [ additions, setAdditions ] = useState(bDay.additions);
 
     const futureBDay = {
         gifterName,
@@ -29,7 +31,8 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
         intimacy,
         introExtra,
         hobbie,
-        coolness
+        coolness,
+        additions
     }
 
     let Question, tools
@@ -62,6 +65,10 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
         case 6:
             Question = CoolnessQ;
             tools = { setBDayPage, setCoolness, coolness, giftedName, intimacy }
+            break;
+        case 7:
+            Question = AdditionsQ;
+            tools = { setBDayPage, setAdditions, additions }
             break;
         default:
             Question = NotFoundQ;
