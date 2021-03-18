@@ -133,7 +133,7 @@ a {
 }
 
 .slider-bar {
-  width: 8%;
+  /* width: 49%; */
   background-color: rgb(68, 118, 211);
   box-shadow: 0 0 3px 0 rgb(64, 179, 255);
   height: .3rem;

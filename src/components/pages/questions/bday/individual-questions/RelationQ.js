@@ -69,24 +69,20 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
             <br/>
 
             <button onClick={() => {
-                // if(verify()) {
-                    if(relationComplement) {
-                        setRelation(`${mainRelation} ${relationComplement}`);
-                    } else {
-                        setRelation(mainRelation);
-                    }
-                    setBDayPage(1)
-                // }
+                if(relationComplement) {
+                    setRelation(`${mainRelation} ${relationComplement}`);
+                } else {
+                    setRelation(mainRelation);
+                }
+                setBDayPage(1)
             }}>Anterior</button>
             <button onClick={() => {
-                // if(verifyAge())
-                    if(relationComplement) {
-                        setRelation(`${mainRelation} ${relationComplement}`);
-                    } else {
-                        setRelation(mainRelation);
-                    }
-                    setBDayPage(3)
-                // }
+                if(relationComplement) {
+                    setRelation(`${mainRelation} ${relationComplement}`);
+                } else {
+                    setRelation(mainRelation);
+                }
+                setBDayPage(3)
             }}>Próxima</button>
         </div>
     )

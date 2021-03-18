@@ -48,18 +48,16 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     }
  
     return (
-            // <TransitionGroup>
-            //     <CSSTransition
-            //         key={bDayPage}
-            //         timeout={200}
-            //         classNames="name"
-            //         unmountOnExit
-            //     >
-            <div>
-                {<Question tools={tools}/>}
-            </div>
-            //     </CSSTransition>
-            // </TransitionGroup>
+            <TransitionGroup>
+                <CSSTransition
+                    key={bDayPage}
+                    timeout={200}
+                    classNames="name"
+                    unmountOnExit
+                >
+                    {<Question tools={tools}/>}
+                </CSSTransition>
+            </TransitionGroup>
 
     )
 }

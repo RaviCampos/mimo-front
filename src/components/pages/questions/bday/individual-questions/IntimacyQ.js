@@ -2,21 +2,24 @@ import { useState, useEffect } from "react";
 
 function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
 
-    const [ inIntimacy, setInIntimacy ] = useState(intimacy ? intimacy : "");
+    const [ inIntimacy, setInIntimacy ] = useState(intimacy ? intimacy : 5);
     
     useEffect(() => {
+        if(inIntimacy === 9) {
+            document.querySelector(".slider-bar").style.width = "95%";
+        } else {
+            const defaultWidthFactor = inIntimacy === 10 ? 9 : inIntimacy;
+            const defaultWidth = ( defaultWidthFactor - 1 ) * (document.querySelector(".slider-house").getBoundingClientRect().width - 3) / 8;
+            document.querySelector(".slider-bar").style.width = defaultWidth + "px"
+        }
+        
         function handleSlideBar(event) {
+            const domBar = document.querySelector(".slider-bar");
+            const slider = document.querySelector(".slider-house");
+            const breakWidthMinus3 = slider.getBoundingClientRect().width - 3;
+            // -3 px to centralize the little vertical bar in the end of the slider, a "handle"
+            const breakBarWidth = event.pageX - slider.getBoundingClientRect().x - 3;
             if(event.button === 0) {
-                const slider = document.querySelector(".slider");
-                const domBar = document.querySelector(".slider-bar");
-
-                // -3 px to centralize the little vertical bar in the end of the slider, a "handle"
-                let breakBarWidth = event.pageX - slider.getBoundingClientRect().x - 3;
-    
-                // chek if it is not bellow one minut
-                const breakWidthMinus3 = slider.getBoundingClientRect().width - 3;
-                // const atLeastOne = breakWidthMinus3 / 60;
-                // if(event.pageX < slider.getBoundingClientRect().x + atLeastOne) breakBarWidth = atLeastOne;
     
                 domBar.style.width = breakBarWidth + "px";
     
@@ -51,7 +54,7 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
 
         const sliderBreakHouse = document.querySelector(".slider-house");
         sliderBreakHouse.addEventListener("mousedown", handleSlideBar);
-    })
+    }, [])
 
     return (
         <div className="intimacyQ">
@@ -72,16 +75,12 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
             <br/>
 
             <button onClick={() => {
-                // if(verify()) {
-                    setIntimacy(inIntimacy);
-                    setBDayPage(2)
-                // }
+                setIntimacy(inIntimacy);
+                setBDayPage(2)
             }}>Anterior</button>
             <button onClick={() => {
-                // if(verifyAge()) {
-                    setIntimacy(inIntimacy);
-                    setBDayPage(4)
-                // }
+                setIntimacy(inIntimacy);
+                setBDayPage(4)
             }}>Próxima</button>
         </div>
     )
