@@ -5,11 +5,14 @@ import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import YearsQ from "./individual-questions/YearsQ"
 import RelationQ from "./individual-questions/RelationQ"
 import IntimacyQ from "./individual-questions/IntimacyQ"
+import IntraExtraQ from "./individual-questions/IntraExtraQ"
+import HobbieQ from "./individual-questions/HobbieQ"
+import CoolSquareQ from "./individual-questions/CoolSquareQ"
 
 function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage }}) {
 
     const [ bDayPage, setBDayPage ] = useState(0); /* integer */
-    const [ giftedName, setGiftedName ] = useState(bDay.giftedName); /* string */
+    const [ giftedName, setGiftedName ] = useState(bDay.giftedName ? bDay.giftedName : "Dmitri"); /* string */
     const [ age, setAge ] = useState(bDay.age)  /* string */
     const [ relation, setRelation ] = useState(bDay.relation ? bDay.relation : "amigos")
     const [ intimacy, setIntimacy ] = useState(bDay.intimacy)
