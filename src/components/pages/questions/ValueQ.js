@@ -1,25 +1,8 @@
 import {useState, useEffect, useCallback} from "react";
 
-function ValueQ(setPage, setValue, value, giftedName) {
+function ValueQ({tools: {setPage, setValue, value}}) {
     const [ inValue, setInValue ] = useState(value ? value : 1);
-    // const [ showWarning, setShowWarning ] = useState(false);
 
-    // const verifyValue = useCallback(() => {
-    //     const valueNum = parseInt(inValue);
-    //     if(valueNum && valueNum >= 1 && valueNum <= 100) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }, [inValue]);
-
-    // useEffect(() => {
-    //     if(verifyValue()) {
-    //         setShowWarning(false);
-    //     } else {
-    //         setShowWarning(true);
-    //     }
-    // }, [inValue, verifyValue])
     let warning = "";
     if(inValue < 30) {
         warning = <p className="validation-warning">Nosso valor minimo é de 30 reais</p>

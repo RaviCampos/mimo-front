@@ -63,7 +63,7 @@ function MimoForm() {
                     break    
                 case 6:
                     Question = ValueQ;
-                    tools = { setPage, setValue, value, giftedName: bDay.giftedName }
+                    tools = { setPage, setValue, value }
                     break    
                 default:
                     Question = NotFoundQ;
