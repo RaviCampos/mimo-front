@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AdditionsQ({tools: {additions, setAdditions, setBDayPage}}) {
+function AdditionsQ({tools: {setPage, setSection, setAdditions, additions, occasion}}) {
 
     const [ inAdditions, setInAddtions] = useState(additions ? additions : "");
     
@@ -13,11 +13,12 @@ function AdditionsQ({tools: {additions, setAdditions, setBDayPage}}) {
 
             <button onClick={() => {
                 setAdditions(inAdditions);
-                setBDayPage(6)
+                setSection("occasion")
+                // setBDayPage(6)
             }}>Anterior</button>
             <button onClick={() => {
                 setAdditions(inAdditions);
-                setBDayPage(8)
+                // setBDayPage(8)
             }}>Próxima</button>
         </div>
     )

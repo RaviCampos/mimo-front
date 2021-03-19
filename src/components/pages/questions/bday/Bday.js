@@ -8,11 +8,10 @@ import IntimacyQ from "./individual-questions/IntimacyQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import HobbieQ from "./individual-questions/HobbieQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
-import AdditionsQ from "./individual-questions/AdditionsQ"
 
-function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage }}) {
+function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
-    const [ bDayPage, setBDayPage ] = useState(0); /* integer */
+    const [ bDayPage, setBDayPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
     const [ giftedName, setGiftedName ] = useState(bDay.giftedName ? bDay.giftedName : "Dmitri"); /* string */
     const [ age, setAge ] = useState(bDay.age)  /* string */
     const [ relation, setRelation ] = useState(bDay.relation ? bDay.relation : "amigos")
@@ -20,19 +19,15 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     const [ introExtra, setIntroExtra ] = useState(bDay.intraExtra);
     const [ hobbie, setHobbie ] = useState(bDay.hobbie);
     const [ coolness, setCoolness ] = useState(bDay.intimacy);
-    const [ additions, setAdditions ] = useState(bDay.additions);
 
     const futureBDay = {
-        gifterName,
-        occasion,
         giftedName,
         age,
         relation,
         intimacy,
         introExtra,
         hobbie,
-        coolness,
-        additions
+        coolness
     }
 
     let Question, tools
@@ -40,7 +35,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     switch(bDayPage) {
         case 0:
             Question = GiftedNameQ;
-            tools = { setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay};
+            tools = { setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay, setGoToOccasionLastQ};
             break;
         case 1:
             Question = YearsQ;
@@ -64,11 +59,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
             break;
         case 6:
             Question = CoolnessQ;
-            tools = { setBDayPage, setCoolness, coolness, giftedName, intimacy }
-            break;
-        case 7:
-            Question = AdditionsQ;
-            tools = { setBDayPage, setAdditions, additions }
+            tools = { setBDayPage, setCoolness, coolness, intimacy, setSection, futureBDay, setBDay, setGoToOccasionLastQ }
             break;
         default:
             Question = NotFoundQ;

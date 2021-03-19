@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function CoolSquareQ({tools: {coolness, intimacy, setCoolness, setBDayPage, giftedName}}) {
+function CoolSquareQ({tools: {coolness, intimacy, setCoolness, setBDayPage, setSection, futureBDay, setBDay, setGoToOccasionLastQ}}) {
 
     const [inCoolness, setInCoolness] = useState(coolness ? coolness : "");
     
@@ -14,8 +14,13 @@ function CoolSquareQ({tools: {coolness, intimacy, setCoolness, setBDayPage, gift
                 setBDayPage(5)
             }}>Anterior</button>
             <button onClick={() => {
-                setCoolness(inCoolness);
-                setBDayPage(7)
+                const bday = {
+                    ...futureBDay,
+                    coolness: inCoolness
+                }
+                setBDay(bday)
+                setGoToOccasionLastQ(true)
+                setSection("common")
             }}>Próxima</button>
         </div>
     )
