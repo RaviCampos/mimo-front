@@ -14,11 +14,10 @@ function AdditionsQ({tools: {setPage, setSection, setAdditions, additions, occas
             <button onClick={() => {
                 setAdditions(inAdditions);
                 setSection("occasion")
-                // setBDayPage(6)
+                setPage(3);
             }}>Anterior</button>
             <button onClick={() => {
                 setAdditions(inAdditions);
-                // setBDayPage(8)
             }}>Próxima</button>
         </div>
     )

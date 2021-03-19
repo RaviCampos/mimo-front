@@ -49,7 +49,7 @@ function MimoForm() {
                     Question = OccasionQ;
                     tools = { setPage, setSection, setOccasion, occasion }
                     break    
-                case 3:
+                case 4:
                     Question = AdditionsQ;
                     tools = { setPage, setSection, setAdditions, additions, occasion }
                     break    

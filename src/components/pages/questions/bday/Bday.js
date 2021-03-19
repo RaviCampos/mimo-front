@@ -59,7 +59,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
             break;
         case 6:
             Question = CoolnessQ;
-            tools = { setBDayPage, setCoolness, coolness, intimacy, setSection, futureBDay, setBDay, setGoToOccasionLastQ }
+            tools = { setPage, setBDayPage, setCoolness, coolness, intimacy, setSection, futureBDay, setBDay, setGoToOccasionLastQ }
             break;
         default:
             Question = NotFoundQ;

@@ -11,7 +11,7 @@ function IntroExtraQ({tools: {introExtra, intimacy, setIntroExtra, setBDayPage, 
             <h2>Comemorar mais um ano de alguém querido é sempre especial, né? Para {giftedName} esse ano vai rolar alguma festa no zoom, um encontro a céu aberto, alguma comemoração à la pandemia?</h2>
             <div>
                 <div>
-                    <input type="radio" name="introExtra" id="ie_bday" value="Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo" checked={introExtra === "Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo"} onChange={e=> setInIntroExtra(e.target.value)}/>
+                    <input type="radio" name="introExtra" id="ie_bday" value="Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo" checked={inIntroExtra === "Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo"} onChange={e=> setInIntroExtra(e.target.value)}/>
                     <label htmlFor="occ_bday">Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo</label>
                 </div>
             </div>

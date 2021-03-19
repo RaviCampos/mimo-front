@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function CoolSquareQ({tools: {coolness, intimacy, setCoolness, setBDayPage, setSection, futureBDay, setBDay, setGoToOccasionLastQ}}) {
+function CoolSquareQ({tools: {setPage, coolness, intimacy, setCoolness, setBDayPage, setSection, futureBDay, setBDay, setGoToOccasionLastQ}}) {
 
     const [inCoolness, setInCoolness] = useState(coolness ? coolness : "");
     
@@ -21,6 +21,7 @@ function CoolSquareQ({tools: {coolness, intimacy, setCoolness, setBDayPage, setS
                 setBDay(bday)
                 setGoToOccasionLastQ(true)
                 setSection("common")
+                setPage(4);
             }}>Próxima</button>
         </div>
     )
