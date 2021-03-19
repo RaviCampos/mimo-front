@@ -7,6 +7,7 @@ import Hello from "./questions/Hello";
 import NameQ from "./questions/NameQ";
 import AdditionsQ from "./questions/AdditionsQ";
 import FoodRestrictionQ from "./questions/FoodRestrictionQ";
+import ValueQ from "./questions/ValueQ";
 import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
 
@@ -26,6 +27,7 @@ function MimoForm() {
     const [ gifterName, setGifterName ] = useState("Alexei");
     const [ additions, setAdditions ] = useState("")
     const [ foodRestriction, setFoodRestriction ] = useState("")
+    const [ value, setValue ] = useState("")
 
     const [ goToOccasionLastQ, setGoToOccasionLastQ ] = useState(false);
     const [ bDay, setBDay] = useState({})
@@ -58,6 +60,10 @@ function MimoForm() {
                 case 5:
                     Question = FoodRestrictionQ;
                     tools = { setPage, setFoodRestriction, foodRestriction, giftedName: bDay.giftedName }
+                    break    
+                case 6:
+                    Question = ValueQ;
+                    tools = { setPage, setValue, value, giftedName: bDay.giftedName }
                     break    
                 default:
                     Question = NotFoundQ;
