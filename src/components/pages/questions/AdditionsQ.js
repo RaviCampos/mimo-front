@@ -18,6 +18,7 @@ function AdditionsQ({tools: {setPage, setSection, setAdditions, additions, occas
             }}>Anterior</button>
             <button onClick={() => {
                 setAdditions(inAdditions);
+                setPage(5);
             }}>Próxima</button>
         </div>
     )
