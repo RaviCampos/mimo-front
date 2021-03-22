@@ -15,8 +15,9 @@ function ValueQ({tools: {setPage, setValue, value}}) {
 
     return (
         <div>
-            <h2>Quanto você gostaria de gastar nesse presente?</h2>
+            <h2>Você gostaria que esse presente estivesse dentro de que faixa de preço?</h2>
             <p>Você pode dizer um valor específico, como X reais, ou uma faixa de preço, entre X e Y reais.</p>
+            <p>Sem contar a taxa de entrega por enquanto</p>
             <input type="number" name="value" id="value" value={inValue} placeholder="anos" onChange={e => setInValue(e.target.value)}/>
             {warning}
             <p>R${inValue ? inValue : 0}, 00</p>
