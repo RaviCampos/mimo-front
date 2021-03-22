@@ -30,6 +30,7 @@ function MimoForm() {
     const [ foodRestriction, setFoodRestriction ] = useState("")
     const [ value, setValue ] = useState("")
     const [ date, setDate ] = useState("")
+    const [ deliveryBDay, setDeliveryBDay ] = useState("")
 
     const [ goToOccasionLastQ, setGoToOccasionLastQ ] = useState(false);
     const [ bDay, setBDay] = useState({})
@@ -69,7 +70,7 @@ function MimoForm() {
                     break    
                 case 7:
                     Question = DateQ;
-                    tools = { setPage, setDate, date }
+                    tools = { setPage, setDate, setDeliveryBDay, date, deliveryBDay }
                     break    
                 default:
                     Question = NotFoundQ;
