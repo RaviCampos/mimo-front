@@ -28,7 +28,6 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay}})
         const plusFiveDate = new Date(plusFive);
         const theDate = new Date(e.target.value);
         if(theDate < plusFiveDate) {
-            // setInDate(plusFive)
             setWarning(true);
         } 
         setInDate(e.target.value)
@@ -45,11 +44,11 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay}})
 
     return (
         <div>
-            <h1>{getDatePlusFive()}</h1>
             <h2>Em qual dia você deseja que o mimolino entregue o presente?</h2>
             <p>a gente trabalha com um tempo de antecedência de pelo menos 5 dias</p>
             <input type="date" name="date_date" id="gift_date" min={getDatePlusFive()} value={inDate} onChange={e => compareDates(e)}/>
             {warning && <p className="validation-warning">A data precisa precisa ser pelo menos daqui a 5 dias</p>}
+
             <h2>Mais uma coisa, esse é o dia do aniversário mesmo?</h2>
             <div>
                 <input type="radio" name="date_yesno" id="date_yes" value="Sim" checked={inDelivery === "Sim"} onChange={e => setInDelivery(e.target.value)}/>
