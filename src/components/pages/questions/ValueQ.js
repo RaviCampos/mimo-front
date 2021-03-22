@@ -1,17 +1,21 @@
-import {useState, useEffect, useCallback} from "react";
+import {useState, useEffect} from "react";
 
 function ValueQ({tools: {setPage, setValue, value}}) {
     const [ inValue, setInValue ] = useState(value ? value : 1);
 
-    let warning = "";
-    if(inValue < 30) {
-        warning = <p className="validation-warning">Nosso valor minimo é de 30 reais</p>
-    } else if(inValue > 1000) {
-        warning = <p className="validation-warning">Nós podemos trabalhar com presentes luxuosos, mas só quremos ter certeza que você gostaria de um presente no valor de 1000 reais</p>
-    } else if(inValue > 500) {
-        warning = <p className="validation-warning">Nós podemos trabalhar com presentes luxuosos, mas só quremos ter certeza que você gostaria de um presente no valor de 500 reais</p>
-    }
+    const [ warning, setWarning ] = useState("");
 
+    useEffect(() => {
+        if(inValue < 30) {
+            setWarning(<p className="validation-warning">Nosso valor minimo é de 30 reais</p>)
+        } else if(inValue > 1000) {
+            setWarning(<p className="validation-warning">Nós também trabalhamos com presentes luxuosos, mas só quremos ter certeza que você gostaria de um presente acima de 1000 reais</p>)
+        } else if(inValue > 500) {
+            setWarning(<p className="validation-warning">Nós também trabalhamos com presentes luxuosos, mas só quremos ter certeza que você gostaria de um presente acima de 500 reais</p>)
+        } else {
+            setWarning("");
+        }
+    }, [inValue])
 
     return (
         <div>
