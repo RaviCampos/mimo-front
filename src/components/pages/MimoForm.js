@@ -9,6 +9,8 @@ import AdditionsQ from "./questions/AdditionsQ";
 import FoodRestrictionQ from "./questions/FoodRestrictionQ";
 import ValueQ from "./questions/ValueQ";
 import DateQ from "./questions/DateQ";
+import AdressQ from "./questions/AdressQ"
+import ContactQ from "./questions/ContactQ"
 import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
 
@@ -31,6 +33,8 @@ function MimoForm() {
     const [ value, setValue ] = useState("")
     const [ date, setDate ] = useState("")
     const [ deliveryBDay, setDeliveryBDay ] = useState("")
+    const [ adress, setAdress ] = useState("")
+    const [ contact, setContact ] = useState("")
 
     const [ goToOccasionLastQ, setGoToOccasionLastQ ] = useState(false);
     const [ bDay, setBDay] = useState({})
@@ -71,6 +75,14 @@ function MimoForm() {
                 case 7:
                     Question = DateQ;
                     tools = { setPage, setDate, setDeliveryBDay, date, deliveryBDay }
+                    break    
+                case 8:
+                    Question = AdressQ;
+                    tools = { setPage, setAdress, adress }
+                    break    
+                case 9:
+                    Question = ContactQ;
+                    tools = { setPage, setContact, contact }
                     break    
                 default:
                     Question = NotFoundQ;
