@@ -42,6 +42,7 @@ function MimoForm() {
 
     const [ goToOccasionLastQ, setGoToOccasionLastQ ] = useState(false);
     const [ bDay, setBDay] = useState({})
+    const [ wedding, setWedding ] = useState({})
 
     let Question;
     let tools;
@@ -106,6 +107,7 @@ function MimoForm() {
                     break
                 case "casamento/namoro":
                     Question = Wedding;
+                    tools = {}
                     break
                 default:
                     Question = NotFoundQ;
