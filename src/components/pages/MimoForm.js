@@ -14,6 +14,7 @@ import ContactQ from "./questions/ContactQ"
 
 import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
+import Wedding from "./questions/wedding/Wedding"
 
 import EndQ from "./questions/EndQ"
 
@@ -102,6 +103,9 @@ function MimoForm() {
                 case "aniversario":
                     Question = Bday;
                     tools = { occasion, gifterName, setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
+                    break
+                case "casamento/namoro":
+                    Question = Wedding;
                     break
                 default:
                     Question = NotFoundQ;
