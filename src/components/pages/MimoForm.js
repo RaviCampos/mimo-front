@@ -11,8 +11,11 @@ import ValueQ from "./questions/ValueQ";
 import DateQ from "./questions/DateQ";
 import AdressQ from "./questions/AdressQ"
 import ContactQ from "./questions/ContactQ"
+
 import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
+
+import EndQ from "./questions/EndQ"
 
 function MimoForm() {
 
@@ -83,6 +86,10 @@ function MimoForm() {
                 case 9:
                     Question = ContactQ;
                     tools = { setPage, setContact, contact }
+                    break    
+                case 10:
+                    Question = EndQ;
+                    tools = { setPage }
                     break    
                 default:
                     Question = NotFoundQ;
