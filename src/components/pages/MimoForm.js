@@ -78,7 +78,7 @@ function MimoForm() {
                     break    
                 case 8:
                     Question = AdressQ;
-                    tools = { setPage, setAdress, adress }
+                    tools = { setPage, setAdress, adress, giftedName: bDay.giftedName }
                     break    
                 case 9:
                     Question = ContactQ;
