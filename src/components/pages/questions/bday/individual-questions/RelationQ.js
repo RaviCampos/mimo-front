@@ -1,19 +1,27 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
 
     let inRelation;
 
     if(relation) {
-        inRelation = relation.split(" ");
+        inRelation = relation.split(": ");
     } else {
-        inRelation = [""];
+        inRelation = ["", ""];
     }
 
     const [ mainRelation, setMainRelation ] = useState(inRelation[0]);
+    const [ relationComplement, setRelationComplement ] = useState(inRelation[1]);
 
-    const [ relationComplement, setRelationComplement ] = useState(inRelation[1] ? inRelation[1] : "");
+    const [ warning, setWarning ] = useState(false);
+
+    useEffect(() => {
+        setWarning(false)
+    }, [mainRelation])
+    useEffect(() => {
+        setWarning(false)
+    }, [relationComplement])
 
     const familyText = <div>
         <p>O que essa pessoa é sua?</p>
@@ -66,23 +74,33 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
 
             {mainRelation=== "outra" && otherText}
 
+            {warning && <p className="validation-warning">{warning}</p>}
+
             <br/>
+
+            <button onClick={() =>{setMainRelation(""); setRelationComplement("")}}>Clean</button>
 
             <button onClick={() => {
                 if(relationComplement) {
-                    setRelation(`${mainRelation} ${relationComplement}`);
+                    setRelation(`${mainRelation}: ${relationComplement}`);
                 } else {
                     setRelation(mainRelation);
                 }
                 setBDayPage(1)
             }}>Anterior</button>
             <button onClick={() => {
-                if(relationComplement) {
-                    setRelation(`${mainRelation} ${relationComplement}`);
+                if(!mainRelation) {
+                    setWarning("Por favor, selecione uma das opções")
+                } else if((mainRelation === "familia" || mainRelation === "outra") && !relationComplement) {
+                    setWarning("Por favor preencha o complemento")
                 } else {
-                    setRelation(mainRelation);
+                    if(relationComplement) {
+                        setRelation(`${mainRelation}: ${relationComplement}`);
+                    } else {
+                        setRelation(mainRelation);
+                    }
+                    setBDayPage(3)
                 }
-                setBDayPage(3)
             }}>Próxima</button>
         </div>
     )

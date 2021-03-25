@@ -14,7 +14,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
     const [ bDayPage, setBDayPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
     const [ giftedName, setGiftedName ] = useState(bDay.giftedName ? bDay.giftedName : "Dmitri"); /* string */
     const [ age, setAge ] = useState(bDay.age)  /* string */
-    const [ relation, setRelation ] = useState(bDay.relation ? bDay.relation : "amigos")
+    const [ relation, setRelation ] = useState(bDay.relation)
     const [ intimacy, setIntimacy ] = useState(bDay.intimacy);
     const [ introExtra, setIntroExtra ] = useState(bDay.intraExtra);
     const [ hobbie, setHobbie ] = useState(bDay.hobbie);
