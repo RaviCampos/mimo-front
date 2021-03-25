@@ -11,6 +11,13 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
     const [ contactType, setContactType ] = useState(protoContact[0])
     const [ inContact, setInContact ] = useState(protoContact[1] ? protoContact[1] : "")
 
+    const [ showWarning, setShowWarning ] = useState(false);
+    useEffect(() => {
+        if(inContact || contactType) {
+            setShowWarning(false);
+        }
+    }, [inContact, contactType])
+
     const [ question, setQuestion ] = useState("");
     useEffect(() => {
         if(contactType === "email") {
@@ -55,7 +62,7 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
             <div>
                 <label htmlFor="contact_telefone">Telefone</label>
                 <input type="radio" name="contact" id="contact_telefone" checked={contactType === "telefone"} onChange={() => changeContact("telefone")}/>
-                <p className="validation-warning">Não acho que telefone seja uma boa ideia para contato</p>
+                <p>Não acho que telefone seja uma boa ideia para contato</p>
             </div>
 
             {question && <div>
@@ -63,15 +70,25 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
                 <input type="text" value={inContact} onChange={e => setInContact(e.target.value)}/>
             </div>}
             
+            {showWarning && <p className="validation-warning">{showWarning}</p>}
+
             <h3>Por favor, confira se o contato está correto mesmo, se ele não estiver correto não podermos continuar a montar o seu presente</h3>
+            
+            <button onClick={() => changeContact("")}>Clean</button>
 
             <button onClick={() => {
                     setContact(`${contactType}: ${inContact}`);
                     setPage(8)
             }}>Anterior</button>
             <button onClick={() => {
+                if(inContact && contactType) {
                     setContact(`${contactType}: ${inContact}`);
                     setPage(10)
+                } else if(!contactType) {
+                    setShowWarning("Por favor, selecione a plataforma para contato");
+                } else {
+                    setShowWarning("Por favor, insira o seu contato pessoal")
+                }
             }}>Próxima</button>
         </div>
     )
