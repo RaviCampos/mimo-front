@@ -4,6 +4,7 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay}})
 
     const [ inDate, setInDate ] = useState(date ? date : getDatePlusFive)
     const [ inDelivery, setInDelivery ] = useState(deliveryBDay ? deliveryBDay : "")
+
     const [ warning, setWarning ] = useState(false);
 
     function getDatePlusFive() {
@@ -23,13 +24,20 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay}})
         return [year, month, day].join('-');
     }
 
-    function compareDates(e) {
+    function compareDates(currentDate) {
         const plusFive = getDatePlusFive();
         const plusFiveDate = new Date(plusFive);
-        const theDate = new Date(e.target.value);
+        const theDate = new Date(currentDate);
         if(theDate < plusFiveDate) {
-            setWarning(true);
+            return true;
         } 
+        return false
+    }
+
+    function compareAndSet(e) {
+        if(compareDates(e.target.value)) {
+            setWarning("A data precisa precisa ser pelo menos daqui a 5 dias a partir de hoje");
+        }
         setInDate(e.target.value)
     }
 
@@ -42,12 +50,17 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay}})
         }
     }, [inDate])
 
+    useEffect(() => {
+        if(inDelivery) {
+            setWarning(false)
+        }
+    }, [inDelivery])
+
     return (
         <div>
             <h2>Em qual dia você deseja que o mimolino entregue o presente?</h2>
             <p>a gente trabalha com um tempo de antecedência de pelo menos 5 dias</p>
-            <input type="date" name="date_date" id="gift_date" min={getDatePlusFive()} value={inDate} onChange={e => compareDates(e)}/>
-            {warning && <p className="validation-warning">A data precisa precisa ser pelo menos daqui a 5 dias</p>}
+            <input type="date" name="date_date" id="gift_date" min={getDatePlusFive()} value={inDate} onChange={e => compareAndSet(e)}/>
 
             <h2>Mais uma coisa, esse é o dia do aniversário mesmo?</h2>
             <div>
@@ -59,15 +72,23 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay}})
                 <label htmlFor="date_no">Não é exatamente o dia, mas é melhor entregar nessa data</label>
             </div>
 
+            {warning && <p className="validation-warning">{warning}</p>}
+
             <button onClick={() => {
                     setDate(inDate);
                     setDeliveryBDay(inDelivery)
                     setPage(6)
             }}>Anterior</button>
             <button onClick={() => {
+                if(compareDates(inDate)) {
+                    return
+                } else if(!inDelivery) {
+                    setWarning("Por favor, indique se este é o dia do aniversário ou não")
+                } else {
                     setDate(inDate);
                     setDeliveryBDay(inDelivery)
                     setPage(8)
+                }
             }}>Próxima</button>
         </div>
     )

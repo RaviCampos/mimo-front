@@ -73,8 +73,6 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
             {showWarning && <p className="validation-warning">{showWarning}</p>}
 
             <h3>Por favor, confira se o contato está correto mesmo, se ele não estiver correto não podermos continuar a montar o seu presente</h3>
-            
-            <button onClick={() => changeContact("")}>Clean</button>
 
             <button onClick={() => {
                     setContact(`${contactType}: ${inContact}`);
