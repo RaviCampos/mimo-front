@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
     let protoAdress
@@ -12,12 +12,30 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
             })
         }
     } else {
-        protoAdress = [""]
+        protoAdress = ["default"]
     }
     const [ inAdress, setInAdress ] = useState(protoAdress[0]);
     const [ cep, setCep ] = useState(protoAdress[1] ? protoAdress[1] : "")
     const [ to, setTo ] = useState(protoAdress[2] ? protoAdress[2] : "")
 
+    const [ warning, setWarning ] = useState(false);
+    useEffect(() => {
+        if(inAdress !== "default") {
+            setWarning(false);
+        }
+    }, [inAdress])
+
+    useEffect(() => {
+        if(cep) {
+            setWarning(false)
+        }
+    }, [cep])
+
+    useEffect(() => {
+        if(to) {
+            setWarning(false)
+        }
+    }, [to])
 
     const input = <div>
         <div>
@@ -52,14 +70,16 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
             <p className="validation-warning">mudar o tipo de input de cep para number sem setas, cep precisa ser requerido imperativamente ao tentar mudar de página</p>
             <div>
                 <label htmlFor="withdraw_no">Prefiro que o presente seja entregue</label>
-                <input type="radio" name="withdraw" id="withdraw_no" checked={inAdress !== "retirada"} onChange={() => changeWithdraw("")}/>
+                <input type="radio" name="withdraw" id="withdraw_no" checked={inAdress !== "retirada" && inAdress !== "default"} onChange={() => changeWithdraw("")}/>
             </div>
             <div>
                 <label htmlFor="withdraw_yes">Prefiro buscar o presente</label>
                 <input type="radio" name="withdraw" id="withdraw_yes" checked={inAdress === "retirada"} onChange={() => changeWithdraw("retirada")}/>
             </div>
             {inAdress === "retirada" && <p>assim que o pedido for finalizado nós entraremos em contato e informaremos o local de retirada na asa norte</p>}
-            {inAdress !== "retirada" && input}
+            {inAdress !== "retirada" && inAdress !== "default" && input}
+
+            {warning && <p className="validation-warning">{warning}</p>}
             
             <button onClick={() => {
                 if(inAdress === "retirada") {
@@ -70,12 +90,25 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
                 setPage(7)
             }}>Anterior</button>
             <button onClick={() => {
-                if(inAdress === "retirada") {
-                    setAdress(inAdress);
+                if(inAdress === "default") {
+                    setWarning("Por favor, escolha se o seu presente será retirado ou entregue")
                 } else {
-                    setAdress(`endereço: ${inAdress} && cep: ${cep} && para: ${to}`)
+                    if(inAdress === "retirada") {
+                        setAdress(inAdress);
+                        setPage(9)
+                    } else {
+                        if(!cep) {
+                            setWarning("Por favor, preencha o seu CEP")
+                        } else if(!inAdress) {
+                            setWarning("Por favor, preencha seu endereço")
+                        } else if(!to) {
+                            setWarning(`Por favor, selecione se o presente será entregue para você ou para ${giftedName}`)
+                        } else {
+                            setAdress(`endereço: ${inAdress} && cep: ${cep} && para: ${to}`)
+                            setPage(9)
+                        }
+                    }
                 }
-                setPage(9)
             }}>Próxima</button>
 
         </div>
