@@ -20,22 +20,10 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
 
     const [ warning, setWarning ] = useState(false);
     useEffect(() => {
-        if(inAdress !== "default") {
+        if(inAdress !== "default" || cep || to) {
             setWarning(false);
         }
-    }, [inAdress])
-
-    useEffect(() => {
-        if(cep) {
-            setWarning(false)
-        }
-    }, [cep])
-
-    useEffect(() => {
-        if(to) {
-            setWarning(false)
-        }
-    }, [to])
+    }, [inAdress, cep, to])
 
     const input = <div>
         <div>
