@@ -21,6 +21,7 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
     useEffect(() => {
         setWarning(false)
     }, [complement])
+
     return (
         <div>
             <h2>Falar algo como: A gente as vezes gosta de dar gostosuras comestíveis nos nossos presentes, mas a gente sabe que as comidinhas não funcionam para todas as ocasiões</h2>
@@ -48,7 +49,6 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
 
             </div>
 
-            <button onClick={() => setInRestriction("")}>Clean</button>
             <button onClick={() => {
                 if(complement) {
                     const answer = `${inRestriction}: ${complement}`
