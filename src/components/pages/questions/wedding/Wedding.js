@@ -13,19 +13,19 @@ function Wedding({tools: { occasion, gifterName, setSection, bDay, setBDay, setP
 
     switch(weddingPage) {
         case 0:
-            Question = GiftedNameQ;
-            tools = { setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay, setGoToOccasionLastQ};
+            // Question = GiftedNameQ;
+            tools = { };
             break;
         default:
             Question = NotFoundQ;
-            tools = { setPage, setSection }
+            tools = {  }
             break
     }
  
     return (
         <TransitionGroup>
             <CSSTransition
-                key={bDayPage}
+                key={weddingPage}
                 timeout={200}
                 classNames="name"
                 unmountOnExit
