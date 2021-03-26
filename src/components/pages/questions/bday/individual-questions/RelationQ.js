@@ -78,8 +78,6 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
 
             <br/>
 
-            <button onClick={() =>{setMainRelation(""); setRelationComplement("")}}>Clean</button>
-
             <button onClick={() => {
                 if(relationComplement) {
                     setRelation(`${mainRelation}: ${relationComplement}`);
