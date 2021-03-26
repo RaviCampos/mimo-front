@@ -1,26 +1,26 @@
 import { useState } from "react"
 
-function WhoIsTheCoupleQ({ tools: { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, whoIsTheCouple, setWhoIsTheCouple }}) {
+function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, gifterInCouple, setGifterInCouple }}) {
 
-    const [ inCouple, setInCouple ] = useState(whoIsTheCouple ? whoIsTheCouple : "")
+    const [ inCouple, setInCouple ] = useState(gifterInCouple ? gifterInCouple : "")
 
     return (
         <div>
             <h2>Me tira uma dúvida? Vocês são um casal e é aniversário de vocês ou você está presenteando um casal amigo por um marco no relacionamento deles?</h2>
 
             <div>
+                <input type="radio" name="couple" value="Sim" id="couple_in" checked={inCouple === "Sim"} onChange={e => setInCouple(e.target.value)}/>
                 <label htmlFor="couple_in">Eu faço parte do casal, vamos comemorar nossa união</label>
-                <input type="radio" name="couple" value="presenteado é do casal" id="couple_in" checked={inCouple === "presenteado é do casal"} onChange={e => setInCouple(e.target.value)}/>
             </div>
             <div>
+                <input type="radio" name="couple" value="Não" id="couple_out" checked={inCouple === "Não"} onChange={e => setInCouple(e.target.value)}/>
                 <label htmlFor="couple_out">Conheço esse casal que está comemorando aniversário em seu relacionamento e não posso deixar de presenteá-los</label>
-                <input type="radio" name="couple" value="presenteado não é do casal" id="couple_out" checked={inCouple === "presenteado não é do casal"} onChange={e => setInCouple(e.target.value)}/>
             </div>
 
             <button onClick={() => {
                 const wed = {
                     ...futureWedding,
-                    whoIsTheCouple: inCouple
+                    gifterInCouple: inCouple
                 }
                 setWedding(wed);
                 setGoToOccasionLastQ(false)
@@ -29,11 +29,11 @@ function WhoIsTheCoupleQ({ tools: { setSection, futureWedding, setWedding, setPa
             }}>Anterior</button>
             <button onClick={() => {
                 setWeddingPage(1)
-                setWhoIsTheCouple(inCouple);
+                setGifterInCouple(inCouple);
             }}>Próxima</button>
 
         </div>
     )
 }
 
-export default WhoIsTheCoupleQ
+export default GifterInCoupleQ
