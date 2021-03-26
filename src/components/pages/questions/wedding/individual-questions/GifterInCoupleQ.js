@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, gifterInCouple, setGifterInCouple }}) {
 
-    const [ inCouple, setInCouple ] = useState(gifterInCouple ? gifterInCouple : "")
+    const [ inCouple, setInCouple ] = useState(gifterInCouple ? gifterInCouple : gifterInCouple === "" ? "" : false)
 
     const [ warning, setWarning ] = useState(false)
     useEffect(() => {
@@ -14,20 +14,21 @@ function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPa
             <h2>Me tira uma dúvida? Vocês são um casal e é aniversário de vocês ou você está presenteando um casal amigo por um marco no relacionamento deles?</h2>
 
             <div>
-                <input type="radio" name="couple" value="Sim" id="couple_in" checked={inCouple === "Sim"} onChange={e => setInCouple(e.target.value)}/>
+                <input type="radio" name="couple" id="couple_in" checked={inCouple === true} onChange={e => setInCouple(true)}/>
                 <label htmlFor="couple_in">Eu faço parte do casal, vamos comemorar nossa união</label>
             </div>
             <div>
-                <input type="radio" name="couple" value="Não" id="couple_out" checked={inCouple === "Não"} onChange={e => setInCouple(e.target.value)}/>
+                <input type="radio" name="couple" id="couple_out" checked={inCouple === false} onChange={e => setInCouple(false)}/>
                 <label htmlFor="couple_out">Conheço esse casal que está comemorando aniversário em seu relacionamento e não posso deixar de presenteá-los</label>
             </div>
 
             {warning && <p className="validation-warning">{warning}</p>}
 
             <button onClick={() => {
+                const isInCouple =  inCouple ? "Sim" : "Não"
                 const wed = {
                     ...futureWedding,
-                    gifterInCouple: inCouple
+                    gifterInCouple: isInCouple
                 }
                 setWedding(wed);
                 setGoToOccasionLastQ(false)

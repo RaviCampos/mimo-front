@@ -46,6 +46,10 @@ function MimoForm() {
     const [ bDay, setBDay] = useState({})
     const [ wedding, setWedding ] = useState({})
 
+    useEffect(() => {
+        console.log(wedding)
+    }, [wedding])
+
     let Question;
     let tools;
 
