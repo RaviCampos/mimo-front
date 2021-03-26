@@ -48,9 +48,6 @@ function MimoForm() {
 
     let Question;
     let tools;
-    useEffect(() => {
-        console.log(bDay);
-    }, [bDay])
 
     switch(section) {
         case "common":
@@ -67,6 +64,9 @@ function MimoForm() {
                     Question = OccasionQ;
                     tools = { setPage, setSection, setOccasion, occasion }
                     break    
+
+                // it is as if the 3 question is the specific section => aniversario, namoro/casamento...
+
                 case 4:
                     Question = AdditionsQ;
                     tools = { setPage, setSection, setAdditions, additions, occasion }
@@ -109,7 +109,7 @@ function MimoForm() {
                     break
                 case "casamento/namoro":
                     Question = Wedding;
-                    tools = {}
+                    tools = { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
                     break
                 default:
                     Question = NotFoundQ;
