@@ -9,7 +9,7 @@ import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import HobbieQ from "./individual-questions/HobbieQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 
-function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
+function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
     const [ bDayPage, setBDayPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
     const [ giftedName, setGiftedName ] = useState(bDay.giftedName); /* string */

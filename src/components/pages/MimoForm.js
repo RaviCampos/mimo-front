@@ -31,7 +31,8 @@ function MimoForm() {
     const [ section, setSection ] = useState("common");
 
     const [ occasion, setOccasion ] = useState("");
-    const [ gifterName, setGifterName ] = useState("Alexei");
+    const [ gifterName, setGifterName ] = useState("");
+    
     const [ additions, setAdditions ] = useState("")
     const [ foodRestriction, setFoodRestriction ] = useState("")
     const [ value, setValue ] = useState("")
@@ -41,6 +42,7 @@ function MimoForm() {
     const [ contact, setContact ] = useState("")
 
     const [ goToOccasionLastQ, setGoToOccasionLastQ ] = useState(false);
+
     const [ bDay, setBDay] = useState({})
     const [ wedding, setWedding ] = useState({})
 
@@ -103,7 +105,7 @@ function MimoForm() {
             switch(occasion) {
                 case "aniversario":
                     Question = Bday;
-                    tools = { occasion, gifterName, setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
+                    tools = { setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
                     break
                 case "casamento/namoro":
                     Question = Wedding;
