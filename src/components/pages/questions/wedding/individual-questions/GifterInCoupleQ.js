@@ -1,8 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, gifterInCouple, setGifterInCouple }}) {
 
     const [ inCouple, setInCouple ] = useState(gifterInCouple ? gifterInCouple : "")
+
+    const [ warning, setWarning ] = useState(false)
+    useEffect(() => {
+        setWarning(false)
+    }, [inCouple])
 
     return (
         <div>
@@ -17,6 +22,8 @@ function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPa
                 <label htmlFor="couple_out">Conheço esse casal que está comemorando aniversário em seu relacionamento e não posso deixar de presenteá-los</label>
             </div>
 
+            {warning && <p className="validation-warning">{warning}</p>}
+
             <button onClick={() => {
                 const wed = {
                     ...futureWedding,
@@ -28,8 +35,12 @@ function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPa
                 setPage(2);
             }}>Anterior</button>
             <button onClick={() => {
-                setWeddingPage(1)
-                setGifterInCouple(inCouple);
+                if(inCouple) {
+                    setWeddingPage(1)
+                    setGifterInCouple(inCouple);
+                } else {
+                    setWarning("Por favor, selecione uma das opções")
+                }
             }}>Próxima</button>
 
         </div>

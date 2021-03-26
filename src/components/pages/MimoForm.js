@@ -31,7 +31,7 @@ function MimoForm() {
     const [ section, setSection ] = useState("common");
 
     const [ occasion, setOccasion ] = useState("");
-    const [ gifterName, setGifterName ] = useState("");
+    const [ gifterName, setGifterName ] = useState("Alexei");
     
     const [ additions, setAdditions ] = useState("")
     const [ foodRestriction, setFoodRestriction ] = useState("")
