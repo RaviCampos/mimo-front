@@ -1,19 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
 
-    // const getSelectedRadio = () => {
-    //     let radios = document.querySelectorAll("input[name='occasion']");
-    //     radios = [...radios];
-    //     radios = radios.filter(radio => radio.checked)
-    //     return JSON.parse(radios[0].value);
-    // }
-
     const [ radioValue, setRadioValue ] = useState(occasion);
 
-    // useEffect(() => {
-    //     console.log(radioValue.occasion, radioValue.section);
-    // });
+    const [ warning, setWarning ] = useState(false);
+
+    useEffect(() => {
+        setWarning(false);
+    }, [radioValue])
 
     return (
         <div>
@@ -51,16 +46,20 @@ function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
                 </div>
             </div>
 
+            {warning && <p className="validation-warning">{warning}</p>}
+
             <button onClick={() => {
-                // const radioSelected = getSelectedRadio();
                 setOccasion(radioValue);
                 setPage(1)
             }}>Anterior</button>
             <button onClick={() => {
-                // const radioSelected = getSelectedRadio();
-                setSection("occasion")
-                setOccasion(radioValue);
-                setPage(3)
+                if(radioValue) {
+                    setSection("occasion")
+                    setOccasion(radioValue);
+                    setPage(3)
+                } else {
+                    setWarning("Por favor, selecione uma das opções para prosseguir")
+                }
             }}>Próxima</button>
         </div>
     )

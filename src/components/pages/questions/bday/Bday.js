@@ -12,7 +12,7 @@ import CoolnessQ from "./individual-questions/CoolnessQ"
 function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
     const [ bDayPage, setBDayPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
-    const [ giftedName, setGiftedName ] = useState(bDay.giftedName ? bDay.giftedName : "Dmitri"); /* string */
+    const [ giftedName, setGiftedName ] = useState(bDay.giftedName); /* string */
     const [ age, setAge ] = useState(bDay.age)  /* string */
     const [ relation, setRelation ] = useState(bDay.relation)
     const [ intimacy, setIntimacy ] = useState(bDay.intimacy);
