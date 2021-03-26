@@ -39,7 +39,7 @@ function Bday({tools: { occasion, gifterName, setSection, bDay, setBDay, setPage
             break;
         case 1:
             Question = YearsQ;
-            tools = { setBDayPage, setAge, age};
+            tools = { setBDayPage, setAge, age, giftedName};
             break;
         case 2:
             Question = RelationQ;
