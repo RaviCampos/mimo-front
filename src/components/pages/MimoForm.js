@@ -113,7 +113,7 @@ function MimoForm() {
                     break
                 case "casamento/namoro":
                     Question = Wedding;
-                    tools = { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
+                    tools = { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }
                     break
                 default:
                     Question = NotFoundQ;

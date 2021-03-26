@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GifterInCoupleQ from "./individual-questions/GifterInCoupleQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 
-function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
+function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
     const [ weddingPage, setWeddingPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
 
-    const [ gifterInCouple, setGifterInCouple ] = useState(wedding.gifterInCouple === "Sim")
+    const [ gifterInCouple, setGifterInCouple ] = useState(wedding.gifterInCouple === "Sim" ? true : wedding.gifterInCouple === undefined ? undefined : false)
     const [ giftedName, setGiftedName ] = useState(wedding.giftedName)
 
     const futureWedding = {
@@ -25,7 +25,8 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
             break;
         case 1:
             Question = GiftedNameQ;
-            tools = { setWeddingPage, setGiftedName, giftedName, gifterInCouple }
+            tools = { setWeddingPage, setGiftedName, giftedName, gifterInCouple, gifterName }
+            break
         default:
             Question = NotFoundQ;
             tools = {  }
