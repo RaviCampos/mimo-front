@@ -30,7 +30,7 @@ function MimoForm() {
     // section can be start or occasion 
     const [ section, setSection ] = useState("common");
 
-    const [ occasion, setOccasion ] = useState("");
+    const [ occasion, setOccasion ] = useState("casamento/namoro");
     const [ gifterName, setGifterName ] = useState("Alexei");
     
     const [ additions, setAdditions ] = useState("")

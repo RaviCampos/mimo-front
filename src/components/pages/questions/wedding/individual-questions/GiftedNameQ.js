@@ -86,7 +86,7 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
                 if(gifterInCouple) {
                     if(firstName) {
                         setGiftedName(firstName)
-                        setWeddingPage(3)
+                        setWeddingPage(2)
                     } else {
                         setWarning("Por favor preencha o nome da outra pessoa")
                     }
@@ -97,7 +97,7 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
                         setWarning("Por favor preencha o nome do segundo membro do casal")
                     } else {
                         setGiftedName(`${firstName} -- ${secondName}`);
-                        setWeddingPage(3)
+                        setWeddingPage(2)
                     }
                 }
             }}>Próxima</button>

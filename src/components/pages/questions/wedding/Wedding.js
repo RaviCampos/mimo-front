@@ -16,13 +16,15 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     const [ weddingPage, setWeddingPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
 
     const [ gifterInCouple, setGifterInCouple ] = useState(wedding.gifterInCouple === "Sim" ? true : wedding.gifterInCouple === undefined ? undefined : false)
-    const [ giftedName, setGiftedName ] = useState(wedding.giftedName)
+    const [ giftedName, setGiftedName ] = useState(wedding.giftedName ? wedding.giftedName : "Rodya -- Sonya")
     const [ timeTogether, setTimeTogether ] = useState(wedding.timeTogether)
+    const [ age, setAge ] = useState(wedding.age)
 
     const futureWedding = {
         gifterInCouple,
         giftedName,
-        timeTogether
+        timeTogether,
+        age
     }
 
     let Question, tools
@@ -35,6 +37,14 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
         case 1:
             Question = GiftedNameQ;
             tools = { setWeddingPage, setGiftedName, giftedName, gifterInCouple, gifterName }
+            break
+        case 2:
+            Question = TimeTogetherQ;
+            tools = { setWeddingPage, setTimeTogether, gifterInCouple, timeTogether, gifterName }
+            break
+        case 3:
+            Question = AgeQ;
+            tools = { setWeddingPage, setAge, gifterInCouple, age, gifterName }
             break
         default:
             Question = NotFoundQ;
