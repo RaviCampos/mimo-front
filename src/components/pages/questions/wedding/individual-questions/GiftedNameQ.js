@@ -15,17 +15,7 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
                 protoName = [ "", "" ]
             }
         }
-        // if(protoName.length === 1) {
-        //     if(!gifterInCouple) {
-        //         protoName.push("")
-        //     } else {
-        //         protoName = [ "", "" ]
-        //     }
-        // } else {
-        //     if(gifterInCouple) {
-        //         protoName = [ "", "" ]
-        //     }
-        // }
+
     } else {
         protoName = [ "", "" ];
     }
@@ -38,14 +28,6 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
     useEffect(() => {
         setWarning(false);
     }, [firstName, secondName])
-    // let question;
-    // if(gifterInCouple) {
-    //     question = <div>
-    //         <h2>Que legal, ${gifterName}! Me conta o nome da pessoa com quem você está construindo essa história de amor?</h2>
-    //     </div>
-    // } else {
-    //     question = "Muito atencioso da sua parte! Qual o nome do feliz casal que vamos homenagear?"
-    // }
 
     return (
         <div>
