@@ -44,7 +44,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
             break
         case 3:
             Question = AgeQ;
-            tools = { setWeddingPage, setAge, gifterInCouple, age, gifterName }
+            tools = { setWeddingPage, setAge, gifterInCouple, age, gifterName, giftedName }
             break
         default:
             Question = NotFoundQ;
