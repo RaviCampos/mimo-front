@@ -76,9 +76,9 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
 
             <button onClick={() => {
                 if(gifterInCouple) {
-                    setGiftedName(`${firstName} -- ${secondName}`);
-                } else {
                     setGiftedName(firstName)
+                } else {
+                    setGiftedName(`${firstName} -- ${secondName}`);
                 }
                 setWeddingPage(0)
             }}>Anterior</button>
