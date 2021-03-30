@@ -59,7 +59,7 @@ function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, in
     } else {
         return (
             <div>
-                <h2>Permance vazia</h2>
+                <h2>Intro Extra</h2>
                 <button onClick={() => {
                     setIntroExtra(inEx)
                     setWeddingPage(4)

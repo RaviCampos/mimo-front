@@ -23,6 +23,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     const [ introExtra, setIntroExtra ] = useState(wedding.introExtra)
     const [ reasonToGift, setReasonToGift ] = useState(wedding.reasonToGift)
     const [ commonHobbies, setCommonHobbies ] = useState(wedding.commonHobbies)
+    const [ coolness, setCoolness ] = useState(wedding.coolness)
 
     const futureWedding = {
         gifterInCouple,
@@ -31,7 +32,9 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
         age,
         coupleRelationLevel,
         introExtra,
-        reasonToGift
+        reasonToGift,
+        commonHobbies,
+        coolness
     }
 
     let Question, tools
@@ -64,6 +67,24 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
             } else {
                 Question = ReasonToGiftQ;
                 tools = { setWeddingPage, setReasonToGift, gifterInCouple, reasonToGift }
+            }
+            break
+        case 6:
+            if(gifterInCouple) {
+                Question = CommonHobbiesQ;
+                tools = { setWeddingPage, setCommonHobbies, gifterInCouple, commonHobbies}
+            } else {
+                Question = CoolnessQ;
+                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness}
+            }
+            break
+        case 7:
+            if(gifterInCouple) {
+                Question = CoolnessQ;
+                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness}
+            } else {
+                Question = IntroExtraQ;
+                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra }
             }
             break
         default:

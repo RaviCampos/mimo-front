@@ -35,17 +35,17 @@ function ReasonToGiftQ({tools: { setWeddingPage, setReasonToGift, gifterInCouple
             {warning && <p className="validation-warning">{warning}</p>}
 
             <button onClick={() => {
+                setReasonToGift(inReason)
+                setWeddingPage(4)
+            }}>Anterior</button>
+            <button onClick={() => {
+                if(!inReason) {
+                    setWarning(`Por favor, escolha uma das opções` )
+                }  else {
                     setReasonToGift(inReason)
-                    setWeddingPage(4)
-                }}>Anterior</button>
-                <button onClick={() => {
-                    if(!inReason) {
-                        setWarning(`Por favor, escolha uma das opções` )
-                    }  else {
-                        setReasonToGift(inReason)
-                        setWeddingPage(6)
-                    }
-                }}>Próxima</button>
+                    setWeddingPage(6)
+                }
+            }}>Próxima</button>
 
         </div>
     )
