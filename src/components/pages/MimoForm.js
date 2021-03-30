@@ -20,11 +20,6 @@ import EndQ from "./questions/EndQ"
 
 function MimoForm() {
 
-    // const [ page, setPage ] = useState({section: "bday", index: 0}); 
-
-    // const [ names, setNames ] = useState({gifter: "", gifted: ""});
-    // const [ occasion, setOccasion ] = useState("não preciso de ocasiões");
-
     const [ page, setPage ] = useState(0);
 
     // section can be start or occasion 
