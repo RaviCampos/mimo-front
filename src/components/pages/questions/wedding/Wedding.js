@@ -19,12 +19,14 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     const [ giftedName, setGiftedName ] = useState(wedding.giftedName ? wedding.giftedName : "Rodya -- Sonya")
     const [ timeTogether, setTimeTogether ] = useState(wedding.timeTogether)
     const [ age, setAge ] = useState(wedding.age)
+    const [ coupleRelationLevel, setCoupleRelationLevel ] = useState(wedding.coupleRelationLevel)
 
     const futureWedding = {
         gifterInCouple,
         giftedName,
         timeTogether,
-        age
+        age,
+        coupleRelationLevel
     }
 
     let Question, tools
@@ -45,6 +47,10 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
         case 3:
             Question = AgeQ;
             tools = { setWeddingPage, setAge, gifterInCouple, age, gifterName, giftedName }
+            break
+        case 4:
+            Question = CoupleRelationLevelQ;
+            tools = { setWeddingPage, setCoupleRelationLevel, gifterInCouple, coupleRelationLevel, giftedName }
             break
         default:
             Question = NotFoundQ;
