@@ -28,7 +28,7 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
                     // }  else {
                         const wed = {
                             ...futureWedding,
-                            gifterInCouple: "Não",
+                            gifterInCouple: "Sim",
                             coolness: inCoolness
                         }
                         delete wed.reasonToGift

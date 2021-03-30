@@ -13,7 +13,7 @@ import CoolnessQ from "./individual-questions/CoolnessQ"
 
 function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
-    const [ weddingPage, setWeddingPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
+    const [ weddingPage, setWeddingPage ] = useState(goToOccasionLastQ ? 7 : 0); /* integer */
 
     const [ gifterInCouple, setGifterInCouple ] = useState(wedding.gifterInCouple === "Sim" ? true : wedding.gifterInCouple === undefined ? undefined : false)
     const [ giftedName, setGiftedName ] = useState(wedding.giftedName ? wedding.giftedName : "Rodya -- Sonya")
