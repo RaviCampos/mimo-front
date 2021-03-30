@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, introExtra }}) {
+function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }}) {
 
     const [ inEx, setInEx ] = useState(introExtra ? introExtra : "")
 
@@ -68,8 +68,17 @@ function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, in
                     // if(!inEx) {
                     //     setWarning(`Por favor, escolha uma das opções` )
                     // }  else {
-                        setIntroExtra(inEx)
-                        setWeddingPage(6)
+                        const wed = {
+                            ...futureWedding,
+                            gifterInCouple: "Não",
+                            introExtra: inEx
+                        }
+                        delete wed.commonHobbies
+
+                        setWedding(wed);
+                        setGoToOccasionLastQ(true)
+                        setSection("common")
+                        setPage(4);
                     // }
                 }}>Próxima</button>
             </div>

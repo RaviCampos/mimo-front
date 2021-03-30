@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolness }}) {
+function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolness,  setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }}) {
     const [ inCoolness, setInCoolness ] = useState(coolness ? coolness : "")
 
     const [ warning, setWarning ] = useState(false)
@@ -12,7 +12,7 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
     if(gifterInCouple) {
         return (
             <div>
-                <h2>CommonHobbies</h2>
+                <h2>Coolness in couple</h2>
                 
                
 
@@ -26,8 +26,17 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
                     // if(!inCoolness) {
                     //     setWarning(`Por favor, escolha uma das opções` )
                     // }  else {
-                        setCoolness(inCoolness)
-                        setWeddingPage(7)
+                        const wed = {
+                            ...futureWedding,
+                            gifterInCouple: "Não",
+                            coolness: inCoolness
+                        }
+                        delete wed.reasonToGift
+
+                        setWedding(wed);
+                        setGoToOccasionLastQ(true)
+                        setSection("common")
+                        setPage(4);
                     // }
                 }}>Próxima</button>
             </div>
@@ -35,7 +44,7 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
     } else {
         return (
             <div>
-                <h2>CommonHobbies</h2>
+                <h2>coolness outside couple</h2>
                 <button onClick={() => {
                     setCoolness(inCoolness)
                     setWeddingPage(5)
