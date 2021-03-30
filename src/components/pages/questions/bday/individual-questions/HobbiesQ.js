@@ -6,7 +6,7 @@ function HobbieQ({tools: {hobbie, intimacy, setHobbie, setBDayPage, giftedName}}
 
     return (
         <div>
-            <h2>Hobbie</h2>
+            <h2>Hobby</h2>
 
             <br/>
 

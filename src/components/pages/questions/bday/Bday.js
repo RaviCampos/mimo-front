@@ -6,7 +6,7 @@ import YearsQ from "./individual-questions/YearsQ"
 import RelationQ from "./individual-questions/RelationQ"
 import IntimacyQ from "./individual-questions/IntimacyQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
-import HobbieQ from "./individual-questions/HobbieQ"
+import HobbiesQ from "./individual-questions/HobbiesQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 
 function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
@@ -17,7 +17,7 @@ function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, s
     const [ relation, setRelation ] = useState(bDay.relation)
     const [ intimacy, setIntimacy ] = useState(bDay.intimacy);
     const [ introExtra, setIntroExtra ] = useState(bDay.intraExtra);
-    const [ hobbie, setHobbie ] = useState(bDay.hobbie);
+    const [ hobbies, setHobbies ] = useState(bDay.hobbies);
     const [ coolness, setCoolness ] = useState(bDay.intimacy);
 
     const futureBDay = {
@@ -26,7 +26,7 @@ function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, s
         relation,
         intimacy,
         introExtra,
-        hobbie,
+        hobbies,
         coolness
     }
 
@@ -54,8 +54,8 @@ function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, s
             tools = { setBDayPage, setIntroExtra, introExtra, giftedName, intimacy }
             break;
         case 5:
-            Question = HobbieQ;
-            tools = { setBDayPage, setHobbie, hobbie, giftedName, intimacy }
+            Question = HobbiesQ;
+            tools = { setBDayPage, setHobbies, hobbies, giftedName, intimacy }
             break;
         case 6:
             Question = CoolnessQ;
