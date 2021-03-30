@@ -30,6 +30,11 @@ function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPa
                     ...futureWedding,
                     gifterInCouple: isInCouple
                 }
+                if(inCouple) {
+                    delete wed.reasonToGift
+                } else {
+                    delete wed.commonHobbies
+                }
                 setWedding(wed);
                 setGoToOccasionLastQ(false)
                 setSection("common")

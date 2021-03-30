@@ -22,13 +22,16 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     const [ coupleRelationLevel, setCoupleRelationLevel ] = useState(wedding.coupleRelationLevel)
     const [ introExtra, setIntroExtra ] = useState(wedding.introExtra)
     const [ reasonToGift, setReasonToGift ] = useState(wedding.reasonToGift)
+    const [ commonHobbies, setCommonHobbies ] = useState(wedding.commonHobbies)
 
     const futureWedding = {
         gifterInCouple,
         giftedName,
         timeTogether,
         age,
-        coupleRelationLevel
+        coupleRelationLevel,
+        introExtra,
+        reasonToGift
     }
 
     let Question, tools

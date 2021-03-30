@@ -10,8 +10,6 @@ function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, in
     }, [inEx])
 
 
-    console.log(gifterInCouple)
-
     if(gifterInCouple) {
         return (
             <div>
