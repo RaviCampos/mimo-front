@@ -18,14 +18,14 @@ function CommonHobbiesQ({tools: { setWeddingPage, setCommonHobbies, commonHobbie
             {warning && <p className="validation-warning">{warning}</p>}
 
             <button onClick={() => {
-                // setCommonHobbies(inHobbies)
+                setCommonHobbies(inHobbies)
                 setWeddingPage(5)
             }}>Anterior</button>
             <button onClick={() => {
                 // if(!inHobbies) {
                 //     setWarning(`Por favor, escolha uma das opções` )
                 // }  else {
-                    // setCommonHobbies(inHobbies)
+                    setCommonHobbies(inHobbies)
                     setWeddingPage(7)
                 // }
             }}>Próxima</button>
