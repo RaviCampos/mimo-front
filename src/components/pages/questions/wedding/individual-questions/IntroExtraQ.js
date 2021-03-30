@@ -62,7 +62,7 @@ function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, in
                 <h2>Intro Extra</h2>
                 <button onClick={() => {
                     setIntroExtra(inEx)
-                    setWeddingPage(4)
+                    setWeddingPage(6)
                 }}>Anterior</button>
                 <button onClick={() => {
                     // if(!inEx) {

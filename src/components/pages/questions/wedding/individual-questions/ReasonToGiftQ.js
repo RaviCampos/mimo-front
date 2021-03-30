@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-function ReasonToGiftQ({tools: { setWeddingPage, setReasonToGift, gifterInCouple, reasonToGift }}) {
+function ReasonToGiftQ({tools: { setWeddingPage, setReasonToGift, reasonToGift }}) {
 
     const [ inReason, setInReason ] = useState(reasonToGift) 
     

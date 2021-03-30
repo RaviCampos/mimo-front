@@ -66,13 +66,13 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
                 tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra }
             } else {
                 Question = ReasonToGiftQ;
-                tools = { setWeddingPage, setReasonToGift, gifterInCouple, reasonToGift }
+                tools = { setWeddingPage, setReasonToGift, reasonToGift }
             }
             break
         case 6:
             if(gifterInCouple) {
                 Question = CommonHobbiesQ;
-                tools = { setWeddingPage, setCommonHobbies, gifterInCouple, commonHobbies}
+                tools = { setWeddingPage, setCommonHobbies, commonHobbies}
             } else {
                 Question = CoolnessQ;
                 tools = { setWeddingPage, setCoolness, gifterInCouple, coolness}
