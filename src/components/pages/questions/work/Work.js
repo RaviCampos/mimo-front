@@ -35,6 +35,16 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
 
     let Question, tools
 
+    function intimacyCalc(string) {
+        if(string === "Somos muito amigos" || /é da família/.test(string)) {
+            return 2
+        } else if(/é meu\/minha chefe/.test(string)) {
+            return 0
+        } else {
+            return 1
+        }
+    } 
+
     switch(workPage) {
         case 0:
             Question = GiftedNameQ;
@@ -56,6 +66,16 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
             Question = AreaQ;
             tools = { setWorkPage, area, setArea, giftedName };
             break
+        case 5:
+            if(intimacyCalc(intimacy) === 2) {
+                Question = MoodQ;
+                tools = { setWorkPage, mood, setMood, giftedName}
+                break
+            } else {
+                Question = CoolnessQ;
+                tools = { setWorkPage, coolness, setCoolness, giftedName, intimacy: intimacyCalc(intimacy) }
+                break
+            }
         default:
             Question = NotFoundQ;
             tools = {  }
