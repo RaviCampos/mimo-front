@@ -12,7 +12,7 @@ import IntroExtraQ from "./individual-questions/IntroExtraQ"
 
 function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
-    const [ workPage, setWorkPage ] = useState(goToOccasionLastQ ? 7 : 0); /* integer */
+    const [ workPage, setWorkPage ] = useState(goToOccasionLastQ ? intimacyCalc(work.intimacy) === 2 ? 7 : 6 : 0); /* integer */
 
     const [ giftedName, setGiftedName ] = useState(work.giftedName)
     const [ reason, setReason ] = useState(work.reason)
@@ -27,6 +27,7 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
         giftedName,
         reason,
         intimacy,
+        age,
         area,
         mood,
         coolness,
@@ -70,12 +71,24 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
             if(intimacyCalc(intimacy) === 2) {
                 Question = MoodQ;
                 tools = { setWorkPage, mood, setMood, giftedName}
-                break
             } else {
                 Question = CoolnessQ;
                 tools = { setWorkPage, coolness, setCoolness, giftedName, intimacy: intimacyCalc(intimacy) }
-                break
             }
+            break
+        case 6:
+            if(intimacyCalc(intimacy) === 2) {
+                Question = CoolnessQ;
+                tools = { setWorkPage, coolness, setCoolness, giftedName, intimacy: intimacyCalc(intimacy) }
+            } else {
+                Question = IntroExtraQ;
+                tools = { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, introExtra, setIntroExtra, giftedName, intimacy: intimacyCalc(intimacy) }
+            }
+            break
+        case 7:
+            Question = IntroExtraQ;
+            tools = { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, introExtra, setIntroExtra, giftedName, intimacy: intimacyCalc(intimacy) }
+            break
         default:
             Question = NotFoundQ;
             tools = {  }

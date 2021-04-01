@@ -19,7 +19,6 @@ function GiftedNameQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
             {warning && <p className="validation-warning">{warning}</p>}
             
             <button onClick={() => {
-                // const isInCouple =  inCouple ? "Sim" : "Não"
                 const work = {
                     ...futureWork,
                     giftedName: inName
