@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function GiftedNameQ({tools: { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, giftedName, setGiftedName }}) {
+function GiftedNameQ({tools: { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, giftedName, setGiftedName }}) {
 
     const [ inName, setInName ] = useState(giftedName ? giftedName : "")
 
@@ -11,7 +11,7 @@ function GiftedNameQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
     
     return (
         <div>
-            <h2>Comemorar conquistas é sempre muito importante! Qual é o nome da pessoa que vai receber o presente?</h2>
+            <h2>Qual nome da pessoa que está de mudança e vai ganhar um presente para celebrar esse momento?</h2>
             <input type="text" value={inName} onChange={e => setInName(e.target.value)}/>
 
             <br/>
@@ -19,16 +19,11 @@ function GiftedNameQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
             {warning && <p className="validation-warning">{warning}</p>}
             
             <button onClick={() => {
-                const work = {
-                    ...futureWork,
+                const moving = {
+                    ...futureMoving,
                     giftedName: inName
                 }
-                // if(inCouple) {
-                //     delete wed.reasonToGift
-                // } else {
-                //     delete wed.commonHobbies
-                // }
-                setWork(work);
+                setMoving(moving);
                 setGoToOccasionLastQ(false)
                 setSection("common")
                 setPage(2);
@@ -36,7 +31,7 @@ function GiftedNameQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
             <button onClick={() => {
                 if(inName !== "") {
                     setGiftedName(inName);
-                    setWorkPage(1)
+                    setMovingPage(1)
                 } else {
                     setWarning("Por favor, preencha o nome da pessoa que vai ganhar o presente")
                 }
