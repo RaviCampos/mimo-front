@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function AgeQ({tools: { setWorkPage, age, setAge, giftedName }}) {
+function AgeQ({tools: { setMovingPage, age, setAge, giftedName }}) {
 
     let protoAge
 
@@ -40,7 +40,7 @@ function AgeQ({tools: { setWorkPage, age, setAge, giftedName }}) {
 
             <button onClick={() => {
                 setAge(`${accuracy} -- ${inAge}`);
-                setWorkPage(2)
+                setMovingPage(1)
             }}>Anterior</button>
             <button onClick={() => {
                 if(!accuracy) {
@@ -53,7 +53,7 @@ function AgeQ({tools: { setWorkPage, age, setAge, giftedName }}) {
                     setWarning("A idade não pode ser maior que 120 anos")
                 } else {
                     setAge(`${accuracy} -- ${inAge}`);
-                    setWorkPage(4)
+                    setMovingPage(3)
                 }
             }}>Próxima</button>
         </div>
