@@ -46,16 +46,16 @@ function IntimacyQ({tools: { setWorkPage, intimacy, setIntimacy, giftedName }}) 
                 <label htmlFor="work-intimacy_together">Trabalhamos juntos</label>
             </div>
             <div>
+                <input type="radio" name="intimacy" id="work-intimacy_study" checked={inIntimacy === "Estudamos juntos"} onChange={() => changeInIntimacy("Estudamos juntos")} />
+                <label htmlFor="work-intimacy_study">Estudamos juntos</label>
+            </div>
+            <div>
                 <input type="radio" name="intimacy" id="work-intimacy_boss" checked={inIntimacy === `${capitalize(giftedName)} é meu/minha chefe`} onChange={() => changeInIntimacy(`${capitalize(giftedName)} é meu/minha chefe`)} />
                 <label htmlFor="work-intimacy_boss">{capitalize(giftedName)} é meu/minha chefe</label>
             </div>
             <div>
                 <input type="radio" name="intimacy" id="work-intimacy_employe" checked={inIntimacy === `${capitalize(giftedName)} trabalha para mim`} onChange={() => changeInIntimacy(`${capitalize(giftedName)} trabalha para mim`)} />
                 <label htmlFor="work-intimacy_employe">{capitalize(giftedName)} trabalha para mim</label>
-            </div>
-            <div>
-                <input type="radio" name="intimacy" id="work-intimacy_study" checked={inIntimacy === "Estudamos juntos"} onChange={() => changeInIntimacy("Estudamos juntos")} />
-                <label htmlFor="work-intimacy_study">Estudamos juntos</label>
             </div>
             <div>
                 <input type="radio" name="intimacy" id="work-intimacy_family" checked={inIntimacy === `${capitalize(giftedName)} é da família`} onChange={() => changeInIntimacy(`${capitalize(giftedName)} é da família`)} />
