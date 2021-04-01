@@ -1,5 +1,5 @@
 
-function AreaQ() {
+function MoodQ() {
     return (
         <div>
             
@@ -7,4 +7,4 @@ function AreaQ() {
     )
 }
 
-export default AreaQ
+export default MoodQ
