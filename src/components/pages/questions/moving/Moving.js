@@ -8,6 +8,7 @@ import AgeQ from "./individual-questions/AgeQ"
 import MoodQ from "./individual-questions/MoodQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
+import RelationQ from "./individual-questions/RelationQ"
 
 function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
@@ -20,6 +21,7 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
     const [ mood, setMood ] = useState(moving.mood)
     const [ coolness, setCoolness ] = useState(moving.coolness)
     const [ introExtra, setIntroExtra ] = useState(moving.introExtra)
+    const [ relation, setRelation ] = useState(moving.relation)
 
     const futureMoving = {
         giftedName,
@@ -28,7 +30,8 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
         age,
         mood,
         coolness,
-        introExtra
+        introExtra,
+        relation
     }
 
     let Question, tools
@@ -53,38 +56,38 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
             tools = { setMovingPage, reason, setReason, giftedName };
             break
         case 2:
-            Question = IntimacyQ;
-            tools = { setMovingPage, intimacy, setIntimacy, giftedName };
-            break
-        case 3:
             Question = AgeQ;
             tools = { setMovingPage, age, setAge, giftedName };
             break
+        case 3:
+            Question = RelationQ;
+            tools = { setMovingPage, relation, setRelation, giftedName };
+            break
         case 4:
-            Question = AreaQ;
-            tools = { setMovingPage, area, setArea, giftedName };
+            Question = IntimacyQ;
+            tools = { setMovingPage, intimacy, setIntimacy, giftedName };
             break
         case 5:
-            if(intimacyCalc(intimacy) === 2) {
-                Question = MoodQ;
-                tools = { setMovingPage, mood, setMood, giftedName}
-            } else {
+            if(intimacy <= 5) {
                 Question = CoolnessQ;
-                tools = { setMovingPage, coolness, setCoolness, giftedName, intimacy: intimacyCalc(intimacy) }
+                tools = { setMovingPage, coolness, setCoolness, giftedName, intimacy }
+            } else {
+                Question = IntroExtraQ;
+                tools = { setMovingPage, introExtra, setIntroExtra, giftedName, intimacy }
             }
             break
         case 6:
-            if(intimacyCalc(intimacy) === 2) {
-                Question = CoolnessQ;
-                tools = { setMovingPage, coolness, setCoolness, giftedName, intimacy: intimacyCalc(intimacy) }
-            } else {
+            if(intimacy <= 5) {
                 Question = IntroExtraQ;
-                tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, introExtra, setIntroExtra, giftedName, intimacy: intimacyCalc(intimacy) }
+                tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, introExtra, setIntroExtra, giftedName, intimacy }
+            } else {
+                Question = MoodQ;
+                tools = { setMovingPage, mood, setMood, giftedName}
             }
             break
         case 7:
-            Question = IntroExtraQ;
-            tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, introExtra, setIntroExtra, giftedName, intimacy: intimacyCalc(intimacy) }
+            Question = CoolnessQ;
+            tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, coolness, setCoolness, giftedName, intimacy }
             break
         default:
             Question = NotFoundQ;

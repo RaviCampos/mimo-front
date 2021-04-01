@@ -43,7 +43,7 @@ function MimoForm() {
     const [ bDay, setBDay] = useState({})
     const [ wedding, setWedding ] = useState({})
     const [ work, setWork ] = useState({})
-    const [ moving, setMooving ] = useState({})
+    const [ moving, setMoving ] = useState({})
 
     useEffect(() => {
         console.log(moving)
