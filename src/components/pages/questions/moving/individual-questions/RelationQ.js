@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 
-function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
+function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
 
     let inRelation;
 
@@ -84,7 +84,7 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
                 } else {
                     setRelation(mainRelation);
                 }
-                setBDayPage(1)
+                setMovingPage(2)
             }}>Anterior</button>
             <button onClick={() => {
                 if(!mainRelation) {
@@ -97,7 +97,7 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
                     } else {
                         setRelation(mainRelation);
                     }
-                    setBDayPage(3)
+                    setMovingPage(4)
                 }
             }}>Próxima</button>
         </div>

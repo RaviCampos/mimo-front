@@ -61,7 +61,7 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
             break
         case 3:
             Question = RelationQ;
-            tools = { setMovingPage, relation, setRelation, giftedName };
+            tools = { setMovingPage, relation, setRelation };
             break
         case 4:
             Question = IntimacyQ;
