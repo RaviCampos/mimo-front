@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import ReasonQ from "./individual-questions/ReasonQ"
+import IntimacyQ from "./individual-questions/IntimacyQ"
 
 function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
@@ -10,10 +11,12 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
 
     const [ giftedName, setGiftedName ] = useState(work.giftedName)
     const [ reason, setReason ] = useState(work.reason)
+    const [ intimacy, setIntimacy ] = useState(work.intimacy)
 
     const futureWork = {
         giftedName,
-        reason
+        reason,
+        intimacy
     }
 
     let Question, tools
@@ -26,6 +29,10 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
         case 1:
             Question = ReasonQ;
             tools = { setWorkPage, reason, setReason, giftedName };
+            break
+        case 2:
+            Question = IntimacyQ;
+            tools = { setWorkPage, intimacy, setIntimacy, giftedName };
             break
         default:
             Question = NotFoundQ;
