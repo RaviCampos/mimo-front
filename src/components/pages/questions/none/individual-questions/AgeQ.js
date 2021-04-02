@@ -40,7 +40,7 @@ function AgeQ({tools: { setNonePage, age, setAge, giftedName }}) {
 
             <button onClick={() => {
                 setAge(`${accuracy} -- ${inAge}`);
-                setNonePage(1)
+                setNonePage(0)
             }}>Anterior</button>
             <button onClick={() => {
                 if(!accuracy) {
@@ -53,7 +53,7 @@ function AgeQ({tools: { setNonePage, age, setAge, giftedName }}) {
                     setWarning("A idade não pode ser maior que 120 anos")
                 } else {
                     setAge(`${accuracy} -- ${inAge}`);
-                    setNonePage(3)
+                    setNonePage(2)
                 }
             }}>Próxima</button>
         </div>
