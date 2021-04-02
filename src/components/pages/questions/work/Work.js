@@ -10,7 +10,7 @@ import MoodQ from "./individual-questions/MoodQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
 
-function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
+function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
     const [ workPage, setWorkPage ] = useState(goToOccasionLastQ ? intimacyCalc(work.intimacy) === 2 ? 7 : 6 : 0); /* integer */
 

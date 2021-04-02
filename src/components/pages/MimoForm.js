@@ -17,6 +17,7 @@ import Bday from "./questions/bday/Bday"
 import Wedding from "./questions/wedding/Wedding"
 import Work from "./questions/work/Work"
 import Moving from "./questions/moving/Moving"
+import Travel from "./questions/travel/Travel"
 
 import EndQ from "./questions/EndQ"
 
@@ -44,6 +45,7 @@ function MimoForm() {
     const [ wedding, setWedding ] = useState({})
     const [ work, setWork ] = useState({})
     const [ moving, setMoving ] = useState({})
+    const [ travel, setTravel ] = useState({})
 
     useEffect(() => {
         console.log(moving)
@@ -121,6 +123,10 @@ function MimoForm() {
                 case "mudança":
                     Question = Moving;
                     tools = { setSection, moving, setMoving, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
+                    break
+                case "viagem":
+                    Question = Travel;
+                    tools = { setSection, travel, setTravel, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
                     break
                 default:
                     Question = NotFoundQ;

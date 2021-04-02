@@ -10,7 +10,7 @@ import CoolnessQ from "./individual-questions/CoolnessQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import RelationQ from "./individual-questions/RelationQ"
 
-function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
+function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
     const [ movingPage, setMovingPage ] = useState(goToOccasionLastQ ? moving.intimacy > 5 ? 7 : 6 : 0); /* integer */
 
