@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function IntimacyQ({tools: { setMovingPage, intimacy, setIntimacy, giftedName }}) {
+function IntimacyQ({tools: { setTravelPage, intimacy, setIntimacy, giftedName }}) {
 
     const [ inIntimacy, setInIntimacy ] = useState(intimacy ? intimacy : 5);
     
@@ -76,11 +76,11 @@ function IntimacyQ({tools: { setMovingPage, intimacy, setIntimacy, giftedName }}
 
             <button onClick={() => {
                 setIntimacy(inIntimacy);
-                setMovingPage(3)
+                setTravelPage(3)
             }}>Anterior</button>
             <button onClick={() => {
                 setIntimacy(inIntimacy);
-                setMovingPage(5)
+                setTravelPage(5)
             }}>Próxima</button>
         </div>
     )
