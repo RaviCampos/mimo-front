@@ -25,7 +25,7 @@ function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
 
     const familyText = <div>
         <p>O que essa pessoa é sua?</p>
-        <p>Ex: Tia, Sobrina, Avó</p>
+        <p>Ex: Tia, Sobrinha, Avó</p>
         <input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/>
     </div>;
 

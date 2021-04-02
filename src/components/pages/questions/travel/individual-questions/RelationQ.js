@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 
-function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
+function RelationQ({tools: { setTravelPage, relation, setRelation }}) {
 
     let inRelation;
 
@@ -25,7 +25,7 @@ function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
 
     const familyText = <div>
         <p>O que essa pessoa é sua?</p>
-        <p>Ex: Tia, Sobrina, Avó</p>
+        <p>Ex: Tia, Sobrinha, Avó</p>
         <input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/>
     </div>;
 
@@ -36,40 +36,40 @@ function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
             <h2>Qual a relação entre você e a pessoa sortuda que vai receber o presente</h2>
 
             <div>
-                <input type="radio" name="relation" id="relation_friends" value="amigos" checked={ mainRelation=== "amigos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_friends">Somos amigos</label>
+                <input type="radio" name="relation" id="relation-destiny_friends" value="amigos" checked={ mainRelation=== "amigos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_friends">Somos amigos</label>
             </div>
 
             <div>
-                <input type="radio" name="relation" id="relation_couple" value="casal" checked={ mainRelation=== "casal"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_couple">Somos um casal</label>
+                <input type="radio" name="relation" id="relation-destiny_couple" value="casal" checked={ mainRelation=== "casal"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_couple">Somos um casal</label>
             </div>
 
             <div>
-                <input type="radio" name="relation" id="relation_classmate" value="colegas/classe" checked={ mainRelation=== "colegas/classe"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_classmate">Somos colegas de classe</label>
+                <input type="radio" name="relation" id="relation-destiny_classmate" value="colegas/classe" checked={ mainRelation=== "colegas/classe"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_classmate">Somos colegas de classe</label>
             </div>
 
             <div>
-                <input type="radio" name="relation" id="relation_workmate" value="colegas/trabalho" checked={ mainRelation=== "colegas/trabalho"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_workmate">Somos colegas de trabalho</label>
+                <input type="radio" name="relation" id="relation-destiny_workmate" value="colegas/trabalho" checked={ mainRelation=== "colegas/trabalho"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_workmate">Somos colegas de trabalho</label>
             </div>
 
             <div>
-                <input type="radio" name="relation" id="relation_family" value="familia" checked={ mainRelation=== "familia"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_family">Somos familiares</label>
+                <input type="radio" name="relation" id="relation-destiny_family" value="familia" checked={ mainRelation=== "familia"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_family">Somos familiares</label>
             </div>
 
             {mainRelation=== "familia" && familyText}
 
             <div>
-                <input type="radio" name="relation" id="relation_acquaintance" value="conhecidos" checked={ mainRelation=== "conhecidos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_acquaintance">Somos apenas conhecidos</label>
+                <input type="radio" name="relation" id="relation-destiny_acquaintance" value="conhecidos" checked={ mainRelation=== "conhecidos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_acquaintance">Somos apenas conhecidos</label>
             </div>
 
             <div>
-                <input type="radio" name="relation" id="relation_other" value="outra" checked={ mainRelation=== "outra"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_other">Outra relação não citada acima</label>
+                <input type="radio" name="relation" id="relation-destiny_other" value="outra" checked={ mainRelation=== "outra"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                <label htmlFor="relation-destiny_other">Outra relação não citada acima</label>
             </div>
 
             {mainRelation=== "outra" && otherText}
@@ -84,7 +84,7 @@ function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
                 } else {
                     setRelation(mainRelation);
                 }
-                setMovingPage(2)
+                setTravelPage(2)
             }}>Anterior</button>
             <button onClick={() => {
                 if(!mainRelation) {
@@ -97,7 +97,7 @@ function RelationQ({tools: { setMovingPage, relation, setRelation }}) {
                     } else {
                         setRelation(mainRelation);
                     }
-                    setMovingPage(4)
+                    setTravelPage(4)
                 }
             }}>Próxima</button>
         </div>
