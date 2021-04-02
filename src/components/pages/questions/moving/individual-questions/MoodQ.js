@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function MoodQ({tools: { setWorkPage, mood, setMood, giftedName }}) {
+function MoodQ({tools: { setMovingPage, mood, setMood, giftedName}}) {
     const [ inMood, setInMood ] = useState(mood)
 
     const [ warning, setWarning ] = useState(false)
@@ -17,11 +17,11 @@ function MoodQ({tools: { setWorkPage, mood, setMood, giftedName }}) {
 
             <button onClick={() => {
                 setMood(inMood);
-                setWorkPage(4)
+                setMovingPage(5)
             }}>Anterior</button>
             <button onClick={() => {
                 setMood(inMood);
-                setWorkPage(6)
+                setMovingPage(7)
             }}>Próxima</button>
         </div>
     )

@@ -12,7 +12,7 @@ import RelationQ from "./individual-questions/RelationQ"
 
 function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
-    const [ movingPage, setMovingPage ] = useState(goToOccasionLastQ ? intimacyCalc(moving.intimacy) === 2 ? 7 : 6 : 0); /* integer */
+    const [ movingPage, setMovingPage ] = useState(goToOccasionLastQ ? moving.intimacy > 5 ? 7 : 6 : 0); /* integer */
 
     const [ giftedName, setGiftedName ] = useState(moving.giftedName)
     const [ reason, setReason ] = useState(moving.reason)
@@ -35,16 +35,6 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
     }
 
     let Question, tools
-
-    function intimacyCalc(string) {
-        if(string === "Somos muito amigos" || /é da família/.test(string)) {
-            return 2
-        } else if(/é meu\/minha chefe/.test(string)) {
-            return 0
-        } else {
-            return 1
-        }
-    } 
 
     switch(movingPage) {
         case 0:

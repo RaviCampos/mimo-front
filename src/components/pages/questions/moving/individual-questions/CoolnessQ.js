@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function CoolnessQ({tools: { setWorkPage, coolness, setCoolness, giftedName, intimacy }}) {
+function CoolnessQ({tools: { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, coolness, setCoolness, giftedName, intimacy }}) {
     const [ inCoolness, setInCoolness ] = useState(coolness)
 
     const [ warning, setWarning ] = useState(false)
@@ -16,12 +16,28 @@ function CoolnessQ({tools: { setWorkPage, coolness, setCoolness, giftedName, int
             {warning && <p className="validation-warning">{warning}</p>}
 
             <button onClick={() => {
-                setCoolness(inCoolness);
-                setWorkPage(intimacy === 2 ? 5 : 4)
+                if(intimacy > 5) {
+                    setCoolness(inCoolness);
+                    setMovingPage(6)
+                } else {
+                    setCoolness(inCoolness);
+                    setMovingPage(4)
+                }
             }}>Anterior</button>
             <button onClick={() => {
-                setCoolness(inCoolness);
-                setWorkPage(intimacy === 2 ? 7 : 6)
+                if(intimacy > 5) {
+                    const moving = {
+                        ...futureMoving,
+                        coolness: inCoolness
+                    }
+                    setMoving(moving);
+                    setGoToOccasionLastQ(true)
+                    setSection("common")
+                    setPage(4);
+                } else {
+                    setCoolness(inCoolness);
+                    setMovingPage(6)
+                }
             }}>Próxima</button>
         </div>
     )
