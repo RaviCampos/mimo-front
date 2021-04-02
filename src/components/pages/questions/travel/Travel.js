@@ -11,7 +11,7 @@ import DestinyQ from "./individual-questions/DestinyQ"
 
 function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
-    const [ travelPage, setTravelPage ] = useState(goToOccasionLastQ ? travel.intimacy > 5 ? 7 : 6 : 0); /* integer */
+    const [ travelPage, setTravelPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
 
     const [ giftedName, setGiftedName ] = useState(travel.giftedName)
     const [ reason, setReason ] = useState(travel.reason)
