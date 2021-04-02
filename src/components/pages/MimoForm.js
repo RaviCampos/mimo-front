@@ -9,8 +9,8 @@ import AdditionsQ from "./questions/AdditionsQ";
 import FoodRestrictionQ from "./questions/FoodRestrictionQ";
 import ValueQ from "./questions/ValueQ";
 import DateQ from "./questions/DateQ";
-import AdressQ from "./questions/AdressQ"
-import ContactQ from "./questions/ContactQ"
+import AdressQ from "./questions/AdressQ";
+import ContactQ from "./questions/ContactQ";
 
 import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
@@ -18,6 +18,7 @@ import Wedding from "./questions/wedding/Wedding"
 import Work from "./questions/work/Work"
 import Moving from "./questions/moving/Moving"
 import Travel from "./questions/travel/Travel"
+import None from "./questions/none/None"
 
 import EndQ from "./questions/EndQ"
 
@@ -46,6 +47,7 @@ function MimoForm() {
     const [ work, setWork ] = useState({})
     const [ moving, setMoving ] = useState({})
     const [ travel, setTravel ] = useState({})
+    const [ none, setNone ] = useState({})
 
     useEffect(() => {
         console.log(moving)
@@ -127,6 +129,10 @@ function MimoForm() {
                 case "viagem":
                     Question = Travel;
                     tools = { setSection, travel, setTravel, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
+                    break
+                case "nenhuma":
+                    Question = None;
+                    tools = { setSection, none, setNone, setPage, goToOccasionLastQ, setGoToOccasionLastQ }
                     break
                 default:
                     Question = NotFoundQ;
