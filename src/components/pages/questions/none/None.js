@@ -11,7 +11,7 @@ import HobbiesQ from "./individual-questions/HobbiesQ"
 
 function None({tools: { setSection, none, setNone, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
-    const [ nonePage, setNonePage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
+    const [ nonePage, setNonePage ] = useState(goToOccasionLastQ ? none.intimacy > 5 ? 6 : 5 : 0); /* integer */
 
     const [ giftedName, setGiftedName ] = useState(none.giftedName)
     const [ intimacy, setIntimacy ] = useState(none.intimacy)
@@ -20,6 +20,8 @@ function None({tools: { setSection, none, setNone, setPage, goToOccasionLastQ, s
     const [ relation, setRelation ] = useState(none.relation)
     const [ age, setAge ] = useState(none.age)
     const [ hobbies, setHobbies ] = useState(none.hobbies)
+    const [ films, setFilms ] = useState(none.films)
+    const [ musics, setMusics ] = useState(none.musics)
 
     const futureNone = {
         giftedName,
@@ -28,7 +30,9 @@ function None({tools: { setSection, none, setNone, setPage, goToOccasionLastQ, s
         introExtra,
         relation,
         age,
-        hobbies
+        hobbies,
+        films,
+        musics
     }
 
     let Question, tools
@@ -56,11 +60,11 @@ function None({tools: { setSection, none, setNone, setPage, goToOccasionLastQ, s
             break
         case 5:
             Question = CoolnessQ;
-            tools = { setSection, futureNone, setNone, setPage, setGoToOccasionLastQ, setNonePage, coolness, setCoolness, giftedName, intimacy }
+            tools = { setSection, futureNone, setNone, setPage, setGoToOccasionLastQ, setNonePage, coolness, setCoolness, giftedName, intimacy, films, setFilms, musics, setMusics }
             break
         case 6:
             Question = HobbiesQ;
-            tools = { setNonePage, hobbies, setHobbies, giftedName };
+            tools = { setSection, futureNone, setNone, setPage, setGoToOccasionLastQ, setNonePage, hobbies, setHobbies, giftedName };
             break
         default:
             Question = NotFoundQ;

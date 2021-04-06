@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function HobbieQ({tools: {hobbie, intimacy, setHobbie, setBDayPage, giftedName}}) {
+function HobbiesQ({tools: {hobbies, intimacy, setHobbies, setBDayPage, giftedName}}) {
 
-    const [inHobbie, setInHobbie] = useState(hobbie ? hobbie : "")
+    const [inHobbies, setInHobbies] = useState(hobbies ? hobbies : "")
 
     return (
         <div>
@@ -11,15 +11,15 @@ function HobbieQ({tools: {hobbie, intimacy, setHobbie, setBDayPage, giftedName}}
             <br/>
 
             <button onClick={() => {
-                setHobbie(inHobbie);
+                setHobbies(inHobbies);
                 setBDayPage(4)
             }}>Anterior</button>
             <button onClick={() => {
-                setHobbie(inHobbie);
+                setHobbies(inHobbies);
                 setBDayPage(6)
             }}>Próxima</button>
         </div>
     )
 }
 
-export default HobbieQ
+export default HobbiesQ

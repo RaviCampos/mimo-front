@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function HobbieQ({tools: {hobbie, intimacy, setHobbie, setBDayPage, giftedName}}) {
+function HobbieQ({tools: { setSection, futureNone, setNone, setPage, setGoToOccasionLastQ, setNonePage, hobbies, setHobbies, giftedName }}) {
 
-    const [inHobbie, setInHobbie] = useState(hobbie ? hobbie : "")
+    const [inHobbies, setInHobbies] = useState(hobbies ? hobbies : "")
 
     return (
         <div>
@@ -11,12 +11,19 @@ function HobbieQ({tools: {hobbie, intimacy, setHobbie, setBDayPage, giftedName}}
             <br/>
 
             <button onClick={() => {
-                setHobbie(inHobbie);
-                setBDayPage(4)
+                setHobbies(inHobbies);
+                setNonePage(5)
             }}>Anterior</button>
             <button onClick={() => {
-                setHobbie(inHobbie);
-                setBDayPage(6)
+                const none = {
+                        ...futureNone,
+                        hobbies: inHobbies
+                    }
+                    delete none.coolness
+                    setNone(none);
+                    setGoToOccasionLastQ(true)
+                    setSection("common")
+                    setPage(4);
             }}>Próxima</button>
         </div>
     )

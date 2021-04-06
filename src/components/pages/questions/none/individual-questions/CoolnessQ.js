@@ -1,46 +1,73 @@
 import { useEffect, useState } from "react";
 
-function CoolnessQ({tools: { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, coolness, setCoolness, giftedName, intimacy }}) {
-    const [ inCoolness, setInCoolness ] = useState(coolness)
+function CoolnessQ({tools: { setSection, futureNone, setNone, setPage, setGoToOccasionLastQ, setNonePage, coolness, setCoolness, giftedName, intimacy, films, setFilms, musics, setMusics }}) {
+
+    // "Filmes -- Pulp fiction, bistrou deux amis, baribie. Porque: ffllaklkdfaçlkçldçd && Músicas -- Conga, Brahms 4, Fiuk. Porque: dsakdsa,dsakssadc[as"
+
+    const [ inCoolness, setInCoolness ] = useState(coolness ? coolness : "")
+
+    const [ inFilms, setInFilms ] = useState(films ? films : "")
+    const [ inMusics, setInMusics ] = useState(musics ? musics : "")
+    
 
     const [ warning, setWarning ] = useState(false)
     useEffect(() => {
         setWarning(false)
     }, [inCoolness])
 
-    return (
-        <div>
+    if(intimacy > 5) {
 
-            <h2>Careta ou descolado</h2>
+        return (
+            <div>
+    
+                <h2>Tem algum filme ou série que te lembra bastante essa pessoa? Se você quiser, pode me contar o porquê?</h2>
+                <textarea value={inFilms} onChange={e => setInFilms(e.target.value)}/>
 
-            {warning && <p className="validation-warning">{warning}</p>}
+                <h2>E música? Tem alguma música, cantor ou banda que sempre que toca te lembra dessa pessoa? Se você quiser, pode me contar o porquê?</h2>
+                <textarea value={inMusics} onChange={e => setInMusics(e.target.value)}/>
+    
+                <button onClick={() => {
+                    setFilms(inFilms);
+                    setMusics(inMusics);
+                    setNonePage(4)
+                }}>Anterior</button>
+                <button onClick={() => {
+                    setFilms(inFilms);
+                    setMusics(inMusics);
+                    setNonePage(6)
+                }}>Próxima</button>
+            </div>
+        )
 
-            <button onClick={() => {
-                if(intimacy > 5) {
+    } else {
+
+        return (
+            <div>
+    
+                <h2>Careta ou descolado</h2>
+    
+                {warning && <p className="validation-warning">{warning}</p>}
+    
+                <button onClick={() => {
                     setCoolness(inCoolness);
-                    setMovingPage(6)
-                } else {
-                    setCoolness(inCoolness);
-                    setMovingPage(4)
-                }
-            }}>Anterior</button>
-            <button onClick={() => {
-                if(intimacy > 5) {
-                    const moving = {
-                        ...futureMoving,
+                    setNonePage(4)
+                }}>Anterior</button>
+                <button onClick={() => {
+                    const none = {
+                        ...futureNone,
                         coolness: inCoolness
                     }
-                    setMoving(moving);
+                    delete none.hobbies
+                    delete none.films
+                    delete none.musics
+                    setNone(none);
                     setGoToOccasionLastQ(true)
                     setSection("common")
                     setPage(4);
-                } else {
-                    setCoolness(inCoolness);
-                    setMovingPage(6)
-                }
-            }}>Próxima</button>
-        </div>
-    )
+                }}>Próxima</button>
+            </div>
+        )
+    }
 }
 
 export default CoolnessQ
