@@ -56,6 +56,27 @@ function MimoForm() {
     let Question;
     let tools;
 
+    function chooseGiftedName(occ) {
+        switch(occasion) {
+            case "aniversario":
+                return bDay.giftedName
+            case "casamento/namoro":
+                return wedding.giftedName
+            case "trabalho":
+                let gifted = work.giftedName;
+                gifted = gifted.split(" -- ").join(" e ");
+                return gifted;
+            case "mudança":
+                return moving.giftedName
+            case "viagem":
+                return travel.giftedName
+            case "nenhuma":
+                return none.giftedName
+            default:
+                return "o/a presenteado/a"
+        }
+    }
+
     switch(section) {
         case "common":
             switch(page) {
@@ -80,7 +101,7 @@ function MimoForm() {
                     break    
                 case 5:
                     Question = FoodRestrictionQ;
-                    tools = { setPage, setFoodRestriction, foodRestriction, giftedName: bDay.giftedName }
+                    tools = { setPage, setFoodRestriction, foodRestriction, giftedName: chooseGiftedName(occasion) }
                     break    
                 case 6:
                     Question = ValueQ;
@@ -92,7 +113,7 @@ function MimoForm() {
                     break    
                 case 8:
                     Question = AdressQ;
-                    tools = { setPage, setAdress, adress, giftedName: bDay.giftedName }
+                    tools = { setPage, setAdress, adress, giftedName: chooseGiftedName(occasion) }
                     break    
                 case 9:
                     Question = ContactQ;

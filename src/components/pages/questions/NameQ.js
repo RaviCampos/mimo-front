@@ -15,6 +15,7 @@ function GifterNameQ({ tools: { setPage, setGifterName, gifterName }}) {
     return (
         <div>
             <h1>{inGifter}</h1>
+            <h1>A seção de presente para o bebê não está pronta</h1>
             
             <h2>Qual é o seu nome?</h2>
             <input type="text" value={inGifter} onChange={e => setInGifter(e.target.value)}/>
