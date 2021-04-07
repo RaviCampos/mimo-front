@@ -77,6 +77,48 @@ function MimoForm() {
         }
     }
 
+    function allInfo() {
+        let specificQ
+        switch(occasion) {
+            case "aniversario":
+                specificQ = bDay
+                break
+            case "casamento/namoro":
+                specificQ = wedding
+                break
+            case "trabalho":
+                specificQ = gifted;
+                break
+            case "mudança":
+                specificQ = moving
+                break
+            case "viagem":
+                specificQ = travel
+                break
+            case "nenhuma":
+                specificQ = none
+                break
+            default:
+                specificQ = "nenhuma pergunta específica"
+        }
+        let objInfo = {
+            occasion,
+            gifterName,
+            additions,
+            foodRestriction,
+            value,
+            date,
+            deliveryBDay,
+            adress, 
+            contact,
+            ... specificQ
+        }
+        if(!objInfo.deliveryBDay) {
+            delete objInfo.deliveryBDay
+        }
+        return objInfo
+    }
+
     switch(section) {
         case "common":
             switch(page) {
