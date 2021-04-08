@@ -87,7 +87,7 @@ function MimoForm() {
                 specificQ = wedding
                 break
             case "trabalho":
-                specificQ = gifted;
+                specificQ = work;
                 break
             case "mudança":
                 specificQ = moving
