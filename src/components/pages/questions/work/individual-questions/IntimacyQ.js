@@ -54,6 +54,10 @@ function IntimacyQ({tools: { setWorkPage, intimacy, setIntimacy, giftedName }}) 
                 <label htmlFor="work-intimacy_employe">{capitalize(giftedName)} trabalha para mim</label>
             </div>
             <div>
+                <input type="radio" name="intimacy" id="work-intimacy_study" checked={inIntimacy === `Estudamos juntos`} onChange={() => changeInIntimacy(`Estudamos juntos`)} />
+                <label htmlFor="work-intimacy_study">Estudamos juntos</label>
+            </div>
+            <div>
                 <input type="radio" name="intimacy" id="work-intimacy_family" checked={inIntimacy === `${capitalize(giftedName)} é da família`} onChange={() => changeInIntimacy(`${capitalize(giftedName)} é da família`)} />
                 <label htmlFor="work-intimacy_family">{capitalize(giftedName)} é da família</label>
             </div>
