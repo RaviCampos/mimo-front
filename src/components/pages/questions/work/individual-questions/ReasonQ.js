@@ -28,7 +28,7 @@ function ReasonQ({tools: { setWorkPage, reason, setReason, giftedName }}) {
 
     return (
         <div>
-            <h2>Me conta, em qual circunstância vamos entregar o presente para {giftedName}</h2>
+            <h2>Me conta, porque estamos dando um presente para {giftedName}?</h2>
             <div>
                 <input type="radio" name="reason" id="reason_firstjob" checked={inReason === "Primeiro emprego"} onChange={() => changeInReason("Primeiro emprego")} />
                 <label htmlFor="reason_firstjob">Primeiro emprego</label>
@@ -117,12 +117,20 @@ function ReasonQ({tools: { setWorkPage, reason, setReason, giftedName }}) {
                 }
             }}>Anterior</button>
             <button onClick={() => {
-                if(inReason === "Aprovado na faculdade, mestrado ou doutorado" || inReason === "Finalizando faculdade, mestrado ou doutorado" || inReason === "Decidiu seguir um novo caminho profissional") {
-                    setReason(`${inReason} -- ${complement}`);
-                    setWorkPage(2)
+                if(inReason) {
+                    if(inReason === "Aprovado na faculdade, mestrado ou doutorado" || inReason === "Finalizando faculdade, mestrado ou doutorado" || inReason === "Decidiu seguir um novo caminho profissional") {
+                        if(complement) {
+                            setReason(`${inReason} -- ${complement}`);
+                            setWorkPage(2)
+                        } else {
+                            setWarning("Por favor, responda ao campo de resposta complementar")
+                        }
+                    } else {
+                        setReason(inReason);
+                        setWorkPage(2)
+                    }
                 } else {
-                    setReason(inReason);
-                    setWorkPage(2)
+                    setWarning("Por favor, escolha uma das opções")
                 }
             }}>Próxima</button>
 
