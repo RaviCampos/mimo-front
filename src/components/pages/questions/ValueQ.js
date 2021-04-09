@@ -45,17 +45,17 @@ function ValueQ({tools: {setPage, setValue, value}}) {
     return (
         <div>
             <h2>Você gostaria que esse presente estivesse dentro de que faixa de preço?</h2>
-            <p>Você pode dizer um valor específico, como X reais, ou uma faixa de preço, entre X e Y reais.</p>
+            <p>Se você tem um valor exato em mente, basta responder mínimo e máximo com os mesmos.</p>
             <p>Sem contar a taxa de entrega por enquanto</p>
             
             {alert && <p className="alert_green">{alert}</p>}
             <div>
                 <label htmlFor="value_from">Mínimo</label>
-                <input type="number" name="value" id="value_from" value={from} min={min} onChange={e => setFrom(parseInt(e.target.value))}/>
+                <input type="number" name="value" id="value_from" value={from} min={1} onChange={e => setFrom(parseInt(e.target.value))}/>
             </div>
             <div>
                 <label htmlFor="value_to">Máximo</label>
-                <input type="number" name="value" id="value_to" value={to} min={min} onChange={e => setTo(parseInt(e.target.value))}/>
+                <input type="number" name="value" id="value_to" value={to} min={1} onChange={e => setTo(parseInt(e.target.value))}/>
             </div>
 
             <p>De R${from ? from : "--"},00 até R${to ? to : "--"},00</p>
