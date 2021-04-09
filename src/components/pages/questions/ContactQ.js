@@ -26,8 +26,6 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
             setQuestion("E qual o seu número de WhatsApp?")
         } else if(contactType === "instagram") {
             setQuestion("E qual é o seu @ no Instagram?") 
-        } else if(contactType === "telefone") {
-            setQuestion("E qual o seu número de telefone?")
         } else {
             setQuestion("")
         }
@@ -57,12 +55,6 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
             <div>
                 <label htmlFor="contact_instagram">DM no instagram</label>
                 <input type="radio" name="contact" id="contact_instagram" checked={contactType === "instagram"} onChange={() => changeContact("instagram")}/>
-            </div>
-
-            <div>
-                <label htmlFor="contact_telefone">Telefone</label>
-                <input type="radio" name="contact" id="contact_telefone" checked={contactType === "telefone"} onChange={() => changeContact("telefone")}/>
-                <p>Não acho que telefone seja uma boa ideia para contato</p>
             </div>
 
             {question && <div>
