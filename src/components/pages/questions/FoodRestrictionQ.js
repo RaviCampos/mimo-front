@@ -10,6 +10,19 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
         preRestriction = ["", ""]
     }
 
+    let have
+    let ondiet
+    let prename = giftedName.split(" -- ")
+
+    if(prename.length > 1) {
+        prename = prename.join(" e ")
+        ondiet = `${prename} fazem`
+        have = `${prename} têm`
+    } else {
+        ondiet = `${prename} faz`
+        have = `${prename} tem`
+    }
+
     const [ inRestriction, setInRestriction ] = useState(preRestriction[0])
     const [ complement, setComplement ] = useState(preRestriction[1])
 
@@ -25,7 +38,7 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
     return (
         <div>
             <h2>Falar algo como: A gente as vezes gosta de dar gostosuras comestíveis nos nossos presentes, mas a gente sabe que as comidinhas não funcionam para todas as ocasiões</h2>
-            <h2>Só por via das dúvidas você sabe se {giftedName} tem alguma alergia ou restrição alimentar?</h2>
+            <h2>Só por via das dúvidas você sabe se {have} alguma alergia ou restrição alimentar?</h2>
             <div>
                 <div>
                     <input type="radio" name="food" id="food_nop" value="não que eu saiba" checked={inRestriction === "não que eu saiba"} onChange={e=>{ setInRestriction(e.target.value); setComplement("")}}/>
@@ -33,11 +46,11 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
                 </div>
                 <div>
                     <input type="radio" name="food" id="food_diet" value="faz dieta e por isso não come algumas coisas" checked={inRestriction === "faz dieta e por isso não come algumas coisas"} onChange={e=> { setInRestriction(e.target.value); setComplement("")}}/>
-                    <label htmlFor="food_diet">{giftedName} faz dieta e por isso não come algumas coisas</label>
+                    <label htmlFor="food_diet">{ondiet} dieta e por isso não come algumas coisas</label>
                 </div>
                 <div>
                     <input type="radio" name="food" id="food_alergy" value="tem alergia ou não come de jeito nenhum" checked={inRestriction === "tem alergia ou não come de jeito nenhum"} onChange={e=> { setInRestriction(e.target.value); setComplement("")}}/>
-                    <label htmlFor="food_alergy">Sim, {giftedName} tem alergia ou não come de jeito nenhum</label>
+                    <label htmlFor="food_alergy">Sim, {have} alergia ou não come de jeito nenhum</label>
                     {inRestriction === "tem alergia ou não come de jeito nenhum" && <input type="text" value={complement} onChange={e => setComplement(e.target.value)}/>}
                 </div>
                 <div>
