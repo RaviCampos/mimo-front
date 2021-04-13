@@ -5,7 +5,7 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
     let preRestriction;
 
     if(foodRestriction) {
-        preRestriction = foodRestriction.split("& ")
+        preRestriction = foodRestriction.split(" & ")
     } else {
         preRestriction = ["", ""]
     }
@@ -78,7 +78,7 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
                     setWarning(`Por favor, preencha que alimento(s) ${giftedName} não pode comer`)
                 } else {
                     if(complement) {
-                        const answer = `${inRestriction}& ${complement}`
+                        const answer = `${inRestriction} & ${complement}`
                         setFoodRestriction(answer);
                     } else {
                         setFoodRestriction(inRestriction);

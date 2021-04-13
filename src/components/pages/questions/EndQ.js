@@ -4,7 +4,7 @@ function EndQ({tools: {setPage, formInfo}}) {
         <div>
             <h2>Obrigado por comprar com o mimolino</h2>            
             <h3>Talvez revise seus dados</h3>
-            <p>{formInfo}</p>
+            <p>{JSON.stringify(formInfo)}</p>
             <button onClick={() => {
                     setPage(9)
             }}>Anterior</button>
