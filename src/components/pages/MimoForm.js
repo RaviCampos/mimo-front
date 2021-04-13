@@ -163,7 +163,7 @@ function MimoForm() {
                     break    
                 case 10:
                     Question = EndQ;
-                    tools = { setPage }
+                    tools = { setPage, formInfo: allInfo()}
                     break    
                 default:
                     Question = NotFoundQ;
