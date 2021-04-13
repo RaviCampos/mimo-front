@@ -113,7 +113,7 @@ function MimoForm() {
             contact,
             ... specificQ
         }
-        if(!objInfo.deliveryBDay) {
+        if(!(occasion === "casamento/namoro" || occasion === "aniversario" )) {
             delete objInfo.deliveryBDay
         }
         return objInfo
