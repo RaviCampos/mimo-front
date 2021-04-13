@@ -66,7 +66,7 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay, o
 
             { (occasion === "aniversario" || occasion === "casamento/namoro") &&
                 <div>
-                    {occasion === "casamento/namoro" ? <h2>Mais uma coisa, esse é o dia do aniversário mesmo?</h2> : <h2>Mais uma coisa, esse é o dia do aniversário do casal mesmo?</h2> }
+                    {occasion === "casamento/namoro" ? <h2>Mais uma coisa, esse é o dia do aniversário do casal mesmo?</h2> : <h2>Mais uma coisa, esse é o dia do aniversário mesmo?</h2> }
                     <div>
                         <input type="radio" name="date_yesno" id="date_yes" value="Sim" checked={inDelivery === "Sim"} onChange={e => setInDelivery(e.target.value)}/>
                         <label htmlFor="date_yes">É o dia do aniversário mesmo</label>
