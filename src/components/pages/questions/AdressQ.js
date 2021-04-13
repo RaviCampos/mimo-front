@@ -25,6 +25,14 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
         }
     }, [inAdress, cep, to])
 
+    let name = giftedName.split(" -- ")
+
+    if(name.length > 1) {
+        name = name.join(" e ")
+    } else {
+        name = name[0]
+    }
+
     const input = <div>
         <div>
             <label htmlFor="adress_cep">CEP</label>
@@ -35,13 +43,13 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
             <input type="text" id="adress_adress" value={inAdress} onChange={e => setInAdress(e.target.value)}/>
         </div>
 
-        <h3>Esse presente será etregue para você ou diretamente para {giftedName}</h3>
+        <h3>Esse presente será etregue para você ou diretamente para {name}</h3>
         <div>
-            <label htmlFor="to_gifter">Para mim, quero eu mesmo entregar para {giftedName} depois</label>
+            <label htmlFor="to_gifter">Para mim, quero eu mesmo entregar para {name} depois</label>
             <input type="radio" id="to_gifter" checked={to === "presenteador"} onChange={() => setTo("presenteador")}/>
         </div>
         <div>
-            <label htmlFor="to_gifted">Diretamente para {giftedName}</label>
+            <label htmlFor="to_gifted">Diretamente para {name}</label>
             <input type="radio" id="to_gifted" checked={to === "presenteado"} onChange={() => setTo("presenteado")}/>
         </div>
     </div>
@@ -90,7 +98,7 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
                         } else if(!inAdress) {
                             setWarning("Por favor, preencha seu endereço")
                         } else if(!to) {
-                            setWarning(`Por favor, selecione se o presente será entregue para você ou para ${giftedName}`)
+                            setWarning(`Por favor, selecione se o presente será entregue para você ou para ${name}`)
                         } else {
                             setAdress(`endereço: ${inAdress} && cep: ${cep} && para: ${to}`)
                             setPage(9)
