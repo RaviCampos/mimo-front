@@ -151,7 +151,7 @@ function MimoForm() {
                     break    
                 case 7:
                     Question = DateQ;
-                    tools = { setPage, setDate, setDeliveryBDay, date, deliveryBDay }
+                    tools = { setPage, setDate, setDeliveryBDay, date, deliveryBDay, occasion }
                     break    
                 case 8:
                     Question = AdressQ;
