@@ -4,11 +4,10 @@ button {
   padding: 1rem 2rem;
   margin: 1rem;
   text-decoration: none;
-  background: #9eeffd;
-  color: #3f3e3e;
+  background: #22deff;
+  color: #1f1f1f;
   border-radius: 5px;
   font-family: sans-serif;
-  font-size: 1rem;
   cursor: pointer;
   text-align: center;
   transition: background 100ms ease-in-out, 
@@ -36,9 +35,7 @@ a {
   outline: none;
 }
 
-.remove {
-  color: red
-}
+
 
 
 
@@ -203,7 +200,7 @@ label {
 }
 
 button {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 p {
@@ -226,9 +223,14 @@ h2 {
   text-align: center;
 }
 
+button[disabled] {
+  background: #d3f8ff;
+  color: #adadad;
+}
 
-
-
+.remove {
+  color: red
+}
 
 
 
@@ -260,10 +262,25 @@ h2 {
   border: 3px solid rgb(180, 114, 255);
   border-radius: 10px;
   margin-top: 40px;
-  padding: 15px
+  padding: 20px;
+  padding-top: 35px;
+}
+
+@media only screen and (min-width: 768px) {
+  .landing .box-wrapper {
+    justify-content: space-around;
+  }
+
+  .landing .option-box {
+    width: 20%;
+  }
 }
 
 .box-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.landing button {
+  margin-top: 40px;
 }
