@@ -14,30 +14,33 @@ function GifterNameQ({ tools: { setPage, setGifterName, gifterName }}) {
 
     return (
         <div className="all-margin">
+            <div className="all-center">
+                <div>
+                    <h2 className="title">Qual é o seu nome?</h2>
+                    <input className="go-down" type="text" value={inGifter} onChange={e => setInGifter(e.target.value)}/>
+                    {showWarning && <p className="validation-warning">preencha o nome para seguir em frente</p>}
+                    
+                    <br/>
 
-            <h2 className="title">Qual é o seu nome?</h2>
-            <input type="text" value={inGifter} onChange={e => setInGifter(e.target.value)}/>
-            {showWarning && <p className="validation-warning">preencha o nome para seguir em frente</p>}
-            
-            <br/>
-
-            <div className="prev-for">
-                <button onClick={() => {
-                    // if(inGifter) {
-                        setGifterName(inGifter)
-                        setPage(0)
-                    // } else {
-                    //     setShowWarning(true);
-                    // }
-                }}>Anterior</button>
-                <button onClick={() => {
-                    if(inGifter) {
-                        setGifterName(inGifter)
-                        setPage(2)    
-                    } else {
-                        setShowWarning(true)
-                    }
-                }}>Próxima</button>
+                    <div className="prev-for go-down">
+                        <button onClick={() => {
+                            // if(inGifter) {
+                                setGifterName(inGifter)
+                                setPage(0)
+                            // } else {
+                            //     setShowWarning(true);
+                            // }
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(inGifter) {
+                                setGifterName(inGifter)
+                                setPage(2)    
+                            } else {
+                                setShowWarning(true)
+                            }
+                        }}>Próxima</button>
+                    </div>
+                </div>
             </div>
         </div>
     )
