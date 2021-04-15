@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Hello({ tools: { setPage }}) {
     return (
-        <div className="all_margin hello">
+        <div className="all-margin hello">
             <h1>Mimo questions</h1>
             <h2>Ouvi dizer que você está procurando por um presente, certo?</h2>
             <p className="box-paragraph">O Mimolino pode te ajudar a encontrar O melhor presente possível! Como?</p>

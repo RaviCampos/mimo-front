@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Landing() {
     return (
-        <div className="landing all_margin">
+        <div className="landing all-margin">
             <h1 className="center">Mimolino</h1>
             <h2 className="center">Presentes pessoais</h2>
 
