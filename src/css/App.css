@@ -3,6 +3,8 @@ button {
   border: none;
   padding: 1rem 2rem;
   margin: 1rem;
+  margin-left: 0;
+  margin-right: 0;
   text-decoration: none;
   background: #22deff;
   color: #1f1f1f;
@@ -212,7 +214,7 @@ h1 {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 35px;
 }
 
 .all-margin {
@@ -236,10 +238,40 @@ button[disabled] {
   color: red
 }
 
+h2.title {
+  font-size: 45px;
+}
 
+input[type="text"] {
+  font-size: 32px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgb(249, 255, 253);
+  border: 5px solid rgb(111, 226, 182);
+  background-image:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 
+input[type="text"]:hover,
+input[type="text"]:focus, 
+input[type="text"]:active {
+  outline: rgb(74, 173, 135) auto 10px;
+}
 
+.prev-for {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
 
+.prev-for button {
+  padding: 20px;
+  font-size: 30px;
+}
 
 
 
@@ -261,6 +293,10 @@ button[disabled] {
 
 /* ====================================================== */
 /* ====================================================== */
+
+.landing h2 {
+  font-size: 28px;
+}
 
 .landing .option-box {
   border: 3px solid rgb(180, 114, 255);
