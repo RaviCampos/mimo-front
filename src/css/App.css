@@ -223,6 +223,10 @@ h2 {
   text-align: center;
 }
 
+.box-paragraph {
+  text-align: justify;
+}
+
 button[disabled] {
   background: #d3f8ff;
   color: #adadad;
@@ -253,7 +257,7 @@ button[disabled] {
 /* ====================================================== */
 /* ====================================================== */
 
-/*                      FIRST PAGE                        */
+/*                     LANDING PAGE                       */
 
 /* ====================================================== */
 /* ====================================================== */
@@ -295,4 +299,9 @@ button[disabled] {
 
 .landing p {
   margin-bottom: 0;
+}
+
+.hello button {
+  width: 100%;
+  margin-left: 0;
 }
