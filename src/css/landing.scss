@@ -8,44 +8,43 @@
 
 
 .landing {
-
-h2 {
-    font-size: 28px;
-}  
-
-.option-box {
-    border: 3px solid rgb(180, 114, 255);
-    border-radius: 10px;
-    margin-top: 40px;
-    padding: 20px;
-    padding-top: 35px;
-    padding-bottom: 40px;
-}
-
-button {
-    width: 100%;
-    margin: 0;
-    margin-top: 30px;
-}
-
-h3 {
-    font-size: 30px;
-    margin-top: 0;
-}
-
-p {
-    margin-bottom: 0;
-}
-
-@media only screen and (min-width: 768px) {
-    .box-wrapper {
-    justify-content: space-around;
-    }
+    h2 {
+        font-size: 28px;
+    }  
 
     .option-box {
-    width: 20%;
+        border: 3px solid rgb(180, 114, 255);
+        border-radius: 10px;
+        margin-top: 40px;
+        padding: 20px;
+        padding-top: 35px;
+        padding-bottom: 40px;
     }
-}
+
+    button {
+        width: 100%;
+        margin: 0;
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .box-wrapper {
+        justify-content: space-around;
+        }
+
+        .option-box {
+        width: 20%;
+        }
+    }
 }
 
 
