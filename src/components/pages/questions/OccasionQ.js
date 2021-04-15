@@ -65,6 +65,7 @@ function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
                     }
                 }}>Próxima</button>
             </div>
+            
         </div>
     )
 }

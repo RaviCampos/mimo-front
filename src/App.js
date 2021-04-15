@@ -3,7 +3,7 @@ import GroupGift from "./components/pages/GroupGift";
 import SeasonGift from "./components/pages/SeasonGift";
 import SelfGift from "./components/pages/SelfGift";
 import MimoForm from "./components/pages/MimoForm";
-import './css/App.css';
+import './css/App.scss';
 // import { useState } from "react";
 import {
   BrowserRouter as Router,

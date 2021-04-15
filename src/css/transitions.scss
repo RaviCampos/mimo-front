@@ -1,0 +1,50 @@
+/* ====================================================== */
+/* ====================================================== */
+
+/*                      TRANSITIONS                       */
+
+/* ====================================================== */
+/* ====================================================== */
+
+.hello-enter {
+    position: absolute;
+    opacity: 0;
+  }
+  .hello-enter-active {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 400ms linear;
+  }
+  .hello-exit {
+    position: absolute;
+    opacity: 1;
+  }
+  .hello-exit-active {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+  
+  
+  .name-enter {
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+  }
+  .name-enter-active {
+    padding: 0;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 400ms linear;
+  }
+  .name-exit {
+    padding: 0;
+    position: absolute;
+    opacity: 1;
+  }
+  .name-exit-active {
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 400ms;
+  }

@@ -1,0 +1,189 @@
+/* ====================================================== */
+/* ====================================================== */
+
+/*               AS COMMON AS I CAN MAKE                  */
+
+/* ====================================================== */
+/* ====================================================== */
+
+
+.validation-warning {
+    color: rgb(221, 70, 70);
+  }
+  
+.alert_green {
+color: rgb(33, 223, 150)
+}
+
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    text-decoration: none;
+    background: #22deff;
+    color: #1f1f1f;
+    border-radius: 5px;
+    font-family: sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: background 100ms ease-in-out, 
+                color 50ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+button:hover,
+button:focus {
+background: #7fecff;
+color: #3f3e3e;
+}
+
+button:focus {
+outline: #1c8da1 auto 2px;
+}
+
+button:active {
+transform: scale(0.99);
+}
+
+a {
+outline: none;
+}
+
+label {
+font-size: 20px;
+}
+
+button {
+font-size: 25px;
+}
+
+p {
+font-size: 20px;
+}
+
+h1 {
+font-size: 60px;
+}
+
+h2 {
+font-size: 35px;
+}
+
+.all-margin {
+margin: 30px
+}
+
+.center {
+text-align: center;
+}
+
+.box-paragraph {
+text-align: justify;
+}
+
+button[disabled] {
+background: #d3f8ff;
+color: #adadad;
+}
+
+.remove {
+color: red
+}
+
+.title {
+font-size: 45px;
+}
+
+.subtitle {
+margin-top: -20px;
+margin-bottom: 40px;
+font-size: 25px;
+}
+
+input[type="text"] {
+font-size: 32px;
+width: 100%;
+border-radius: 5px;
+padding: 10px;
+box-sizing: border-box;
+background-color: rgb(249, 255, 253);
+border: 5px solid rgb(111, 226, 182);
+background-image:none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus, 
+input[type="text"]:active {
+outline: rgb(74, 173, 135) auto 10px;
+}
+
+.prev-for {
+display: flex;
+justify-content: space-between;
+margin-top: 50px;
+}
+
+.prev-for button {
+padding: 20px;
+font-size: 30px;
+}
+
+.radio-option {
+margin-top: 10px;
+display: flex;
+}
+
+.radio-option input[type="radio"] {
+/* height: 25px;
+width: 25px; */
+margin-right: 10px;
+margin-left: 0px;
+/* position: relative;
+top: 4px; */
+}
+
+input[type="radio"] {
+display: block;
+}
+
+.radio-option label {
+font-size: 25px;
+}
+
+.go-down {
+margin-top: 100px;
+}
+
+.bit-down {
+margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+.all-margin .all-center {
+    min-height: calc(100vh - 60px);
+    width: calc(100vw - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}
