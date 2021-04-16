@@ -145,10 +145,6 @@ input[type="text"]:active {
 }
 
 
-
-
-
-
 @media only screen and (min-width: 768px) {
     .all-margin .all-center {
         min-height: calc(100vh - 60px);
@@ -156,6 +152,9 @@ input[type="text"]:active {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .go-down {
+        margin-top: 30px;
     }
 }
 
@@ -227,6 +226,7 @@ input[type="text"]:active {
         background-color: #eee;
         border-radius: 50%;
         border: rgb(197, 218, 201) solid 2px;
+        transition: background-color 100ms ease-in-out
     }
     
     /* Create the indicator (the dot/circle - hidden when not checked) */
