@@ -146,15 +146,20 @@ input[type="text"]:active {
 
 
 @media only screen and (min-width: 768px) {
-    .all-margin .all-center {
-        min-height: calc(100vh - 60px);
-        width: calc(100vw - 60px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    .all-margin {
+        .all-center {
+            min-height: calc(100vh - 60px);
+            width: calc(100vw - 60px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div {
+                max-width: 800px;
+            }
+        }  
+    } 
     .go-down {
-        margin-top: 30px;
+        margin-top: 70px;
     }
 }
 
@@ -180,7 +185,7 @@ input[type="text"]:active {
     user-select: none;
     margin-top: 20px;
     margin-left: 10px;
-    padding-left: 40px;
+    padding-left: 40px;    
     
     /* Hide the browser's default radio button */
     input {
@@ -214,6 +219,12 @@ input[type="text"]:active {
         height: 24px;
         border-radius: 50%;
         background: white;
+        @media screen and (min-width: 768px) {
+            top: 7px;
+            left: 7px;
+            width: 18px;
+            height: 18px;
+        }
     }
 
     /* Create a custom radio button */
@@ -226,7 +237,14 @@ input[type="text"]:active {
         background-color: #eee;
         border-radius: 50%;
         border: rgb(197, 218, 201) solid 2px;
-        transition: background-color 100ms ease-in-out
+        transition: background-color 100ms ease-in-out;
+
+        @media screen and (min-width: 768px) {
+            top: -2px;
+            left: -7px;
+            height: 32px;
+            width: 32px;
+        }
     }
     
     /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -235,6 +253,7 @@ input[type="text"]:active {
         position: absolute;
         display: none;
     }
+
 }
 
 
