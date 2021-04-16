@@ -51,31 +51,34 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
                     <h3 className="bigger-subtitle">E quantos {unit}?</h3>
                     <input type="number" name="age" id="yearsq_age" min="1" max={unit === "anos" ? "100" : "11"} value={inAge} placeholder={unit} onChange={e => setInAge(e.target.value)} autocomplete="off"/>
 
-                    { unit && <p>{inAge ? inAge : "--"} {unit}</p>}
+                    { unit && <p className="title no-space-down">{inAge ? inAge : "--"} {unit}</p>}
                     
                     { warning && <p className="validation-warning">{warning}</p> }
 
                     <br/>
-                    <button onClick={() => {
-                        setAge(`${inAge} ${unit}`);
-                        setBDayPage(0)
-                    }}>Anterior</button>
-                    <button onClick={() => {
-                        if(!inAge) {
-                            setWarning(`Por favor, preencha quantos ${unit} ${giftedName} está fazendo` )
-                        } else if(unit === "anos" && inAge < 1) {
-                            setWarning("Se a pessoa está fazendo menos de um ano selecione 'meses' e depois indique quantos meses")
-                        } else if(unit === "anos" && inAge > 120) {
-                            setWarning(`Anos precisam ser menores que 120`)
-                        } else if(unit === "meses" && inAge < 1) {
-                            setWarning("O número de meses precisa ser pelo menos 1")
-                        } else if(unit === "meses" && inAge > 11) {
-                            setWarning("O número máximo de meses é 11, se a pessoa está fazendo 12 meses, por favor, selecione anos e indique 1")
-                        } else {
+
+                    <div className="prev-for">
+                        <button onClick={() => {
                             setAge(`${inAge} ${unit}`);
-                            setBDayPage(2)
-                        }
-                    }}>Próxima</button>
+                            setBDayPage(0)
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(!inAge) {
+                                setWarning(`Por favor, preencha quantos ${unit} ${giftedName} está fazendo` )
+                            } else if(unit === "anos" && inAge < 1) {
+                                setWarning("Se a pessoa está fazendo menos de um ano selecione 'meses' e depois indique quantos meses")
+                            } else if(unit === "anos" && inAge > 120) {
+                                setWarning(`Anos precisam ser menores que 120`)
+                            } else if(unit === "meses" && inAge < 1) {
+                                setWarning("O número de meses precisa ser pelo menos 1")
+                            } else if(unit === "meses" && inAge > 11) {
+                                setWarning("O número máximo de meses é 11, se a pessoa está fazendo 12 meses, por favor, selecione anos e indique 1")
+                            } else {
+                                setAge(`${inAge} ${unit}`);
+                                setBDayPage(2)
+                            }
+                        }}>Próxima</button>
+                    </div>
                 </div>
             </div>
         </div>

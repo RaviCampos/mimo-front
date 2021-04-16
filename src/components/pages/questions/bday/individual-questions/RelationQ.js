@@ -32,74 +32,92 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
     const otherText = <div><input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/></div>
 
     return (
-        <div>
-            <h2>Qual a relação entre você e a pessoa sortuda que vai receber o presente</h2>
+        <div className="all-margin">
+            <div className="all-center">
+                <div>
+                    <h2 className="smaller-title">Qual a relação entre você e a pessoa sortuda que vai receber o presente</h2>
 
-            <div>
-                <input type="radio" name="relation" id="relation_friends" value="amigos" checked={ mainRelation=== "amigos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_friends">Somos amigos</label>
-            </div>
+                    <div>
+                        
+                        <label className="radio-option small-radio">
+                            Somos amigos
+                            <input type="radio" name="relation" id="relation_friends" value="amigos" checked={ mainRelation=== "amigos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
 
-            <div>
-                <input type="radio" name="relation" id="relation_couple" value="casal" checked={ mainRelation=== "casal"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_couple">Somos um casal</label>
-            </div>
+                        <label className="radio-option small-radio">
+                            Somos um casal
+                            <input type="radio" name="relation" id="relation_couple" value="casal" checked={ mainRelation=== "casal"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
 
-            <div>
-                <input type="radio" name="relation" id="relation_classmate" value="colegas/classe" checked={ mainRelation=== "colegas/classe"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_classmate">Somos colegas de classe</label>
-            </div>
+                        <label className="radio-option small-radio">
+                            Somos colegas de classe
+                            <input type="radio" name="relation" id="relation_classmate" value="colegas/classe" checked={ mainRelation=== "colegas/classe"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
 
-            <div>
-                <input type="radio" name="relation" id="relation_workmate" value="colegas/trabalho" checked={ mainRelation=== "colegas/trabalho"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_workmate">Somos colegas de trabalho</label>
-            </div>
+                        <label className="radio-option small-radio">
+                            Somos colegas de trabalho
+                            <input type="radio" name="relation" id="relation_workmate" value="colegas/trabalho" checked={ mainRelation=== "colegas/trabalho"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
 
-            <div>
-                <input type="radio" name="relation" id="relation_family" value="familia" checked={ mainRelation=== "familia"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_family">Somos familiares</label>
-            </div>
+                        <label className="radio-option small-radio">
+                            Somos familiares
+                            <input type="radio" name="relation" id="relation_family" value="familia" checked={ mainRelation=== "familia"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
 
-            {mainRelation=== "familia" && familyText}
+                        {mainRelation=== "familia" && familyText}
 
-            <div>
-                <input type="radio" name="relation" id="relation_acquaintance" value="conhecidos" checked={ mainRelation=== "conhecidos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_acquaintance">Somos apenas conhecidos</label>
-            </div>
+                        <label className="radio-option small-radio">
+                            Somos apenas conhecidos
+                            <input type="radio" name="relation" id="relation_acquaintance" value="conhecidos" checked={ mainRelation=== "conhecidos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
 
-            <div>
-                <input type="radio" name="relation" id="relation_other" value="outra" checked={ mainRelation=== "outra"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                <label htmlFor="relation_other">Outra relação não citada acima</label>
-            </div>
+                        <label className="radio-option small-radio">
+                            Outra relação não citada acima
+                            <input type="radio" name="relation" id="relation_other" value="outra" checked={ mainRelation=== "outra"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
 
-            {mainRelation=== "outra" && otherText}
+                    {mainRelation=== "outra" && otherText}
 
-            {warning && <p className="validation-warning">{warning}</p>}
+                    {warning && <p className="validation-warning">{warning}</p>}
 
-            <br/>
+                    <br/>
 
-            <button onClick={() => {
-                if(relationComplement) {
-                    setRelation(`${mainRelation}: ${relationComplement}`);
-                } else {
-                    setRelation(mainRelation);
-                }
-                setBDayPage(1)
-            }}>Anterior</button>
-            <button onClick={() => {
-                if(!mainRelation) {
-                    setWarning("Por favor, selecione uma das opções")
-                } else if((mainRelation === "familia" || mainRelation === "outra") && !relationComplement) {
-                    setWarning("Por favor preencha o complemento")
-                } else {
-                    if(relationComplement) {
-                        setRelation(`${mainRelation}: ${relationComplement}`);
-                    } else {
-                        setRelation(mainRelation);
-                    }
-                    setBDayPage(3)
-                }
-            }}>Próxima</button>
+                    <div className="prev-for">
+
+                        <button onClick={() => {
+                            if(relationComplement) {
+                                setRelation(`${mainRelation}: ${relationComplement}`);
+                            } else {
+                                setRelation(mainRelation);
+                            }
+                            setBDayPage(1)
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(!mainRelation) {
+                                setWarning("Por favor, selecione uma das opções")
+                            } else if((mainRelation === "familia" || mainRelation === "outra") && !relationComplement) {
+                                setWarning("Por favor preencha o complemento")
+                            } else {
+                                if(relationComplement) {
+                                    setRelation(`${mainRelation}: ${relationComplement}`);
+                                } else {
+                                    setRelation(mainRelation);
+                                }
+                                setBDayPage(3)
+                            }
+                        }}>Próxima</button>
+                    </div>
+
+                </div> 
+            </div> 
         </div>
     )
 }
