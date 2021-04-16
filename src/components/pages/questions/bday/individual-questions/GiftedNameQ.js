@@ -16,7 +16,8 @@ function GiftedNameQ({tools: {setPage, setBDayPage, setGiftedName, giftedName, s
             <div className="all-center">
                 <div>
                     <h2 className="title">Qual é o nome da pessoa que vai ganhar o presente?</h2>
-                    <input className="bit-down" type="text" value={inGifted} onChange={e => setInGifted(e.target.value)}/>
+                    <input className="bit-down" type="text" value={inGifted} onChange={e => setInGifted(e.target.value)} placeholder="nome" autocomplete="off"/>
+
                     {showWarning && <p className="validation-warning">preencha o nome para seguir em frente</p>}
 
                     <br/>

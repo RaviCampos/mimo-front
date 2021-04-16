@@ -17,7 +17,7 @@ function GifterNameQ({ tools: { setPage, setGifterName, gifterName }}) {
             <div className="all-center">
                 <div>
                     <h2 className="title">Qual é o seu nome?</h2>
-                    <input className="bit-down" type="text" value={inGifter} onChange={e => setInGifter(e.target.value)}/>
+                    <input className="bit-down" type="text" value={inGifter} onChange={e => setInGifter(e.target.value)} placeholder="nome" autocomplete="off"/>
                     {showWarning && <p className="validation-warning">preencha o nome para seguir em frente</p>}
                     
                     <br/>

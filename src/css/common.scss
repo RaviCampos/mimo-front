@@ -9,6 +9,7 @@
 
 .validation-warning {
     color: rgb(221, 70, 70);
+    position: absolute;
   }
   
 .alert_green {
@@ -99,15 +100,22 @@ button[disabled] {
     font-size: 45px;
 }
 
+.small-title {
+    font-size: 35px;
+}
+
 .subtitle {
     margin-top: -20px;
     margin-bottom: 40px;
     font-size: 25px;
 }
 
-input[type="text"] {
+.bigger-subtitle {
+    font-size: 30px;
+}
+
+input[type="text"], input[type="number"] {
     font-size: 32px;
-    width: 100%;
     border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
@@ -119,10 +127,18 @@ input[type="text"] {
     box-shadow: none;
 }
 
+input[type="text"] {
+    width: 100%;
+}
+
 input[type="text"]:hover,
 input[type="text"]:focus, 
-input[type="text"]:active {
-    outline: rgb(74, 173, 135) auto 10px;
+input[type="text"]:active,
+input[type="number"]:hover,
+input[type="number"]:focus, 
+input[type="number"]:active {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(83, 199, 154);
 }
 
 .prev-for {
@@ -144,6 +160,29 @@ input[type="text"]:active {
     margin-top: 40px;
 }
 
+.p-absolute {
+    position: absolute;
+}
+
+.top-left {
+    margin-top: -10px;
+    margin-left: 50px;
+}
+
+.small-radio {
+    span.checkmark {
+        top: -2px;
+        left: -10px;
+        height: 32px;
+        width: 32px;
+    }
+    span.checkmark::after {
+        top: 7px;
+        left: 7px;
+        width: 18px;
+        height: 18px;
+    }
+}
 
 @media only screen and (min-width: 768px) {
     .all-margin {
