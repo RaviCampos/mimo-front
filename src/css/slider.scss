@@ -8,55 +8,75 @@
 
 
 .slider-house {
-    display: inline-flex;
-    align-items: center;
-    margin: 0 0 .65rem 0;
-    height: 1rem;
-    width: 300px;
-    position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 .65rem 0;
+  height: 1rem;
+  width: 300px;
+  position: relative;
+}
+
+.shade {
+  height: .3rem;
+  width: 100%;
+  background-color: #12121d;
+  border-radius: .5rem;
+  position: absolute;
+  z-index: 1;
+  @media screen and (max-width: 768px) {
+    height: 1.3rem;
   }
-  
-  .shade {
-    height: .3rem;
-    width: 100%;
-    background-color: #12121d;
-    border-radius: .5rem;
-    position: absolute;
-    z-index: 1;
+}
+
+.slider {
+  height: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    height: 2rem;
   }
-  
-  .slider {
-    height: 1rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    z-index: 2;
-    cursor: pointer;
+}
+
+.slider-bar {
+  /* width: 49%; */
+  background-color: rgb(68, 118, 211);
+  box-shadow: 0 0 3px 0 rgb(64, 179, 255);
+  height: .3rem;
+  border-radius: .5rem 0 0 .5rem;
+  @media screen and (max-width: 768px) {
+    height: 1.3rem;
   }
-  
-  .slider-bar {
-    /* width: 49%; */
-    background-color: rgb(68, 118, 211);
-    box-shadow: 0 0 3px 0 rgb(64, 179, 255);
-    height: .3rem;
-    border-radius: .5rem 0 0 .5rem;
+}
+
+.slider-ball {
+  width: 6px;
+  height: 1rem;
+  border-radius: 30%;
+  background-color: rgb(68, 118, 211);
+  box-shadow: 0 0 3px 0 rgb(64, 179, 255);    
+  @media screen and (max-width: 768px) {
+    width: 12px;
+    height: 2rem;
   }
+}
+
+.intimacyQ span {
+  font-size: 20px;
+  color: rgb(14, 184, 127);
+}
+
+.intimacyQ > span {
+  margin: 20px;
+}
   
-  .slider-ball {
-    width: 6px;
-    height: 1rem;
-    border-radius: 30%;
-    background-color: rgb(68, 118, 211);
-    box-shadow: 0 0 3px 0 rgb(64, 179, 255);    
-  }
-  
-  .intimacyQ span {
-    font-size: 20px;
-    color: rgb(14, 184, 127);
-  }
-  
-  .intimacyQ > span {
-    margin: 20px;
-  }
-  
-  
+.intimacyQ .intimacy-num {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+}
