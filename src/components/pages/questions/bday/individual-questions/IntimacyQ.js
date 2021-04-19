@@ -25,6 +25,8 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
     
                 function move(e) {
                     if(e.buttons === 0) {
+                        // e.preventDefault();
+                        // window.removeEventListener("touchmove", move);
                         window.removeEventListener("mousemove", move);
                     } else {
                         e.preventDefault();
@@ -47,7 +49,9 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                 if(rating === 9) rating++;
                 rating = Math.ceil(rating);
                 setInIntimacy(rating)
-
+                
+                // event.preventDefault();
+                // window.addEventListener("touchmove", move)
                 window.addEventListener("mousemove", move)
             }
         }
