@@ -42,31 +42,31 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
                         <label className="radio-option small-radio">
                             Somos amigos
                             <input type="radio" name="relation" id="relation_friends" value="amigos" checked={ mainRelation=== "amigos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
 
                         <label className="radio-option small-radio">
                             Somos um casal
                             <input type="radio" name="relation" id="relation_couple" value="casal" checked={ mainRelation=== "casal"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
 
                         <label className="radio-option small-radio">
                             Somos colegas de classe
                             <input type="radio" name="relation" id="relation_classmate" value="colegas/classe" checked={ mainRelation=== "colegas/classe"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
 
                         <label className="radio-option small-radio">
                             Somos colegas de trabalho
                             <input type="radio" name="relation" id="relation_workmate" value="colegas/trabalho" checked={ mainRelation=== "colegas/trabalho"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
 
                         <label className="radio-option small-radio">
                             Somos familiares
                             <input type="radio" name="relation" id="relation_family" value="familia" checked={ mainRelation=== "familia"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
 
                         {mainRelation=== "familia" && familyText}
@@ -74,13 +74,13 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
                         <label className="radio-option small-radio">
                             Somos apenas conhecidos
                             <input type="radio" name="relation" id="relation_acquaintance" value="conhecidos" checked={ mainRelation=== "conhecidos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
 
                         <label className="radio-option small-radio">
                             Outra relação não citada acima
                             <input type="radio" name="relation" id="relation_other" value="outra" checked={ mainRelation=== "outra"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
                     </div>
 
