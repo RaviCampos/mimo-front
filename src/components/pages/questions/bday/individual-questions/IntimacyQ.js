@@ -26,8 +26,8 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                 function move(e) {
                     if(e.buttons === 0) {
                         // e.preventDefault();
-                        // window.removeEventListener("touchmove", move);
-                        window.removeEventListener("mousemove", move);
+                        window.removeEventListener("touchmove", move);
+                        // window.removeEventListener("mousemove", move);
                     } else {
                         e.preventDefault();
                         let breakBWidth = e.pageX - slider.getBoundingClientRect().x - 3;
@@ -51,8 +51,8 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                 setInIntimacy(rating)
                 
                 // event.preventDefault();
-                // window.addEventListener("touchmove", move)
-                window.addEventListener("mousemove", move)
+                window.addEventListener("touchmove", move, { passive: false })
+                // window.addEventListener("mousemove", move)
             }
         }
 

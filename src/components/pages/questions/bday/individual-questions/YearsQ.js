@@ -49,7 +49,7 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
                     {unit === "meses" && <p className="p-absolute top-left">É um pequeno ser!</p>}
 
                     <h3 className="bigger-subtitle">E quantos {unit}?</h3>
-                    <input type="number" name="age" id="yearsq_age" min="1" max={unit === "anos" ? "100" : "11"} value={inAge} placeholder={unit} onChange={e => setInAge(e.target.value)} autocomplete="off"/>
+                    <input type="number" name="age" id="yearsq_age" min="1" max={unit === "anos" ? "100" : "11"} value={inAge} placeholder={unit} onChange={e => setInAge(e.target.value)} autoComplete="off"/>
 
                     { unit && <p className="title no-space-down">{inAge ? inAge : "--"} {unit}</p>}
                     
