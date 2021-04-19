@@ -37,12 +37,12 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
                         <label className="radio-option small-radio">
                             Mais de um ano
                             <input className="bit-down" type="radio" name="years" id="years_years" checked={unit === "anos"} onChange={() => changeUnit("anos")}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
                         <label className="radio-option small-radio">
                             Menos de um ano
                             <input type="radio" name="years" id="years_months" checked={unit === "meses"} onChange={() => changeUnit("meses")}/>
-                            <span class="checkmark"></span>
+                            <span className="checkmark"></span>
                         </label>
                     </div>
                     <br/>
