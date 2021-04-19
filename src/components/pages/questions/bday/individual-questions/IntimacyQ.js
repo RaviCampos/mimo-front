@@ -14,28 +14,26 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
         }
         
         function handleSlideBar(event) {
+            event.preventDefault()
             const domBar = document.querySelector(".slider-bar");
             const slider = document.querySelector(".slider-house");
             const breakWidthMinus3 = slider.getBoundingClientRect().width - 3;
             // -3 px to centralize the little vertical bar in the end of the slider, a "handle"
-            const breakBarWidth = event.pageX - slider.getBoundingClientRect().x - 3;
-            if(event.button === 0) {
-    
+            const breakBarWidth = (event.pageX ? event.pageX : event.changedTouches[0].pageX)- slider.getBoundingClientRect().x - 3;
+            if(event.button === 0 || event.changedTouches) {
                 domBar.style.width = breakBarWidth + "px";
     
                 function move(e) {
                     if(e.buttons === 0) {
-                        // e.preventDefault();
-                        window.removeEventListener("touchmove", move);
-                        // window.removeEventListener("mousemove", move);
+                        window.removeEventListener("mousemove", move);
                     } else {
-                        e.preventDefault();
-                        let breakBWidth = e.pageX - slider.getBoundingClientRect().x - 3;
+                        // e.preventDefault();
+                        let breakBWidth = (e.pageX ? e.pageX : e.changedTouches[0].pageX) - slider.getBoundingClientRect().x - 3;
                         // check if cursor is out of the box and not increase or decrease max min values
                         if(breakBWidth > breakWidthMinus3) {
                             breakBWidth = breakWidthMinus3;
                         }
-                        if(e.pageX < slider.getBoundingClientRect().x - 3) breakBWidth = 0;
+                        if((e.pageX ? e.pageX : e.changedTouches[0].pageX) < slider.getBoundingClientRect().x - 3) breakBWidth = 0;
 
                         domBar.style.width = breakBWidth + "px";
                         
@@ -51,13 +49,19 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                 setInIntimacy(rating)
                 
                 // event.preventDefault();
-                window.addEventListener("touchmove", move, { passive: false })
-                // window.addEventListener("mousemove", move)
+                // window.addEventListener("touchmove", move, { passive: false })
+                window.addEventListener((event.pageX ? "mousemove" : "touchmove"), move)
+                // window.addEventListener("mouseup", () => window.removeEventListener("mousemove", move))
             }
         }
 
         const sliderBreakHouse = document.querySelector(".slider-house");
-        sliderBreakHouse.addEventListener("mousedown", handleSlideBar);
+        // sliderBreakHouse.addEventListener("mousedown", handleSlideBar);
+        // if(window.innerWidth < 550) {
+            sliderBreakHouse.addEventListener("touchstart", handleSlideBar);
+        // } else {
+            sliderBreakHouse.addEventListener("mousedown", handleSlideBar);
+        // }
     }, [])
 
     return (
