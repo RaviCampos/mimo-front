@@ -51,6 +51,9 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                 // event.preventDefault();
                 // window.addEventListener("touchmove", move, { passive: false })
                 window.addEventListener((event.pageX ? "mousemove" : "touchmove"), move)
+                if(!event.pageX) {
+                    window.addEventListener("touchend", () => window.removeEventListener("touchmove", move))
+                }
                 // window.addEventListener("mouseup", () => window.removeEventListener("mousemove", move))
             }
         }
