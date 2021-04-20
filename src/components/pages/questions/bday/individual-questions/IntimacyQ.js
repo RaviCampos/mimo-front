@@ -85,7 +85,7 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                     
                     <br/>
 
-                    <div className="prev-for no-space-top">
+                    <div className="prev-for small-space-top">
                         <button onClick={() => {
                             setIntimacy(inIntimacy);
                             setBDayPage(2)

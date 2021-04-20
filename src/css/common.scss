@@ -113,8 +113,12 @@ h2 {
     margin-bottom: 0;
 }
 
+.small-space-top {
+    margin-top: 20px !important;
+}
+
 .no-space-top {
-    margin-top: 20px;
+    margin-top: 0px !important;
 }
 
 .remove {
@@ -188,9 +192,12 @@ input[type="number"]:active {
     font-size: 30px;
 }
 
+.prev-for.small-top {
+    margin-top: 15px;
+}
+
 .small-radio {
     span.checkmark {
-        top: -2px;
         left: -10px;
         height: 32px;
         width: 32px;
@@ -217,11 +224,11 @@ input[type="number"]:active {
 
         .options-center {
             text-align: center;
-            .radios-center {
-                width: min-content;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        }
+        .radios-center {
+            width: min-content;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         }  
@@ -235,7 +242,9 @@ input[type="number"]:active {
 
 
 
-
+.radio-option.big-words {
+    font-size: 25px;
+}
 
 
 /* Customize the label (the container) */
@@ -304,7 +313,8 @@ input[type="number"]:active {
     /* Create a custom radio button */
     .checkmark {
         position: absolute;
-        top: 7px;
+        top: 50%;
+        transform: translateY(-50%);
         left: -20px;
         height: 45px;
         width: 45px;
@@ -314,7 +324,6 @@ input[type="number"]:active {
         transition: background-color 100ms ease-in-out;
 
         @media screen and (min-width: 768px) {
-            top: -2px;
             left: -7px;
             height: 32px;
             width: 32px;
@@ -328,6 +337,20 @@ input[type="number"]:active {
         display: none;
     }
 
+}
+
+.small-radio {
+    span.checkmark {
+        left: -10px;
+        height: 32px;
+        width: 32px;
+    }
+    span.checkmark::after {
+        top: 7px;
+        left: 7px;
+        width: 18px;
+        height: 18px;
+    }
 }
 
 
