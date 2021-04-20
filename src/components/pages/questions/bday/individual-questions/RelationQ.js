@@ -37,7 +37,7 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
                 <div>
                     <h2 className="smaller-title">Qual a relação entre você e a pessoa sortuda que vai receber o presente</h2>
 
-                    <div className="radios-left">
+                    <div>
                         
                         <label className="radio-option small-radio">
                             Somos amigos
@@ -88,7 +88,7 @@ function RelationQ({tools: {relation, setRelation, setBDayPage}}) {
 
                     {warning && <p className="validation-warning">{warning}</p>}
 
-                    <div className="prev-for small-space-top">
+                    <div className="prev-for">
 
                         <button onClick={() => {
                             if(relationComplement) {
