@@ -31,29 +31,32 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2 className="small-title">Então já sabemos que está na hora dessa pessoa sortuda apagar algumas velinhas, mas de quantas velas exatamente estamos falando?</h2>
-                    <h3 className="bigger-subtitle bit-down">{giftedName} está fazendo:</h3>
-                    <div>
-                        <label className="radio-option small-radio">
-                            Mais de um ano
-                            <input className="bit-down" type="radio" name="years" id="years_years" checked={unit === "anos"} onChange={() => changeUnit("anos")}/>
-                            <span className="checkmark"></span>
-                        </label>
-                        <label className="radio-option small-radio">
-                            Menos de um ano
-                            <input type="radio" name="years" id="years_months" checked={unit === "meses"} onChange={() => changeUnit("meses")}/>
-                            <span className="checkmark"></span>
-                        </label>
+
+                        <h2 className="small-title">Então já sabemos que está na hora dessa pessoa sortuda apagar algumas velinhas, mas de quantas velas exatamente estamos falando?</h2>
+                    <div className="options-center">
+                        <h3 className="bigger-subtitle bit-down">{giftedName} está fazendo:</h3>
+                        <div className="radios-center">
+                            <label className="radio-option small-radio">
+                                Mais de um ano
+                                <input className="bit-down" type="radio" name="years" id="years_years" checked={unit === "anos"} onChange={() => changeUnit("anos")}/>
+                                <span className="checkmark"></span>
+                            </label>
+                            <label className="radio-option small-radio">
+                                Menos de um ano
+                                <input type="radio" name="years" id="years_months" checked={unit === "meses"} onChange={() => changeUnit("meses")}/>
+                                <span className="checkmark"></span>
+                            </label>
+                        </div>
+                        <br/>
+                        {unit === "meses" && <p className="p-absolute top-left absolute-center">É um pequeno ser!</p>}
+
+                        <h3 className="bigger-subtitle">E quantos {unit}?</h3>
+                        <input type="number" name="age" id="yearsq_age" min="1" max={unit === "anos" ? "100" : "11"} value={inAge} placeholder={unit} onChange={e => setInAge(e.target.value)} autoComplete="off"/>
+
+                        { unit && <p className="title no-space-down">{inAge ? inAge : "--"} {unit}</p>}
+                        
+                        { warning && <p className="validation-warning">{warning}</p> }
                     </div>
-                    <br/>
-                    {unit === "meses" && <p className="p-absolute top-left">É um pequeno ser!</p>}
-
-                    <h3 className="bigger-subtitle">E quantos {unit}?</h3>
-                    <input type="number" name="age" id="yearsq_age" min="1" max={unit === "anos" ? "100" : "11"} value={inAge} placeholder={unit} onChange={e => setInAge(e.target.value)} autoComplete="off"/>
-
-                    { unit && <p className="title no-space-down">{inAge ? inAge : "--"} {unit}</p>}
-                    
-                    { warning && <p className="validation-warning">{warning}</p> }
 
                     <br/>
 

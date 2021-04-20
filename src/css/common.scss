@@ -51,6 +51,11 @@ button:active {
     transform: scale(0.99);
 }
 
+button[disabled] {
+    background: #d3f8ff;
+    color: #adadad;
+}
+
 a {
     outline: none;
 }
@@ -87,14 +92,45 @@ h2 {
     text-align: justify;
 }
 
-button[disabled] {
-    background: #d3f8ff;
-    color: #adadad;
+.go-down {
+    margin-top: 100px;
+}
+
+.bit-down {
+    margin-top: 40px;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.top-left {
+    margin-top: -10px;
+    margin-left: 50px;
+}
+
+.no-space-down {
+    margin-bottom: 0;
+}
+
+.no-space-top {
+    margin-top: 20px;
 }
 
 .remove {
     color: red
 }
+
+@media screen and (min-width: 768px) {
+    .absolute-center {
+        left: 50%;
+        transform: translate(-50%);
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
 
 .title {
     font-size: 45px;
@@ -152,31 +188,6 @@ input[type="number"]:active {
     font-size: 30px;
 }
 
-.go-down {
-    margin-top: 100px;
-}
-
-.bit-down {
-    margin-top: 40px;
-}
-
-.p-absolute {
-    position: absolute;
-}
-
-.top-left {
-    margin-top: -10px;
-    margin-left: 50px;
-}
-
-.no-space-down {
-    margin-bottom: 0;
-}
-
-.no-space-top {
-    margin-top: 20px;
-}
-
 .small-radio {
     span.checkmark {
         top: -2px;
@@ -202,7 +213,17 @@ input[type="number"]:active {
             align-items: center;
             div {
                 max-width: 800px;
+        }
+
+        .options-center {
+            text-align: center;
+            .radios-center {
+                width: min-content;
+                margin-left: auto;
+                margin-right: auto;
             }
+        }
+        
         }  
     } 
     .go-down {
@@ -233,6 +254,12 @@ input[type="number"]:active {
     margin-top: 20px;
     margin-left: 10px;
     padding-left: 40px;    
+
+    @media screen and (min-width: 768px) {
+        width: min-content;
+        white-space: nowrap;
+    }
+
     
     /* Hide the browser's default radio button */
     input {
