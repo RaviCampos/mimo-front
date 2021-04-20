@@ -80,59 +80,6 @@ h2 {
     font-size: 35px;
 }
 
-.all-margin {
-    margin: 30px
-}
-
-.center {
-    text-align: center;
-}
-
-.box-paragraph {
-    text-align: justify;
-}
-
-.go-down {
-    margin-top: 100px;
-}
-
-.bit-down {
-    margin-top: 40px;
-}
-
-.p-absolute {
-    position: absolute;
-}
-
-.top-left {
-    margin-top: -10px;
-    margin-left: 50px;
-}
-
-.no-space-down {
-    margin-bottom: 0;
-}
-
-.small-space-top {
-    margin-top: 20px !important;
-}
-
-.no-space-top {
-    margin-top: 0px !important;
-}
-
-.remove {
-    color: red
-}
-
-@media screen and (min-width: 768px) {
-    .absolute-center {
-        left: 50%;
-        transform: translate(-50%);
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
 
 
 
@@ -378,3 +325,70 @@ textarea:active {
 
 
 
+
+
+
+
+
+.all-margin {
+    margin: 30px
+}
+
+.center {
+    text-align: center;
+}
+
+.box-paragraph {
+    text-align: justify;
+}
+
+.go-down {
+    margin-top: 100px;
+}
+
+.go-bit-down {
+    margin-top: 80px;
+}
+
+.bit-down {
+    margin-top: 40px;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.top-left {
+    margin-top: -10px;
+    margin-left: 50px;
+}
+
+.no-space-down {
+    margin-bottom: 0;
+}
+
+.small-space-top {
+    margin-top: 20px !important;
+}
+
+.space-up-down {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.no-space-top {
+    margin-top: 0px !important;
+}
+
+.remove {
+    color: red
+}
+
+@media screen and (min-width: 768px) {
+    .absolute-center {
+        left: 50%;
+        transform: translate(-50%);
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
