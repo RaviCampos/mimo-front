@@ -63,7 +63,7 @@ function AdressQ({tools: { setPage, setAdress, adress, giftedName }}) {
     return (
         <div>
             <h2>Você prefere retirar o presente conosco ou que ele seja entregue?</h2>
-            <p className="validation-warning">mudar o tipo de input de cep para number sem setas, cep precisa ser requerido imperativamente ao tentar mudar de página</p>
+            <p className="remove">mudar o tipo de input de cep para number sem setas, cep precisa ser requerido imperativamente ao tentar mudar de página</p>
             <div>
                 <label htmlFor="withdraw_no">Prefiro que o presente seja entregue</label>
                 <input type="radio" name="withdraw" id="withdraw_no" checked={inAdress !== "retirada" && inAdress !== "default"} onChange={() => changeWithdraw("")}/>
