@@ -10,8 +10,8 @@
 .validation-warning {
     color: rgb(221, 70, 70);
     position: absolute;
-  }
-  
+}
+
 .alert_green {
     color: rgb(33, 223, 150)
 }
@@ -115,7 +115,7 @@ h2 {
     }
 }
 
-input[type="text"], input[type="number"], textarea {
+input[type="text"], input[type="number"], textarea, input[type="date"] {
     font-size: 32px;
     border-radius: 5px;
     padding: 10px;
@@ -137,12 +137,19 @@ input[type="text"], textarea {
     width: 100%;
 }
 
+input[type="date"] {
+    font-size: 25px
+}
+
 input[type="text"]:hover,
 input[type="text"]:focus, 
 input[type="text"]:active,
 input[type="number"]:hover,
 input[type="number"]:focus, 
 input[type="number"]:active,
+input[type="date"]:hover,
+input[type="date"]:focus, 
+input[type="date"]:active,
 textarea:hover,
 textarea:focus, 
 textarea:active {
@@ -352,6 +359,11 @@ textarea:active {
 
 .go-bit-down {
     margin-top: 80px;
+    &.when-mobile {
+        @media screen and (min-width: 768px) {
+            margin-top: 50px;
+        }
+    }
 }
 
 .bit-down {

@@ -59,7 +59,7 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay, o
 
 
     return (
-        <div className="all-margin">
+        <div className="all-margin no space-top">
             <div className="all-center">
                 <div>
                     <h2 className="small-title">Em qual dia você deseja que o mimolino entregue o presente?</h2>
@@ -84,7 +84,7 @@ function DateQ({tools: {setPage, setDate, setDeliveryBDay, date, deliveryBDay, o
 
                     {warning && <p className="validation-warning">{warning}</p>}
 
-                    <div className="prev-for go-bit-down">
+                    <div className="prev-for go-bit-down when-mobile">
                         <button onClick={() => {
                                 setDate(inDate);
                                 setDeliveryBDay(inDelivery)
