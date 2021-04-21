@@ -31,8 +31,7 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
         <div className="all-margin">
             <div className="all-center">
                 <div>
-
-                        <h2 className="small-title">Então já sabemos que está na hora dessa pessoa sortuda apagar algumas velinhas, mas de quantas velas exatamente estamos falando?</h2>
+                    <h2 className="small-title">Então já sabemos que está na hora dessa pessoa sortuda apagar algumas velinhas, mas de quantas velas exatamente estamos falando?</h2>
                     <div className="options-center">
                         <h3 className="bigger-subtitle bit-down">{giftedName} está fazendo:</h3>
                         <div className="radios-center">
