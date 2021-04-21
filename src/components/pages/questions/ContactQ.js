@@ -37,49 +37,60 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
     }
 
     return (
-        <div>
-            <h2>Ok! Já temos todas as informações que precisamos!</h2>
-            <h3>Agora o mimolino vai pensar beeeem e escolher 3 opções de presentes incríveis e exclusivas para essa pessoa sensacional que você descreveu!</h3>
-            <h3>Qual é a melhor forma de te enviar essas opções?</h3>
+        <div className="all-margin">
+            <div className="all-center">
+                <div>
+                    <h2 className="small-title">Ok! Já temos todas as informações que precisamos!</h2>
+                    <h3 className="subtitle small-space-top">Agora o mimolino vai pensar beeeem e escolher 3 opções de presentes incríveis e exclusivas para essa pessoa sensacional que você descreveu!</h3>
+                    <h3 className="subtitle">Qual é a melhor forma de te enviar essas opções?</h3>
 
-            <div>
-                <label htmlFor="contact_email">Email</label>
-                <input type="radio" name="contact" id="contact_email" checked={contactType === "email"} onChange={() => changeContact("email")}/>
+                    <div>
+                        <label className="radio-option">
+                            Email
+                            <input type="radio" name="contact" id="contact_email" checked={contactType === "email"} onChange={() => changeContact("email")}/>
+                            <span className="checkmark"></span>
+                        </label>
+
+                        <label className="radio-option bit-down">
+                            WhatsApp
+                            <input type="radio" name="contact" id="contact_wpp" checked={contactType === "whatsapp"} onChange={() => changeContact("whatsapp")}/>
+                            <span className="checkmark"></span>
+                        </label>
+
+                        <label className="radio-option bit-down">
+                            DM no instagram
+                            <input type="radio" name="contact" id="contact_instagram" checked={contactType === "instagram"} onChange={() => changeContact("instagram")}/>
+                            <span className="checkmark"></span>
+                        </label>
+                    </div>
+
+                    {question && <div>
+                        <h4 className="subtitle bit-down small-space-down">{question}</h4>
+                        <input type="text" value={inContact} onChange={e => setInContact(e.target.value)}/>
+                    </div>}
+                    
+                    <h3>Por favor, confira se o contato está correto mesmo, se ele não estiver correto não poderemos continuar a montar o seu presente</h3>
+
+                    {showWarning && <p className="validation-warning no-space-top">{showWarning}</p>}
+
+                    <div className="prev-for">
+                        <button onClick={() => {
+                                setContact(`${contactType}: ${inContact}`);
+                                setPage(8)
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(inContact && contactType) {
+                                setContact(`${contactType}: ${inContact}`);
+                                setPage(10)
+                            } else if(!contactType) {
+                                setShowWarning("Por favor, selecione a plataforma para contato");
+                            } else {
+                                setShowWarning("Por favor, insira o seu contato pessoal")
+                            }
+                        }}>Próxima</button>
+                    </div>
+                </div>
             </div>
-
-            <div>
-                <label htmlFor="contact_wpp">WhatsApp</label>
-                <input type="radio" name="contact" id="contact_wpp" checked={contactType === "whatsapp"} onChange={() => changeContact("whatsapp")}/>
-            </div>
-
-            <div>
-                <label htmlFor="contact_instagram">DM no instagram</label>
-                <input type="radio" name="contact" id="contact_instagram" checked={contactType === "instagram"} onChange={() => changeContact("instagram")}/>
-            </div>
-
-            {question && <div>
-                <h4>{question}</h4>
-                <input type="text" value={inContact} onChange={e => setInContact(e.target.value)}/>
-            </div>}
-            
-            {showWarning && <p className="validation-warning">{showWarning}</p>}
-
-            <h3>Por favor, confira se o contato está correto mesmo, se ele não estiver correto não podermos continuar a montar o seu presente</h3>
-
-            <button onClick={() => {
-                    setContact(`${contactType}: ${inContact}`);
-                    setPage(8)
-            }}>Anterior</button>
-            <button onClick={() => {
-                if(inContact && contactType) {
-                    setContact(`${contactType}: ${inContact}`);
-                    setPage(10)
-                } else if(!contactType) {
-                    setShowWarning("Por favor, selecione a plataforma para contato");
-                } else {
-                    setShowWarning("Por favor, insira o seu contato pessoal")
-                }
-            }}>Próxima</button>
         </div>
     )
 }
