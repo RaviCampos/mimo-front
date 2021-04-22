@@ -381,6 +381,12 @@ textarea:active {
     margin-top: 40px;
 }
 
+.only-wide.bit-down {
+    @media screen and (min-width: 768px) {
+        margin-top: 20px;
+    }
+}
+
 .d-block {
     display: block;
 }
@@ -423,6 +429,10 @@ textarea:active {
     width: 280px;
 }
 
+.space-right {
+    margin-right: 20px;
+}
+
 .remove {
     color: red
 }
@@ -452,6 +462,18 @@ textarea:active {
         justify-content: space-between;
         width: 85%;
         flex-direction: row;
+    }
+    
+    &.timeq {
+        @media screen and (min-width: 768px) {
+            width: 60%;
+        }
+        p {
+            @media screen and (max-width: 768px) {
+                margin-top: 20px !important;
+                font-size: 40px;
+            }
+        }
     }
     
     p {
