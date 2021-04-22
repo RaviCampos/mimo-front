@@ -85,10 +85,12 @@ h2 {
 
 .title {
     font-size: 45px;
+    margin-top: 0px;
 }
 
 .small-title {
     font-size: 35px;
+    margin-top: 0px;
 }
 
 .subtitle {
@@ -211,7 +213,9 @@ textarea:active {
     }
 }
 
-
+label[for="work-age_number"] {
+    margin-left: 20px;
+}
 
 
 
