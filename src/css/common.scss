@@ -183,20 +183,6 @@ textarea:active {
     margin-top: 15px;
 }
 
-.small-radio {
-    span.checkmark {
-        left: -10px;
-        height: 32px;
-        width: 32px;
-    }
-    span.checkmark::after {
-        top: 7px;
-        left: 7px;
-        width: 18px;
-        height: 18px;
-    }
-}
-
 @media only screen and (min-width: 768px) {
     .all-margin {
         .all-center {
@@ -344,7 +330,20 @@ textarea:active {
     }
 }
 
-
+.tinny-radio {
+    font-size: 21px;
+    span.checkmark {
+        left: 0px;
+        height: 22px;
+        width: 22px;
+    }
+    span.checkmark::after {
+        top: 5px;
+        left: 5px;
+        width: 13px;
+        height: 13px;
+    }
+}
 
 
 
