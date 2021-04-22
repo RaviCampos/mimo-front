@@ -10,28 +10,34 @@ function DestinyQ({tools: { setTravelPage, destiny, setDestiny, giftedName }}) {
     }, [inDestiny])
     
     return (
-        <div>
+        <div className="all-margin">
+            <div className="all-center">
+                <div>
+                    <h2 className="small-title">Show! Agora conta para a gente, para onde vai ser essa incrível viagem?</h2>
+                    <p>Se houver mais de um, pode colocar quantos você preferir ou só um destino principal</p>
+                    <input type="text" value={inDestiny} onChange={e => setInDestiny(e.target.value)} autoComplete="off"/>
+                
+                    {warning && <p className="validation-warning">{warning}</p>}
 
-            <h2>Show! Agora conta para a gente, para onde vai ser essa incrível viagem?</h2>
-            <p>Se houver mais de um, pode colocar quantos você preferir ou só um destino principal</p>
-            <input type="text" value={inDestiny} onChange={e => setInDestiny(e.target.value)}/>
-        
-            {warning && <p className="validation-warning">{warning}</p>}
+                    <br/>
+                
+                    <div className="prev-for go-bit-down when-mobile">
+                        <button onClick={() => {
+                            setDestiny(inDestiny);
+                            setTravelPage(1)
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(!inDestiny) {
+                                setWarning("Por favor, preencha o destino da viagem")
+                            } else {
+                                setDestiny(inDestiny);
+                                setTravelPage(3)
+                            }
+                        }}>Próxima</button>
+                    </div>
 
-            <br/>
-        
-            <button onClick={() => {
-                setDestiny(inDestiny);
-                setTravelPage(1)
-            }}>Anterior</button>
-            <button onClick={() => {
-                if(!inDestiny) {
-                    setWarning("Por favor, preencha o destino da viagem")
-                } else {
-                    setDestiny(inDestiny);
-                    setTravelPage(3)
-                }
-            }}>Próxima</button>
+                </div>
+            </div>
         </div>
     )
 }

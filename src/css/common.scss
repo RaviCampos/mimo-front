@@ -185,7 +185,7 @@ textarea:active {
     margin-top: 15px;
 }
 
-@media only screen and (min-width: 768px) {
+// @media only screen and (min-width: 768px) {
     .all-margin {
         .all-center {
             min-height: calc(100vh - 60px);
@@ -211,7 +211,7 @@ textarea:active {
     .go-down {
         margin-top: 70px;
     }
-}
+// }
 
 label[for="work-age_number"] {
     margin-left: 20px;
