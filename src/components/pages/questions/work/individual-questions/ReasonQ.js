@@ -30,7 +30,7 @@ function ReasonQ({tools: { setWorkPage, reason, setReason, giftedName }}) {
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2>Me conta, porque estamos dando um presente para {giftedName}?</h2>
+                    <h2 className="small-title">Me conta, porque estamos dando um presente para {giftedName}?</h2>
                     <label className="radio-option small-radio">
                         Primeiro emprego
                         <input type="radio" name="reason" id="reason_firstjob" checked={inReason === "Primeiro emprego"} onChange={() => changeInReason("Primeiro emprego")} />

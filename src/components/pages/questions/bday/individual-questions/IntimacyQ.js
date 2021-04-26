@@ -85,8 +85,7 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                     </div>
                     {/* <span>10</span> */}
                     <br/>
-                    
-                    <br/>
+
 
                     <div className="prev-for small-space-top">
                         <button onClick={() => {
