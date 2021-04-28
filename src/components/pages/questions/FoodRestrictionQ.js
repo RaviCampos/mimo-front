@@ -40,6 +40,7 @@ function FoodRestrictionQ({tools: {setPage, setFoodRestriction, foodRestriction,
             <div className="all-center">
                 <div>
                     <h2 className="title">Só por via das dúvidas você sabe se {have} alguma alergia ou restrição alimentar?</h2>
+                    
                     <div>
                         <label className="radio-option big-words">
                             Não que eu saiba
