@@ -21,8 +21,10 @@ function EndQ({tools: {setPage, formInfo}}) {
     switch (formInfo.occasion) {
         case "casamento/namoro":
             finalMessage = 
-            `Nome de quem dá o presente: ${formInfo.gifterName}; Nome de quem vai receber o presente: ${formInfo.giftedName}`
-            finalHtmlMessage = <div>{finalMessage.split("; ").map( x => {
+            `Nome de quem dá o presente: ${formInfo.gifterName};
+            Nome de quem vai receber o presente: ${formInfo.giftedName.replace("--", "e")};
+            `
+            finalHtmlMessage = <div>{finalMessage.split(";\n").map( x => {
                 let pre = x.split(": ")
                 return <div className="ending-data">
                     <p className="ending-q">{pre[0]}</p>
@@ -43,6 +45,7 @@ function EndQ({tools: {setPage, formInfo}}) {
                 <div>
                     <h2>Obrigado por comprar com o mimolino</h2>            
                     <h3>Talvez revise seus dados</h3>
+                    {/* <div>{JSON.stringify(formInfo, null, "\t")}</div> */}
                     {finalHtmlMessage}
 
                     <div className="prev-for">
