@@ -45,7 +45,7 @@ function EndQ({tools: {setPage, formInfo}}) {
                 <div>
                     <h2>Obrigado por comprar com o mimolino</h2>            
                     <h3>Talvez revise seus dados</h3>
-                    {/* <div>{JSON.stringify(formInfo, null, "\t")}</div> */}
+                    <div>{JSON.stringify(formInfo, null, "\t")}</div>
                     {finalHtmlMessage}
 
                     <div className="prev-for">
