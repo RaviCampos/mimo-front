@@ -15,6 +15,16 @@ function EndQ({tools: {setPage, formInfo}}) {
         });
     }
 
+    function makeEndBit(mess) {
+        return <div>{mess.split(";\n").map( x => {
+            let pre = x.split(": ")
+            return <div className="ending-data-bit">
+                <p className="ending-q">{pre[0]}</p>
+                <p className="ending-a">{pre[1]}</p>
+            </div>
+        })}</div>
+    }
+
     let finalMessage
     let finalHtmlMessage
 
@@ -23,14 +33,9 @@ function EndQ({tools: {setPage, formInfo}}) {
             finalMessage = 
             `Nome de quem dá o presente: ${formInfo.gifterName};
             Nome de quem vai receber o presente: ${formInfo.giftedName.replace("--", "e")};
+            Ocasião: ${formInfo.occasion.replace("/", "/ ")}
             `
-            finalHtmlMessage = <div>{finalMessage.split(";\n").map( x => {
-                let pre = x.split(": ")
-                return <div className="ending-data">
-                    <p className="ending-q">{pre[0]}</p>
-                    <p className="ending-a">{pre[1]}</p>
-                </div>
-            })}</div>
+            finalHtmlMessage = makeEndBit(finalMessage)
             break;
     
         default:
