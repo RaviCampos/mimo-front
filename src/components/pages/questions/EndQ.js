@@ -25,8 +25,8 @@ function EndQ({tools: {setPage, formInfo}}) {
             finalHtmlMessage = <div>{finalMessage.split("; ").map( x => {
                 let pre = x.split(": ")
                 return <div className="ending-data">
-                    <p>{pre[0]}</p>
-                    <p>{pre[1]}</p>
+                    <p className="ending-q">{pre[0]}</p>
+                    <p className="ending-a">{pre[1]}</p>
                 </div>
             })}</div>
             break;

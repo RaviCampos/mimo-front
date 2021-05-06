@@ -1,6 +1,12 @@
 .ending-data {
     width: 100%;
-    p {
-        max-width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .ending-q {
+        width: 50%;
+    }
+    .ending-a {
+        width: 40%;
     }
 }
