@@ -4,7 +4,7 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
     let protoContact
 
     if(contact) {
-        protoContact = contact.split(": ")
+        protoContact = contact.split("= ")
     } else {
         protoContact = [""]
     }
@@ -75,12 +75,12 @@ function ContactQ({tools: { setPage, setContact, contact }}) {
 
                     <div className="prev-for">
                         <button onClick={() => {
-                                setContact(`${contactType}: ${inContact}`);
+                                setContact(`${contactType}= ${inContact}`);
                                 setPage(8)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(inContact && contactType) {
-                                setContact(`${contactType}: ${inContact}`);
+                                setContact(`${contactType}= ${inContact}`);
                                 setPage(10)
                             } else if(!contactType) {
                                 setShowWarning("Por favor, selecione a plataforma para contato");

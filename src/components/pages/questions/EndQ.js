@@ -33,9 +33,29 @@ function EndQ({tools: {setPage, formInfo}}) {
             finalMessage = 
             `Nome de quem dá o presente: ${formInfo.gifterName};
             Nome de quem vai receber o presente: ${formInfo.giftedName.replace("--", "e")};
-            Ocasião: ${formInfo.occasion.replace("/", "/ ")}
+            Ocasião: ${formInfo.occasion.replace("/", "/ ")};
+            Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
+            Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
             `
+            
             finalHtmlMessage = makeEndBit(finalMessage)
+            
+            let internalMessage = 
+            `Adições: ${formInfo.additions ? formInfo.additions : "Nenhuma"};
+            Restrições alimentares: ${formInfo.foodRestriction};
+            Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};
+            Endereço: ${formInfo.adress};
+            Contato por: ${formInfo.contact};
+            Presenteado faz parte do casal: ${formInfo.gifterInCouple};
+            Tempo juntos: ${formInfo.timeTogether};
+            Idade: ${formInfo.age};
+            Nível da relação do casal: ${formInfo.coupleRelationLevel};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            Careta ou maneiro: ${formInfo.coolness};
+            Motivo para presentear: ${formInfo.reasonToGift}
+            `
+            finalMessage += internalMessage;
+
             break;
     
         default:
