@@ -18,7 +18,8 @@ function OccasionQ({ tools: { setPage, setSection, setOccasion, occasion }}) {
                     <p className="subtitle">(não que deva existir ocasião especial para dar presente! kkkk)</p>
 
                     <div>
-                        <label className="radio-option small-radio">Sim, é aniversário desta pessoa!
+                        <label className="radio-option small-radio">
+                            Sim, é aniversário desta pessoa!
                             <input type="radio" name="occasion" id="occ_bday" value="aniversario" checked={radioValue === "aniversario"} onChange={e=> setRadioValue(e.target.value)}/>
                             <span className="checkmark"></span>
                         </label>
