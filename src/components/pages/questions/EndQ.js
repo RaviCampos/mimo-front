@@ -68,6 +68,14 @@ function EndQ({tools: {setPage, formInfo}}) {
             Careta ou maneiro: ${formInfo.coolness};
             `
             break;
+
+        case "bebe":
+            internalMessage = ``
+            break;
+
+        case "trabalho":
+            internalMessage = ``
+            break;
         
         default:
             finalMessage = "Algo deu errado com a finalização das perguntas, dê uma olhada primeiro no código de EndingQ.js"
