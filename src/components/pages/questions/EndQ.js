@@ -98,6 +98,30 @@ function EndQ({tools: {setPage, formInfo}}) {
             if(formInfo.mood) internalMessage += `Ânimo: ${formInfo.mood}`
 
             break;
+
+        case "viagem":
+            internalMessage = 
+            `Porquê está dando o presente: ${formInfo.reason};
+            Destino: ${formInfo.destiny};
+            Relação: ${formInfo.relation};   
+            Nível de intimidade: ${formInfo.intimacy};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            Careta ou descolado: ${formInfo.coolness};
+            `
+
+            break;
+
+        case "nenhuma":
+            internalMessage = 
+            `Idade: ${formInfo.age};
+            Relação: ${formInfo.relation};   
+            Nível de intimidade: ${formInfo.intimacy};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            Careta ou descolado: ${formInfo.coolness};
+            Hobbies: ${formInfo.hobbies};
+            `
+
+            break;
         
         default:
             finalMessage = "Algo deu errado com a finalização das perguntas, dê uma olhada primeiro no código de EndingQ.js"
