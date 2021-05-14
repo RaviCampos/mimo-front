@@ -74,7 +74,16 @@ function EndQ({tools: {setPage, formInfo}}) {
             break;
 
         case "trabalho":
-            internalMessage = ``
+            internalMessage = 
+            `Porquê está dando o presente: ${formInfo.reason};
+            Nível de intimidade: ${formInfo.intimacy};
+            Idade: ${formInfo.age};
+            Área de atuação: ${formInfo.area};     
+            Careta ou descolado: ${formInfo.coolness};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            `
+            if(formInfo.mood) internalMessage += formInfo.mood
+            
             break;
         
         default:
