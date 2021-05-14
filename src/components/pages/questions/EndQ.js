@@ -82,8 +82,21 @@ function EndQ({tools: {setPage, formInfo}}) {
             Careta ou descolado: ${formInfo.coolness};
             Introversão ou extroversão: ${formInfo.introExtra};
             `
-            if(formInfo.mood) internalMessage += formInfo.mood
+            if(formInfo.mood) internalMessage += `Ânimo: ${formInfo.mood}`
             
+            break;
+
+        case "mudança":
+            internalMessage = 
+            `Porquê está dando o presente: ${formInfo.reason};
+            Idade: ${formInfo.age};
+            Relação: ${formInfo.relation};   
+            Nível de intimidade: ${formInfo.intimacy};
+            Careta ou descolado: ${formInfo.coolness};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            `
+            if(formInfo.mood) internalMessage += `Ânimo: ${formInfo.mood}`
+
             break;
         
         default:
