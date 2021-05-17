@@ -14,6 +14,7 @@ import ContactQ from "./questions/ContactQ";
 
 import OccasionQ from "./questions/OccasionQ";
 import Bday from "./questions/bday/Bday"
+import Baby from "./questions/baby/Baby"
 import Wedding from "./questions/wedding/Wedding"
 import Work from "./questions/work/Work"
 import Moving from "./questions/moving/Moving"
@@ -44,6 +45,7 @@ function MimoForm() {
 
     const [ bDay, setBDay] = useState({})
     const [ wedding, setWedding ] = useState({})
+    const [ baby, setBaby ] = useState({})
     const [ work, setWork ] = useState({})
     const [ moving, setMoving ] = useState({})
     const [ travel, setTravel ] = useState({})
@@ -57,15 +59,13 @@ function MimoForm() {
     let tools;
 
     function chooseGiftedName(occ) {
-        switch(occasion) {
+        switch(occ) {
             case "aniversario":
                 return bDay.giftedName
             case "casamento/namoro":
-                return wedding.giftedName
+                return wedding.giftedName;
             case "trabalho":
-                let gifted = work.giftedName;
-                gifted = gifted.split(" -- ").join(" e ");
-                return gifted;
+                return work.giftedName;
             case "mudança":
                 return moving.giftedName
             case "viagem":
@@ -180,6 +180,10 @@ function MimoForm() {
                 case "casamento/namoro":
                     Question = Wedding;
                     tools = { setSection, wedding, setWedding, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }
+                    break
+                case "bebe":
+                    Question = Baby;
+                    tools = { setSection, baby, setBaby, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }
                     break
                 case "trabalho":
                     Question = Work;
