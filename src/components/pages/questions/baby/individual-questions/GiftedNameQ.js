@@ -11,11 +11,16 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
         }
     }, [inGifted])
 
+    // giftedName = {
+    //     name: "Astoufo",
+    //     quality: "Solo"
+    // }
+
     return (
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2 className="title">Qual é o nome da pessoa que vai ganhar o presente?</h2>
+                    <h2 className="title">Uma criança é sempre uma alegria, né? Qual o nome do casal que irá recebê-la? </h2>
                     <input className="bit-down" type="text" value={inGifted} onChange={e => setInGifted(e.target.value)} placeholder="nome" autoComplete="off"/>
 
                     {showWarning && <p className="validation-warning">preencha o nome para seguir em frente</p>}
