@@ -4,8 +4,8 @@ import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import RelationQ from "./individual-questions/RelationQ"
 import ReasonToGiftQ from "./individual-questions/ReasonToGiftQ"
+import IntimacyQ from "./individual-questions/IntimacyQ"
 // import YearsQ from "./individual-questions/YearsQ"
-// import IntimacyQ from "./individual-questions/IntimacyQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
 // import CoolnessQ from "./individual-questions/CoolnessQ"
@@ -16,8 +16,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ giftedName, setGiftedName ] = useState(baby.giftedName); /* string */
     const [ relation, setRelation ] = useState(baby.relation)
     const [ reasonToGift, setReasonToGift ] = useState(baby.ReasonToGift)
+    const [ intimacy, setIntimacy ] = useState(baby.intimacy);
     // const [ age, setAge ] = useState(baby.age)  
-    // const [ intimacy, setIntimacy ] = useState(baby.intimacy);
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
     // const [ hobbies, setHobbies ] = useState(baby.hobbies);
     // const [ coolness, setCoolness ] = useState(baby.intimacy);
@@ -29,9 +29,9 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const futureBaby = {
         giftedName,
         relation,
-        reasonToGift
+        reasonToGift,
+        intimacy,
         // age,
-        // intimacy,
         // introExtra,
         // hobbies,
         // coolness
@@ -43,23 +43,16 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         Question = GiftedNameQ;
         tools = { setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ};
     } else {
-        if(giftedName.parentType === "Um casal querido que está esperando um filho") {
+        if(giftedName.parentType === "Um casal querido que está esperando um filho" || giftedName.parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo") {
             switch(babyPage) {
                 case 1:
                     Question = RelationQ;
                     tools = { setBabyPage, setRelation, relation, parentType: giftedName.parentType }
                     break;
-                default:
-                    Question = NotFoundQ;
-                    tools = { setPage, setSection }
-                    break
-            }
-        } else if(giftedName.parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo") {
-            switch(babyPage) {
-                case 1:
-                    Question = RelationQ;
-                    tools = { setBabyPage, setRelation, relation, parentType: giftedName.parentType }
-                    break
+                case 2:
+                    Question = IntimacyQ;
+                    tools = { setBabyPage, setIntimacy, intimacy, parentType: giftedName.parentType }
+                    break;
                 default:
                     Question = NotFoundQ;
                     tools = { setPage, setSection }

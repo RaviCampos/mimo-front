@@ -42,7 +42,7 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
                             <span className="checkmark"></span>
                         </label>
 
-                        {parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo" && nameInput("Sua/seu nome é?")}
+                        {parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo" && nameInput("Seu nome é?")}
 
                         <label className="radio-option long-option">
                             Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho
