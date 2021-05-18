@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GifterInCoupleQ from "./individual-questions/GifterInCoupleQ"
@@ -24,6 +24,10 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     const [ reasonToGift, setReasonToGift ] = useState(wedding.reasonToGift)
     const [ commonHobbies, setCommonHobbies ] = useState(wedding.commonHobbies)
     const [ coolness, setCoolness ] = useState(wedding.coolness)
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, [weddingPage])
 
     const futureWedding = {
         gifterInCouple,

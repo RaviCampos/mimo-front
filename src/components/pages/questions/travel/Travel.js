@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
@@ -21,6 +21,10 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
     const [ relation, setRelation ] = useState(travel.relation)
     const [ destiny, setDestiny ] = useState(travel.destiny)
 
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, [travelPage])
+    
     const futureTravel = {
         giftedName,
         reason,

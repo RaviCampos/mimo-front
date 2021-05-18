@@ -52,8 +52,8 @@ function MimoForm() {
     const [ none, setNone ] = useState({})
 
     useEffect(() => {
-        console.log(moving)
-    }, [moving])
+        window.scrollTo(0,0);
+    }, [page])
 
     let Question;
     let tools;

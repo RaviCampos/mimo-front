@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
@@ -22,6 +22,10 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
     const [ coolness, setCoolness ] = useState(moving.coolness)
     const [ introExtra, setIntroExtra ] = useState(moving.introExtra)
     const [ relation, setRelation ] = useState(moving.relation)
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, [movingPage])
 
     const futureMoving = {
         giftedName,

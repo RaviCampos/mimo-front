@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
@@ -22,6 +22,10 @@ function None({tools: { setSection, none, setNone, setPage, goToOccasionLastQ, s
     const [ hobbies, setHobbies ] = useState(none.hobbies)
     const [ films, setFilms ] = useState(none.films)
     const [ musics, setMusics ] = useState(none.musics)
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, [nonePage])
 
     const futureNone = {
         giftedName,

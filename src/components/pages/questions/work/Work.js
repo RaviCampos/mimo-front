@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
@@ -22,6 +22,10 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
     const [ mood, setMood ] = useState(work.mood)
     const [ coolness, setCoolness ] = useState(work.coolness)
     const [ introExtra, setIntroExtra ] = useState(work.introExtra)
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, [workPage])
 
     const futureWork = {
         giftedName,

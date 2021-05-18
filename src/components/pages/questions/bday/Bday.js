@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
@@ -20,6 +20,10 @@ function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, s
     const [ hobbies, setHobbies ] = useState(bDay.hobbies);
     const [ coolness, setCoolness ] = useState(bDay.intimacy);
 
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, [bDayPage])
+    
     const futureBDay = {
         giftedName,
         age,
