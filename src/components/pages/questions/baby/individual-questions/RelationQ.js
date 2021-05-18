@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 
-function RelationQ({tools: {relation, setRelation, setBabyPage}}) {
+function RelationQ({tools: {relation, setRelation, setBabyPage, parentType}}) {
 
     const [ mainRelation, setMainRelation ] = useState(relation ? relation.mainRelation : "");
     const [ relationComplement, setRelationComplement ] = useState(relation ? relation.relationComplement : "");
@@ -14,7 +14,7 @@ function RelationQ({tools: {relation, setRelation, setBabyPage}}) {
 
     const familyText = <div>
         <p>O que essa pessoa é sua?</p>
-        <p>Ex: Tia, Sobrinha, Avó</p>
+        <p>Ex: Mãe/Pai, Tia, Sobrinho, Avó...</p>
         <input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/>
     </div>;
 
@@ -24,19 +24,19 @@ function RelationQ({tools: {relation, setRelation, setBabyPage}}) {
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2 className="smaller-title">Qual a relação entre você e a pessoa sortuda que vai receber o presente</h2>
+                    <h2 className="smaller-title">
+                        { parentType === "Um casal querido que está esperando um filho" ?
+                            "Qual a relação entre você e o casal sortudo que vai receber o presente?"
+                            :
+                            "Qual a relação entre você e a mãe ou pai sortudo do bebê que vai receber o presente?  "
+                        }
+                    </h2>
 
                     <div>
                         
                         <label className="radio-option small-radio">
                             Somos amigos
                             <input type="radio" name="relation" id="relation_friends" value="amigos" checked={ mainRelation=== "amigos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
-                            <span className="checkmark"></span>
-                        </label>
-
-                        <label className="radio-option small-radio">
-                            Somos um casal
-                            <input type="radio" name="relation" id="relation_couple" value="casal" checked={ mainRelation=== "casal"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
                             <span className="checkmark"></span>
                         </label>
 
@@ -53,7 +53,7 @@ function RelationQ({tools: {relation, setRelation, setBabyPage}}) {
                         </label>
 
                         <label className="radio-option small-radio">
-                            Somos familiares
+                            Fazemos parte da mesma família
                             <input type="radio" name="relation" id="relation_family" value="familia" checked={ mainRelation=== "familia"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
                             <span className="checkmark"></span>
                         </label>

@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NotFoundQ from "../NotFoundQ"
 import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import RelationQ from "./individual-questions/RelationQ"
+import ReasonToGiftQ from "./individual-questions/ReasonToGiftQ"
 // import YearsQ from "./individual-questions/YearsQ"
 // import IntimacyQ from "./individual-questions/IntimacyQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
@@ -14,6 +15,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ babyPage, setBabyPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
     const [ giftedName, setGiftedName ] = useState(baby.giftedName); /* string */
     const [ relation, setRelation ] = useState(baby.relation)
+    const [ reasonToGift, setReasonToGift ] = useState(baby.ReasonToGift)
     // const [ age, setAge ] = useState(baby.age)  
     // const [ intimacy, setIntimacy ] = useState(baby.intimacy);
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
@@ -26,7 +28,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
 
     const futureBaby = {
         giftedName,
-        relation
+        relation,
+        reasonToGift
         // age,
         // intimacy,
         // introExtra,
@@ -65,8 +68,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         } else if(giftedName.parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
             switch(babyPage) {
                 case 1:
-                    Question = RelationQ;
-                    tools = { setBabyPage, setRelation, relation, parentType: giftedName.parentType }
+                    Question = ReasonToGiftQ;
+                    tools = { setBabyPage, setReasonToGift, reasonToGift, name: giftedName.name }
                     break
                 default:
                     Question = NotFoundQ;
