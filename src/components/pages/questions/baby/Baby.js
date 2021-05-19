@@ -6,6 +6,8 @@ import RelationQ from "./individual-questions/RelationQ"
 import ReasonToGiftQ from "./individual-questions/ReasonToGiftQ"
 import IntimacyQ from "./individual-questions/IntimacyQ"
 import IsBornQ from "./individual-questions/IsBornQ"
+import WhenWasBornQ from "./individual-questions/WhenWasBornQ"
+import WhenWillBeBornQ from "./individual-questions/WhenWillBeBornQ"
 // import YearsQ from "./individual-questions/YearsQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
@@ -19,6 +21,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ reasonToGift, setReasonToGift ] = useState(baby.ReasonToGift)
     const [ intimacy, setIntimacy ] = useState(baby.intimacy);
     const [ isBorn, setIsBorn ] = useState(baby.isBorn);
+    const [ whenWasBorn, setWhenWasBorn ] = useState(baby.whenWasBorn);
+    const [ whenWillBeBorn, setWhenWillBeBorn ] = useState(baby.whenWillBeBorn);
     // const [ age, setAge ] = useState(baby.age)  
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
     // const [ hobbies, setHobbies ] = useState(baby.hobbies);
@@ -34,6 +38,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         reasonToGift,
         intimacy,
         isBorn,
+        whenWasBorn,
+        whenWillBeBorn,
         // age,
         // introExtra,
         // hobbies,
@@ -44,7 +50,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
 
     if(babyPage === 0) {
         Question = GiftedNameQ;
-        tools = { setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ};
+        tools = { setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ };
     } else {
         if(giftedName.parentType === "Um casal querido que está esperando um filho" || giftedName.parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo") {
             switch(babyPage) {
@@ -60,6 +66,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     Question = IsBornQ;
                     tools = { setBabyPage, setIsBorn, isBorn, name: giftedName.name, parentType: giftedName.parentType }
                     break;
+                case 4:
+                    if(isBorn === "Já nasceu") {
+                        Question = WhenWasBornQ;
+                        tools = { setBabyPage, setWhenWasBorn, whenWasBorn, name: giftedName.name, parentType: giftedName.parentType }
+                    } else {
+                        Question = WhenWillBeBornQ;
+                        tools = { setBabyPage, setWhenWillBeBorn, whenWillBeBorn, name: giftedName.name, parentType: giftedName.parentType }
+                    }
+                    break
                 default:
                     Question = NotFoundQ;
                     tools = { setPage, setSection }

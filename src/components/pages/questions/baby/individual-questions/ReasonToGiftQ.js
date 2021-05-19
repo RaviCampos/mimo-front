@@ -21,7 +21,7 @@ function ReasonToGiftQ({tools: { setBabyPage, setReasonToGift, reasonToGift, nam
                         <span className="checkmark"></span>
                     </label>
 
-                    <label className="radio-option">
+                    <label className="radio-option long-option">
                         {name} acabou de me contar que vamos ter um filho e quero marcar a esse momento lindo com um presente
                         <input type="radio" name="reasonTo" id="reasonTo_justFindOut" checked={inReason === `${name} acabou de me contar que vamos ter um filho e quero marcar a esse momento lindo com um presente`} onChange={() => setInReason(`${name} acabou de me contar que vamos ter um filho e quero marcar a esse momento lindo com um presente`)}/>
                         <span className="checkmark"></span>
