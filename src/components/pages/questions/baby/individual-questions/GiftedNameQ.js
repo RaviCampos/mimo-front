@@ -54,7 +54,7 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
 
                         <label className="radio-option">
                             Na verdade é um (a) futuro (a) Mãe / Pai Solo e seu nome é: (resposta curta)
-                            <input type="radio" name="parentType" id="parentType_solo-parent" value="Na verdade é um (a) futuro (a) Mãe / Pai Solo" checked={ parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo"} onChange={e => {setParentType(e.target.value); allUndefined()}}/>
+                            <input type="radio" name="parentType" id="parentType_solo-parent" value="Na verdade é um(a) futuro(a) Mãe/Pai Solo" checked={ parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo"} onChange={e => {setParentType(e.target.value); allUndefined()}}/>
                             <span className="checkmark"></span>
                         </label>
 
