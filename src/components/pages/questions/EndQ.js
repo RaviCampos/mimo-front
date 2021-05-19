@@ -27,7 +27,7 @@ function EndQ({tools: {setPage, formInfo}}) {
 
     let finalMessage = 
     `Nome de quem dá o presente: ${formInfo.gifterName};
-    Nome de quem vai receber o presente: ${formInfo.giftedName.replace("--", "e")};
+    Nome de quem vai receber o presente: ${typeof formInfo.giftedName === "object" ? `${formInfo.giftedName.nameA} e ${formInfo.giftedName.nameA}`: formInfo.giftedName.replace("--", "e")};
     Ocasião: ${formInfo.occasion.replace("/", "/ ")};
     Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
     Contato por: ${formInfo.contact};
@@ -138,7 +138,7 @@ function EndQ({tools: {setPage, formInfo}}) {
                 <div>
                     <h2>Obrigado por comprar com o mimolino</h2>            
                     <h3>Talvez revise seus dados</h3>
-                    <div>{JSON.stringify(formInfo, null, "\t")}</div>
+                    <pre>{JSON.stringify(formInfo, null, 2)}</pre>
                     {finalHtmlMessage}
 
                     <div className="prev-for">

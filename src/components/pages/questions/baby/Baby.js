@@ -5,6 +5,7 @@ import GiftedNameQ from "./individual-questions/GiftedNameQ"
 import RelationQ from "./individual-questions/RelationQ"
 import ReasonToGiftQ from "./individual-questions/ReasonToGiftQ"
 import IntimacyQ from "./individual-questions/IntimacyQ"
+import IsBornQ from "./individual-questions/IsBornQ"
 // import YearsQ from "./individual-questions/YearsQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
@@ -17,6 +18,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ relation, setRelation ] = useState(baby.relation)
     const [ reasonToGift, setReasonToGift ] = useState(baby.ReasonToGift)
     const [ intimacy, setIntimacy ] = useState(baby.intimacy);
+    const [ isBorn, setIsBorn ] = useState(baby.isBorn);
     // const [ age, setAge ] = useState(baby.age)  
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
     // const [ hobbies, setHobbies ] = useState(baby.hobbies);
@@ -31,6 +33,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         relation,
         reasonToGift,
         intimacy,
+        isBorn,
         // age,
         // introExtra,
         // hobbies,
@@ -52,6 +55,10 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                 case 2:
                     Question = IntimacyQ;
                     tools = { setBabyPage, setIntimacy, intimacy, parentType: giftedName.parentType }
+                    break;
+                case 3:
+                    Question = IsBornQ;
+                    tools = { setBabyPage, setIsBorn, isBorn, name: giftedName.name, parentType: giftedName.parentType }
                     break;
                 default:
                     Question = NotFoundQ;

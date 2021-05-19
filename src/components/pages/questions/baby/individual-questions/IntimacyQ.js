@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
+function IntimacyQ({tools: {intimacy, setIntimacy, setBabyPage, parentType}}) {
 
     const [ inIntimacy, setInIntimacy ] = useState(intimacy ? intimacy : 5);
     
@@ -91,11 +91,11 @@ function IntimacyQ({tools: {intimacy, setIntimacy, setBDayPage, giftedName}}) {
                     <div className="prev-for small-space-top">
                         <button onClick={() => {
                             setIntimacy(inIntimacy);
-                            setBDayPage(2)
+                            setBabyPage(1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             setIntimacy(inIntimacy);
-                            setBDayPage(4)
+                            setBabyPage(3)
                         }}>Próxima</button>
                     </div>
                 </div>
