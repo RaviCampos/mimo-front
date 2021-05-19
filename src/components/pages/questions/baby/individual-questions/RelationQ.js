@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 function RelationQ({tools: {relation, setRelation, setBabyPage, parentType}}) {
 
-    const [ mainRelation, setMainRelation ] = useState(relation ? relation.mainRelation : "");
-    const [ relationComplement, setRelationComplement ] = useState(relation ? relation.relationComplement : "");
+    const [ mainRelation, setMainRelation ] = useState(relation ? typeof relation === "object" ? relation.mainRelation : relation : "");
+    const [ relationComplement, setRelationComplement ] = useState(relation ? typeof relation === "object" ? relation.relationComplement : "" : "");
 
     const [ warning, setWarning ] = useState(false);
 
