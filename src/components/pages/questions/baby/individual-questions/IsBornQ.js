@@ -44,20 +44,14 @@ function IsBorn({tools: { setBabyPage, setIsBorn, isBorn, name, parentType }}) {
                     <br/>
                     <div className="prev-for">
                         <button onClick={() => {
-                            setIsBorn({
-                                parentType,
-                                name
-                            })
+                            setIsBorn(inIsBorn)
                             setBabyPage(2)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inIsBorn) {
                                 setWarning("Por favor, escolha uma das opções acima");
                             } else {
-                                setIsBorn({
-                                    parentType,
-                                    name
-                                })
+                                setIsBorn(inIsBorn)
                                 setBabyPage(4)
                             }
                         }}>Próxima</button>
