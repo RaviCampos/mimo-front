@@ -3,10 +3,10 @@ import { useState, useEffect } from "react"
 function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ}}) {
 
     const [ parentType, setParentType ] = useState(giftedName ? giftedName.parentType : "");
-    const [ name, setName ] = useState(giftedName ? typeof giftedName.name === "string" ? giftedName.name : undefined : undefined);
+    const [ name, setName ] = useState(giftedName ? typeof giftedName.name === "string" ? giftedName.name : "" : "");
 
-    const [ nameA, setNameA ] = useState(giftedName ? typeof giftedName.name === "object" ? giftedName.name.nameA : undefined : undefined)
-    const [ nameB, setNameB ] = useState(giftedName ? typeof giftedName.name === "object" ? giftedName.name.nameB : undefined : undefined)
+    const [ nameA, setNameA ] = useState(giftedName ? typeof giftedName.name === "object" ? giftedName.name.nameA : "" : "")
+    const [ nameB, setNameB ] = useState(giftedName ? typeof giftedName.name === "object" ? giftedName.name.nameB : "" : "")
 
     const [ warning, setShowWarning ] = useState(false)
 
@@ -24,9 +24,9 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
     }
 
     function allUndefined() {
-        setName(undefined)
-        setNameA(undefined)
-        setNameB(undefined)
+        setName("")
+        setNameA("")
+        setNameB("")
     }
 
     return (
@@ -53,12 +53,12 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
                         }
 
                         <label className="radio-option">
-                            Na verdade é um (a) futuro (a) Mãe / Pai Solo e seu nome é: (resposta curta)
+                            Na verdade é um(a) futuro(a) Mãe/Pai solo e seu nome é:
                             <input type="radio" name="parentType" id="parentType_solo-parent" value="Na verdade é um(a) futuro(a) Mãe/Pai Solo" checked={ parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo"} onChange={e => {setParentType(e.target.value); allUndefined()}}/>
                             <span className="checkmark"></span>
                         </label>
 
-                        {parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo" && nameInput("Seu nome é?")}
+                        {parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo" && nameInput("Seu nome é?")}
 
                         <label className="radio-option long-option">
                             Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho
@@ -94,7 +94,7 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
                                 setShowWarning("Por favor, escolha uma das opções acima");
                             } else if(parentType === "Um casal querido que está esperando um filho" && (!nameA || !nameB)) {
                                 setShowWarning("Por favor preencha os espaços dos nomes");
-                            } else if((parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo" || parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") && !name) {
+                            } else if((parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo" || parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") && !name) {
                                 setShowWarning("Por favor preencha o espaço do nome");
                             } else {
                                 setGiftedName({

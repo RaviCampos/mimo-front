@@ -8,7 +8,9 @@ import IntimacyQ from "./individual-questions/IntimacyQ"
 import IsBornQ from "./individual-questions/IsBornQ"
 import WhenWasBornQ from "./individual-questions/WhenWasBornQ"
 import WhenWillBeBornQ from "./individual-questions/WhenWillBeBornQ"
-// import YearsQ from "./individual-questions/YearsQ"
+import FirstSonQ from "./individual-questions/FirstSonQ"
+import ChildNameQ from "./individual-questions/ChildNameQ"
+import AgeQ from "./individual-questions/AgeQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
 // import CoolnessQ from "./individual-questions/CoolnessQ"
@@ -23,7 +25,9 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ isBorn, setIsBorn ] = useState(baby.isBorn);
     const [ whenWasBorn, setWhenWasBorn ] = useState(baby.whenWasBorn);
     const [ whenWillBeBorn, setWhenWillBeBorn ] = useState(baby.whenWillBeBorn);
-    // const [ age, setAge ] = useState(baby.age)  
+    const [ firstSon, setFirstSon ] = useState(baby.firstSon);
+    const [ childName, setChildName ] = useState(baby.childName)
+    const [ age, setAge ] = useState(baby.age);
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
     // const [ hobbies, setHobbies ] = useState(baby.hobbies);
     // const [ coolness, setCoolness ] = useState(baby.intimacy);
@@ -40,7 +44,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         isBorn,
         whenWasBorn,
         whenWillBeBorn,
-        // age,
+        age,
         // introExtra,
         // hobbies,
         // coolness
@@ -52,7 +56,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         Question = GiftedNameQ;
         tools = { setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ };
     } else {
-        if(giftedName.parentType === "Um casal querido que está esperando um filho" || giftedName.parentType === "Na verdade é um (a) futuro (a) Mãe / Pai Solo") {
+        if(giftedName.parentType === "Um casal querido que está esperando um filho" || giftedName.parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo") {
             switch(babyPage) {
                 case 1:
                     Question = RelationQ;
@@ -73,6 +77,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     } else {
                         Question = WhenWillBeBornQ;
                         tools = { setBabyPage, setWhenWillBeBorn, whenWillBeBorn, name: giftedName.name, parentType: giftedName.parentType }
+                    }
+                    break
+                case 5:
+                    if(isBorn === "Já nasceu") {
+                        Question = FirstSonQ;
+                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
+                    } else {
+                        Question = ChildNameQ;
+                        tools = { setBabyPage, setChildName, childName, name: giftedName.name, parentType: giftedName.parentType }
                     }
                     break
                 default:
@@ -98,59 +111,6 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // switch(babyPage) {
-    //     case 0:
-    //         Question = GiftedNameQ;
-    //         tools = { setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ};
-    //         break;
-        // case 1:
-        //     Question = YearsQ;
-        //     tools = { setBabyPage, setAge, age, giftedName};
-        //     break;
-        // case 2:
-        //     Question = RelationQ;
-        //     tools = { setBabyPage, setRelation, relation }
-        //     break;
-        // case 3:
-        //     Question = IntimacyQ;
-        //     tools = { setBabyPage, setIntimacy, giftedName, intimacy }
-        //     break;
-        // case 4:
-        //     Question = IntroExtraQ;
-        //     tools = { setBabyPage, setIntroExtra, introExtra, giftedName, intimacy }
-        //     break;
-        // case 5:
-        //     Question = HobbiesQ;
-        //     tools = { setBabyPage, setHobbies, hobbies, giftedName, intimacy }
-        //     break;
-        // case 6:
-        //     Question = CoolnessQ;
-        //     tools = { setPage, setBabyPage, setCoolness, coolness, intimacy, setSection, futureBaby, setBaby, setGoToOccasionLastQ }
-        //     break;
-    //     default:
-    //         Question = NotFoundQ;
-    //         tools = { setPage, setSection }
-    //         break
-    // }
  
     return (
             <TransitionGroup>
