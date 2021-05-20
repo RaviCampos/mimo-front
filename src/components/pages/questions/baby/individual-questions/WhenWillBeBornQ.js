@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 function WhenWillBeBornQ({tools: { setBabyPage, setWhenWillBeBorn, whenWillBeBorn, name, parentType }}) {
-    const [ inDate, setInDate ] = useState(whenWillBeBorn)
+    const [ inDate, setInDate ] = useState(whenWillBeBorn ? whenWillBeBorn : "")
 
     function getToday() {
         let d = new Date()        
@@ -43,7 +43,7 @@ function WhenWillBeBornQ({tools: { setBabyPage, setWhenWillBeBorn, whenWillBeBor
                         }}>Anterior</button>
                         <button onClick={() => {
                             setWhenWillBeBorn(inDate)
-                            setBabyPage(4)
+                            setBabyPage(5)
                         }}>Próxima</button>
                     </div>
                 </div>

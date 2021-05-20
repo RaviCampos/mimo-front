@@ -1,21 +1,44 @@
+import { useState } from "react";
+
 function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentType }}) {
 
-    // const [ ]
+    const [ inFirstSon, setInFirstSon ] = useState(firstSon ? firstSon.yesOrNo : "")
+    const [ howMany, setHowMany ] = useState(firstSon ? firstSon.howMany : "")
 
+    const inQuestionNames = parentType === "Um casal querido que está esperando um filho" ? `${name.nameA} e ${name.nameB}` : name
+    const negativeOption = parentType === "Um casal querido que está esperando um filho" ? `Não, ${name.nameA} e ${name.nameB} já têm filho(s)` : `Não, ${name} já tem filho(s)`
+
+    function setBoth(val) {
+        setInFirstSon(val)
+        setHowMany("")
+    }
+    
+    
     return (
         <div className="all-margin">
             <div className="all-center">
                 <div>
                     <h2 className="small-title">
-                       {
-                           parentType === "Um casal querido que está esperando um filho" ?
-                           `É o primeiro filho de ${name.nameA} e ${name.nameB}?`
-                           :
-                           `É o primeiro filho de ${name}?`
-                       }
+                       É o primeiro filho de {inQuestionNames}?
                     </h2>
+                    <div>
+                        <label className="radio-option small-option">
+                            Sim
+                            <input type="radio" name="firstSon" id="firstSon_yes" value="Sim" checked={ inFirstSon === "Sim"} onChange={e => setBoth(e.target.value)}/>
+                            <span className="checkmark"></span>
+                        </label>
+                        <label className="radio-option small-option">
+                            {negativeOption}
+                            <input type="radio" name="firstSon" id="firstSon_no" value={negativeOption} checked={ inFirstSon === negativeOption} onChange={e => setBoth(e.target.value)}/>
+                            <span className="checkmark"></span>
+                        </label>
+                    </div>
 
-                    {/* <input type="number" name="age" id="yearsq_age" min="1" max={unit === "anos" ? "100" : "11"} value={inAge} placeholder={unit} onChange={e => setInAge(e.target.value)} autoComplete="off"/> */}
+                    { inFirstSon === negativeOption && 
+                        <div className="bit-down">
+                            <input type="number" name="howMany" id="firstSon_howMany" min="1" max="30" value={howMany} placeholder="quantos?" onChange={e => setHowMany(e.target.value)}/>
+                        </div>
+                    }
 
                     <div className="prev-for">
                         <button onClick={() => {
