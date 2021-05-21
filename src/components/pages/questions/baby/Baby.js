@@ -90,7 +90,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                 case 5:
                     if(isBorn === "Já nasceu") {
                         Question = ChildNameQ;
-                        tools = { setBabyPage, setChildName, childName }
+                        tools = { setBabyPage, setChildName, childName, parentType: giftedName.parentType }
                     } else {
                         Question = FirstSonQ;
                         tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
@@ -119,7 +119,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                 case 3:
                     if(findIfIsBorn(reasonToGift)) {
                         Question = ChildNameQ;
-                        tools = { setBabyPage, setChildName, childName }
+                        tools = { setBabyPage, setChildName, childName, parentType: giftedName.parentType }
                     } else {
                         Question = FirstSonQ;
                         tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }

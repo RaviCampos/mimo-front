@@ -1,3 +1,5 @@
+import { useState, useEffect} from "react"
+
 function AgeQ() {
     return (
         <div>
