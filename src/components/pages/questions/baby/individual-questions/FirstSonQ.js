@@ -12,21 +12,25 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
     }, [inFirstSon, howMany])   
 
     const inQuestionNames = parentType === "Um casal querido que está esperando um filho" ? `${name.nameA} e ${name.nameB}` : name
-    const negativeOption = parentType === "Um casal querido que está esperando um filho" ? `Não, ${name.nameA} e ${name.nameB} já têm filho(s)` : `Não, ${name} já tem filho(s)`
+    const negativeOption = parentType === "Um casal querido que está esperando um filho" ? `Não, ${name.nameA} e ${name.nameB} já têm filho(s)` : parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? `Não, eu e ${name} já temos filho(s).` : `Não, ${name} já tem filho(s)`
+    
+    let question;
+    if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
+        question = `É o primeiro filho de vocês?`
+    } else {
+        question = `É o primeiro filho de ${inQuestionNames}?`
+    }
 
     function setBoth(val) {
         setInFirstSon(val)
         setHowMany("")
     }
     
-    
     return (
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2 className="title">
-                       É o primeiro filho de {inQuestionNames}?
-                    </h2>
+                    <h2 className="title">{question}</h2>
                     <div>
                         <label className="radio-option small-option">
                             Sim
@@ -55,7 +59,11 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                 yesOrNo: inFirstSon,
                                 howMany
                             })
-                            setBabyPage(4)
+                            if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
+                                setBabyPage(2)
+                            } else {
+                                setBabyPage(4)
+                            }
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inFirstSon) {
@@ -67,7 +75,11 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                     yesOrNo: inFirstSon,
                                     howMany
                                 })
-                                setBabyPage(6)
+                                if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
+                                    setBabyPage(4)
+                                } else {
+                                    setBabyPage(6)
+                                }   
                             }
                         }}>Próxima</button>
                     </div>
