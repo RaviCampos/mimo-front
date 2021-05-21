@@ -36,6 +36,14 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         window.scrollTo(0,0);
     }, [babyPage])
 
+    function findIfIsBorn(str) {
+        if(str === "Nosso filho acaba de nascer e quero celebrar esse momento") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     const futureBaby = {
         giftedName,
         relation,
@@ -98,6 +106,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                 case 1:
                     Question = ReasonToGiftQ;
                     tools = { setBabyPage, setReasonToGift, reasonToGift, name: giftedName.name }
+                    break
+                case 2:
+                    if(findIfIsBorn(reasonToGift)) {
+                        Question = WhenWasBornQ;
+                        tools = { setBabyPage, setWhenWasBorn, whenWasBorn, name: giftedName.name, parentType: giftedName.parentType }
+                    } else {
+                        Question = WhenWillBeBornQ;
+                        tools = { setBabyPage, setWhenWillBeBorn, whenWillBeBorn, name: giftedName.name, parentType: giftedName.parentType }
+                    }
                     break
                 default:
                     Question = NotFoundQ;
