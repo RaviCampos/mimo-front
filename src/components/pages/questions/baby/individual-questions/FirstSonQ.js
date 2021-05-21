@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentType }}) {
+function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentType, isBorn }}) {
 
     const [ inFirstSon, setInFirstSon ] = useState(firstSon ? firstSon.yesOrNo : "")
     const [ howMany, setHowMany ] = useState(firstSon ? firstSon.howMany : "")
@@ -32,12 +32,12 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                 <div>
                     <h2 className="title">{question}</h2>
                     <div>
-                        <label className="radio-option small-option">
+                        <label className="radio-option small-radio">
                             Sim
                             <input type="radio" name="firstSon" id="firstSon_yes" value="Sim" checked={ inFirstSon === "Sim"} onChange={e => setBoth(e.target.value)}/>
                             <span className="checkmark"></span>
                         </label>
-                        <label className="radio-option small-option">
+                        <label className="radio-option small-radio">
                             {negativeOption}
                             <input type="radio" name="firstSon" id="firstSon_no" value={negativeOption} checked={ inFirstSon === negativeOption} onChange={e => setBoth(e.target.value)}/>
                             <span className="checkmark"></span>
@@ -60,9 +60,9 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                 howMany
                             })
                             if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                setBabyPage(2)
+                                setBabyPage(isBorn === "Já nasceu" ? 3 : 2)
                             } else {
-                                setBabyPage(4)
+                                setBabyPage(isBorn === "Já nasceu" ? 5: 4)
                             }
                         }}>Anterior</button>
                         <button onClick={() => {
@@ -76,9 +76,9 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                     howMany
                                 })
                                 if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                    setBabyPage(4)
+                                    setBabyPage(isBorn === "Já nasceu" ? 5: 4)
                                 } else {
-                                    setBabyPage(6)
+                                    setBabyPage(isBorn === "Já nasceu" ? 7: 6)
                                 }   
                             }
                         }}>Próxima</button>

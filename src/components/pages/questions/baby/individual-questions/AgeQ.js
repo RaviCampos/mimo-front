@@ -80,7 +80,7 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                         <div className="prev-for">
                             <button onClick={() => {
                                 setAge({
-                                    inAge
+                                    age: inAge
                                 })
                                 setBabyPage(isBorn === "Já nasceu" ? 6 : 5)
                             }}>Anterior</button>
