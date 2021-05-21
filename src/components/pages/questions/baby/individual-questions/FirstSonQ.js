@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentType }}) {
 
     const [ inFirstSon, setInFirstSon ] = useState(firstSon ? firstSon.yesOrNo : "")
     const [ howMany, setHowMany ] = useState(firstSon ? firstSon.howMany : "")
+
+    const [ warning, setWarning] = useState(false)
+
+    useEffect(() => {
+        setWarning(false)
+    }, [inFirstSon, howMany])   
 
     const inQuestionNames = parentType === "Um casal querido que está esperando um filho" ? `${name.nameA} e ${name.nameB}` : name
     const negativeOption = parentType === "Um casal querido que está esperando um filho" ? `Não, ${name.nameA} e ${name.nameB} já têm filho(s)` : `Não, ${name} já tem filho(s)`
@@ -18,7 +24,7 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2 className="small-title">
+                    <h2 className="title">
                        É o primeiro filho de {inQuestionNames}?
                     </h2>
                     <div>
@@ -36,18 +42,33 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
 
                     { inFirstSon === negativeOption && 
                         <div className="bit-down">
-                            <input type="number" name="howMany" id="firstSon_howMany" min="1" max="30" value={howMany} placeholder="quantos?" onChange={e => setHowMany(e.target.value)}/>
+                            <h3>Quantos?</h3>
+                            <input type="number" name="howMany" id="firstSon_howMany" min="1" max="30" value={howMany} onChange={e => setHowMany(e.target.value)}/>
                         </div>
                     }
 
+                    { warning && <p className="validation-warning">{warning}</p>}
+
                     <div className="prev-for">
                         <button onClick={() => {
-                            // setFirstSon(inDate)
-                            setBabyPage(3)
+                            setFirstSon({
+                                yesOrNo: inFirstSon,
+                                howMany
+                            })
+                            setBabyPage(4)
                         }}>Anterior</button>
                         <button onClick={() => {
-                            // setFirstSon(inDate)
-                            setBabyPage(4)
+                            if(!inFirstSon) {
+                                setWarning("Por favor, escolha uma das opções")
+                            } else if(inFirstSon === negativeOption && !howMany) {
+                                setWarning("Por favor, diga-nos quantas crianças")
+                            } else {
+                                setFirstSon({
+                                    yesOrNo: inFirstSon,
+                                    howMany
+                                })
+                                setBabyPage(6)
+                            }
                         }}>Próxima</button>
                     </div>
                 </div>

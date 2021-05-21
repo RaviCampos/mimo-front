@@ -85,7 +85,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
                     } else {
                         Question = ChildNameQ;
-                        tools = { setBabyPage, setChildName, childName, name: giftedName.name, parentType: giftedName.parentType }
+                        tools = { setBabyPage, setChildName, childName }
                     }
                     break
                 default:
