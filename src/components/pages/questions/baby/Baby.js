@@ -131,13 +131,13 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         tools = { setBabyPage, setChildName, childName, parentType: giftedName.parentType }
                     } else {
                         Question = FirstSonQ;
-                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType, isBorn }
+                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType, isBorn: findIfIsBorn(reasonToGift) }
                     }
                     break
                 case 4:
-                    if(isBorn === "Já nasceu") {
+                    if(findIfIsBorn(reasonToGift)) {
                         Question = FirstSonQ;
-                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType, isBorn }
+                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType, isBorn: findIfIsBorn(reasonToGift) }
                     } else {
                         Question = AgeQ;
                         tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }

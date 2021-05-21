@@ -60,9 +60,9 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                 howMany
                             })
                             if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                setBabyPage(isBorn === "Já nasceu" ? 3 : 2)
+                                setBabyPage(isBorn ? 3 : 2)
                             } else {
-                                setBabyPage(isBorn === "Já nasceu" ? 5: 4)
+                                setBabyPage(isBorn ? 5: 4)
                             }
                         }}>Anterior</button>
                         <button onClick={() => {
@@ -76,9 +76,9 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                     howMany
                                 })
                                 if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                    setBabyPage(isBorn === "Já nasceu" ? 5: 4)
+                                    setBabyPage(isBorn ? 5: 4)
                                 } else {
-                                    setBabyPage(isBorn === "Já nasceu" ? 7: 6)
+                                    setBabyPage(isBorn ? 7: 6)
                                 }   
                             }
                         }}>Próxima</button>
