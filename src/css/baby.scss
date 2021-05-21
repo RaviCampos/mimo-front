@@ -1,3 +1,25 @@
 #bebe_date {
     font-size: 30px;
 }
+
+.bebe {
+    &.width-280 {
+        display: flex;
+        width: 90%;
+        justify-content: space-evenly;
+    }
+    & .flex-between-middle {
+        min-width: 32%;
+    }
+    @media (max-width: 768px) {
+        flex-direction: column;   
+        &.width-280 {
+            width: 100%;
+        }
+    }
+    @media (min-width: 768px) {
+        & .small-space-top {
+            margin-top: 0 !important;
+        }   
+    }
+}

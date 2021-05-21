@@ -15,7 +15,7 @@ import AgeQ from "./individual-questions/AgeQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
 // import CoolnessQ from "./individual-questions/CoolnessQ"
 
-function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
+function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
     const [ babyPage, setBabyPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
     const [ giftedName, setGiftedName ] = useState(baby.giftedName); /* string */
@@ -96,6 +96,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
                     }
                     break
+                case 6:
+                    if(isBorn === "Já nasceu") {
+                        Question = FirstSonQ;
+                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
+                    } else {
+                        Question = AgeQ;
+                        tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }
+                    }
+                    break
                 default:
                     Question = NotFoundQ;
                     tools = { setPage, setSection }
@@ -123,6 +132,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     } else {
                         Question = FirstSonQ;
                         tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
+                    }
+                    break
+                case 4:
+                    if(isBorn === "Já nasceu") {
+                        Question = FirstSonQ;
+                        tools = { setBabyPage, setFirstSon, firstSon, name: giftedName.name, parentType: giftedName.parentType }
+                    } else {
+                        Question = AgeQ;
+                        tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }
                     }
                     break
                 default:
