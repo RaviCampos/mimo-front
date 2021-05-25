@@ -79,28 +79,29 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
 
                         {warning && <p className="validation-warning">{warning}</p>}
 
-                        <div className="prev-for">
-                            <button onClick={() => {
+                    </div>
+                    
+                    <div className="prev-for">
+                        <button onClick={() => {
+                            setBabySex({
+                                babySex: inBabySex,
+                                babyName
+                            });
+                            setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 4 : 6)
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(!inBabySex) {
+                                setWarning("Por favor, selecione uma opção")
+                            } else if((inBabySex === "Sim, será uma menina" || inBabySex === "Sim, será um menino" || inBabySex === "O casal genuinamente não se importa com o sexo do bebê, ele deve ser criado de forma agênero") && !babyName) {
+                                setWarning("Por favor, preencha o nome da criança")
+                            } else {
                                 setBabySex({
                                     babySex: inBabySex,
                                     babyName
                                 });
-                                setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 4 : 6)
-                            }}>Anterior</button>
-                            <button onClick={() => {
-                                if(!inBabySex) {
-                                    setWarning("Por favor, selecione uma opção")
-                                } else if((inBabySex === "Sim, será uma menina" || inBabySex === "Sim, será um menino" || inBabySex === "O casal genuinamente não se importa com o sexo do bebê, ele deve ser criado de forma agênero") && !babyName) {
-                                    setWarning("Por favor, preencha o nome da criança")
-                                } else {
-                                    setBabySex({
-                                        babySex: inBabySex,
-                                        babyName
-                                    });
-                                    setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 6 : 8)
-                                }
-                            }}>Próxima</button>
-                        </div>
+                                setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 6 : 8)
+                            }
+                        }}>Próxima</button>
                     </div>
                 </div>
             </div>

@@ -12,9 +12,9 @@ import FirstSonQ from "./individual-questions/FirstSonQ"
 import ChildNameQ from "./individual-questions/ChildNameQ"
 import AgeQ from "./individual-questions/AgeQ"
 import BabySexQ from "./individual-questions/BabySexQ"
+import MoodQ from "./individual-questions/MoodQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
-// import CoolnessQ from "./individual-questions/CoolnessQ"
 
 function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
@@ -30,19 +30,27 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ childName, setChildName ] = useState(baby.childName)
     const [ age, setAge ] = useState(baby.age);
     const [ babySex, setBabySex ] = useState(baby.babySex);
+    const [ mood, setMood ] = useState(baby.mood);
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
     // const [ hobbies, setHobbies ] = useState(baby.hobbies);
-    // const [ coolness, setCoolness ] = useState(baby.intimacy);
 
     useEffect(() => {
         window.scrollTo(0,0);
     }, [babyPage])
 
     function findIfIsBorn(str) {
-        if(str === "Nosso filho acaba de nascer e quero celebrar esse momento") {
+        if(str === "Nosso filho acaba de nascer e quero celebrar esse momento" || str === "Já nasceu") {
             return true;
         } else {
             return false;
+        }
+    }
+
+    function findIfIsFirstSon(firstSon) {
+        if(firstSon["yesOrNo"] === "Sim") {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -54,6 +62,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         isBorn,
         whenWasBorn,
         whenWillBeBorn,
+        firstSon,
+        childName,
         age,
         babySex,
         // introExtra,
@@ -116,6 +126,10 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         Question = BabySexQ;
                         tools = { setBabyPage, setBabySex, babySex, parentType: giftedName.parentType }
                     }
+                    break
+                case 8:
+                    Question = MoodQ;
+                    tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
                     break
                 default:
                     Question = NotFoundQ;
