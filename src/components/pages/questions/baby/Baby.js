@@ -11,6 +11,7 @@ import WhenWillBeBornQ from "./individual-questions/WhenWillBeBornQ"
 import FirstSonQ from "./individual-questions/FirstSonQ"
 import ChildNameQ from "./individual-questions/ChildNameQ"
 import AgeQ from "./individual-questions/AgeQ"
+import BabySexQ from "./individual-questions/BabySexQ"
 // import IntroExtraQ from "./individual-questions/IntroExtraQ"
 // import HobbiesQ from "./individual-questions/HobbiesQ"
 // import CoolnessQ from "./individual-questions/CoolnessQ"
@@ -28,6 +29,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ firstSon, setFirstSon ] = useState(baby.firstSon);
     const [ childName, setChildName ] = useState(baby.childName)
     const [ age, setAge ] = useState(baby.age);
+    const [ babySex, setBabySex ] = useState(baby.babySex);
     // const [ introExtra, setIntroExtra ] = useState(baby.intraExtra);
     // const [ hobbies, setHobbies ] = useState(baby.hobbies);
     // const [ coolness, setCoolness ] = useState(baby.intimacy);
@@ -53,6 +55,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         whenWasBorn,
         whenWillBeBorn,
         age,
+        babySex,
         // introExtra,
         // hobbies,
         // coolness
@@ -103,6 +106,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     } else {
                         Question = AgeQ;
                         tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }
+                    }
+                    break
+                case 7:
+                    if(isBorn === "Já nasceu") {
+                        Question = AgeQ;
+                        tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }
+                    } else {
+                        Question = BabySexQ;
+                        tools = { setBabyPage, setBabySex, babySex, parentType: giftedName.parentType }
                     }
                     break
                 default:
