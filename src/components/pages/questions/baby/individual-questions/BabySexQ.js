@@ -81,8 +81,11 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
 
                         <div className="prev-for">
                             <button onClick={() => {
-                                // setOccasion(radioValue);
-                                // setPage(1)
+                                setBabySex({
+                                    babySex: inBabySex,
+                                    babyName
+                                });
+                                setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 4 : 6)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 // if(radioValue) {
@@ -92,6 +95,11 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
                                 // } else {
                                 //     setWarning("Por favor, selecione uma das opções para prosseguir")
                                 // }
+                                setBabySex({
+                                    babySex: inBabySex,
+                                    babyName
+                                });
+                                setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 6 : 8)
                             }}>Próxima</button>
                         </div>
                     </div>

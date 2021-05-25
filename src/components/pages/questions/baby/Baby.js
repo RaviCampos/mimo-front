@@ -155,6 +155,15 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }
                     }
                     break
+                case 5:
+                    if(findIfIsBorn(reasonToGift)) {
+                        Question = AgeQ;
+                        tools = { setBabyPage, setAge, age, parentType: giftedName.parentType, name: giftedName.name, isBorn, gifterName }
+                    } else {
+                        Question = BabySexQ;
+                        tools = { setBabyPage, setBabySex, babySex, parentType: giftedName.parentType }
+                    }
+                    break
                 default:
                     Question = NotFoundQ;
                     tools = { setPage, setSection }
