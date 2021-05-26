@@ -140,18 +140,18 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="radio-option">
-                                        Sabe como são pais de primeira viagem, né? Estão super nervosos e apreensivos, mas tenho certeza que serão pais incríveis
-                                        <input type="radio" name="mood" id="mood_nervous" value="Sabe como são pais de primeira viagem, né? Estão super nervosos e apreensivos, mas tenho certeza que serão pais incríveis" checked={inMood === "Sabe como são pais de primeira viagem, né? Estão super nervosos e apreensivos, mas tenho certeza que serão pais incríveis"} onChange={e => setInMood(e.target.value) }/>
+                                        Sabe como são pais de primeira viagem, né? Sempre super nervosos e apreensivos, mas tenho certeza que {name} será incrível
+                                        <input type="radio" name="mood" id="mood_nervous" value={`Sabe como são pais de primeira viagem, né? Sempre super nervosos e apreensivos, mas tenho certeza que ${name} será incrível`} checked={inMood === `Sabe como são pais de primeira viagem, né? Sempre super nervosos e apreensivos, mas tenho certeza que ${name} será incrível`} onChange={e => setInMood(e.target.value) }/>
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="radio-option">
-                                        Estão 100% equipados, o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar
-                                        <input type="radio" name="mood" id="mood_equiped" value="Estão 100% equipados, o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar" checked={inMood === "Estão 100% equipados, o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar"} onChange={e=> setInMood(e.target.value)}/>
+                                        Está 100% equipada(o), o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets dos quais nunca ouvi falar
+                                        <input type="radio" name="mood" id="mood_equiped" value="Está 100% equipada(o), o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets dos quais nunca ouvi falar" checked={inMood === "Está 100% equipada(o), o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets dos quais nunca ouvi falar"} onChange={e=> setInMood(e.target.value)}/>
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="radio-option">
-                                        Ah, eles nasceram para isso, estão super tranquilos levando tudo com muita naturalidade. O importante é que venha com saúde
-                                        <input type="radio" name="mood" id="mood_natural" value="Ah, eles nasceram para isso, estão super tranquilos levando tudo com muita naturalidade. O importante é que venha com saúde" checked={inMood === "Ah, eles nasceram para isso, estão super tranquilos levando tudo com muita naturalidade. O importante é que venha com saúde"} onChange={e=> setInMood(e.target.value)}/>
+                                        Ah, {name} nasceu para isso, está super tranquila(o) levando tudo com muita naturalidade. O importante é que venha com saúde
+                                        <input type="radio" name="mood" id="mood_natural" value={`Ah, ${name} nasceu para isso, está super tranquila(o) levando tudo com muita naturalidade. O importante é que venha com saúde`} checked={inMood === `Ah, ${name} nasceu para isso, está super tranquila(o) levando tudo com muita naturalidade. O importante é que venha com saúde`} onChange={e=> setInMood(e.target.value)}/>
                                         <span className="checkmark"></span>
                                     </label>
                                 </div>
@@ -180,26 +180,26 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                     <div className="all-margin">
                         <div className="all-center">
                             <div>
-                                <h2 className="small-title">A chegada de uma criança é um momento muito especial, como está o coração de {name.nameA} e {name.nameB} agora?</h2>
+                                <h2 className="small-title">A chegada de uma criança é um momento muito especial, como está o coração de {name} agora?</h2>
                                 <div>
                                     <label className="radio-option">
-                                        Eles parecem ter tudo sob controle, não são mais pais de primeira viagem e estão preparados para o que der e vier
-                                        <input type="radio" name="mood" id="mood_ok" value="Eles parecem ter tudo sob controle, não são mais pais de primeira viagem e estão preparados para o que der e vier" checked={inMood === "Eles parecem ter tudo sob controle, não são mais pais de primeira viagem e estão preparados para o que der e vier"} onChange={e=> setInMood(e.target.value)}/>
+                                        {name} parece ter tudo sob controle, não é marinheiro de primeira viagem e está preparada(o) para o que der e vier
+                                        <input type="radio" name="mood" id="mood_ok" value={`${name} parece ter tudo sob controle, não é marinheiro de primeira viagem e está preparada(o) para o que der e vier`} checked={inMood === `${name} parece ter tudo sob controle, não é marinheiro de primeira viagem e está preparada(o) para o que der e vier`} onChange={e=> setInMood(e.target.value)}/>
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="radio-option">
-                                        Mesmo já tendo filhos esse é um momento delicado, estão super nervosos e apreensivos
-                                        <input type="radio" name="mood" id="mood_nervous" value="Mesmo já tendo filhos esse é um momento delicado, estão super nervosos e apreensivos" checked={inMood === "Mesmo já tendo filhos esse é um momento delicado, estão super nervosos e apreensivos"} onChange={e => setInMood(e.target.value) }/>
+                                        Mesmo já tendo um filho esse é um momento delicado, {name} está super nervosa(o) e apreensiva(o)
+                                        <input type="radio" name="mood" id="mood_nervous" value={`Mesmo já tendo um filho esse é um momento delicado, ${name} está super nervosa(o) e apreensiva(o)`} checked={inMood === `Mesmo já tendo um filho esse é um momento delicado, ${name} está super nervosa(o) e apreensiva(o)`} onChange={e => setInMood(e.target.value) }/>
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="radio-option">
-                                        Estão 100% equipados, o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar
-                                        <input type="radio" name="mood" id="mood_equiped" value="Estão 100% equipados, o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar" checked={inMood === "Estão 100% equipados, o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar"} onChange={e=> setInMood(e.target.value)}/>
+                                        Está 100% equipada(o), o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar
+                                        <input type="radio" name="mood" id="mood_equiped" value="Está 100% equipada(o), o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar" checked={inMood === "Está 100% equipada(o), o quarto do bebê parece um esconderijo do James Bond, cheio de gadgets do quais nunca ouvi falar"} onChange={e=> setInMood(e.target.value)}/>
                                         <span className="checkmark"></span>
                                     </label>
                                     <label className="radio-option">
-                                        Ah, eles nasceram para isso, estão super tranquilos levando tudo com muita naturalidade. O importante é que venha com saúde
-                                        <input type="radio" name="mood" id="mood_natural" value="Ah, eles nasceram para isso, estão super tranquilos levando tudo com muita naturalidade. O importante é que venha com saúde" checked={inMood === "Ah, eles nasceram para isso, estão super tranquilos levando tudo com muita naturalidade. O importante é que venha com saúde"} onChange={e=> setInMood(e.target.value)}/>
+                                        Ah, {name} nasceu para isso, está super tranquila(o) levando tudo com muita naturalidade. O importante é que venha com saúde
+                                        <input type="radio" name="mood" id="mood_natural" value={`Ah, ${name} nasceu para isso, está super tranquila(o) levando tudo com muita naturalidade. O importante é que venha com saúde`} checked={inMood === `Ah, ${name} nasceu para isso, está super tranquila(o) levando tudo com muita naturalidade. O importante é que venha com saúde`} onChange={e=> setInMood(e.target.value)}/>
                                         <span className="checkmark"></span>
                                     </label>
                                 </div>
