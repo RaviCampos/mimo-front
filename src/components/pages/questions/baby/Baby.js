@@ -128,8 +128,12 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     }
                     break
                 case 8:
-                    Question = MoodQ;
-                    tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
+                    if(isBorn === "Já nasceu") {
+
+                    } else {
+                        Question = MoodQ;
+                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
+                    }
                     break
                 default:
                     Question = NotFoundQ;
@@ -176,6 +180,14 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     } else {
                         Question = BabySexQ;
                         tools = { setBabyPage, setBabySex, babySex, parentType: giftedName.parentType }
+                    }
+                    break
+                case 6:
+                    if(findIfIsBorn(reasonToGift)) {
+                        
+                    } else {
+                        Question = MoodQ;
+                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
                     }
                     break
                 default:
