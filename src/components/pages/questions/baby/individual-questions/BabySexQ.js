@@ -34,7 +34,7 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
                             <input type="radio" name="babySex" id="babySex_waiting" value="Ainda não, estamos todos aguardando a revelação" checked={inBabySex === "Ainda não, estamos todos aguardando a revelação"} onChange={e=> setBoth(e.target.value)}/>
                             <span className="checkmark"></span>
                         </label>
-                        <label className="radio-option small-radio">
+                        <label className="radio-option small-radio long-option">
                             Ainda não, vai ser uma surpresa o que importa é que venha com saúde, não é mesmo?
                             <input type="radio" name="babySex" id="babySex_surprise" value="Ainda não, vai ser uma surpresa o que importa é que venha com saúde, não é mesmo?" checked={inBabySex === "Ainda não, vai ser uma surpresa o que importa é que venha com saúde, não é mesmo?"} onChange={e => setBoth(e.target.value) }/>
                             <span className="checkmark"></span>
@@ -66,7 +66,7 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
                                 <input type="text" value={babyName} onChange={e => setBabyName(e.target.value)}/>
                             </div>
                         }
-                        <label className="radio-option small-radio">
+                        <label className="radio-option small-radio long-option">
                             O casal genuinamente não se importa com o sexo do bebê, ele deve ser criado de forma agênero
                             <input type="radio" name="babySex" id="babySex_agender" value="O casal genuinamente não se importa com o sexo do bebê, ele deve ser criado de forma agênero" checked={inBabySex === "O casal genuinamente não se importa com o sexo do bebê, ele deve ser criado de forma agênero"} onChange={e=> setBoth(e.target.value)}/>
                             <span className="checkmark"></span>
