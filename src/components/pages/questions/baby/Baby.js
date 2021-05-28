@@ -14,6 +14,8 @@ import AgeQ from "./individual-questions/AgeQ"
 import BabySexQ from "./individual-questions/BabySexQ"
 import MoodQ from "./individual-questions/MoodQ"
 import HobbiesQ from "./individual-questions/HobbiesQ"
+import CoolnessQ from "./individual-questions/CoolnessQ"
+ 
 
 function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, setGoToOccasionLastQ, gifterName }}) {
 
@@ -31,6 +33,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
     const [ babySex, setBabySex ] = useState(baby.babySex);
     const [ mood, setMood ] = useState(baby.mood);
     const [ hobbies, setHobbies ] = useState(baby.hobbies);
+    const [ coolness, setCoolness ] = useState(baby.coolness);
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -65,7 +68,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
         age,
         babySex,
         mood,
-        hobbies
+        hobbies,
+        coolness
     }
 
     let Question, tools;
@@ -127,6 +131,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                 case 8:
                     if(isBorn === "Já nasceu") {
                         // Coolness
+                        Question = CoolnessQ;
+                        tools = {setBabyPage, setCoolness, coolness, parentType: giftedName.parentType}
                     } else {
                         Question = MoodQ;
                         tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
@@ -193,6 +199,8 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                 case 6:
                     if(findIfIsBorn(reasonToGift)) {
                         // Coolness
+                        Question = CoolnessQ;
+                        tools = {setBabyPage, setCoolness, coolness, parentType: giftedName.parentType}
                     } else {
                         Question = MoodQ;
                         tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }

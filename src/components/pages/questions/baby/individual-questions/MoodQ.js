@@ -15,9 +15,51 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
     if(parentType === "Um casal querido que está esperando um filho") {
         if(isBorn) {
             if(isFirstSon) {
-
+                return (
+                    <div className="all-margin">
+                        <div className="all-center">
+                            <div>
+                                <h2 className="small-title">Mood</h2>
+                                    
+                                {warning && <p className="validation-warning">{warning}</p>}
+                                <br/>
+                                <div className="prev-for">
+                                    <button onClick={() => {
+                                        setMood(inMood)
+                                        setBabyPage(8)
+                                    }}>Anterior</button>
+                                    <button onClick={() => {
+                                            setMood(inMood)
+                                            setBabyPage(10)
+                                    }}>Próxima</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             } else {
-
+                return (
+                    <div className="all-margin">
+                        <div className="all-center">
+                            <div>
+                                <h2 className="small-title">Mood</h2>
+                                    
+                                {warning && <p className="validation-warning">{warning}</p>}
+                                <br/>
+                                <div className="prev-for">
+                                    <button onClick={() => {
+                                        setMood(inMood)
+                                        setBabyPage(8)
+                                    }}>Anterior</button>
+                                    <button onClick={() => {
+                                            setMood(inMood)
+                                            setBabyPage(10)
+                                    }}>Próxima</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             }
         } else {
             if(isFirstSon) {
@@ -122,9 +164,51 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
     } else if(parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo") {        
         if(isBorn) {
             if(isFirstSon) {
-
+                return (
+                    <div className="all-margin">
+                        <div className="all-center">
+                            <div>
+                                <h2 className="small-title">Mood</h2>
+                                    
+                                {warning && <p className="validation-warning">{warning}</p>}
+                                <br/>
+                                <div className="prev-for">
+                                    <button onClick={() => {
+                                        setMood(inMood)
+                                        setBabyPage(8)
+                                    }}>Anterior</button>
+                                    <button onClick={() => {
+                                            setMood(inMood)
+                                            setBabyPage(10)
+                                    }}>Próxima</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             } else {
-
+                return (
+                    <div className="all-margin">
+                        <div className="all-center">
+                            <div>
+                                <h2 className="small-title">Mood</h2>
+                                    
+                                {warning && <p className="validation-warning">{warning}</p>}
+                                <br/>
+                                <div className="prev-for">
+                                    <button onClick={() => {
+                                        setMood(inMood)
+                                        setBabyPage(8)
+                                    }}>Anterior</button>
+                                    <button onClick={() => {
+                                            setMood(inMood)
+                                            setBabyPage(10)
+                                    }}>Próxima</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             }
         } else {
             if(isFirstSon) {
@@ -228,9 +312,51 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
     } else {
         if(isBorn) {
             if(isFirstSon) {
-
+                return (
+                    <div className="all-margin">
+                        <div className="all-center">
+                            <div>
+                                <h2 className="small-title">Mood</h2>
+                                    
+                                {warning && <p className="validation-warning">{warning}</p>}
+                                <br/>
+                                <div className="prev-for">
+                                    <button onClick={() => {
+                                        setMood(inMood)
+                                        setBabyPage(6)
+                                    }}>Anterior</button>
+                                    <button onClick={() => {
+                                            setMood(inMood)
+                                            setBabyPage(8)
+                                    }}>Próxima</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             } else {
-
+                return (
+                    <div className="all-margin">
+                        <div className="all-center">
+                            <div>
+                                <h2 className="small-title">Mood</h2>
+                                    
+                                {warning && <p className="validation-warning">{warning}</p>}
+                                <br/>
+                                <div className="prev-for">
+                                    <button onClick={() => {
+                                        setMood(inMood)
+                                        setBabyPage(6)
+                                    }}>Anterior</button>
+                                    <button onClick={() => {
+                                            setMood(inMood)
+                                            setBabyPage(8)
+                                    }}>Próxima</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             }
         } else {
             if(isFirstSon) {
