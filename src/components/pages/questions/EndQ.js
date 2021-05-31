@@ -25,14 +25,15 @@ function EndQ({tools: {setPage, formInfo}}) {
         })}</div>
     }
 
-    let finalMessage = 
-    `Nome de quem dá o presente: ${formInfo.gifterName};
-    Nome de quem vai receber o presente: ${typeof formInfo.giftedName === "object" ? `${formInfo.giftedName.nameA} e ${formInfo.giftedName.nameA}`: formInfo.giftedName.replace("--", "e")};
-    Ocasião: ${formInfo.occasion.replace("/", "/ ")};
-    Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
-    Contato por: ${formInfo.contact};
-    Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
-    `
+    let finalMessage = `` 
+
+    // `Nome de quem dá o presente: ${formInfo.gifterName};
+    // Nome de quem vai receber o presente: ${typeof formInfo.giftedName === "object" ? `${formInfo.giftedName.nameA} e ${formInfo.giftedName.nameA}`: formInfo.giftedName.replace("--", "e")};
+    // Ocasião: ${formInfo.occasion.replace("/", "/ ")};
+    // Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
+    // Contato por: ${formInfo.contact};
+    // Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
+    // `
 
     let finalHtmlMessage = makeEndBit(finalMessage);
 

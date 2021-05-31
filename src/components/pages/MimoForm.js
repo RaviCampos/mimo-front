@@ -86,6 +86,9 @@ function MimoForm() {
             case "casamento/namoro":
                 specificQ = wedding
                 break
+            case "bebe":
+                specificQ = baby
+                break
             case "trabalho":
                 specificQ = work;
                 break
