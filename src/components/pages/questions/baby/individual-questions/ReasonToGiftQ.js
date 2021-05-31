@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 function ReasonToGiftQ({tools: { setBabyPage, setReasonToGift, reasonToGift, name }}) {
 
-    const [ inReason, setInReason ] = useState(reasonToGift) 
+    const [ inReason, setInReason ] = useState(reasonToGift ? reasonToGift : "") 
     
     const [ warning, setWarning ] = useState(false)
 
