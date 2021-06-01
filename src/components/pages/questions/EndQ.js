@@ -54,8 +54,7 @@ function EndQ({tools: {setPage, formInfo}}) {
     let finalHtmlMessage = makeEndBit(finalMessage);
 
     let standardEndingQ = 
-    `Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};
-    Adições: ${formInfo.additions ? formInfo.additions : "Nenhuma"};
+    `Adições: ${formInfo.additions ? formInfo.additions : "Nenhuma"};
     Restrições alimentares: ${formInfo.foodRestriction};
     Endereço: ${formInfo.adress};
     `
@@ -83,6 +82,7 @@ function EndQ({tools: {setPage, formInfo}}) {
             Introversão ou extroversão: ${formInfo.introExtra};
             Hobbies: ${formInfo.hobbies};
             Careta ou maneiro: ${formInfo.coolness};
+            Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};
             `
             break;
 
@@ -179,6 +179,10 @@ function EndQ({tools: {setPage, formInfo}}) {
                     <h3>Talvez revise seus dados</h3>
                     <pre>{JSON.stringify(formInfo, null, 2)}</pre>
                     {finalHtmlMessage}
+                    <div>
+                        {/* {finalMessage} */}
+                    </div>
+                        {internalMessage}
 
                     <div className="prev-for">
                         <button onClick={() => {
