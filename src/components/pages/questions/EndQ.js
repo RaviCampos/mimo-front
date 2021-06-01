@@ -88,6 +88,25 @@ function EndQ({tools: {setPage, formInfo}}) {
 
         case "bebe":
             internalMessage = ``
+            if(formInfo.age.age) {
+                internalMessage += `Idade: ${formInfo.age.age}`
+            } else if(formInfo.age.ageA) {
+                internalMessage += `Idade: ${formInfo.giftedName.name.nameA} - ${formInfo.age.ageA} e ${formInfo.giftedName.name.nameB} - ${formInfo.age.ageB}`
+            } else if(formInfo.age.gifterAge) {
+                internalMessage += `Idade: ${formInfo.gifterName} - ${formInfo.age.gifterAge} e ${formInfo.giftedName.name} - ${formInfo.age.giftedAge}`
+            }
+
+            if(formInfo.reasonToGift) internalMessage += `\nPorquê está dando o presente: ${formInfo.reasonToGift};`
+            if(formInfo.relation) internalMessage += ("\nRelação: " + formInfo.relation + ";");
+            if(formInfo.intimacy) internalMessage += ("\nNível de intimidade: " + formInfo.intimacy + ";");
+            if(formInfo.isBorn) internalMessage += ("\nO filho já nasceu: " + formInfo.isBorn + ";");
+            if(formInfo.wheWasBorn) internalMessage += ("\nQuando nasceu: " + formInfo.wheWasBorn + ";");
+            if(formInfo.whenWillBeBorn) internalMessage += ("\nQuando vai nascer: " + formInfo.whenWillBeBorn + ";");
+            if(formInfo.firstSon) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + (formInfo.firstSon.howMany ? " - Número de filhos" + formInfo.firstSon.howMany : "" ) + ";");
+            
+            internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
+            internalMessage += ("\nHobbies: " + formInfo) 
+
             break;
 
         case "trabalho":
@@ -117,22 +136,14 @@ function EndQ({tools: {setPage, formInfo}}) {
             break;
 
         case "viagem":
-            internalMessage = `Porquê está dando o presente: ${formInfo.reason};
-            Idade: ${formInfo.age};`
-
-            if(formInfo.relation) internalMessage += ("\nRelação: " + formInfo.relation + ";");
-            if(formInfo.intimacy) internalMessage += ("\nNível de intimidade: " + formInfo.intimacy + ";");
-            if(formInfo.isBorn) internalMessage += ("\nO filho já nasceu: " + formInfo.isBorn + ";");
-            if(formInfo.wheWasBorn) internalMessage += ("\nQuando nasceu: " + formInfo.wheWasBorn + ";");
-            if(formInfo.whenWillBeBorn) internalMessage += ("\nQuando vai nascer: " + formInfo.whenWillBeBorn + ";");
-            if(formInfo.firstSon) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + formInfo.firstSon.howMany ? " - " + formInfo.firstSon.howMany : "");
-            
-            internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
-            internalMessage += ("\nHobbies: " + formInfo) 
-
-            // Relação: ${formInfo.relation};   
-            // Nível de intimidade: ${formInfo.intimacy};
-            // Careta ou descolado: ${formInfo.coolness};
+            internalMessage = 
+            `Porquê está dando o presente: ${formInfo.reason};
+            Destino: ${formInfo.destiny};
+            Relação: ${formInfo.relation};   
+            Nível de intimidade: ${formInfo.intimacy};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            Careta ou descolado: ${formInfo.coolness};
+            `
 
             break;
 
@@ -148,19 +159,19 @@ function EndQ({tools: {setPage, formInfo}}) {
 
             break;
 
-        case "bebe":
-            internalMessage = 
-            `Tipo de pais: ${formInfo.giftedName.parentType}
-            $
-            Idade: ${formInfo.age};
-            Relação: ${formInfo.relation};   
-            Nível de intimidade: ${formInfo.intimacy};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            Careta ou descolado: ${formInfo.coolness};
-            Hobbies: ${formInfo.hobbies};
-            `
+        // case "bebe":
+        //     internalMessage = 
+        //     `Tipo de pais: ${formInfo.giftedName.parentType}
+        //     $
+        //     Idade: ${formInfo.age};
+        //     Relação: ${formInfo.relation};   
+        //     Nível de intimidade: ${formInfo.intimacy};
+        //     Introversão ou extroversão: ${formInfo.introExtra};
+        //     Careta ou descolado: ${formInfo.coolness};
+        //     Hobbies: ${formInfo.hobbies};
+        //     `
 
-            break;
+        //     break;
         
         default:
             finalMessage = "Algo deu errado com a finalização das perguntas, dê uma olhada primeiro no código de EndingQ.js"
@@ -182,7 +193,8 @@ function EndQ({tools: {setPage, formInfo}}) {
                     <div>
                         {/* {finalMessage} */}
                     </div>
-                        {internalMessage}
+                        <pre>{internalMessage}</pre>
+
 
                     <div className="prev-for">
                         <button onClick={() => {

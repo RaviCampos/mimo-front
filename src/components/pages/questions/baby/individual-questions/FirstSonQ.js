@@ -12,7 +12,7 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
     }, [inFirstSon, howMany])   
 
     const inQuestionNames = parentType === "Um casal querido que está esperando um filho" ? `${name.nameA} e ${name.nameB}` : name
-    const negativeOption = parentType === "Um casal querido que está esperando um filho" ? `Não, ${name.nameA} e ${name.nameB} já têm filho(s)` : parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? `Não, eu e ${name} já temos filho(s).` : `Não, ${name} já tem filho(s)`
+    const negativeOption = parentType === "Um casal querido que está esperando um filho" ? `Não, ${name.nameA} e ${name.nameB} já têm filho(s)` : parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? `Não, eu e ${name} já temos filho(s)` : `Não, ${name} já tem filho(s)`
     
     let question;
     if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
