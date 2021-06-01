@@ -25,15 +25,31 @@ function EndQ({tools: {setPage, formInfo}}) {
         })}</div>
     }
 
-    let finalMessage = `` 
+    function makeGiftedName() {
+        const giftedName = formInfo.giftedName
+        if(typeof giftedName === "object") {
+            if(giftedName.name) {
+                if(typeof giftedName.name === "string") {
+                    return giftedName.name
+                } else {
+                    return `${giftedName.name.nameA} e ${giftedName.name.nameB}`
+                }
+            } else {
+                return `${giftedName.nameA} e ${giftedName.nameA}`
+            }
+        } else {
+            return giftedName.replace("--", "e")
+        }
+    }
 
-    // `Nome de quem dá o presente: ${formInfo.gifterName};
-    // Nome de quem vai receber o presente: ${typeof formInfo.giftedName === "object" ? `${formInfo.giftedName.nameA} e ${formInfo.giftedName.nameA}`: formInfo.giftedName.replace("--", "e")};
-    // Ocasião: ${formInfo.occasion.replace("/", "/ ")};
-    // Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
-    // Contato por: ${formInfo.contact};
-    // Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
-    // `
+    let finalMessage =
+    `Nome de quem dá o presente: ${formInfo.gifterName};
+    Nome de quem vai receber o presente: ${makeGiftedName()};
+    Ocasião: ${formInfo.occasion.replace("/", "/ ")};
+    Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
+    Contato por: ${formInfo.contact};
+    Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
+    `
 
     let finalHtmlMessage = makeEndBit(finalMessage);
 
@@ -101,20 +117,42 @@ function EndQ({tools: {setPage, formInfo}}) {
             break;
 
         case "viagem":
-            internalMessage = 
-            `Porquê está dando o presente: ${formInfo.reason};
-            Destino: ${formInfo.destiny};
-            Relação: ${formInfo.relation};   
-            Nível de intimidade: ${formInfo.intimacy};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            Careta ou descolado: ${formInfo.coolness};
-            `
+            internalMessage = `Porquê está dando o presente: ${formInfo.reason};
+            Idade: ${formInfo.age};`
+
+            if(formInfo.relation) internalMessage += ("\nRelação: " + formInfo.relation + ";");
+            if(formInfo.intimacy) internalMessage += ("\nNível de intimidade: " + formInfo.intimacy + ";");
+            if(formInfo.isBorn) internalMessage += ("\nO filho já nasceu: " + formInfo.isBorn + ";");
+            if(formInfo.wheWasBorn) internalMessage += ("\nQuando nasceu: " + formInfo.wheWasBorn + ";");
+            if(formInfo.whenWillBeBorn) internalMessage += ("\nQuando vai nascer: " + formInfo.whenWillBeBorn + ";");
+            if(formInfo.firstSon) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + formInfo.firstSon.howMany ? " - " + formInfo.firstSon.howMany : "");
+            
+            internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
+            internalMessage += ("\nHobbies: " + formInfo) 
+
+            // Relação: ${formInfo.relation};   
+            // Nível de intimidade: ${formInfo.intimacy};
+            // Careta ou descolado: ${formInfo.coolness};
 
             break;
 
         case "nenhuma":
             internalMessage = 
             `Idade: ${formInfo.age};
+            Relação: ${formInfo.relation};   
+            Nível de intimidade: ${formInfo.intimacy};
+            Introversão ou extroversão: ${formInfo.introExtra};
+            Careta ou descolado: ${formInfo.coolness};
+            Hobbies: ${formInfo.hobbies};
+            `
+
+            break;
+
+        case "bebe":
+            internalMessage = 
+            `Tipo de pais: ${formInfo.giftedName.parentType}
+            $
+            Idade: ${formInfo.age};
             Relação: ${formInfo.relation};   
             Nível de intimidade: ${formInfo.intimacy};
             Introversão ou extroversão: ${formInfo.introExtra};
