@@ -102,7 +102,9 @@ function EndQ({tools: {setPage, formInfo}}) {
             if(formInfo.isBorn) internalMessage += ("\nO filho já nasceu: " + formInfo.isBorn + ";");
             if(formInfo.wheWasBorn) internalMessage += ("\nQuando nasceu: " + formInfo.wheWasBorn + ";");
             if(formInfo.whenWillBeBorn) internalMessage += ("\nQuando vai nascer: " + formInfo.whenWillBeBorn + ";");
-            if(formInfo.firstSon) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + (formInfo.firstSon.howMany ? " - Número de filhos" + formInfo.firstSon.howMany : "" ) + ";");
+            if(formInfo.firstSon.yesOrNo) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + ";");
+            if(formInfo.firstSon.howMany) internalMessage += ("\nNúmero de filhos: " + formInfo.firstSon.howMany + ";");
+
             
             internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
             internalMessage += ("\nHobbies: " + formInfo) 
