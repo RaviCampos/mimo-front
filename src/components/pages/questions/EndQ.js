@@ -103,6 +103,7 @@ Endereço: ${formInfo.adress};`
             if(formInfo.intimacy) internalMessage += ("\nNível de intimidade: " + formInfo.intimacy + ";");
             if(formInfo.isBorn) internalMessage += ("\nO filho já nasceu: " + formInfo.isBorn + ";");
             if(formInfo.wheWasBorn) internalMessage += ("\nQuando nasceu: " + formInfo.wheWasBorn + ";");
+            if(formInfo.childName) internalMessage += ("\nNome da criança: " + formInfo.childName + ";");
             if(formInfo.whenWillBeBorn) internalMessage += ("\nQuando vai nascer: " + formInfo.whenWillBeBorn + ";");
             if(formInfo.firstSon.yesOrNo) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + ";");
             if(formInfo.firstSon.howMany) internalMessage += ("\nNúmero de filhos: " + formInfo.firstSon.howMany + ";");
