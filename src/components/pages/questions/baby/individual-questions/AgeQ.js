@@ -126,7 +126,7 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                     gifterAge,
                                     giftedAge
                                 })
-                                setBabyPage(isBorn === "Já nasceu" ? 4 : 3)
+                                setBabyPage(isBorn ? 4 : 3)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(gifterAge && giftedAge) {
@@ -134,9 +134,9 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                         gifterAge,
                                         giftedAge    
                                     })
-                                    setBabyPage(isBorn === "Já nasceu" ? 6 : 5)
+                                    setBabyPage(isBorn ? 6 : 5)
                                 } else {
-                                    setWarning("Por favor, selecione as duas idades")
+                                    setWarning("Por favor, selecione as duas idadessss")
                                 }
                             }}>Próxima</button>
                         </div>

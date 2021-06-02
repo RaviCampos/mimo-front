@@ -109,6 +109,7 @@ Endereço: ${formInfo.adress};`
             if(formInfo.firstSon.howMany) internalMessage += ("\nNúmero de filhos: " + formInfo.firstSon.howMany + ";");
             if(formInfo.babySex.babySex) internalMessage += ("\nSabe o sexo do bebê: " + formInfo.babySex.babySex + ";");
             if(formInfo.babySex.babyName) internalMessage += ("\nNome do bebê: " + formInfo.babySex.babyName + ";")
+            if(formInfo.coolness) internalMessage += ("\nCareta ou descolado: " )
 
             
             internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
