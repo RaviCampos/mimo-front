@@ -44,20 +44,22 @@ function EndQ({tools: {setPage, formInfo}}) {
 
     let finalMessage =
     `Nome de quem dá o presente: ${formInfo.gifterName};
-    Nome de quem vai receber o presente: ${makeGiftedName()};
-    Ocasião: ${formInfo.occasion.replace("/", "/ ")};
-    Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
-    Contato por: ${formInfo.contact};
-    Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
-    `
+Nome de quem vai receber o presente: ${makeGiftedName()};
+Ocasião: ${formInfo.occasion.replace("/", "/ ")};
+Valor: de R$${formInfo.value.split(" - ")[0]},00 até R$${formInfo.value.split(" - ")[1]},00;
+Contato por: ${formInfo.contact};
+Data de entrega: ${new Date(formInfo.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })};
+
+`
 
     let finalHtmlMessage = makeEndBit(finalMessage);
 
     let standardEndingQ = 
-    `Adições: ${formInfo.additions ? formInfo.additions : "Nenhuma"};
-    Restrições alimentares: ${formInfo.foodRestriction};
-    Endereço: ${formInfo.adress};
     `
+
+Adições: ${formInfo.additions ? formInfo.additions : "Nenhuma"};
+Restrições alimentares: ${formInfo.foodRestriction};
+Endereço: ${formInfo.adress};`
 
     let internalMessage
 
@@ -104,10 +106,12 @@ function EndQ({tools: {setPage, formInfo}}) {
             if(formInfo.whenWillBeBorn) internalMessage += ("\nQuando vai nascer: " + formInfo.whenWillBeBorn + ";");
             if(formInfo.firstSon.yesOrNo) internalMessage += ("\nÉ o primeiro filho: " + formInfo.firstSon.yesOrNo + ";");
             if(formInfo.firstSon.howMany) internalMessage += ("\nNúmero de filhos: " + formInfo.firstSon.howMany + ";");
+            if(formInfo.babySex.babySex) internalMessage += ("\nSabe o sexo do bebê: " + formInfo.babySex.babySex + ";");
+            if(formInfo.babySex.babyName) internalMessage += ("\nNome do bebê: " + formInfo.babySex.babyName + ";")
 
             
             internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
-            internalMessage += ("\nHobbies: " + formInfo) 
+            internalMessage += ("\nHobbies: " + formInfo.hoobies + ";") 
 
             break;
 
@@ -181,8 +185,8 @@ function EndQ({tools: {setPage, formInfo}}) {
             break;
     }
 
-    finalMessage += standardEndingQ;
     finalMessage += internalMessage;
+    finalMessage += standardEndingQ;
 
     return (
         <div className="all-margin">
@@ -195,7 +199,7 @@ function EndQ({tools: {setPage, formInfo}}) {
                     <div>
                         {/* {finalMessage} */}
                     </div>
-                        <pre>{internalMessage}</pre>
+                        <pre>{finalMessage}</pre>
 
 
                     <div className="prev-for">
