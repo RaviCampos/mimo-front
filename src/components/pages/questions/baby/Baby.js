@@ -152,13 +152,13 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         tools = {setBabyPage, setCoolness, coolness, parentType: giftedName.parentType}
                     } else {
                         Question = MoodQ;
-                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
+                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
                     }
                     break
                 case 9:
                     if(isBorn === "Já nasceu") {
                         Question = MoodQ;
-                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
+                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
                     } else {
                         // Hobbies
                         Question = HobbiesQ;
@@ -224,13 +224,13 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                         tools = {setBabyPage, setCoolness, coolness, parentType: giftedName.parentType}
                     } else {
                         Question = MoodQ;
-                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
+                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
                     }
                     break
                 case 7:
                     if(findIfIsBorn(reasonToGift)) {
                         Question = MoodQ;
-                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName }
+                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(isBorn), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
                     } else {
                         // Hobbies
                         Question = HobbiesQ;
