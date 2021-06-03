@@ -162,13 +162,13 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     } else {
                         // Hobbies
                         Question = HobbiesQ;
-                        tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(isBorn)}
+                        tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(isBorn), name: giftedName.name}
                     }
                     break
                 case 10:
                     // Hobbies
                     Question = HobbiesQ;
-                    tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(isBorn)}
+                    tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(isBorn), name: giftedName.name}
                     break
                 default:
                     Question = NotFoundQ;
@@ -234,13 +234,13 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     } else {
                         // Hobbies
                         Question = HobbiesQ;
-                        tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift)}
+                        tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift), name: giftedName.name}
                     }
                     break
                 case 8:
                     // Hobbies
                     Question = HobbiesQ;
-                    tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift)}
+                    tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift), name: giftedName.name}
                     break
                 default:
                     Question = NotFoundQ;
