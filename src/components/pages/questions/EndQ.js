@@ -113,7 +113,7 @@ Endereço: ${formInfo.adress};`
 
             
             internalMessage += ("\nÂnimo: " + formInfo.mood + ";");
-            internalMessage += ("\nHobbies: " + formInfo.hoobies + ";") 
+            internalMessage += ("\nHobbies: " + formInfo.hobbies + ";") 
 
             break;
 
