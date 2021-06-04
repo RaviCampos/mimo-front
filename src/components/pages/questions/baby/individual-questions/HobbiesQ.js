@@ -247,6 +247,7 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                     </div>
                 </div>
             </div>
+            
         )
     }
 }
