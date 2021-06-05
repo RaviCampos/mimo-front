@@ -9,10 +9,11 @@ import AreaQ from "./individual-questions/AreaQ"
 import MoodQ from "./individual-questions/MoodQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
+import HobbiesQ from "./individual-questions/HobbiesQ"
 
 function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
-    const [ workPage, setWorkPage ] = useState(goToOccasionLastQ ? intimacyCalc(work.intimacy) === 2 ? 7 : 6 : 0); /* integer */
+    const [ workPage, setWorkPage ] = useState(goToOccasionLastQ ? intimacyCalc(work.intimacy) === 2 ? 7 : intimacyCalc(work.intimacy) ? 6 : 5 : 0); /* integer */
 
     const [ giftedName, setGiftedName ] = useState(work.giftedName)
     const [ reason, setReason ] = useState(work.reason)
@@ -22,6 +23,7 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
     const [ mood, setMood ] = useState(work.mood)
     const [ coolness, setCoolness ] = useState(work.coolness)
     const [ introExtra, setIntroExtra ] = useState(work.introExtra)
+    const [ hobbies, setHobbies ] = useState(work.hobbies)
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -35,7 +37,8 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
         area,
         mood,
         coolness,
-        introExtra
+        introExtra,
+        hobbies
     }
 
     let Question, tools
@@ -75,9 +78,12 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
             if(intimacyCalc(intimacy) === 2) {
                 Question = MoodQ;
                 tools = { setWorkPage, mood, setMood, giftedName}
-            } else {
+            } else if(intimacyCalc(intimacy) === 1) {
                 Question = CoolnessQ;
                 tools = { setWorkPage, coolness, setCoolness, giftedName, intimacy: intimacyCalc(intimacy) }
+            } else {
+                Question = HobbiesQ;
+                tools = { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, hobbies, setHobbies, giftedName, intimacy: intimacyCalc(intimacy) }
             }
             break
         case 6:
@@ -90,8 +96,8 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
             }
             break
         case 7:
-            Question = IntroExtraQ;
-            tools = { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, introExtra, setIntroExtra, giftedName, intimacy: intimacyCalc(intimacy) }
+            Question = HobbiesQ;
+            tools = { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, hobbies, setHobbies, giftedName, intimacy: intimacyCalc(intimacy) }
             break
         default:
             Question = NotFoundQ;

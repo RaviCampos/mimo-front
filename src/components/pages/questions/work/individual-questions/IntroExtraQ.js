@@ -24,9 +24,6 @@ function IntroExtraQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
                     ...futureWork,
                     introExtra: inIntroExtra
                 }
-                if(intimacy !== 2) {
-                    delete work.mood
-                }
                 setWork(work);
                 setGoToOccasionLastQ(true)
                 setSection("common")

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 function AreaQ({tools: { setWorkPage, area, setArea, giftedName }}) {
 
-    const [ inArea, setInArea ] = useState(area)
+    const [ inArea, setInArea ] = useState(area ? area : "")
 
     const [ warning, setWarning ] = useState(false)
     useEffect(() => {
