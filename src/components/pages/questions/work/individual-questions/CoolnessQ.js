@@ -12,9 +12,10 @@ function CoolnessQ({tools: { setWorkPage, coolness, setCoolness, giftedName, int
         <div className="all-margin">
             <div className="all-center">
                 <div>
-                    <h2 className="title small-title">Passamos a maior parte da nossa vida no trabalho e com o tempo passamos a desenvolver certos papéis que vão além da descrição do nosso cargo, marque todas as opções em que você achar que {giftedName} se encaixa</h2>
+                    <h2 className="title small-title">Passamos a maior parte da nossa vida no trabalho e com o tempo passamos a desenvolver certos papéis que vão além da descrição do nosso cargo</h2>
+                    <p className="subtitle">marque todas as opções em que você achar que {giftedName} se encaixa</p>
                     
-                    <div>
+                    <div className="bit-down checkboxes-mother">
                         <label className="checkbox-option small-checkbox long-option">
                             A pessoa responsável por organizar todas festas de aniversário e happy hours
                             <input type="checkbox" name="coolness" id="coolness_easy" checked={inCoolness === `A pessoa responsável por organizar todas festas de aniversário e happy hours`} onChange={() => setInCoolness(`A pessoa responsável por organizar todas festas de aniversário e happy hours`)} />

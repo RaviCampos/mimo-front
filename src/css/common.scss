@@ -174,6 +174,15 @@ textarea:active {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    width: 100%;
+    margin-left: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .prev-for {
+        width: 105%;
+        margin-left: -3%;
+    }
 }
 
 .prev-for button {
@@ -356,7 +365,7 @@ label[for="work-age_number"] {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 26px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -364,6 +373,16 @@ label[for="work-age_number"] {
     -ms-user-select: none;
     user-select: none;
     
+    @media screen and (min-width: 768px) {
+        width: min-content;
+        white-space: nowrap;
+        margin-bottom: 12px;
+        &.long-option {
+            width: 100%;
+            white-space: unset;
+        }
+    }
+
     /* Hide the browser's default checkbox */
     input {
       position: absolute;
@@ -391,7 +410,7 @@ label[for="work-age_number"] {
     
     /* When the checkbox is checked, add a blue background */
     input:checked ~ .checkbox-mark {
-      background-color: #2196F3;
+      background-color: rgb(67, 202, 150);
     }
     
     /* Create the checkbox-mark/indicator (hidden when not checked) */
@@ -417,6 +436,19 @@ label[for="work-age_number"] {
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
+    }
+
+    @media screen and (max-width: 768px) {
+        .checkbox-mark {
+            left: -15px;
+            height: 36px;
+            width: 36px;
+        }
+        .checkbox-mark:after {
+            left: 11px;
+            width: 10px;
+            height: 15px;
+        }
     }
   }
 
