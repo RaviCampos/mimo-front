@@ -73,7 +73,6 @@ function IntroExtraQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
                             <div className="slider-ball"></div>
                         </div>
                     </div>
-                    <br/>
 
                     <div className="prev-for small-space-top">
                         <button onClick={() => {
