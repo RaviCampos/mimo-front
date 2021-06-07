@@ -17,7 +17,7 @@ function IntroExtraQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
 
             <button onClick={() => {
                 setIntroExtra(inIntroExtra);
-                setWorkPage(intimacy === 2 ? 6 : 5)
+                setWorkPage(5)
             }}>Anterior</button>
             <button onClick={() => {
                 const work = {
