@@ -122,9 +122,9 @@ Endereço: ${formInfo.adress};`
 `Porquê está dando o presente: ${formInfo.reason};
 Nível de intimidade: ${formInfo.intimacy};
 Idade: ${formInfo.age};
-Área de atuação: ${formInfo.area};     
-Introversão ou extroversão: ${formInfo.introExtra};`
+Área de atuação: ${formInfo.area};`
             if(formInfo.mood) internalMessage += `\nÂnimo: ${formInfo.mood};`
+            if(formInfo.introExtra) internalMessage += `\nIntroversão ou extroversão: ${formInfo.introExtra};`
             if(formInfo.coolness) internalMessage += `\nCareta ou descolado: ${formInfo.coolness};`
             if(formInfo.hobbies) internalMessage += `\nHobbies: ${formInfo.hobbies};`
             

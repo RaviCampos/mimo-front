@@ -43,6 +43,7 @@ function CoolnessQ({tools: { setWorkPage, coolness, setCoolness, giftedName, int
     const [ warning, setWarning ] = useState(false)
     useEffect(() => {
         setWarning(false)
+        console.log(inCoolness)
     }, [inCoolness])
 
     return (
