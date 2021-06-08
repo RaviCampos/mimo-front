@@ -50,8 +50,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         setBabyPage(8)
                                     }}>Anterior</button>
                                     <button onClick={() => {
+                                        if(!inMood) {
+                                            setWarning("Por favor, selecione uma das opções")
+                                        } else {
                                             setMood(inMood)
                                             setBabyPage(10)
+                                        }
                                     }}>Próxima</button>
                                 </div>
                             </div>
@@ -94,8 +98,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         setBabyPage(8)
                                     }}>Anterior</button>
                                     <button onClick={() => {
+                                        if(!inMood) {
+                                            setWarning("Por favor, selecione uma das opções")
+                                        } else {   
                                             setMood(inMood)
                                             setBabyPage(10)
+                                        }
                                     }}>Próxima</button>
                                 </div>
                             </div>
@@ -144,7 +152,7 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                             setMood(inMood)
                                             setBabyPage(9)
                                         } else {
-                                            setWarning("Por favor, selecione as duas idades")
+                                            setWarning("Por favor, selecione uma das opções")
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -192,7 +200,7 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                             setMood(inMood)
                                             setBabyPage(9)
                                         } else {
-                                            setWarning("Por favor, selecione as duas idades")
+                                            setWarning("Por favor, selecione uma das opções")
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -241,8 +249,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         setBabyPage(8)
                                     }}>Anterior</button>
                                     <button onClick={() => {
+                                        if(!inMood) {
+                                            setWarning("Por favor, selecione uma das opções")
+                                        } else {   
                                             setMood(inMood)
                                             setBabyPage(10)
+                                        }
                                     }}>Próxima</button>
                                 </div>
                             </div>
@@ -285,8 +297,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         setBabyPage(8)
                                     }}>Anterior</button>
                                     <button onClick={() => {
+                                        if(!inMood) {
+                                            setWarning("Por favor, selecione uma das opções")
+                                        } else {   
                                             setMood(inMood)
                                             setBabyPage(10)
+                                        }
                                     }}>Próxima</button>
                                 </div>
                             </div>
@@ -335,7 +351,7 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                             setMood(inMood)
                                             setBabyPage(9)
                                         } else {
-                                            setWarning("Por favor, selecione as duas idades")
+                                            setWarning("Por favor, selecione uma das opções")
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -383,7 +399,7 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                             setMood(inMood)
                                             setBabyPage(9)
                                         } else {
-                                            setWarning("Por favor, selecione as duas idades")
+                                            setWarning("Por favor, selecione uma das opções")
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -431,8 +447,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         setBabyPage(6)
                                     }}>Anterior</button>
                                     <button onClick={() => {
+                                        if(!inMood) {
+                                            setWarning("Por favor, selecione uma das opções")
+                                        } else {   
                                             setMood(inMood)
                                             setBabyPage(8)
+                                        }
                                     }}>Próxima</button>
                                 </div>
                             </div>
@@ -475,8 +495,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                         setBabyPage(6)
                                     }}>Anterior</button>
                                     <button onClick={() => {
+                                        if(!inMood) {
+                                            setWarning("Por favor, selecione uma das opções")
+                                        } else {   
                                             setMood(inMood)
                                             setBabyPage(8)
+                                        }
                                     }}>Próxima</button>
                                 </div>
                             </div>
@@ -525,7 +549,7 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                             setMood(inMood)
                                             setBabyPage(7)
                                         } else {
-                                            setWarning("Por favor, selecione as duas idades")
+                                            setWarning("Por favor, selecione uma das opções")
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -573,7 +597,7 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                             setMood(inMood)
                                             setBabyPage(7)
                                         } else {
-                                            setWarning("Por favor, selecione as duas idades")
+                                            setWarning("Por favor, selecione uma das opções")
                                         }
                                     }}>Próxima</button>
                                 </div>
