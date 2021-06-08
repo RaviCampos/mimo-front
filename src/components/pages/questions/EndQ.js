@@ -119,14 +119,14 @@ Endereço: ${formInfo.adress};`
 
         case "trabalho":
             internalMessage = 
-            `Porquê está dando o presente: ${formInfo.reason};
-            Nível de intimidade: ${formInfo.intimacy};
-            Idade: ${formInfo.age};
-            Área de atuação: ${formInfo.area};     
-            Careta ou descolado: ${formInfo.coolness};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            `
-            if(formInfo.mood) internalMessage += `Ânimo: ${formInfo.mood}`
+`Porquê está dando o presente: ${formInfo.reason};
+Nível de intimidade: ${formInfo.intimacy};
+Idade: ${formInfo.age};
+Área de atuação: ${formInfo.area};     
+Introversão ou extroversão: ${formInfo.introExtra};`
+            if(formInfo.mood) internalMessage += `\nÂnimo: ${formInfo.mood};`
+            if(formInfo.coolness) internalMessage += `\nCareta ou descolado: ${formInfo.coolness};`
+            if(formInfo.hobbies) internalMessage += `\nHobbies: ${formInfo.hobbies};`
             
             break;
 

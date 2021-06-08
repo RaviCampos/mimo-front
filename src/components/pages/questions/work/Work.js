@@ -29,6 +29,12 @@ function Work({tools: { setSection, work, setWork, setPage, goToOccasionLastQ, s
         window.scrollTo(0,0);
     }, [workPage])
 
+    useEffect(() => {
+        setMood(undefined);
+        setCoolness(undefined);
+        setHobbies(undefined);
+    }, [area])
+
     const futureWork = {
         giftedName,
         reason,
