@@ -79,6 +79,14 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                         ...futureBaby,
                                         hobbies: finalHobbies
                                     }
+                                    if(isBorn) {
+                                        delete baby.whenWillBeBorn;
+                                        delete baby.babySex;
+                                    } else {
+                                        delete baby.whenWasBorn;
+                                        delete baby.childName;
+                                        delete baby.coolness
+                                    }
                                     setBaby(baby)
                                     setGoToOccasionLastQ(true)
                                     setSection("common")
@@ -158,6 +166,14 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                         ...futureBaby,
                                         hobbies: finalHobbies
                                     }
+                                    if(isBorn) {
+                                        delete baby.whenWillBeBorn;
+                                        delete baby.babySex;
+                                    } else {
+                                        delete baby.whenWasBorn;
+                                        delete baby.childName;
+                                        delete baby.coolness
+                                    }
                                     setBaby(baby)
                                     setGoToOccasionLastQ(true)
                                     setSection("common")
@@ -236,6 +252,14 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                     const baby = {
                                         ...futureBaby,
                                         hobbies: finalHobbies
+                                    }
+                                    if(isBorn) {
+                                        delete baby.whenWillBeBorn;
+                                        delete baby.babySex;
+                                    } else {
+                                        delete baby.whenWasBorn;
+                                        delete baby.childName;
+                                        delete baby.coolness
                                     }
                                     setBaby(baby)
                                     setGoToOccasionLastQ(true)
