@@ -85,6 +85,13 @@ function HobbiesQ({tools: { setSection, futureWork, setWork, setPage, setGoToOcc
                                     ...futureWork,
                                     hobbies: finalHobbies
                                 }
+                                if(intimacy) {
+                                    delete work.introExtra
+                                } else {
+                                    delete work.introExtra
+                                    delete work.coolness
+                                    delete work.mood
+                                }
                                 setWork(work);
                                 setGoToOccasionLastQ(true)
                                 setSection("common")

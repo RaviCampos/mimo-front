@@ -84,6 +84,8 @@ function IntroExtraQ({tools: { setSection, futureWork, setWork, setPage, setGoTo
                                 ...futureWork,
                                 introExtra: inIntroExtra
                             }
+                            delete work.mood
+                            delete work.hobbies
                             setWork(work);
                             setGoToOccasionLastQ(true)
                             setSection("common")
