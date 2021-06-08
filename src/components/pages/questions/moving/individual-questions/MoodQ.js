@@ -17,11 +17,11 @@ function MoodQ({tools: { setMovingPage, mood, setMood, giftedName}}) {
 
             <button onClick={() => {
                 setMood(inMood);
-                setMovingPage(5)
+                setMovingPage(4)
             }}>Anterior</button>
             <button onClick={() => {
                 setMood(inMood);
-                setMovingPage(7)
+                setMovingPage(6)
             }}>Próxima</button>
         </div>
     )

@@ -16,28 +16,12 @@ function CoolnessQ({tools: { setSection, futureMoving, setMoving, setPage, setGo
             {warning && <p className="validation-warning">{warning}</p>}
 
             <button onClick={() => {
-                if(intimacy > 5) {
-                    setCoolness(inCoolness);
-                    setMovingPage(6)
-                } else {
-                    setCoolness(inCoolness);
-                    setMovingPage(4)
-                }
+                setCoolness(inCoolness);
+                setMovingPage(intimacy > 5 ? 5 : 4)
             }}>Anterior</button>
             <button onClick={() => {
-                if(intimacy > 5) {
-                    const moving = {
-                        ...futureMoving,
-                        coolness: inCoolness
-                    }
-                    setMoving(moving);
-                    setGoToOccasionLastQ(true)
-                    setSection("common")
-                    setPage(4);
-                } else {
-                    setCoolness(inCoolness);
-                    setMovingPage(6)
-                }
+                setCoolness(inCoolness);
+                setMovingPage(intimacy > 5 ? 7 : 6)
             }}>Próxima</button>
         </div>
     )

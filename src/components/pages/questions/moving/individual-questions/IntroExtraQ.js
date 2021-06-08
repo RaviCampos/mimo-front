@@ -18,27 +18,22 @@ function IntroExtraQ({tools: { setSection, futureMoving, setMoving, setPage, set
             <button onClick={() => {
                 if(intimacy > 5) {
                     setIntroExtra(inIntroExtra);
-                    setMovingPage(4)
+                    setMovingPage(6)
                 } else {
                     setIntroExtra(inIntroExtra);
                     setMovingPage(5)
                 }
             }}>Anterior</button>
             <button onClick={() => {
-                if(intimacy > 5) {
-                    setIntroExtra(inIntroExtra);
-                    setMovingPage(6)
-                } else {
-                    const moving = {
-                        ...futureMoving,
-                        introExtra: inIntroExtra
-                    }
-                    delete moving.mood
-                    setMoving(moving);
-                    setGoToOccasionLastQ(true)
-                    setSection("common")
-                    setPage(4);
+                const moving = {
+                    ...futureMoving,
+                    introExtra: inIntroExtra
                 }
+                if(intimacy <= 5) delete moving.mood
+                setMoving(moving);
+                setGoToOccasionLastQ(true)
+                setSection("common")
+                setPage(4);
             }}>Próxima</button>
         </div>
     )

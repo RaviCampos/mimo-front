@@ -66,8 +66,8 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
                 Question = CoolnessQ;
                 tools = { setMovingPage, coolness, setCoolness, giftedName, intimacy }
             } else {
-                Question = IntroExtraQ;
-                tools = { setMovingPage, introExtra, setIntroExtra, giftedName, intimacy }
+                Question = MoodQ;
+                tools = { setMovingPage, mood, setMood, giftedName}
             }
             break
         case 6:
@@ -75,13 +75,13 @@ function Moving({tools: { setSection, moving, setMoving, setPage, goToOccasionLa
                 Question = IntroExtraQ;
                 tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, introExtra, setIntroExtra, giftedName, intimacy }
             } else {
-                Question = MoodQ;
-                tools = { setMovingPage, mood, setMood, giftedName}
+                Question = CoolnessQ;
+                tools = { setMovingPage, coolness, setCoolness, giftedName, intimacy }
             }
             break
         case 7:
-            Question = CoolnessQ;
-            tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, coolness, setCoolness, giftedName, intimacy }
+            Question = IntroExtraQ;
+            tools = { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, introExtra, setIntroExtra, giftedName, intimacy }
             break
         default:
             Question = NotFoundQ;
