@@ -1,5 +1,17 @@
 import { useEffect, useState } from "react";
 
+function radioOptions(intimacy) {
+    if(intimacy > 5) {
+        return (
+
+        )
+    } else {
+        return (
+            <h3>No option right now</h3>
+        )
+    }
+}
+
 function IntroExtraQ({tools: { setSection, futureMoving, setMoving, setPage, setGoToOccasionLastQ, setMovingPage, introExtra, setIntroExtra, giftedName, intimacy }}) {
     const [ inIntroExtra, setInIntroExtra ] = useState(introExtra)
 
