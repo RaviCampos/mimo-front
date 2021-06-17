@@ -86,20 +86,47 @@ function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedN
     }, [inIntroExtra])
 
     return (
-        <div>
+        <div className="intimacyQ all-margin">
+            <div className="all-center">
+                <div>
 
-            <h2>Intro Extra</h2>
+                    {radioOptions(intimacy, giftedName, inIntroExtra, setInIntroExtra)}
 
-            {warning && <p className="validation-warning">{warning}</p>}
+                    {warning && <p className="validation-warning">{warning}</p>}
 
-            <button onClick={() => {
-                setIntroExtra(inIntroExtra);
-                setTravelPage(4)
-            }}>Anterior</button>
-            <button onClick={() => {
-                setIntroExtra(inIntroExtra);
-                setTravelPage(6)
-            }}>Próxima</button>
+                    <div className="prev-for go-bit-down when-mobile">
+                        <button onClick={() => {
+                            if(intimacy > 5) {
+                                setIntroExtra(inIntroExtra);
+                                setTravelPage(4)
+                            } else {
+                                setIntroExtra(inIntroExtra);
+                                setTravelPage(5)
+                            }
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            if(!inIntroExtra) {
+                                setWarning("Por favor, escolha uma das opções")
+                            } else {
+                                if(intimacy > 5) {
+                                    setIntroExtra(inIntroExtra);
+                                    setTravelPage(6)
+                                } else {
+                                    const travel = {
+                                        ...futureTravel,
+                                        introExtra: inIntroExtra
+                                    }
+                                    delete travel.hobbies
+                                    setTravel(travel);
+                                    setGoToOccasionLastQ(true)
+                                    setSection("common")
+                                    setPage(4);
+                                }
+                            }
+                        }}>Próxima</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
