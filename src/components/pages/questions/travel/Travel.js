@@ -59,13 +59,25 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
             tools = { setTravelPage, intimacy, setIntimacy, giftedName };
             break
         case 5:
-            Question = IntroExtraQ;
-            tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy }
-            break
+            if(intimacy <= 5) {
+                Question = CoolnessQ;
+                tools = { setTravelPage, coolness, setCoolness, giftedName }
+                break
+            } else {
+                Question = IntroExtraQ;
+                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy }
+                break
+            }
         case 6:
-            Question = CoolnessQ;
-            tools = { setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ, setTravelPage, coolness, setCoolness, giftedName, intimacy }
-            break
+            if(intimacy <= 5) {
+                Question = IntroExtraQ;
+                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
+                break
+            } else {
+                Question = CoolnessQ;
+                tools = { setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ, setTravelPage, coolness, setCoolness, giftedName }
+                break
+            }
         default:
             Question = NotFoundQ;
             tools = {  }
