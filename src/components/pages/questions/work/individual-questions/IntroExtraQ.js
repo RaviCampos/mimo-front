@@ -1,61 +1,11 @@
 import { useEffect, useState } from "react";
+import { sliderbarInteractivity } from "../../utils/utils"
 
 function IntroExtraQ({tools: { setSection, futureWork, setWork, setPage, setGoToOccasionLastQ, setWorkPage, introExtra, setIntroExtra, giftedName, intimacy }}) {
     const [ inIntroExtra, setInIntroExtra ] = useState(introExtra ? introExtra : 1)
 
     useEffect(() => {
-        if(inIntroExtra === 9) {
-            document.querySelector(".slider-bar").style.width = "95%";
-        } else {
-            const defaultWidthFactor = inIntroExtra === 10 ? 9 : inIntroExtra;
-            const defaultWidth = ( defaultWidthFactor - 1 ) * (document.querySelector(".slider-house").getBoundingClientRect().width - 3) / 8;
-            document.querySelector(".slider-bar").style.width = defaultWidth + "px"
-        }
-        
-        function handleSlideBar(event) {
-            event.preventDefault()
-            const domBar = document.querySelector(".slider-bar");
-            const slider = document.querySelector(".slider-house");
-            const breakWidthMinus3 = slider.getBoundingClientRect().width - 3;
-            // -3 px to centralize the little vertical bar in the end of the slider, a "handle"
-            const breakBarWidth = (event.pageX ? event.pageX : event.changedTouches[0].pageX)- slider.getBoundingClientRect().x - 3;
-            if(event.button === 0 || event.changedTouches) {
-                domBar.style.width = breakBarWidth + "px";
-    
-                function move(e) {
-                    if(e.buttons === 0) {
-                        window.removeEventListener("mousemove", move);
-                    } else {
-                        let breakBWidth = (e.pageX ? e.pageX : e.changedTouches[0].pageX) - slider.getBoundingClientRect().x - 3;
-                        // check if cursor is out of the box and not increase or decrease max min values
-                        if(breakBWidth > breakWidthMinus3) {
-                            breakBWidth = breakWidthMinus3;
-                        }
-                        if((e.pageX ? e.pageX : e.changedTouches[0].pageX) < slider.getBoundingClientRect().x - 3) breakBWidth = 0;
-
-                        domBar.style.width = breakBWidth + "px";
-                        
-                        let rating = (breakBWidth * 8 / breakWidthMinus3) + 1
-                        if(rating === 9) rating++;
-                        rating = Math.ceil(rating);
-                        setInIntroExtra(rating);
-                    }
-                }
-                let rating = (breakBarWidth * 8 / breakWidthMinus3) + 1
-                if(rating === 9) rating++;
-                rating = Math.ceil(rating);
-                setInIntroExtra(rating)
-                
-                window.addEventListener((event.pageX ? "mousemove" : "touchmove"), move)
-                if(!event.pageX) {
-                    window.addEventListener("touchend", () => window.removeEventListener("touchmove", move))
-                }
-            }
-        }
-
-        const sliderBreakHouse = document.querySelector(".slider-house");
-        sliderBreakHouse.addEventListener("touchstart", handleSlideBar);
-        sliderBreakHouse.addEventListener("mousedown", handleSlideBar);
+        sliderbarInteractivity(inIntroExtra, setInIntroExtra)
     }, [])
 
     return (
