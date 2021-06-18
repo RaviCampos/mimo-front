@@ -1,31 +1,26 @@
 import { useEffect, useState } from "react";
 import { sliderbarInteractivity } from "../../utils/utils"
 
-function radioOptions(intimacy, giftedName, inIntroExtra, setInIntroExtra) {
+function radioOptions(intimacy, giftedName, destiny, inIntroExtra, setInIntroExtra) {
     if(intimacy > 5) {
         return (
             <div>
-                <h2 className="small-title">Como você acha que serão os primeiros momentos de {giftedName} em seu novo espaço?</h2>
+                <h2 className="small-title">Pensando em como {giftedName} age quando vocês se encontram, e em quão extrovertido(a) {giftedName} é marque a opção que mais combina com ele(a):</h2>
 
                 <div>
                     <label className="radio-option long-option">
-                        Um open house, uma grande festa com várias pessoas para celebrar essa mudança, antes da última caixa ser desmontada o tapete já terá sua primeira mancha de vinho
-                        <input type="radio" name="coolness" id="coolness_cooler" checked={inIntroExtra === `Um open house, uma grande festa com várias pessoas para celebrar essa mudança, antes da última caixa ser desmontada o tapete já terá sua primeira mancha de vinho`} onChange={() => setInIntroExtra(`Um open house, uma grande festa com várias pessoas para celebrar essa mudança, antes da última caixa ser desmontada o tapete já terá sua primeira mancha de vinho`)} />
+                        {giftedName} faz amigos com muita facilidade, com certeza vai voltar de {destiny} com um lugar para ficar dá próxima vez
+                        <input type="radio" name="introExtra" id="introExtra_friendly" checked={inIntroExtra === `${giftedName} faz amigos com muita facilidade, com certeza vai voltar de ${destiny} com um lugar para ficar dá próxima vez`} onChange={() => setInIntroExtra(`${giftedName} faz amigos com muita facilidade, com certeza vai voltar de ${destiny} com um lugar para ficar dá próxima vez`)} />
                         <span className="checkmark"></span>
                     </label>
                     <label className="radio-option long-option">
-                        Esse primeiro momento com certeza será de organização, deixar tudo no lugar é muito importante para {giftedName}
-                        <input type="radio" name="coolness" id="coolness_pinterest" checked={inIntroExtra === `Esse primeiro momento com certeza será de organização, deixar tudo no lugar é muito importante para ${giftedName}`} onChange={() => setInIntroExtra(`Esse primeiro momento com certeza será de organização, deixar tudo no lugar é muito importante para ${giftedName}`)} />
+                        {giftedName} não fala muito e é por isso que eu sei que ele(a) está empolgado com essa viagem, não cala a boca ou muda de assunto desde que começou a planejá-la
+                        <input type="radio" name="introExtra" id="introExtra_laconic" checked={inIntroExtra === `${giftedName} não fala muito e é por isso que eu sei que ele(a) está empolgado com essa viagem, não cala a boca ou muda de assunto desde que começou a planejá-la`} onChange={() => setInIntroExtra(`${giftedName} não fala muito e é por isso que eu sei que ele(a) está empolgado com essa viagem, não cala a boca ou muda de assunto desde que começou a planejá-la`)} />
                         <span className="checkmark"></span>
                     </label>
                     <label className="radio-option long-option">
-                        {giftedName} é mais introspectivo(a), não costuma convidar muitas pessoas para sua casa. Mas esse é um momento tão especial que deve rolar até uma pequena reunião por lá
-                        <input type="radio" name="coolness" id="coolness_kitchen" checked={inIntroExtra === `${giftedName} é mais introspectivo(a), não costuma convidar muitas pessoas para sua casa. Mas esse é um momento tão especial que deve rolar até uma pequena reunião por lá`} onChange={() => setInIntroExtra(`${giftedName} é mais introspectivo(a), não costuma convidar muitas pessoas para sua casa. Mas esse é um momento tão especial que deve rolar até uma pequena reunião por lá`)} />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="radio-option long-option long-option">
-                        Para {giftedName} a casa é um espaço sagrado, assim que se mudar com certeza deve fazer uma limpeza mais espiritual na casa
-                        <input type="radio" name="coolness" id="coolness_norest" checked={inIntroExtra === `Para ${giftedName} a casa é um espaço sagrado, assim que se mudar com certeza deve fazer uma limpeza mais espiritual na casa`} onChange={() =>setInIntroExtra(`Para ${giftedName} a casa é um espaço sagrado, assim que se mudar com certeza deve fazer uma limpeza mais espiritual na casa`)} />
+                        {giftedName} é tímido(a), não pediria ajuda nem o avião estivesse caindo. Mas são muitos próximos e gosto de lhe lembrar que estamos juntos nessa
+                        <input type="radio" name="introExtra" id="introExtra_shy" checked={inIntroExtra === `${giftedName} é tímido(a), não pediria ajuda nem o avião estivesse caindo. Mas são muitos próximos e gosto de lhe lembrar que estamos juntos nessa`} onChange={() => setInIntroExtra(`${giftedName} é tímido(a), não pediria ajuda nem o avião estivesse caindo. Mas são muitos próximos e gosto de lhe lembrar que estamos juntos nessa`)} />
                         <span className="checkmark"></span>
                     </label>
                 </div>
@@ -71,14 +66,14 @@ function pickInitialValue(intimacy, introExtra) {
     }
 }
 
-function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }}) {
+function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }}) {
     const [ inIntroExtra, setInIntroExtra ] = useState(pickInitialValue(intimacy, introExtra))
 
     useEffect(() => {
         if(intimacy <= 5) {
             sliderbarInteractivity(inIntroExtra, setInIntroExtra)
         }
-    })
+    }, [])
 
     const [ warning, setWarning ] = useState(false)
     useEffect(() => {
@@ -90,7 +85,7 @@ function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedN
             <div className="all-center">
                 <div>
 
-                    {radioOptions(intimacy, giftedName, inIntroExtra, setInIntroExtra)}
+                    {radioOptions(intimacy, giftedName, destiny, inIntroExtra, setInIntroExtra)}
 
                     {warning && <p className="validation-warning">{warning}</p>}
 

@@ -17,17 +17,11 @@ function CoolnessQ({tools: { setSection, futureTravel, setTravel, setPage, setGo
 
             <button onClick={() => {
                 setCoolness(inCoolness);
-                setTravelPage(5)
+                setTravelPage(4)
             }}>Anterior</button>
             <button onClick={() => {
-                const travel = {
-                    ...futureTravel,
-                    coolness: inCoolness
-                }
-                setTravel(travel);
-                setGoToOccasionLastQ(true)
-                setSection("common")
-                setPage(4);
+                setCoolness(inCoolness);
+                setTravelPage(6)
             }}>Próxima</button>
         </div>
     )

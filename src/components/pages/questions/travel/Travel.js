@@ -65,13 +65,13 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
                 break
             } else {
                 Question = IntroExtraQ;
-                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy }
+                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny }
                 break
             }
         case 6:
             if(intimacy <= 5) {
                 Question = IntroExtraQ;
-                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
+                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
                 break
             } else {
                 Question = CoolnessQ;
