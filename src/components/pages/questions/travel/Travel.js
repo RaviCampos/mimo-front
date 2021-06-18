@@ -8,6 +8,7 @@ import CoolnessQ from "./individual-questions/CoolnessQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import RelationQ from "./individual-questions/RelationQ"
 import DestinyQ from "./individual-questions/DestinyQ"
+import HobbiesQ from "./individual-questions/HobbiesQ"
 
 function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
@@ -20,6 +21,7 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
     const [ introExtra, setIntroExtra ] = useState(travel.introExtra)
     const [ relation, setRelation ] = useState(travel.relation)
     const [ destiny, setDestiny ] = useState(travel.destiny)
+    const [ hobbies, setHobbies ] = useState(travel.hobbies)
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -32,7 +34,8 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
         coolness,
         introExtra,
         relation,
-        destiny
+        destiny,
+        hobbies
     }
 
     let Question, tools
@@ -74,8 +77,8 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
                 tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
                 break
             } else {
-                Question = CoolnessQ;
-                tools = { setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ, setTravelPage, coolness, setCoolness, giftedName }
+                Question = HobbiesQ;
+                tools = { setTravelPage, hobbies, setHobbies, giftedName, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
                 break
             }
         default:
