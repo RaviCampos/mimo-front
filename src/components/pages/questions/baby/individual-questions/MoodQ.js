@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstSon, name, gifterName, childName}}) {
+function MoodQ({tools: {babyPage, setBabyPage, setMood, mood, parentType, isBorn, isFirstSon, name, gifterName, childName}}) {
 
     const [ inMood, setInMood ] = useState(mood)
 
@@ -47,14 +47,14 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(8)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(!inMood) {
                                             setWarning("Por favor, selecione uma das opções")
                                         } else {
                                             setMood(inMood)
-                                            setBabyPage(10)
+                                            setBabyPage(babyPage + 1)
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -95,14 +95,14 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(8)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(!inMood) {
                                             setWarning("Por favor, selecione uma das opções")
                                         } else {   
                                             setMood(inMood)
-                                            setBabyPage(10)
+                                            setBabyPage(babyPage + 1)
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -145,12 +145,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(7)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(inMood) {
                                             setMood(inMood)
-                                            setBabyPage(9)
+                                            setBabyPage(babyPage + 1)
                                         } else {
                                             setWarning("Por favor, selecione uma das opções")
                                         }
@@ -193,12 +193,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(7)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(inMood) {
                                             setMood(inMood)
-                                            setBabyPage(9)
+                                            setBabyPage(babyPage + 1)
                                         } else {
                                             setWarning("Por favor, selecione uma das opções")
                                         }
@@ -246,14 +246,14 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(8)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(!inMood) {
                                             setWarning("Por favor, selecione uma das opções")
                                         } else {   
                                             setMood(inMood)
-                                            setBabyPage(10)
+                                            setBabyPage(babyPage + 1)
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -294,14 +294,14 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(8)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(!inMood) {
                                             setWarning("Por favor, selecione uma das opções")
                                         } else {   
                                             setMood(inMood)
-                                            setBabyPage(10)
+                                            setBabyPage(babyPage + 1)
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -344,12 +344,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(7)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(inMood) {
                                             setMood(inMood)
-                                            setBabyPage(9)
+                                            setBabyPage(babyPage + 1)
                                         } else {
                                             setWarning("Por favor, selecione uma das opções")
                                         }
@@ -392,12 +392,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(7)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(inMood) {
                                             setMood(inMood)
-                                            setBabyPage(9)
+                                            setBabyPage(babyPage + 1)
                                         } else {
                                             setWarning("Por favor, selecione uma das opções")
                                         }
@@ -444,14 +444,14 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(6)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(!inMood) {
                                             setWarning("Por favor, selecione uma das opções")
                                         } else {   
                                             setMood(inMood)
-                                            setBabyPage(8)
+                                            setBabyPage(babyPage + 1)
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -492,14 +492,14 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(6)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(!inMood) {
                                             setWarning("Por favor, selecione uma das opções")
                                         } else {   
                                             setMood(inMood)
-                                            setBabyPage(8)
+                                            setBabyPage(babyPage + 1)
                                         }
                                     }}>Próxima</button>
                                 </div>
@@ -542,12 +542,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(5)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(inMood) {
                                             setMood(inMood)
-                                            setBabyPage(7)
+                                            setBabyPage(babyPage + 1)
                                         } else {
                                             setWarning("Por favor, selecione uma das opções")
                                         }
@@ -590,12 +590,12 @@ function MoodQ({tools: {setBabyPage, setMood, mood, parentType, isBorn, isFirstS
                                 <div className="prev-for">
                                     <button onClick={() => {
                                         setMood(inMood)
-                                        setBabyPage(5)
+                                        setBabyPage(babyPage - 1)
                                     }}>Anterior</button>
                                     <button onClick={() => {
                                         if(inMood) {
                                             setMood(inMood)
-                                            setBabyPage(7)
+                                            setBabyPage(babyPage + 1)
                                         } else {
                                             setWarning("Por favor, selecione uma das opções")
                                         }

@@ -1,8 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function WhenWasBornQ({tools: { babyPage, setBabyPage, setWhenWasBorn, whenWasBorn, name, parentType }}) {
     const [ inDate, setInDate ] = useState(whenWasBorn ? whenWasBorn : "")
-
+    
+    const [ warning, setWarning ] = useState(false)
+    useEffect((warning) => {
+        setWarning(!warning)
+    }, [inDate])
+    
     function getToday() {
         let d = new Date()        
 
@@ -37,25 +42,21 @@ function WhenWasBornQ({tools: { babyPage, setBabyPage, setWhenWasBorn, whenWasBo
                         <input type="date" name="date_date" id="bebe_date" max={getToday()} value={inDate} onChange={e => setInDate(e.target.value)}/>
                     </div>
 
+                    {warning && <p className="validation-warning">{warning}</p>}
+
                     <br/>
                     <div className="prev-for">
                         <button onClick={() => {
                             setWhenWasBorn(inDate)
-                            // if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                            //     setBabyPage(1)
-                            // } else {
-                            //     setBabyPage(3)
-                            // }
                             setBabyPage(babyPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
-                            setWhenWasBorn(inDate)
-                            // if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                            //     setBabyPage(3)
-                            // } else {
-                            //     setBabyPage(5)
-                            // }
-                            setBabyPage(babyPage + 1)
+                            if(!inDate) {
+                                setWarning("Por favor, selecione uma data antes de prosseguir")
+                            } else {
+                                setWhenWasBorn(inDate)
+                                setBabyPage(babyPage + 1)
+                            }
                         }}>Próxima</button>
                     </div>
                 </div>

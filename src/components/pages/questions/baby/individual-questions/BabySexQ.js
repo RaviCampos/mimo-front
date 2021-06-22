@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
+function BabySexQ({tools: {babyPage, setBabyPage, setBabySex, babySex, parentType}}) {
 
     const [ inBabySex, setInBabySex ] = useState(babySex ? (babySex.babySex ? babySex.babySex : "") : "")
     const [ babyName, setBabyName ] = useState(babySex ? (babySex.babyName ? babySex.babyName : "") : "")
@@ -16,11 +16,6 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
         setInBabySex(str);
         setBabyName("")
     }
-
-    // babySex = {
-    //     babySex,
-    //     babyName
-    // }
     
     return (
         <div className="all-margin">
@@ -88,7 +83,7 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
                                 babySex: inBabySex,
                                 babyName
                             });
-                            setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 4 : 6)
+                            setBabyPage(babyPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inBabySex) {
@@ -100,7 +95,7 @@ function BabySexQ({tools: {setBabyPage, setBabySex, babySex, parentType}}) {
                                     babySex: inBabySex,
                                     babyName
                                 });
-                                setBabyPage(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho" ? 6 : 8)
+                                setBabyPage(babyPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentType, isBorn }}) {
+function FirstSonQ({tools: { babyPage, setBabyPage, setFirstSon, firstSon, name, parentType, isBorn }}) {
 
     const [ inFirstSon, setInFirstSon ] = useState(firstSon ? firstSon.yesOrNo : "")
     const [ howMany, setHowMany ] = useState(firstSon ? firstSon.howMany : "")
@@ -59,11 +59,7 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                 yesOrNo: inFirstSon,
                                 howMany
                             })
-                            if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                setBabyPage((!isBorn || isBorn === "Ainda estamos aguardando sua chegada") ? 2 : 3)
-                            } else {
-                                setBabyPage((!isBorn || isBorn === "Ainda estamos aguardando sua chegada") ? 4 : 5)
-                            }
+                            setBabyPage(babyPage - 1);
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inFirstSon) {
@@ -75,11 +71,7 @@ function FirstSonQ({tools: { setBabyPage, setFirstSon, firstSon, name, parentTyp
                                     yesOrNo: inFirstSon,
                                     howMany
                                 })
-                                if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                    setBabyPage((!isBorn || isBorn === "Ainda estamos aguardando sua chegada") ? 4 : 5)
-                                } else {
-                                    setBabyPage((!isBorn || isBorn === "Ainda estamos aguardando sua chegada") ? 6 : 7)
-                                }   
+                                setBabyPage(babyPage + 1);
                             }
                         }}>Próxima</button>
                     </div>

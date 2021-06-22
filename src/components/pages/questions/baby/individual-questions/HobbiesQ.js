@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn, name}}) {
+function HobbiesQ({tools: {hobbies, setHobbies, babyPage, setBabyPage, parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn, name}}) {
 
     const [inHobbies, setInHobbies] = useState(hobbies ? hobbies.split(" [Time]: ")[0] : "")
     const [team, setTeam] = useState(hobbies ? hobbies.split(" [Time]: ")[1] ? hobbies.split(" [Time]: ")[1]: "" : "")
@@ -61,7 +61,7 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                     finalHobbies = inHobbies;
                                 }
                                 setHobbies(finalHobbies);
-                                setBabyPage(isBorn ? 9 : 8)
+                                setBabyPage(babyPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(!inHobbies) {
@@ -147,7 +147,7 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                     finalHobbies = inHobbies;
                                 }
                                 setHobbies(finalHobbies);
-                                setBabyPage(isBorn ? 9 : 8)
+                                setBabyPage(babyPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(!inHobbies) {
@@ -234,7 +234,7 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                     finalHobbies = inHobbies;
                                 }
                                 setHobbies(finalHobbies);
-                                setBabyPage(isBorn ? 7 : 6)
+                                setBabyPage(babyPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(!inHobbies) {

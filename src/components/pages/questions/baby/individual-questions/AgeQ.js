@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react"
 
-function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifterName}}) {
+function AgeQ({tools: {babyPage, setBabyPage, setAge, age, parentType, isBorn, name, gifterName}}) {
 
     // if "Um casal querido..."
     const [ ageA, setAgeA ] = useState(age ? (age.ageA ? age.ageA : "") : "")
@@ -42,7 +42,7 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                     ageA,
                                     ageB
                                 })
-                                setBabyPage(isBorn === "Já nasceu" ? 6 : 5)
+                                setBabyPage(babyPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(ageA && ageB) {
@@ -50,7 +50,7 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                         ageA,
                                         ageB
                                     })
-                                    setBabyPage(isBorn === "Já nasceu" ? 8 : 7)
+                                    setBabyPage(babyPage + 1)
                                 } else {
                                     setWarning("Por favor, selecione as duas idades")
                                 }
@@ -82,14 +82,14 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                 setAge({
                                     age: inAge
                                 })
-                                setBabyPage(isBorn === "Já nasceu" ? 6 : 5)
+                                setBabyPage(babyPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(inAge) {
                                     setAge({
                                         inAge
                                     })
-                                    setBabyPage(isBorn === "Já nasceu" ? 8 : 7)
+                                    setBabyPage(babyPage + 1)
                                 } else {
                                     setWarning("Por favor, selecione a idade")
                                 }
@@ -126,7 +126,7 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                     gifterAge,
                                     giftedAge
                                 })
-                                setBabyPage(isBorn ? 4 : 3)
+                                setBabyPage(babyPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(gifterAge && giftedAge) {
@@ -134,7 +134,7 @@ function AgeQ({tools: {setBabyPage, setAge, age, parentType, isBorn, name, gifte
                                         gifterAge,
                                         giftedAge    
                                     })
-                                    setBabyPage(isBorn ? 6 : 5)
+                                    setBabyPage(babyPage + 1)
                                 } else {
                                     setWarning("Por favor, selecione as duas idadessss")
                                 }
