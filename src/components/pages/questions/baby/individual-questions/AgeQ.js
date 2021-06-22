@@ -87,7 +87,7 @@ function AgeQ({tools: {babyPage, setBabyPage, setAge, age, parentType, isBorn, n
                             <button onClick={() => {
                                 if(inAge) {
                                     setAge({
-                                        inAge
+                                        age: inAge
                                     })
                                     setBabyPage(babyPage + 1)
                                 } else {

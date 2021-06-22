@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function IsBorn({tools: { setBabyPage, setIsBorn, isBorn, name, parentType }}) {
+function IsBorn({tools: { babyPage, setBabyPage, setIsBorn, isBorn, name, parentType }}) {
 
     const [ inIsBorn, setInIsBorn ] = useState(isBorn)
 
@@ -45,14 +45,14 @@ function IsBorn({tools: { setBabyPage, setIsBorn, isBorn, name, parentType }}) {
                     <div className="prev-for">
                         <button onClick={() => {
                             setIsBorn(inIsBorn)
-                            setBabyPage(2)
+                            setBabyPage(babyPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inIsBorn) {
                                 setWarning("Por favor, escolha uma das opções acima");
                             } else {
                                 setIsBorn(inIsBorn)
-                                setBabyPage(4)
+                                setBabyPage(babyPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

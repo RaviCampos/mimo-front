@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ}}) {
+function GiftedNameQ({tools: {setPage, babyPage, setBabyPage, setGiftedName, giftedName, setSection, futureBaby, setBaby, setGoToOccasionLastQ}}) {
 
     const [ parentType, setParentType ] = useState(giftedName ? giftedName.parentType : "");
     const [ name, setName ] = useState(giftedName ? typeof giftedName.name === "string" ? giftedName.name : "" : "");
@@ -101,7 +101,7 @@ function GiftedNameQ({tools: {setPage, setBabyPage, setGiftedName, giftedName, s
                                     parentType,
                                     name: parentType === "Um casal querido que está esperando um filho" ? {nameA, nameB} : name
                                 })
-                                setBabyPage(1)
+                                setBabyPage(babyPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 
-function RelationQ({tools: {relation, setRelation, setBabyPage, parentType}}) {
+function RelationQ({tools: {babyPage, relation, setRelation, setBabyPage, parentType}}) {
 
     const [ mainRelation, setMainRelation ] = useState(relation ? typeof relation === "object" ? relation.mainRelation : relation : "");
     const [ relationComplement, setRelationComplement ] = useState(relation ? typeof relation === "object" ? relation.relationComplement : "" : "");
@@ -88,7 +88,7 @@ function RelationQ({tools: {relation, setRelation, setBabyPage, parentType}}) {
                             } else {
                                 setRelation(mainRelation);
                             }
-                            setBabyPage(0)
+                            setBabyPage(babyPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!mainRelation) {
@@ -104,7 +104,7 @@ function RelationQ({tools: {relation, setRelation, setBabyPage, parentType}}) {
                                 } else {
                                     setRelation(mainRelation);
                                 }
-                                setBabyPage(2)
+                                setBabyPage(babyPage + 1)
                             }
                         }}>Próxima</button>
                     </div>
