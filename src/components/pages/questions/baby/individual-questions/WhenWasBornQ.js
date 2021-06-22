@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function WhenWasBornQ({tools: { setBabyPage, setWhenWasBorn, whenWasBorn, name, parentType }}) {
+function WhenWasBornQ({tools: { babyPage, setBabyPage, setWhenWasBorn, whenWasBorn, name, parentType }}) {
     const [ inDate, setInDate ] = useState(whenWasBorn ? whenWasBorn : "")
 
     function getToday() {
@@ -41,19 +41,21 @@ function WhenWasBornQ({tools: { setBabyPage, setWhenWasBorn, whenWasBorn, name, 
                     <div className="prev-for">
                         <button onClick={() => {
                             setWhenWasBorn(inDate)
-                            if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                setBabyPage(1)
-                            } else {
-                                setBabyPage(3)
-                            }
+                            // if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
+                            //     setBabyPage(1)
+                            // } else {
+                            //     setBabyPage(3)
+                            // }
+                            setBabyPage(babyPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             setWhenWasBorn(inDate)
-                            if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
-                                setBabyPage(3)
-                            } else {
-                                setBabyPage(5)
-                            }
+                            // if(parentType === "Na verdade, eu sou pai/mãe da criança e estou em busca de um presente para celebrarmos alegria de termos um filho") {
+                            //     setBabyPage(3)
+                            // } else {
+                            //     setBabyPage(5)
+                            // }
+                            setBabyPage(babyPage + 1)
                         }}>Próxima</button>
                     </div>
                 </div>
