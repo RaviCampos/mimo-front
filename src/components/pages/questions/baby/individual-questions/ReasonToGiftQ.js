@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-function ReasonToGiftQ({tools: { setBabyPage, setReasonToGift, reasonToGift, name }}) {
+function ReasonToGiftQ({tools: { babyPage, setBabyPage, setReasonToGift, reasonToGift, name }}) {
 
     const [ inReason, setInReason ] = useState(reasonToGift ? reasonToGift : "") 
     
@@ -50,14 +50,14 @@ function ReasonToGiftQ({tools: { setBabyPage, setReasonToGift, reasonToGift, nam
                     <div className="prev-for">
                         <button onClick={() => {
                             setReasonToGift(inReason)
-                            setBabyPage(0)
+                            setBabyPage(babyPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inReason) {
                                 setWarning(`Por favor, escolha uma das opções` )
                             }  else {
                                 setReasonToGift(inReason)
-                                setBabyPage(2)
+                                setBabyPage(babyPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

@@ -179,7 +179,7 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
             switch(babyPage) {
                 case 1:
                     Question = ReasonToGiftQ;
-                    tools = { setBabyPage, setReasonToGift, reasonToGift, name: giftedName.name }
+                    tools = { babyPage, setBabyPage, setReasonToGift, reasonToGift, name: giftedName.name }
                     break
                 case 2:
                     if(findIfIsBorn(reasonToGift)) {
@@ -218,30 +218,30 @@ function Baby({tools: { setSection, baby, setBaby, setPage, goToOccasionLastQ, s
                     }
                     break
                 case 6:
-                    if(findIfIsBorn(reasonToGift)) {
-                        // Coolness
-                        Question = CoolnessQ;
-                        tools = {setBabyPage, setCoolness, coolness, parentType: giftedName.parentType}
-                    } else {
+                    // if(findIfIsBorn(reasonToGift)) {
+                    //     // Coolness
+                    //     Question = CoolnessQ;
+                    //     tools = {setBabyPage, setCoolness, coolness, parentType: giftedName.parentType}
+                    // } else {
                         Question = MoodQ;
                         tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(reasonToGift), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
-                    }
+                    // }
                     break
                 case 7:
-                    if(findIfIsBorn(reasonToGift)) {
-                        Question = MoodQ;
-                        tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(reasonToGift), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
-                    } else {
+                    // if(findIfIsBorn(reasonToGift)) {
+                    //     Question = MoodQ;
+                    //     tools = { setBabyPage, setMood, mood, parentType: giftedName.parentType, isBorn: findIfIsBorn(reasonToGift), isFirstSon: findIfIsFirstSon(firstSon), name: giftedName.name, gifterName, childName }
+                    // } else {
                         // Hobbies
                         Question = HobbiesQ;
                         tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift), name: giftedName.name}
-                    }
+                    // }
                     break
-                case 8:
-                    // Hobbies
-                    Question = HobbiesQ;
-                    tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift), name: giftedName.name}
-                    break
+                // case 8:
+                //     // Hobbies
+                //     Question = HobbiesQ;
+                //     tools = {hobbies, setHobbies, setBabyPage, parentType: giftedName.parentType, setBaby, setGoToOccasionLastQ, setSection, setPage, futureBaby, isBorn: findIfIsBorn(reasonToGift), name: giftedName.name}
+                //     break
                 default:
                     Question = NotFoundQ;
                     tools = { setPage, setSection }
