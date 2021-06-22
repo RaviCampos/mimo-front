@@ -85,7 +85,6 @@ function HobbiesQ({tools: {hobbies, setHobbies, setBabyPage, parentType, setBaby
                                     } else {
                                         delete baby.whenWasBorn;
                                         delete baby.childName;
-                                        delete baby.coolness
                                     }
                                     setBaby(baby)
                                     setGoToOccasionLastQ(true)
