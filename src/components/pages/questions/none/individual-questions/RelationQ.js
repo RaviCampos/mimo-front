@@ -1,34 +1,34 @@
 
 import { useEffect, useState } from "react";
 
-function RelationQ({tools: { setNonePage, relation, setRelation }}) {
-
+function init(relation, index) {
     let inRelation;
-
     if(relation) {
         inRelation = relation.split(": ");
-        console.log("Bom")
     } else {
         inRelation = ["", ""];
-        console.log("Bim")
     }
+    return inRelation[index]
+}
 
-    const [ mainRelation, setMainRelation ] = useState(inRelation[0]);
-    const [ relationComplement, setRelationComplement ] = useState(inRelation[1]);
+const familyText = (relationComplement, setRelationComplement) => (<div>
+<p>O que essa pessoa é sua?</p>
+<p>Ex: Tia, Sobrinha, Avó</p>
+<input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/>
+</div>)
+
+const otherText = (relationComplement, setRelationComplement) => (<div><input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/></div>)
+
+function RelationQ({tools: { setNonePage, relation, setRelation }}) {
+
+    const [ mainRelation, setMainRelation ] = useState(init(relation, 0));
+    const [ relationComplement, setRelationComplement ] = useState(init(relation, 1));
 
     const [ warning, setWarning ] = useState(false);
 
     useEffect(() => {
         setWarning(false)
     }, [mainRelation, relationComplement])
-
-    const familyText = <div>
-        <p>O que essa pessoa é sua?</p>
-        <p>Ex: Tia, Sobrinha, Avó</p>
-        <input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/>
-    </div>;
-
-    const otherText = <div><input type="text" value={relationComplement} onChange={e => setRelationComplement(e.target.value)}/></div>
 
     return (
         <div className="all-margin">
@@ -66,7 +66,7 @@ function RelationQ({tools: { setNonePage, relation, setRelation }}) {
                         <span className="checkmark"></span>
                     </label>
 
-                    {mainRelation=== "familia" && familyText}
+                    {mainRelation=== "familia" && familyText(relationComplement, setRelationComplement)}
 
                     <label className="radio-option small-radio">
                         <input type="radio" name="relation" id="relation_acquaintance" value="conhecidos" checked={ mainRelation=== "conhecidos"} onChange={e => {setMainRelation(e.target.value); setRelationComplement("")}}/>
@@ -80,7 +80,7 @@ function RelationQ({tools: { setNonePage, relation, setRelation }}) {
                         <span className="checkmark"></span>
                     </label>
 
-                    {mainRelation=== "outra" && otherText}
+                    {mainRelation=== "outra" && otherText(relationComplement, setRelationComplement)}
 
                     {warning && <p className="validation-warning small-space-top">{warning}</p>}
 
