@@ -19,6 +19,7 @@ function HobbieQ({tools: { setSection, futureNone, setNone, setPage, setGoToOcca
                         ...futureNone,
                         hobbies: inHobbies
                     }
+                    delete none.coolness
                     setNone(none);
                     setGoToOccasionLastQ(true)
                     setSection("common")
