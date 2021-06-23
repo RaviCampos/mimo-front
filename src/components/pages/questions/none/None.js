@@ -9,6 +9,16 @@ import RelationQ from "./individual-questions/RelationQ"
 import AgeQ from "./individual-questions/AgeQ"
 import HobbiesQ from "./individual-questions/HobbiesQ"
 
+// ===================================================
+// ===================================================
+//                    DISCLAIMER
+// The order of the question is slightly different to
+// the order sugested by the guides. It was modified
+// to make less if else statements without compromising
+// any question
+// ===================================================
+// ===================================================
+
 function None({tools: { setSection, none, setNone, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
     const [ nonePage, setNonePage ] = useState(goToOccasionLastQ ? none.intimacy > 5 ? 6 : 5 : 0); /* integer */
