@@ -1,5 +1,25 @@
 import { useEffect, useReducer, useState } from "react";
 
+function init({coolness: prevCoolness, giftedName}) {
+    const initialState = {
+        [`A pessoa responsável por organizar todas festas de aniversário e happy hours`]: false,
+        [`Precisando de qualquer coisa, procure por essa pessoa. De uma cor específica de marca texto a um remédio para dor de cabeça, se ${giftedName} não tiver sabe com quem conseguir`]: false,        
+        [`Perdeu a novela ontem? ${giftedName} te conta tudo`]: false,
+        [`Meio perdido no catálogo da Netflix? ${giftedName} te ajuda a encontrar a melhor série imperdível`]: false,        
+        [`Descobriu uma ferramenta nova, mas está com algumas dúvidas de como usar? ${giftedName} já está usando há duas semanas e te passa todas as dicas`]: false,        
+        [`${giftedName} sempre responde tudo com as mesma duas figurinhas e nem sempre dá para decifrar o que isso significa`]: false,        
+        [`Dar conselhos é praticamente o seu segundo emprego`]: false,        
+        [`${giftedName} é a pessoa dos esportes, praticamente um comentárista profissional`]: false
+    }
+    if(!prevCoolness) return initialState;
+
+    const coolArr = prevCoolness.split("/ ");
+    for (const phrase of coolArr) {
+        initialState[phrase] = true
+    }
+    return initialState
+}
+
 function coolReducer(state, action) {
     return ({
         ...state,
@@ -18,32 +38,13 @@ function makeCoolStr(obj) {
 }
 
 function CoolnessQ({tools: { setWorkPage, coolness, setCoolness, giftedName, intimacy }}) {
-    function init(prevCoolness) {
-        const initialState = {
-            [`A pessoa responsável por organizar todas festas de aniversário e happy hours`]: false,
-            [`Precisando de qualquer coisa, procure por essa pessoa. De uma cor específica de marca texto a um remédio para dor de cabeça, se ${giftedName} não tiver sabe com quem conseguir`]: false,        
-            [`Perdeu a novela ontem? ${giftedName} te conta tudo`]: false,
-            [`Meio perdido no catálogo da Netflix? ${giftedName} te ajuda a encontrar a melhor série imperdível`]: false,        
-            [`Descobriu uma ferramenta nova, mas está com algumas dúvidas de como usar? ${giftedName} já está usando há duas semanas e te passa todas as dicas`]: false,        
-            [`${giftedName} sempre responde tudo com as mesma duas figurinhas e nem sempre dá para decifrar o que isso significa`]: false,        
-            [`Dar conselhos é praticamente o seu segundo emprego`]: false,        
-            [`${giftedName} é a pessoa dos esportes, praticamente um comentárista profissional`]: false
-        }
-        if(!prevCoolness) return initialState;
-
-        const coolArr = coolness.split("/ ");
-        for (const phrase of coolArr) {
-            initialState[phrase] = true
-        }
-        return initialState
-    }
     
-    const [ inCoolness, dispatch ] = useReducer(coolReducer, coolness, init)
+    // useReducer takes three arguments, the second here I make so it is an object
+    const [ inCoolness, dispatch ] = useReducer(coolReducer, {coolness, giftedName}, init)
 
     const [ warning, setWarning ] = useState(false)
     useEffect(() => {
         setWarning(false)
-        console.log(inCoolness)
     }, [inCoolness])
 
     return (

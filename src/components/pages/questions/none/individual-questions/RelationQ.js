@@ -7,8 +7,10 @@ function RelationQ({tools: { setNonePage, relation, setRelation }}) {
 
     if(relation) {
         inRelation = relation.split(": ");
+        console.log("Bom")
     } else {
         inRelation = ["", ""];
+        console.log("Bim")
     }
 
     const [ mainRelation, setMainRelation ] = useState(inRelation[0]);
@@ -18,10 +20,7 @@ function RelationQ({tools: { setNonePage, relation, setRelation }}) {
 
     useEffect(() => {
         setWarning(false)
-    }, [mainRelation])
-    useEffect(() => {
-        setWarning(false)
-    }, [relationComplement])
+    }, [mainRelation, relationComplement])
 
     const familyText = <div>
         <p>O que essa pessoa é sua?</p>
