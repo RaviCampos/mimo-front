@@ -164,22 +164,11 @@ Idade: ${formInfo.age};
             Careta ou descolado: ${formInfo.coolness};
             Hobbies: ${formInfo.hobbies};
             `
+            if(formInfo.coolness) internalMessage += `\nCareta ou descolado: ${formInfo.coolness};`
+            if(formInfo.films) internalMessage += `\nFilmes e séries: ${formInfo.films};`
+            if(formInfo.musics) internalMessage += `\nMúsicas: ${formInfo.musics};`
 
             break;
-
-        // case "bebe":
-        //     internalMessage = 
-        //     `Tipo de pais: ${formInfo.giftedName.parentType}
-        //     $
-        //     Idade: ${formInfo.age};
-        //     Relação: ${formInfo.relation};   
-        //     Nível de intimidade: ${formInfo.intimacy};
-        //     Introversão ou extroversão: ${formInfo.introExtra};
-        //     Careta ou descolado: ${formInfo.coolness};
-        //     Hobbies: ${formInfo.hobbies};
-        //     `
-
-        //     break;
         
         default:
             finalMessage = "Algo deu errado com a finalização das perguntas, dê uma olhada primeiro no código de EndingQ.js"
