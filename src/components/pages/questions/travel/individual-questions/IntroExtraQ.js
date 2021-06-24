@@ -9,7 +9,7 @@ function radioOptions(intimacy, giftedName, destiny, inIntroExtra, setInIntroExt
 
                 <div>
                     <label className="radio-option long-option">
-                        {giftedName} faz amigos com muita facilidade, com certeza vai voltar de {destiny} com um lugar para ficar dá próxima vez
+                        {giftedName} faz amigos com muita facilidade, com certeza vai voltar de {destiny} com um lugar para ficar da próxima vez
                         <input type="radio" name="introExtra" id="introExtra_friendly" checked={inIntroExtra === `${giftedName} faz amigos com muita facilidade, com certeza vai voltar de ${destiny} com um lugar para ficar dá próxima vez`} onChange={() => setInIntroExtra(`${giftedName} faz amigos com muita facilidade, com certeza vai voltar de ${destiny} com um lugar para ficar dá próxima vez`)} />
                         <span className="checkmark"></span>
                     </label>
@@ -29,7 +29,7 @@ function radioOptions(intimacy, giftedName, destiny, inIntroExtra, setInIntroExt
     } else {
         return (
             <div>
-                <h2 className="small-title">De acordo com o que você nos contou até agora, você e {giftedName} não são muito próximos, certos? Mas pensando em como {giftedName} age quando vocês se encontram e em quão extrovertido(a) {giftedName} é, marque um número de 1 a 10 de acordo com a escala abaixo:</h2>
+                <h2 className="small-title">De acordo com o que você nos contou até agora, você e {giftedName} não são muito próximos, certo? Mas pensando em como {giftedName} age quando vocês se encontram e em quão extrovertido(a) {giftedName} é, marque um número de 1 a 10 de acordo com a escala abaixo:</h2>
                 <p className="subtitle no-space-down">Sendo 1 "Sorria e acene é o lema de {giftedName}" e 10 "Díficil pensar em um assunto no {giftedName} não tenha opinião ou em um momento em que não se escute sua voz"</p>
 
                 <span className="intimacy-num">{inIntroExtra}</span>
