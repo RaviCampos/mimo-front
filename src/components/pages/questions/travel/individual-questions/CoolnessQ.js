@@ -1,4 +1,4 @@
-import { useEffect, useState, useReducer } from "react";
+import { useReducer } from "react";
 
 function init({coolness: prevCoolness, giftedName}) {
     if(prevCoolness) return prevCoolness
@@ -64,11 +64,6 @@ function checkboxes(inCoolness, dispatch) {
 function CoolnessQ({tools: { travelPage, setTravelPage, coolness, setCoolness, giftedName }}) {
     const [ inCoolness, dispatch ] = useReducer(reducer, {coolness, giftedName}, init)
 
-    const [ warning, setWarning ] = useState(false)
-    useEffect(() => {
-        setWarning(false)
-    }, [inCoolness])
-
     return (
         <div className="all-margin">
             <div className="all-center">
@@ -76,8 +71,6 @@ function CoolnessQ({tools: { travelPage, setTravelPage, coolness, setCoolness, g
                     <h2>Uma viagem não importa o seu motivo pode se transformar em uma aventura, marque as  opções abaixo que você acha que mais combinam com o que {giftedName} faz quando viaja:</h2>
 
                     {checkboxes(inCoolness, dispatch)}
-                    
-                    {warning && <p className="validation-warning">{warning}</p>}
 
                     <div className="prev-for">
                         <button onClick={() => {
