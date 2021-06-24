@@ -72,8 +72,7 @@ function complementDialogBox(option, inHobbies, dispatch, giftedName) {
     )
 }
 
-function checkBox(option, inHobbies, dispatch) {
-    // const strWithout$ = str.replace(/\$/g, '')
+function checkbox(option, inHobbies, dispatch) {
     return (
         <label className="checkbox-option small-checkbox long-option">
             {inHobbies[option].value}
@@ -102,13 +101,13 @@ function HobbieQ({tools: { setSection, futureNone, setNone, setPage, setGoToOcca
                     <h2 className="title">Como {giftedName} passa o seu tempo livre? </h2>
                     <p className="sub-title">Pode marcar todas as alternativas que combinando com {giftedName}</p>
                     <div className="bit-down checkboxes-mother">
-                        {checkBox("plants", inHobbies, dispatch)}
-                        {checkBox("exercises", inHobbies, dispatch)}
+                        {checkbox("plants", inHobbies, dispatch)}
+                        {checkbox("exercises", inHobbies, dispatch)}
                         {complementDialogBox("exercises", inHobbies, dispatch, giftedName)}
-                        {checkBox("movies", inHobbies, dispatch)}
-                        {checkBox("books", inHobbies, dispatch)}
+                        {checkbox("movies", inHobbies, dispatch)}
+                        {checkbox("books", inHobbies, dispatch)}
                         {complementDialogBox("books", inHobbies, dispatch, giftedName)}
-                        {checkBox("pagode", inHobbies, dispatch)}
+                        {checkbox("pagode", inHobbies, dispatch)}
                     </div>
 
                     {warning && <p className="validation-warning">{warning}</p>}
