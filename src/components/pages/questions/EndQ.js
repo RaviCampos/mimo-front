@@ -158,16 +158,25 @@ Idade: ${formInfo.age};
         case "nenhuma":
             internalMessage = 
             `Idade: ${formInfo.age};
-            Relação: ${formInfo.relation};   
-            Nível de intimidade: ${formInfo.intimacy};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            Careta ou descolado: ${formInfo.coolness};
-            Hobbies: ${formInfo.hobbies};
-            `
+Relação: ${formInfo.relation};   
+Nível de intimidade: ${formInfo.intimacy};
+Introversão ou extroversão: ${formInfo.introExtra};
+Careta ou descolado: ${formInfo.coolness};`
             if(formInfo.coolness) internalMessage += `\nCareta ou descolado: ${formInfo.coolness};`
             if(formInfo.films) internalMessage += `\nFilmes e séries: ${formInfo.films};`
             if(formInfo.musics) internalMessage += `\nMúsicas: ${formInfo.musics};`
-
+            if(formInfo.hobbies) {
+                const hobbies = formInfo.hobbies
+                let finalHobbies = "\nHobbies:"
+                for(const key in hobbies) {
+                    const option = hobbies[key]
+                    if(option.checked) {
+                        finalHobbies += `\n\t&& ${option.value}`;
+                        if(option.complement) finalHobbies += ` => COMPLEMENTO - ${option.complement}`;
+                    };
+                }
+                internalMessage += finalHobbies;
+            }
             break;
         
         default:
