@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function ReasonQ({tools: { setTravelPage, reason, setReason, giftedName }}) {
+function ReasonQ({tools: { travelPage, setTravelPage, reason, setReason, giftedName }}) {
 
     let protoReason
 
@@ -69,7 +69,7 @@ function ReasonQ({tools: { setTravelPage, reason, setReason, giftedName }}) {
                             } else {
                                 setReason(inReason);
                             }
-                                setTravelPage(0)
+                                setTravelPage(travelPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inReason) {
@@ -78,10 +78,10 @@ function ReasonQ({tools: { setTravelPage, reason, setReason, giftedName }}) {
                                 setWarning("Por favor, preencha quem será visitado")
                             } else if(inReason === "Visitar alguém querido") {
                                 setReason(`${inReason} -- ${complement}`)
-                                setTravelPage(2)
+                                setTravelPage(travelPage + 1)
                             } else {
                                 setReason(inReason);
-                                setTravelPage(2)
+                                setTravelPage(travelPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

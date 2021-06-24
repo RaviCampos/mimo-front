@@ -66,7 +66,7 @@ function pickInitialValue(intimacy, introExtra) {
     }
 }
 
-function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }}) {
+function IntroExtraQ({tools: { travelPage, setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }}) {
     const [ inIntroExtra, setInIntroExtra ] = useState(pickInitialValue(intimacy, introExtra))
 
     useEffect(() => {
@@ -91,13 +91,13 @@ function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedN
 
                     <div className="prev-for go-bit-down when-mobile">
                         <button onClick={() => {
-                            if(intimacy > 5) {
+                            // if(intimacy > 5) {
+                            //     setIntroExtra(inIntroExtra);
+                            //     setTravelPage(4)
+                            // } else {
                                 setIntroExtra(inIntroExtra);
-                                setTravelPage(4)
-                            } else {
-                                setIntroExtra(inIntroExtra);
-                                setTravelPage(5)
-                            }
+                                setTravelPage(travelPage - 1)
+                            // }
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inIntroExtra) {
@@ -105,7 +105,7 @@ function IntroExtraQ({tools: { setTravelPage, introExtra, setIntroExtra, giftedN
                             } else {
                                 if(intimacy > 5) {
                                     setIntroExtra(inIntroExtra);
-                                    setTravelPage(6)
+                                    setTravelPage(travelPage + 1)
                                 } else {
                                     const travel = {
                                         ...futureTravel,

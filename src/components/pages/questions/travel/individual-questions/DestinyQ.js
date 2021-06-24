@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function DestinyQ({tools: { setTravelPage, destiny, setDestiny, giftedName }}) {
+function DestinyQ({tools: { travelPage, setTravelPage, destiny, setDestiny, giftedName }}) {
 
     const [ inDestiny, setInDestiny] = useState(destiny ? destiny : "")
 
@@ -24,14 +24,14 @@ function DestinyQ({tools: { setTravelPage, destiny, setDestiny, giftedName }}) {
                     <div className="prev-for go-bit-down when-mobile">
                         <button onClick={() => {
                             setDestiny(inDestiny);
-                            setTravelPage(1)
+                            setTravelPage(travelPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inDestiny) {
                                 setWarning("Por favor, preencha o destino da viagem")
                             } else {
                                 setDestiny(inDestiny);
-                                setTravelPage(3)
+                                setTravelPage(travelPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

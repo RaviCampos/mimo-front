@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function HobbiesQ({tools: { setTravelPage, hobbies, setHobbies, giftedName, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }}) {
+function HobbiesQ({tools: { travelPage, setTravelPage, hobbies, setHobbies, giftedName, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }}) {
 
     const [ inHobbies, setInHobbies ] = useState(hobbies ? hobbies : "");
 
@@ -49,7 +49,7 @@ function HobbiesQ({tools: { setTravelPage, hobbies, setHobbies, giftedName, setS
                     <div className="prev-for go-bit-down when-mobile">
                         <button onClick={() => {
                             setHobbies(inHobbies);
-                            setTravelPage(5)
+                            setTravelPage(travelPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inHobbies) {

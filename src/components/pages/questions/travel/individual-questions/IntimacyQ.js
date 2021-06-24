@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { sliderbarInteractivity } from "../../utils/utils"
 
-function IntimacyQ({tools: { setTravelPage, intimacy, setIntimacy, giftedName }}) {
+function IntimacyQ({tools: { travelPage, setTravelPage, intimacy, setIntimacy, giftedName }}) {
 
     const [ inIntimacy, setInIntimacy ] = useState(intimacy ? intimacy : 5);
     
@@ -31,11 +31,11 @@ function IntimacyQ({tools: { setTravelPage, intimacy, setIntimacy, giftedName }}
                     <div className="prev-for small-space-top">
                         <button onClick={() => {
                             setIntimacy(inIntimacy);
-                            setTravelPage(3)
+                            setTravelPage(travelPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             setIntimacy(inIntimacy);
-                            setTravelPage(5)
+                            setTravelPage(travelPage + 1)
                         }}>Próxima</button>
                     </div>
 
