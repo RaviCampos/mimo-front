@@ -43,42 +43,42 @@ function Travel({tools: { setSection, travel, setTravel, setPage, goToOccasionLa
     switch(travelPage) {
         case 0:
             Question = GiftedNameQ;
-            tools = { setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ, setTravelPage, giftedName, setGiftedName };
+            tools = { setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ, travelPage, setTravelPage, giftedName, setGiftedName };
             break
         case 1:
             Question = ReasonQ;
-            tools = { setTravelPage, reason, setReason, giftedName };
+            tools = { travelPage, setTravelPage, reason, setReason, giftedName };
             break
         case 2:
             Question = DestinyQ;
-            tools = { setTravelPage, destiny, setDestiny, giftedName };
+            tools = { travelPage, setTravelPage, destiny, setDestiny, giftedName };
             break
         case 3:
             Question = RelationQ;
-            tools = { setTravelPage, relation, setRelation };
+            tools = { travelPage, setTravelPage, relation, setRelation };
             break
         case 4:
             Question = IntimacyQ;
-            tools = { setTravelPage, intimacy, setIntimacy, giftedName };
+            tools = { travelPage, setTravelPage, intimacy, setIntimacy, giftedName };
             break
         case 5:
             if(intimacy <= 5) {
                 Question = CoolnessQ;
-                tools = { setTravelPage, coolness, setCoolness, giftedName }
+                tools = { travelPage, setTravelPage, coolness, setCoolness, giftedName }
                 break
             } else {
                 Question = IntroExtraQ;
-                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny }
+                tools = { travelPage, setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny }
                 break
             }
         case 6:
             if(intimacy <= 5) {
                 Question = IntroExtraQ;
-                tools = { setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
+                tools = { travelPage, setTravelPage, introExtra, setIntroExtra, giftedName, intimacy, destiny, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
                 break
             } else {
                 Question = HobbiesQ;
-                tools = { setTravelPage, hobbies, setHobbies, giftedName, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
+                tools = { travelPage, setTravelPage, hobbies, setHobbies, giftedName, setSection, futureTravel, setTravel, setPage, setGoToOccasionLastQ }
                 break
             }
         default:
