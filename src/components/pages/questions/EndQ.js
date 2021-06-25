@@ -169,7 +169,19 @@ Idade: ${formInfo.age};
 Relação: ${formInfo.relation};   
 Nível de intimidade: ${formInfo.intimacy};
 Introversão ou extroversão: ${formInfo.introExtra};`
-            if(formInfo.coolness) internalMessage += `\nCareta ou descolado: ${formInfo.coolness};`
+            if(formInfo.coolness) {
+                if(typeof formInfo.coolness === "object") {
+                    const coolness = formInfo.coolness
+                    let finalHobbies = "\nCareta ou descolado: "
+                    for(const key in coolness) {
+                        const option = coolness[key]
+                        if(option.checked) finalHobbies += `\n\t&& ${option.value}`;
+                    }
+                    internalMessage += finalHobbies;
+                } else {
+                    internalMessage += `\nCareta ou descolado: ${formInfo.coolness};`
+                }
+            }
             if(formInfo.films) internalMessage += `\nFilmes e séries: ${formInfo.films};`
             if(formInfo.musics) internalMessage += `\nMúsicas: ${formInfo.musics};`
             if(formInfo.hobbies) {

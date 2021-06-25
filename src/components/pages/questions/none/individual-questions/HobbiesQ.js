@@ -18,7 +18,7 @@ function init({hobbies: prevHobbies, giftedName}) {
         },
         books: {
             value: `Quando preciso de uma dica de leitura sempre recorro a ${giftedName}. Seja em seu fiel escudeiro kindle ou com um livre físico, ${giftedName} sempre lendo lendo alguma coisa`,
-            complement: "fdmkdasmk sjadisad sada",
+            complement: undefined,
             checked: false
         },
         pagode: {
@@ -122,8 +122,7 @@ function HobbieQ({tools: { setSection, futureNone, setNone, setPage, setGoToOcca
                                     ...futureNone,
                                     hobbies: inHobbies
                                 }
-                                delete none.films
-                                delete none.musics
+                                delete none.coolness
                                 setNone(none);
                                 setGoToOccasionLastQ(true)
                                 setSection("common")
