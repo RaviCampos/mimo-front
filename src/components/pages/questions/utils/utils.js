@@ -60,3 +60,36 @@ export function sliderbarInteractivity(stateVar, setStateVar) {
         sliderBreakHouse.addEventListener("mousedown", handleSlideBar);
     // }
 }
+
+// export function init({prevStateFromFatherComponent, baseState}) {
+//     return () => {
+//         if(prevStateFromFatherComponent) return prevStateFromFatherComponent
+//         return baseState;
+//     }
+// }
+
+// export function reducer(state, action) {
+//     return ({
+//         ...state,
+//         [action.type]: {
+//             ...state[action.type],
+//             checked: !state[action.type].checked
+//         }
+//     })
+// }
+
+// export function checkboxes(name, state, dispatch) {
+//     const checkboxesArr = []
+//     for(const key in state) {
+//         checkboxesArr.push(
+//             <label className="checkbox-option small-checkbox long-option">
+//                 {state[key].value}
+//                 <input type="checkbox" name={`${name}`} id={`${name}_${key}`} checked={state[key].checked} onChange={() => dispatch(
+//                     {type: key}
+//                 )} />
+//                 <span className="checkbox-mark"></span>
+//             </label>
+//         )
+//     }
+//     return checkboxesArr
+// }
