@@ -67,7 +67,7 @@ function textComplement(option, state, dispatch) {
             break;
     }
     return (
-        <div>
+        <div className="small-space-down">
             <p>{text}</p>
             <input type="text" value={state[option].complement} onChange={e => dispatch({
                 type: "complement", 
@@ -82,12 +82,12 @@ function textComplement(option, state, dispatch) {
 
 function moviesRadioOption(id, text, state, dispatch) {
     return (
-        <label className="radio-option small-radio">
+        <label className="radio-option tinny-radio">
             {text}
             <input type="radio" name="hobbies_subradio" id={`hobbies_subradio_${id}`} checked={state.movies.complement === text} onChange={ () => dispatch({
                 type: "complement",
                 payload: {
-                    option: "moovies",
+                    option: "movies",
                     complement: text 
                 }
             })}/>
@@ -99,7 +99,7 @@ function moviesRadioOption(id, text, state, dispatch) {
 function moviesRadioComplement(state, dispatch, moviesRadioOption) {
     if(!state.movies.checked) return
     return (
-        <div>
+        <div className="subradio-div">
             <h3>Quais tipo de filmes vocês gostam de ver juntos</h3>
             <div>
                 {moviesRadioOption("foreign", "Estrangeiros com nomes impronunciais (não que isso importe já ninguém nunca vai falar sobre eles mesmo, de tão desconhecidos que são)", state, dispatch)}
@@ -125,33 +125,39 @@ function checkbox(option, state, dispatch) {
 
 function HobbiesQ({tools: { setWeddingPage, setHobbies, hobbies, giftedName }}) {
 
-    const [ inHobbies, dispatch ] = useReducer(reducer, {hobbies, baseState}, init)
+    const [ inHobbies, dispatch ] = useReducer(reducer, {hobbies, giftedName}, init)
 
     return (
-        <div>
-            <h2 className="title">Como você e {giftedName} aproveitam o seu tempo juntos?</h2>
-            <p className="sub-title">Pode marcar todas as alternativas que combinando com vocês</p>
-            
-            <div className="bit-down checkboxes-mother">
-                {checkbox("plants", inHobbies, dispatch)}
-                {checkbox("exercises", inHobbies, dispatch)}
-                {checkbox("movies", inHobbies, dispatch)}
-                {moviesRadioComplement(inHobbies, dispatch, moviesRadioOption)}
-                {checkbox("cook", inHobbies, dispatch)}
-                {textComplement("cook", inHobbies, dispatch)}
-                {checkbox("together", inHobbies, dispatch)}
-                {checkbox("series", inHobbies, dispatch)}
-                {textComplement("series", inHobbies, dispatch)}
-            </div>
+        <div className="all-margin">
+            <div className="all-center">
+                <div>
+                    <h2 className="title">Como você e {giftedName} aproveitam o seu tempo juntos?</h2>
+                    <p className="sub-title">Pode marcar todas as alternativas que combinando com vocês</p>
+                    
+                    <div className="bit-down checkboxes-mother">
+                        {checkbox("plants", inHobbies, dispatch)}
+                        {checkbox("exercises", inHobbies, dispatch)}
+                        {checkbox("movies", inHobbies, dispatch)}
+                        {moviesRadioComplement(inHobbies, dispatch, moviesRadioOption)}
+                        {checkbox("cook", inHobbies, dispatch)}
+                        {textComplement("cook", inHobbies, dispatch)}
+                        {checkbox("together", inHobbies, dispatch)}
+                        {checkbox("series", inHobbies, dispatch)}
+                        {textComplement("series", inHobbies, dispatch)}
+                    </div>
 
-            <button onClick={() => {
-                setHobbies(inHobbies)
-                setWeddingPage(5)
-            }}>Anterior</button>
-            <button onClick={() => {
-                setHobbies(inHobbies)
-                setWeddingPage(7)
-            }}>Próxima</button>
+                    <div className="prev-for">
+                        <button onClick={() => {
+                            setHobbies(inHobbies)
+                            setWeddingPage(5)
+                        }}>Anterior</button>
+                        <button onClick={() => {
+                            setHobbies(inHobbies)
+                            setWeddingPage(7)
+                        }}>Próxima</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 

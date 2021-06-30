@@ -358,7 +358,22 @@ label[for="work-age_number"] {
     }
 }
 
-
+.subradio-div {
+    .tinny-radio {
+        font-size: 17px;
+        span.checkmark {
+            left: 0px;
+            height: 22px;
+            width: 22px;
+        }
+        span.checkmark::after {
+            top: 5px;
+            left: 5px;
+            width: 13px;
+            height: 13px;
+        }
+    }
+}
 
 
 .checkbox-option {
