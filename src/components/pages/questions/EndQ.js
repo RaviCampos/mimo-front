@@ -67,13 +67,24 @@ Endereço: ${formInfo.adress};`
         case "casamento/namoro": 
             internalMessage = 
             `Presenteado faz parte do casal: ${formInfo.gifterInCouple};
-            Tempo juntos: ${formInfo.timeTogether};
-            Idade: ${formInfo.age};
-            Nível da relação do casal: ${formInfo.coupleRelationLevel};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            Careta ou maneiro: ${formInfo.coolness};
-            Motivo para presentear: ${formInfo.reasonToGift}
-            `
+Tempo juntos: ${formInfo.timeTogether};
+Idade: ${formInfo.age};
+Nível da relação do casal: ${formInfo.coupleRelationLevel};
+Introversão ou extroversão: ${formInfo.introExtra};
+Careta ou maneiro: ${formInfo.coolness};
+Motivo para presentear: ${formInfo.reasonToGift}`
+            if(formInfo.hobbies) {
+                const hobbies = formInfo.hobbies
+                let finalHobbies = "\nHobbies:"
+                for(const key in hobbies) {
+                    const option = hobbies[key]
+                    if(option.checked) {
+                        finalHobbies += `\n\t&& ${option.value}`;
+                        if(option.complement) finalHobbies += ` => COMPLEMENTO - ${option.complement}`;
+                    };
+                }
+                internalMessage += finalHobbies;
+            }
             break;
 
         case "aniversario":
