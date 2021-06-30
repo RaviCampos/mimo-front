@@ -7,7 +7,7 @@ import TimeTogetherQ from "./individual-questions/TimeTogetherQ"
 import AgeQ from "./individual-questions/AgeQ"
 import CoupleRelationLevelQ from "./individual-questions/CoupleRelationLevelQ"
 import ReasonToGiftQ from "./individual-questions/ReasonToGiftQ"
-import CommonHobbiesQ from "./individual-questions/CommonHobbiesQ"
+import HobbiesQ from "./individual-questions/HobbiesQ"
 import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 
@@ -22,7 +22,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     const [ coupleRelationLevel, setCoupleRelationLevel ] = useState(wedding.coupleRelationLevel)
     const [ introExtra, setIntroExtra ] = useState(wedding.introExtra)
     const [ reasonToGift, setReasonToGift ] = useState(wedding.reasonToGift)
-    const [ commonHobbies, setCommonHobbies ] = useState(wedding.commonHobbies)
+    const [ hobbies, setHobbies ] = useState(wedding.hobbies)
     const [ coolness, setCoolness ] = useState(wedding.coolness)
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
         coupleRelationLevel,
         introExtra,
         reasonToGift,
-        commonHobbies,
+        hobbies,
         coolness
     }
 
@@ -75,8 +75,8 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
             break
         case 6:
             if(gifterInCouple) {
-                Question = CommonHobbiesQ;
-                tools = { setWeddingPage, setCommonHobbies, commonHobbies}
+                Question = HobbiesQ;
+                tools = { setWeddingPage, setHobbies, hobbies}
             } else {
                 Question = CoolnessQ;
                 tools = { setWeddingPage, setCoolness, gifterInCouple, coolness}
