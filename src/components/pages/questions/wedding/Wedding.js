@@ -85,7 +85,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
         case 7:
             if(gifterInCouple) {
                 Question = CoolnessQ;
-                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ,}
+                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ }
             } else {
                 Question = IntroExtraQ;
                 tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }
