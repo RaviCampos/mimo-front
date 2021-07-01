@@ -88,7 +88,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
                 tools = { setWeddingPage, setCoolness, gifterInCouple, coolness, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ,}
             } else {
                 Question = IntroExtraQ;
-                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }
+                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }
             }
             break
         default:
