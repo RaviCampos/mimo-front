@@ -67,7 +67,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
         case 5:
             if(gifterInCouple) {
                 Question = IntroExtraQ;
-                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra }
+                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName }
             } else {
                 Question = ReasonToGiftQ;
                 tools = { setWeddingPage, setReasonToGift, reasonToGift }

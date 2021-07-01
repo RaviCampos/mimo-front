@@ -19,7 +19,7 @@ function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, in
         setWarning(false)
     }, [inEx])
 
-    const [ nameA, nameB ] = giftedName.split(" -- ") ? giftedName.split(" -- ") : ""
+    const [ nameA, nameB ] = giftedName.split(" -- ")
 
     if(gifterInCouple) {
         return (
