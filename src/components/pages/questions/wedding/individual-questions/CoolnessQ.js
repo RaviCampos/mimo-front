@@ -52,7 +52,7 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
             <div className="all-margin">
                 <div className="all-center">
                     <div>
-                        <h2>Coolness in couple</h2>
+                        <h2>Para conhecermos {giftedName} um pouco melhor, marque todas as opções abaixo em que você acredita que {giftedName} se encaixa</h2>
                         <div>
                             {checkboxes("coolness", inCoolnessCheckbox, dispatch)}
                         </div>
