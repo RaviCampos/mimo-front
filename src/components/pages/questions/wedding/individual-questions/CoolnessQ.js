@@ -39,13 +39,15 @@ const baseState = (giftedName) => ({
 function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ  }}) {
     const [ inCoolnessCheckbox, dispatch ] = useReducer(reducer, {prevStateFromFatherComponent: coolness, baseState: baseState(giftedName)}, init)
     
-    const [ inCoolness, setInCoolness ] = useState(coolness ? coolness : "")
+    const [ inCoolnessSlider, setInCoolnessSlider ] = useState(coolness ? coolness : 5)
 
-    const [ warning, setWarning ] = useState(false)
     useEffect(() => {
-        setWarning(false)
-    }, [inCoolness])
+        if(!gifterInCouple) {
+            sliderbarInteractivity(inCoolnessSlider, setInCoolnessSlider)
+        }
+    }, [])
 
+    const [ nameA, nameB ] = giftedName.split(" -- ")
 
     if(gifterInCouple) {
         return (
@@ -80,20 +82,35 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
         )
     } else {
         return (
-            <div>
-                <h2>coolness outside couple</h2>
-                <button onClick={() => {
-                    setCoolness(inCoolness)
-                    setWeddingPage(5)
-                }}>Anterior</button>
-                <button onClick={() => {
-                    // if(!inCoolness) {
-                    //     setWarning(`Por favor, escolha uma das opções` )
-                    // }  else {
-                        setCoolness(inCoolness)
-                        setWeddingPage(7)
-                    // }
-                }}>Próxima</button>
+            <div className="intimacyQ all-margin">
+                <div className="all-center">
+                    <div>
+                        <h2 className="small-title">Em uma escala de 1 a 10, sendo 1 super careta e 10 o casal mais descolado que você conhece, como você classificaria {nameA} e {nameB}?</h2>
+
+                        <span className="intimacy-num">{inCoolnessSlider}</span>
+                        {/* <span>1</span> */}
+                        <div className="slider-house">
+                            <div className="shade" />
+                            <div className="slider">
+                                <div className="slider-bar" />
+                                <div className="slider-ball" />
+                            </div>
+                        </div>
+                        {/* <span>10</span> */}
+                        
+                        <br/>
+                        <div className="prev-for">
+                            <button onClick={() => {
+                                setCoolness(inCoolnessSlider)
+                                setWeddingPage(5)
+                            }}>Anterior</button>
+                            <button onClick={() => {
+                                setCoolness(inCoolnessSlider)
+                                setWeddingPage(7)
+                            }}>Próxima</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -79,7 +79,7 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
                 tools = { setWeddingPage, setHobbies, hobbies, giftedName}
             } else {
                 Question = CoolnessQ;
-                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness}
+                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName}
             }
             break
         case 7:
