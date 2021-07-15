@@ -36,6 +36,7 @@ const baseState = (giftedName) => ({
     }
 })
 
+
 function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ  }}) {
     const [ inCoolnessCheckbox, dispatch ] = useReducer(reducer, {prevStateFromFatherComponent: coolness, baseState: baseState(giftedName)}, init)
     
