@@ -157,11 +157,11 @@ Idade: ${formInfo.age};
         case "viagem":
             internalMessage = 
             `Porquê está dando o presente: ${formInfo.reason};
-            Destino: ${formInfo.destiny};
-            Relação: ${formInfo.relation};   
-            Nível de intimidade: ${formInfo.intimacy};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            Careta ou descolado: ${formInfo.coolness};`
+Destino: ${formInfo.destiny};
+Relação: ${formInfo.relation};   
+Nível de intimidade: ${formInfo.intimacy};
+Introversão ou extroversão: ${formInfo.introExtra};
+Careta ou descolado: ${formInfo.coolness};`
             if(formInfo.coolness) {
                 const coolness = formInfo.coolness
                 let finalHobbies = "\nCareta ou descolado: "
