@@ -90,13 +90,12 @@ Motivo para presentear: ${formInfo.reasonToGift}`
         case "aniversario":
             internalMessage = 
             `Idade: ${formInfo.age};
-            Relação: ${formInfo.relation};
-            Intimidade: ${formInfo.intimacy};
-            Introversão ou extroversão: ${formInfo.introExtra};
-            Hobbies: ${formInfo.hobbies};
-            Careta ou maneiro: ${formInfo.coolness};
-            Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};
-            `
+Relação: ${formInfo.relation};
+Intimidade: ${formInfo.intimacy};
+Introversão ou extroversão: ${formInfo.introExtra};
+Hobbies: ${formInfo.hobbies};
+Careta ou maneiro: ${formInfo.coolness};
+Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};`
             break;
 
         case "bebe":
