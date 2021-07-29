@@ -1,47 +1,84 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { sliderbarInteractivity } from "../../utils/utils"
 
-function IntroExtraQ({tools: {introExtra, intimacy, setIntroExtra, setBDayPage, giftedName}}) {
+function pickBaseState(introExtra, intimacy) {
+    if(intimacy <= 5) {
+        if(Number.isInteger(introExtra)) {
+            return introExtra
+        } else {
+            return 5
+        }
+    } else {
+        return introExtra
+    }
+}
+
+function IntroExtraQ({tools: {introExtra, intimacy, setIntroExtra, setBDayPage, giftedName, bDayPage}}) {
     
-    const [ inIntroExtra, setInIntroExtra ] = useState(introExtra ? introExtra : "Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo")
+    const [ inIntroExtra, setInIntroExtra ] = useState(pickBaseState(introExtra, intimacy))
 
-    let question = <p>Bunda cagada</p>
+    useEffect(() => {
+        if(intimacy <= 5 ) {
+            sliderbarInteractivity(inIntroExtra, setInIntroExtra)
+        }
+    }, [])
+
     if(intimacy <= 5 ) {
+        return (
+            <div className="intimacyQ all-margin">
+                <div className="all-center">
+                    <div>
+                        <h2 className="tinny-title">De acordo com o que você nos contou até agora, você e {giftedName} não são muito próximos, certos? Mas pensando em como {giftedName} age quando vocês se encontram, e em quão extrovertido(a) {giftedName} é marque um número de 1 a 10 de acordo com a escala abaixo:</h2>
+                        <p className="subtitle no-space-down">Sendo <span>1</span> “Sorria e acene” é o lema de {giftedName}, e <span>10</span> difícil pensar em um assunto no {giftedName} não tenha opinião ou em um momento em que não se escute sua voz</p>
 
-        question = <div>
-            <h2>Comemorar mais um ano de alguém querido é sempre especial, né? Para {giftedName} esse ano vai rolar alguma festa no zoom, um encontro a céu aberto, alguma comemoração à la pandemia?</h2>
-            <div>
-                <div>
-                    <input type="radio" name="introExtra" id="ie_bday" value="Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo" checked={inIntroExtra === "Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo"} onChange={e=> setInIntroExtra(e.target.value)}/>
-                    <label htmlFor="occ_bday">Até que vai ter uma festinha no zoom mas eu não tenho mais saco para isso, vou só mandar o presente mesmo</label>
+                        <span className="intimacy-num">{inIntroExtra}</span>
+                        {/* <span>1</span> */}
+                        <div className="slider-house">
+                            <div className="shade"></div>
+                            <div className="slider">
+                                <div className="slider-bar"></div>
+                                <div className="slider-ball"></div>
+                            </div>
+                        </div>
+                        {/* <span>10</span> */}
+                        <br/>
+
+                        <div className="prev-for small-space-top">
+                            <button onClick={() => {
+                                setIntroExtra(inIntroExtra);
+                                setBDayPage(bDayPage - 1)
+                            }}>Anterior</button>
+                            <button onClick={() => {
+                                setIntroExtra(inIntroExtra);
+                                setBDayPage(bDayPage + 1)
+                            }}>Próxima</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
+        )
     } else {
+        return (
+            <div className="all-margin">
+                <div className="all-center">
+                    <div>
+                        <h2 className="small-title">IntroExtra de múltipla escolha</h2>
 
-        question = <div>
-            <p>Go fuck yourself</p>
-        </div>
-
+                        <div className="prev-for small-space-top">
+                            <button onClick={() => {
+                                setIntroExtra(inIntroExtra);
+                                setBDayPage(bDayPage - 1)
+                            }}>Anterior</button>
+                            <button onClick={() => {
+                                setIntroExtra(inIntroExtra);
+                                setBDayPage(bDayPage + 1)
+                            }}>Próxima</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
-
-    
-    return (
-        <div>
-            {question}
-
-            <br/>
-
-            <button onClick={() => {
-                setIntroExtra(inIntroExtra);
-                setBDayPage(3)
-            }}>Anterior</button>
-            <button onClick={() => {
-                setIntroExtra(inIntroExtra);
-                setBDayPage(5)
-            }}>Próxima</button>
-        </div>
-    )
 }
 
 export default IntroExtraQ
