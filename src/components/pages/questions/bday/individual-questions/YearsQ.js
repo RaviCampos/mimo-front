@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Bday from "../Bday";
 
 function checkAccuracy(accuracy) {
     if(accuracy === "Sei exatamente a idade") {
@@ -16,7 +17,7 @@ function changeAccuracy(checkAccuracy, accuracy, setAccuracy) {
     }
 }
 
-function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
+function YearsQ({tools: {setBDayPage, setAge, age, giftedName, bDayPage}}) {
 
     let protoAge
     if(age) {
@@ -62,7 +63,7 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
                     <div className="prev-for">
                         <button onClick={() => {
                             setAge(`${accuracy} : ${inAge}`);
-                            setBDayPage(0)
+                            setBDayPage(bDayPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             // if(!inAge) {
@@ -77,7 +78,7 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName}}) {
                             //     setWarning("O número máximo de meses é 11, se a pessoa está fazendo 12 meses, por favor, selecione anos e indique 1")
                             // } else {
                                 setAge(`${accuracy} : ${inAge}`);
-                                setBDayPage(2)
+                                setBDayPage(bDayPage + 1)
                             // }
                         }}>Próxima</button>
                     </div>

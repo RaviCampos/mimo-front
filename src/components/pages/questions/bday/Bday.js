@@ -9,6 +9,17 @@ import IntroExtraQ from "./individual-questions/IntroExtraQ"
 import HobbiesQ from "./individual-questions/HobbiesQ"
 import CoolnessQ from "./individual-questions/CoolnessQ"
 
+function ageToLifeStage(accuracyAndAge) {
+    const age = accuracyAndAge.split(" : ")[1]
+    if(age <= 11) {
+        return "criança"
+    } else if (age <= 18) {
+        return "adolescente"
+    } else {
+        return "adulto"
+    }
+}
+
 function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, setGoToOccasionLastQ }}) {
 
     const [ bDayPage, setBDayPage ] = useState(goToOccasionLastQ ? 6 : 0); /* integer */
@@ -39,31 +50,31 @@ function Bday({tools: { setSection, bDay, setBDay, setPage, goToOccasionLastQ, s
     switch(bDayPage) {
         case 0:
             Question = GiftedNameQ;
-            tools = { setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay, setGoToOccasionLastQ};
+            tools = { setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay, setGoToOccasionLastQ, bDayPage};
             break;
         case 1:
             Question = YearsQ;
-            tools = { setBDayPage, setAge, age, giftedName};
+            tools = { setBDayPage, setAge, age, giftedName, bDayPage};
             break;
         case 2:
             Question = RelationQ;
-            tools = { setBDayPage, setRelation, relation }
+            tools = { setBDayPage, setRelation, relation, bDayPage }
             break;
         case 3:
             Question = IntimacyQ;
-            tools = { setBDayPage, setIntimacy, giftedName, intimacy }
+            tools = { setBDayPage, setIntimacy, giftedName, intimacy, bDayPage }
             break;
         case 4:
             Question = IntroExtraQ;
-            tools = { setBDayPage, setIntroExtra, introExtra, giftedName, intimacy }
+            tools = { setBDayPage, setIntroExtra, introExtra, giftedName, intimacy, bDayPage }
             break;
         case 5:
             Question = HobbiesQ;
-            tools = { setBDayPage, setHobbies, hobbies, giftedName, intimacy }
+            tools = { setBDayPage, setHobbies, hobbies, giftedName, intimacy, bDayPage }
             break;
         case 6:
             Question = CoolnessQ;
-            tools = { setPage, setBDayPage, setCoolness, coolness, intimacy, setSection, futureBDay, setBDay, setGoToOccasionLastQ }
+            tools = { setPage, setBDayPage, setCoolness, coolness, intimacy, setSection, futureBDay, setBDay, setGoToOccasionLastQ, bDayPage }
             break;
         default:
             Question = NotFoundQ;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function GiftedNameQ({tools: {setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay, setGoToOccasionLastQ}}) {
+function GiftedNameQ({tools: {setPage, setBDayPage, setGiftedName, giftedName, setSection, futureBDay, setBDay, setGoToOccasionLastQ, bDayPage}}) {
 
     const [ inGifted, setInGifted ] = useState(giftedName ? giftedName : "");
     const [ showWarning, setShowWarning ] = useState(false)
@@ -35,7 +35,7 @@ function GiftedNameQ({tools: {setPage, setBDayPage, setGiftedName, giftedName, s
                         <button onClick={() => {
                             if(inGifted) {
                                 setGiftedName(inGifted)
-                                setBDayPage(1)
+                                setBDayPage(bDayPage + 1)
                             } else {
                                 setShowWarning(true);
                             }
