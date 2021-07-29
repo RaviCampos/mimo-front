@@ -66,9 +66,9 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName, bDayPage}}) {
                             setBDayPage(bDayPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
-                            // if(!inAge) {
-                            //     setWarning(`Por favor, preencha quantos ${unit} ${giftedName} está fazendo` )
-                            // } else if(unit === "anos" && inAge < 1) {
+                            if(!inAge) {
+                                setWarning(`Por favor, preencha quantos anos` )
+                            //  else if(unit === "anos" && inAge < 1) {
                             //     setWarning("Se a pessoa está fazendo menos de um ano selecione 'meses' e depois indique quantos meses")
                             // } else if(unit === "anos" && inAge > 120) {
                             //     setWarning(`Anos precisam ser menores que 120`)
@@ -76,10 +76,10 @@ function YearsQ({tools: {setBDayPage, setAge, age, giftedName, bDayPage}}) {
                             //     setWarning("O número de meses precisa ser pelo menos 1")
                             // } else if(unit === "meses" && inAge > 11) {
                             //     setWarning("O número máximo de meses é 11, se a pessoa está fazendo 12 meses, por favor, selecione anos e indique 1")
-                            // } else {
+                            } else {
                                 setAge(`${accuracy} : ${inAge}`);
                                 setBDayPage(bDayPage + 1)
-                            // }
+                            }
                         }}>Próxima</button>
                     </div>
                 </div>
