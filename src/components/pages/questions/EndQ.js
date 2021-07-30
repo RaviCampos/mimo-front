@@ -93,9 +93,23 @@ Motivo para presentear: ${formInfo.reasonToGift}`
 Relação: ${formInfo.relation};
 Intimidade: ${formInfo.intimacy};
 Introversão ou extroversão: ${formInfo.introExtra};
-Hobbies: ${formInfo.hobbies};
 Careta ou maneiro: ${formInfo.coolness};
 Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};`
+            if(formInfo.hobbies) {
+                const hobbies = formInfo.hobbies
+                let finalHobbies = "\nHobbies:"
+                // checking if the answer is an object, such is the case in chackbox answers
+                if(objValue && typeof objValue === 'object' && objValue.constructor === Object) {
+                    for(const key in hobbies) {
+                        const option = hobbies[key]
+                        if(option.checked) {
+                            finalHobbies += `\n\t&& ${option.value}`;
+                            if(option.complement) finalHobbies += ` => COMPLEMENTO - ${option.complement}`;
+                        };
+                    }
+                }
+                internalMessage += finalHobbies;
+            }
             break;
 
         case "bebe":
