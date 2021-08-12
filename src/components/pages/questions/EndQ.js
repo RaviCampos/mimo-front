@@ -99,7 +99,7 @@ Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};`
                 const hobbies = formInfo.hobbies
                 let finalHobbies = "\nHobbies:"
                 // checking if the answer is an object, such is the case in chackbox answers
-                if(objValue && typeof objValue === 'object' && objValue.constructor === Object) {
+                if(hobbies && typeof hobbies === 'object' && hobbies.constructor === Object) {
                     for(const key in hobbies) {
                         const option = hobbies[key]
                         if(option.checked) {
@@ -109,6 +109,7 @@ Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};`
                     }
                 }
                 internalMessage += finalHobbies;
+                // internalMessage += "here"
             }
             break;
 
