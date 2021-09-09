@@ -148,4 +148,3 @@ function HobbiesQ({tools: {hobbies, intimacy, setHobbies, setBDayPage, giftedNam
 }
 
 export default HobbiesQ
-
