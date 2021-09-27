@@ -93,8 +93,7 @@ Motivo para presentear: ${formInfo.reasonToGift}`
 Relação: ${formInfo.relation};
 Intimidade: ${formInfo.intimacy};
 Introversão ou extroversão: ${formInfo.introExtra};
-Careta ou maneiro: ${formInfo.coolness};
-Entrega no mesmo dia do aniversário: ${formInfo.deliveryBDay};`
+Careta ou maneiro: ${formInfo.coolness};`
             if(formInfo.hobbies) {
                 const hobbies = formInfo.hobbies
                 let finalHobbies = "\nHobbies:"
