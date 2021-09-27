@@ -84,6 +84,15 @@ function checkbox(option, inHobbies, dispatch) {
     )
 }
 
+function isAnyBoxChecked(state) {
+    for(const prop in state) {
+        if(state[prop]["checked"]) {
+            return true
+        }
+    }
+    return false
+}
+
 function HobbiesQ({tools: {hobbies, intimacy, setHobbies, setBDayPage, giftedName, bDayPage}}) {
 
     // useReducer takes three arguments, the second here I make so it is an object
