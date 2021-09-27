@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function AgeQ({tools: { setWeddingPage, setAge, gifterInCouple, age, gifterName, giftedName }}) {
+function AgeQ({tools: { setWeddingPage, weddingPage, setAge, gifterInCouple, age, gifterName, giftedName }}) {
 
     // "ana: 24 / vladimir: 26"
 
@@ -43,7 +43,7 @@ function AgeQ({tools: { setWeddingPage, setAge, gifterInCouple, age, gifterName,
                         <div className="prev-for bit-down">
                             <button onClick={() => {
                                 setAge(`${gifterName}: ${firstAge} / ${giftedName}: ${secondAge}`);
-                                setWeddingPage(2)
+                                setWeddingPage( weddingPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
 
@@ -61,7 +61,7 @@ function AgeQ({tools: { setWeddingPage, setAge, gifterInCouple, age, gifterName,
                                     setWarning(`A idade de ${giftedName} precisa ser menor do que 120`)
                                 } else {
                                     setAge(`${gifterName}: ${firstAge} / ${giftedName}: ${secondAge}`);
-                                    setWeddingPage(4)
+                                    setWeddingPage( weddingPage + 1)
                                 }
 
                             }}>Próxima</button>

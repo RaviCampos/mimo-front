@@ -28,6 +28,9 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     useEffect(() => {
         window.scrollTo(0,0);
     }, [weddingPage])
+    useEffect(() => {
+        console.log("GifterInCouple: ", gifterInCouple);
+    })
 
     const futureWedding = {
         gifterInCouple,
@@ -46,49 +49,49 @@ function Wedding({tools: { setSection, wedding, setWedding, setPage, goToOccasio
     switch(weddingPage) {
         case 0:
             Question = GifterInCoupleQ;
-            tools = { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, gifterInCouple, setGifterInCouple };
+            tools = { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, weddingPage, gifterInCouple, setGifterInCouple };
             break;
         case 1:
             Question = GiftedNameQ;
-            tools = { setWeddingPage, setGiftedName, giftedName, gifterInCouple, gifterName }
+            tools = { setWeddingPage, weddingPage, setGiftedName, giftedName, gifterInCouple, gifterName }
             break
         case 2:
             Question = TimeTogetherQ;
-            tools = { setWeddingPage, setTimeTogether, gifterInCouple, timeTogether, gifterName }
+            tools = { setWeddingPage, weddingPage, setTimeTogether, gifterInCouple, timeTogether, gifterName }
             break
         case 3:
             Question = AgeQ;
-            tools = { setWeddingPage, setAge, gifterInCouple, age, gifterName, giftedName }
+            tools = { setWeddingPage, weddingPage, setAge, gifterInCouple, age, gifterName, giftedName }
             break
         case 4:
             Question = CoupleRelationLevelQ;
-            tools = { setWeddingPage, setCoupleRelationLevel, gifterInCouple, coupleRelationLevel, giftedName }
+            tools = { setWeddingPage, weddingPage, setCoupleRelationLevel, gifterInCouple, coupleRelationLevel, giftedName }
             break
         case 5:
             if(gifterInCouple) {
                 Question = IntroExtraQ;
-                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName }
+                tools = { setWeddingPage, weddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName }
             } else {
                 Question = ReasonToGiftQ;
-                tools = { setWeddingPage, setReasonToGift, reasonToGift }
+                tools = { setWeddingPage, weddingPage, setReasonToGift, reasonToGift }
             }
             break
         case 6:
             if(gifterInCouple) {
                 Question = HobbiesQ;
-                tools = { setWeddingPage, setHobbies, hobbies, giftedName}
+                tools = { setWeddingPage, weddingPage, setHobbies, hobbies, giftedName}
             } else {
                 Question = CoolnessQ;
-                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName}
+                tools = { setWeddingPage, weddingPage, setCoolness, gifterInCouple, coolness, giftedName}
             }
             break
         case 7:
             if(gifterInCouple) {
                 Question = CoolnessQ;
-                tools = { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ }
+                tools = { setWeddingPage, weddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ }
             } else {
                 Question = IntroExtraQ;
-                tools = { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }
+                tools = { setWeddingPage, weddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }
             }
             break
         default:

@@ -10,7 +10,7 @@ function radioOption(text, name, inEx, setInEx) {
     )
 }
 
-function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }}) {
+function IntroExtraQ({tools: { setWeddingPage, weddingPage, setIntroExtra, gifterInCouple, introExtra, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, }}) {
 
     const [ inEx, setInEx ] = useState(introExtra ? introExtra : "")
 
@@ -41,14 +41,14 @@ function IntroExtraQ({tools: { setWeddingPage, setIntroExtra, gifterInCouple, in
                         <div className="prev-for">
                             <button onClick={() => {
                                 setIntroExtra(inEx)
-                                setWeddingPage(4)
+                                setWeddingPage( weddingPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 if(!inEx) {
                                     setWarning(`Por favor, escolha uma das opções` )
                                 }  else {
                                     setIntroExtra(inEx)
-                                    setWeddingPage(6)
+                                    setWeddingPage( weddingPage + 1)
                                 }
                             }}>Próxima</button>
                         </div>

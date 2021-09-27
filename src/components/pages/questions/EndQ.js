@@ -1,20 +1,20 @@
 import emailjs from 'emailjs-com';
 
 function EndQ({tools: {setPage, formInfo}}) {
- 
+
     function sendEmail(message) {
         emailjs.send(
-            "service_a7ydngj", 
-            "template_8xqrqek", 
+            process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
             {message: message}, 
-            "user_zPbvgXcdu1HcYNxPkcMOc"
+            process.env.REACT_APP_EMAILJS_USER_ID
         ).then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
         }, function(error) {
             console.log('FAILED...', error);
         });
     }
-
+    
     function makeEndBit(mess) {
         return <div>{mess.split(";\n").map( x => {
             let pre = x.split(": ")
@@ -24,7 +24,7 @@ function EndQ({tools: {setPage, formInfo}}) {
             </div>
         })}</div>
     }
-
+    
     function makeGiftedName() {
         const giftedName = formInfo.giftedName
         if(typeof giftedName === "object") {
@@ -93,7 +93,8 @@ Motivo para presentear: ${formInfo.reasonToGift}`
 Relação: ${formInfo.relation};
 Intimidade: ${formInfo.intimacy};
 Introversão ou extroversão: ${formInfo.introExtra};
-Careta ou maneiro: ${formInfo.coolness};`
+Careta ou maneiro: ${formInfo.coolness};
+Entrega no dia do aniversario: ${formInfo.deliveryBDay}`
             if(formInfo.hobbies) {
                 const hobbies = formInfo.hobbies
                 let finalHobbies = "\nHobbies:"

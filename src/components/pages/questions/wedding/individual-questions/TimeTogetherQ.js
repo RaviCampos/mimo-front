@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function TimeTogetherQ({tools: { setWeddingPage, setTimeTogether, gifterInCouple, timeTogether, gifterName }}) {
+function TimeTogetherQ({tools: { setWeddingPage, weddingPage, setTimeTogether, gifterInCouple, timeTogether, gifterName }}) {
 
     let protoTime
     if(timeTogether) {
@@ -67,7 +67,7 @@ function TimeTogetherQ({tools: { setWeddingPage, setTimeTogether, gifterInCouple
                     <div className="prev-for small-space-top">
                         <button onClick={() => {
                             setTimeTogether(`${inTime} ${unit}`);
-                            setWeddingPage(1)
+                            setWeddingPage( weddingPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inTime) {
@@ -82,7 +82,7 @@ function TimeTogetherQ({tools: { setWeddingPage, setTimeTogether, gifterInCouple
                                 setWarning("O número máximo de meses é 11, se a pessoa está fazendo 12 meses, por favor, selecione anos e indique 1")
                             } else {
                                 setTimeTogether(`${inTime} ${unit}`);
-                                setWeddingPage(3)
+                                setWeddingPage( weddingPage + 1)
                             }
                         }}>Próxima</button>
                     </div>

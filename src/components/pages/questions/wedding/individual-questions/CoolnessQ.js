@@ -36,10 +36,10 @@ const baseState = (giftedName) => ({
     }
 })
 
-function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ  }}) {
+function CoolnessQ({tools: { setWeddingPage, weddingPage, setCoolness, gifterInCouple, coolness, giftedName, setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ  }}) {
     const [ inCoolnessCheckbox, dispatch ] = useReducer(reducer, {prevStateFromFatherComponent: coolness, baseState: baseState(giftedName)}, init)
     
-    const [ inCoolnessSlider, setInCoolnessSlider ] = useState(coolness ? coolness : 5)
+    const [ inCoolnessSlider, setInCoolnessSlider ] = useState(typeof coolness == "number" ? coolness : 5)
 
     useEffect(() => {
         if(!gifterInCouple) {
@@ -48,7 +48,7 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
     }, [])
 
     const [ nameA, nameB ] = giftedName.split(" -- ")
-
+        
     if(gifterInCouple) {
         return (
             <div className="all-margin">
@@ -61,7 +61,7 @@ function CoolnessQ({tools: { setWeddingPage, setCoolness, gifterInCouple, coolne
                         <div className="prev-for">
                             <button onClick={() => {
                                 setCoolness(inCoolnessCheckbox)
-                                setWeddingPage(6)
+                                setWeddingPage( weddingPage - 1)
                             }}>Anterior</button>
                             <button onClick={() => {
                                 const wed = {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, gifterInCouple, setGifterInCouple }}) {
+function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPage, setGoToOccasionLastQ, setWeddingPage, weddingPage, gifterInCouple, setGifterInCouple }}) {
 
     const [ inCouple, setInCouple ] = useState(gifterInCouple === undefined ? "" : gifterInCouple)
 
@@ -48,7 +48,7 @@ function GifterInCoupleQ({ tools: { setSection, futureWedding, setWedding, setPa
                         <button onClick={() => {
                             if(inCouple !== "") {
                                 setGifterInCouple(inCouple);
-                                setWeddingPage(1)
+                                setWeddingPage( weddingPage + 1)
                             } else {
                                 setWarning("Por favor, selecione uma das opções")
                             }

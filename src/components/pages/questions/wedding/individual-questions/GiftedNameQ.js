@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifterInCouple, gifterName }}) {
+function GiftedNameQ({tools: { setWeddingPage, weddingPage, setGiftedName, giftedName, gifterInCouple, gifterName }}) {
     let protoName
     if(giftedName) {
         protoName = giftedName.split(" -- ")
@@ -65,13 +65,13 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
                             } else {
                                 setGiftedName(`${firstName} -- ${secondName}`);
                             }
-                            setWeddingPage(0)
+                            setWeddingPage( weddingPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(gifterInCouple) {
                                 if(firstName) {
                                     setGiftedName(firstName)
-                                    setWeddingPage(2)
+                                    setWeddingPage( weddingPage + 1)
                                 } else {
                                     setWarning("Por favor preencha o nome da outra pessoa")
                                 }
@@ -82,7 +82,7 @@ function GiftedNameQ({tools: { setWeddingPage, setGiftedName, giftedName, gifter
                                     setWarning("Por favor preencha o nome do segundo membro do casal")
                                 } else {
                                     setGiftedName(`${firstName} -- ${secondName}`);
-                                    setWeddingPage(2)
+                                    setWeddingPage( weddingPage + 1)
                                 }
                             }
                         }}>Próxima</button>

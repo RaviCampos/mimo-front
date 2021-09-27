@@ -123,7 +123,7 @@ function checkbox(option, state, dispatch) {
     )
 }
 
-function HobbiesQ({tools: { setWeddingPage, setHobbies, hobbies, giftedName }}) {
+function HobbiesQ({tools: { setWeddingPage, weddingPage, setHobbies, hobbies, giftedName }}) {
 
     const [ inHobbies, dispatch ] = useReducer(reducer, {hobbies, giftedName}, init)
 
@@ -149,11 +149,11 @@ function HobbiesQ({tools: { setWeddingPage, setHobbies, hobbies, giftedName }}) 
                     <div className="prev-for">
                         <button onClick={() => {
                             setHobbies(inHobbies)
-                            setWeddingPage(5)
+                            setWeddingPage( weddingPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             setHobbies(inHobbies)
-                            setWeddingPage(7)
+                            setWeddingPage( weddingPage + 1)
                         }}>Próxima</button>
                     </div>
                 </div>

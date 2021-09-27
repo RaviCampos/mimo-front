@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function CoupleRelationLevelQ({ tools: { setWeddingPage, setCoupleRelationLevel, gifterInCouple, coupleRelationLevel, giftedName }}) {
+function CoupleRelationLevelQ({ tools: { setWeddingPage, weddingPage, setCoupleRelationLevel, gifterInCouple, coupleRelationLevel, giftedName }}) {
 
     const [ inLevel, setInLevel ] = useState(coupleRelationLevel ? coupleRelationLevel : "")
 
@@ -91,14 +91,14 @@ function CoupleRelationLevelQ({ tools: { setWeddingPage, setCoupleRelationLevel,
                     <div className="prev-for">
                         <button onClick={() => {
                             setCoupleRelationLevel(inLevel)
-                            setWeddingPage(3)
+                            setWeddingPage( weddingPage - 1)
                         }}>Anterior</button>
                         <button onClick={() => {
                             if(!inLevel) {
                                 setWarning(`Por favor, escolha uma das opções` )
                             }  else {
                                 setCoupleRelationLevel(inLevel)
-                                setWeddingPage(5)
+                                setWeddingPage( weddingPage + 1)
                             }
                         }}>Próxima</button>
                     </div>
