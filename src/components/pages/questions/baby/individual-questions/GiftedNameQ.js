@@ -38,7 +38,7 @@ function GiftedNameQ({tools: {setPage, babyPage, setBabyPage, setGiftedName, gif
                     <div>
                         
                         <label className="radio-option">
-                            Um casal querido que está esperando um filho, seus nomes são:
+                            Um casal querido que está esperando um filho
                             <input type="radio" name="parentType" id="parentType_couple" value="Um casal querido que está esperando um filho" checked={ parentType === "Um casal querido que está esperando um filho"} onChange={e => {setParentType(e.target.value); allUndefined();}}/>
                             <span className="checkmark"></span>
                         </label>
@@ -53,7 +53,7 @@ function GiftedNameQ({tools: {setPage, babyPage, setBabyPage, setGiftedName, gif
                         }
 
                         <label className="radio-option">
-                            Na verdade é um(a) futuro(a) Mãe/Pai solo e seu nome é:
+                            Na verdade é um(a) futuro(a) Mãe/Pai solo
                             <input type="radio" name="parentType" id="parentType_solo-parent" value="Na verdade é um(a) futuro(a) Mãe/Pai Solo" checked={ parentType === "Na verdade é um(a) futuro(a) Mãe/Pai Solo"} onChange={e => {setParentType(e.target.value); allUndefined()}}/>
                             <span className="checkmark"></span>
                         </label>
