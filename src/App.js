@@ -5,6 +5,10 @@ import SelfGift from "./components/pages/SelfGift";
 import MimoForm from "./components/pages/MimoForm";
 import './css/App.scss';
 // import { useState } from "react";
+
+// instead of being a hashroutet it normaly is a BrowserRouter, 
+// I made it like that for the router to be compatible with github pages
+// if not deploying to github pages, use BrowserRouter instead of HashRouter, it is the standard
 import {
   HashRouter as Router,
   Switch,
