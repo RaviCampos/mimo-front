@@ -10,7 +10,7 @@ import './css/App.scss';
 // I made it like that for the router to be compatible with github pages
 // if not deploying to github pages, use BrowserRouter instead of HashRouter, it is the standard
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
