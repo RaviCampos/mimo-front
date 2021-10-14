@@ -11,6 +11,9 @@
 # production
 /build
 
+# production in heroku
+/heroku
+
 # misc
 .DS_Store
 .env.local
